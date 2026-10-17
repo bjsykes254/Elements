@@ -1,0 +1,47 @@
+name: Check statutes
+
+# Every Monday (and whenever you press "Run workflow"), compare the saved statute
+# text with ncleg.gov. If anything changed, or a page could not be read, this
+# opens (or adds to) a GitHub Issue and the run is marked failed so GitHub emails you.
+on:
+  schedule:
+    - cron: "17 11 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compare with ncleg.gov
+        id: check
+        run: |
+          set +e
+          python tools/check_statutes.py check --report report.md
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+      - name: Keep the report
+        uses: actions/upload-artifact@v4
+        with:
+          name: statute-check-report
+          path: report.md
+      - name: Open or update an issue
+        if: steps.check.outputs.code != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh issue list --state open --search "Statute check needs attention in:title" --json number --jq '.[0].number')
+          if [ -n "$n" ]; then
+            gh issue comment "$n" --body-file report.md
+          else
+            gh issue create --title "Statute check needs attention" --body-file report.md
+          fi
+      - name: Mark the run failed when attention is needed
+        if: steps.check.outputs.code != '0'
+        run: exit 1

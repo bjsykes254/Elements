@@ -34,6 +34,31 @@ A record is verified when the owner has read the current statute text next to th
 9. When every record is verified, change the beta banner text in index.html.
 Re-verify a family whenever a legislative session changes the statutes it cites. The saved text_sha256 will let the change checker spot a changed section.
 
+## Change checker and automation (Oct 17, sixth pass)
+What exists:
+- `tools/check_statutes.py check` reads every statute page the data cites, compares it with the saved `text_snapshot` (ignoring spacing), and reports changed, repealed or missing sections, new or removed sections in the four watched articles (6, 8, 14, 16), and newer versions of the pattern jury instructions the records cite. It never edits wording and never marks anything verified.
+- `tools/check_statutes.py accept 14-52` is the approval step. After you have read a change and edited the affected records, it saves the new text, updates last_session_law_seen, and sets any verified record that cites the section to needs_review (with a note in review.history). Then you verify it again.
+- `tools/validate_data.py` checks the data file (unknown elements, broken flows, hash mismatches, verified records missing a name, date or saved text).
+- `.github/workflows/validate.yml` runs the validator, the tests and a JavaScript syntax check on every push. `.github/workflows/check-statutes.yml` runs the checker every Monday and on demand, opens or updates an Issue, and marks the run failed so GitHub emails you.
+- The page shows a separate warning for needs_review records.
+
+One-time setup for the owner:
+1. Run `py tools/check_statutes.py baseline` once on your computer (it saves the section lists of the four watched articles into the data file). Commit and sync.
+2. On GitHub, open the Actions tab, choose "Check statutes", and press Run workflow. Read the result. This first run is the real test of reaching ncleg.gov and the School of Government list from GitHub's servers. They could not be tested from here, so expect to adjust.
+3. Make sure Issues are on for the repository (Settings, General, Features).
+
+When the checker reports a change:
+1. Open the Issue and the linked statute. Read what changed.
+2. Edit the affected records in elements-nc.json so they match the new text.
+3. Run `py tools/check_statutes.py accept 14-52` (use the section number), then `py tools/validate_data.py`.
+4. Verify the records again using the steps above, commit, and sync. Close the Issue.
+
+Limits to remember:
+- The checker compares text only. It can't tell you what a change means for a record; that is your reading.
+- GitHub turns off scheduled workflows in a repository with no activity for 60 days. Any commit turns them back on.
+- If the checker says a page could not be read, the check is incomplete. Silence from the Monday run is only good news if the run itself shows as passed.
+- Historical statute language is not stored (decision Oct 17). Only the current text is kept.
+
 ## Built
 - Data file (schema 0.5): 22 offenses in 4 families (homicide 4, burglary and breaking or entering 4, larceny 2, assault 12), plus elements, bubble flows, compare presets, and search aliases. Every record has a `jurisdiction` field.
 - Three modes: Build an offense (bubble game), Compare (2 offenses, 3 on wide screens), Find (category drill-down, search, plain-language offense pages).
@@ -74,5 +99,5 @@ Read in full through the School of Government website (PDFs open in a browser; t
 
 ## Suggested next steps
 1. Owner reviews the homicide comparison notes and, if satisfied, sets review.status to verified for the four homicide records. Then read the remaining statutes word for word (the ncleg.gov site works in the browser) and verify one family line by line, then set `review.status` to `verified`. Capture `text_snapshot` for each statute while there; that seeds the change checker.
-2. Build the change checker.
+2. Change checker built (see above). Next: first Actions run, then more families.
 3. Add more families, then more states.

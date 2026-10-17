@@ -25,6 +25,9 @@ See `handoff.md` for the full list of what is verified, what is not, and what is
 | `index.html` | The whole tool: plain HTML, CSS and JavaScript, no libraries. |
 | `elements-nc.json` | The data: categories, elements, offenses, question flows, and compare presets. Every record has a `jurisdiction` field. |
 | `handoff.md` | Where things stand, decisions made, and next steps. |
+| `tools/` | The data validator and the statute change checker. |
+| `tests/` | Tests for those tools. |
+| `.github/workflows/` | The automatic checks that run on GitHub. |
 
 ## Run it on your computer
 
@@ -46,6 +49,15 @@ Everything the page shows comes from the JSON file, so adding or fixing an offen
 - North Carolina Pattern Jury Instructions for Criminal Cases, UNC School of Government, https://www.sog.unc.edu/resources/microsites/north-carolina-pattern-jury-instructions/north-carolina-pattern-jury-instructions-criminal-cases
 
 Pattern jury instructions are a summary of the law written for judges. Where an instruction is older than the statute, the statute is followed.
+
+## Keeping it current
+
+Two small tools in `tools/` keep the data honest. Both use only Python's standard library.
+
+- `py tools/validate_data.py` checks the data file for mistakes that could break the page. GitHub runs it on every push.
+- `py tools/check_statutes.py check` compares the saved statute text with ncleg.gov. GitHub runs it every Monday and opens an Issue if anything changed or a page could not be read.
+
+Run the tests with `py -m unittest discover -s tests`. The full maintenance steps are in `handoff.md`.
 
 ## License
 

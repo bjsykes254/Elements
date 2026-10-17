@@ -18,7 +18,8 @@
       "0.5 (Oct 17, second pass): cross_checks added for burglary, larceny and assault. Manslaughter flow rebuilt: the line between voluntary and involuntary is the kind of act (a deliberate felony-level or likely-deadly act done in passion or imperfect self-defense versus a lesser unlawful or criminally negligent act), not whether the act was on purpose. New element no_consent_of_owner on all burglary and breaking or entering records. Definitions in elements updated from the instructions' own wording.",
       "0.5 (Oct 17, third pass): homicide statutes compared with full text. statutes[] entries may carry text_snapshot (whitespace-normalized section text), text_captured_on and text_sha256. review may carry statute_text_compared_on and comparison_note. definition_source for murder records changed from statute to mixed. Special rules added for G.S. 14-17(a1) detail, 14-17(c) born-alive, and the 14-23.2 exclusion.",
       "0.5 (Oct 17, fourth pass): burglary and breaking or entering compared with full statute text. S.L. 2025-71 (effective Dec 1, 2025, offenses on or after that date) rewrote G.S. 14-51, added firearm enhancements to 14-52/14-54 and added 14-54(b1). The nighttime and not_nighttime elements and the nighttime question in the burglary flow were removed. The tool models current law; earlier offenses fall under earlier text.",
-      "0.5 (Oct 17, fifth pass): larceny compared with full text of G.S. 14-72. Felony-circumstance element rewritten as the complete statutory list. Mail enhancement (14-72(c1), S.L. 2025-71) noted."
+      "0.5 (Oct 17, fifth pass): larceny compared with full text of G.S. 14-72. Felony-circumstance element rewritten as the complete statutory list. Mail enhancement (14-72(c1), S.L. 2025-71) noted.",
+      "0.5 (Oct 17, sixth pass): review.status may also be needs_review; review.history logs status changes made by tools/check_statutes.py; meta.review_statuses explains the three statuses; meta.watch_articles lists article pages the change checker watches for added or removed sections (headings are filled in by 'check_statutes.py baseline')."
     ],
     "check_notes": "Homicide statutes were read as full text. The property statutes (14-51, 14-52, 14-54, 14-72) were read through a summarizing fetch, not word for word, so every property record needs a line-by-line check before it is marked verified. Text snapshots are still empty for all records. Assault statutes (14-32, 14-32.4, 14-33, 14-34) were also read through a summarizing fetch and need a line-by-line check. On 2026-10-17 the homicide records were compared with N.C.P.I.-Crim. 206.15, 206.41 and 206.50, read through a summarizing fetch tool. 206.00, 206.10, 206.13, 206.30 and 206.40 were not read in full. Heat of passion, imperfect self-defense and malice wording still need case-law review. No record is verified. Second pass on 2026-10-17: the School's website was read in a browser, so the instruction PDFs were read in full for 206.10, 206.30A, 206.40, 214.10, 214.34, 214.47, 216.05, 216.10, 216.20, 216.35, 120.20 and the assault instructions listed in each record's cross_checks. G.S. 14-33 was read in full for two disputed points. Pattern instructions are the judges' summary of the law; where one is older than the statute (208.14, 208.55) the statute is followed. Still not checked: the remaining statutes word for word, 206.00, 206.11-206.35 variants, 214.30/214.32, 208.25, and case law for malice-adjacent terms. No record is verified. On 2026-10-17 G.S. 14-17, 14-18 and 14-23.2 were read as full text in the browser and the four homicide records compared; text snapshots saved. Records stay draft until the owner signs off. On 2026-10-17 G.S. 14-51, 14-52 and 14-54 were read as full text and S.L. 2025-71 sections 4 and 10 were read. Not modeled: G.S. 14-53 (breaking out of a dwelling), 14-54(b1), and other breaking or entering statutes (14-54.1 and others). On 2026-10-17 G.S. 14-72 was read as full text. Not modeled: receiving or possessing stolen goods, larceny of mail as its own offense, larceny of gift cards (14-72.12), retail theft offenses, other larceny sections.",
     "license": {
@@ -26,7 +27,42 @@
       "code": "MIT (see LICENSE)",
       "attribution": "Blake Sykes, Elements, https://bjsykes254.github.io/Elements/"
     },
-    "reuse_notice": "DRAFT DATA. These records have not been verified line by line against the current North Carolina General Statutes and may contain errors. They explain what the law says an offense is made of; they are not legal advice and do not predict any charge or outcome. Check the current statute at ncleg.gov before relying on or republishing any record. Provided as is, without warranty."
+    "reuse_notice": "DRAFT DATA. These records have not been verified line by line against the current North Carolina General Statutes and may contain errors. They explain what the law says an offense is made of; they are not legal advice and do not predict any charge or outcome. Check the current statute at ncleg.gov before relying on or republishing any record. Provided as is, without warranty.",
+    "review_statuses": {
+      "draft": "Not yet checked word for word against the current statute by the owner. Shown with a Draft warning.",
+      "verified": "The owner compared the record with the current statute text and the listed sources. Shown with a 'Checked against the statute text' line.",
+      "needs_review": "The statute behind this record changed after it was verified. Shown with a warning until it is checked again."
+    },
+    "watch_articles": [
+      {
+        "id": "art6",
+        "label": "Chapter 14, Article 6 (Homicide)",
+        "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_14/Article_6.html",
+        "headings": [],
+        "captured_on": null
+      },
+      {
+        "id": "art8",
+        "label": "Chapter 14, Article 8 (Assaults)",
+        "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_14/Article_8.html",
+        "headings": [],
+        "captured_on": null
+      },
+      {
+        "id": "art14",
+        "label": "Chapter 14, Article 14 (Burglary and other housebreakings)",
+        "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_14/Article_14.html",
+        "headings": [],
+        "captured_on": null
+      },
+      {
+        "id": "art16",
+        "label": "Chapter 14, Article 16 (Larceny and related offenses)",
+        "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_14/Article_16.html",
+        "headings": [],
+        "captured_on": null
+      }
+    ]
   },
   "categories": [
     {

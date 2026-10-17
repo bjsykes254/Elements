@@ -323,7 +323,7 @@ var ku=make('ul');
 ku.appendChild(make('li',null,'One event can fit more than one offense, and a lesser offense can sit inside a greater one. Prosecutors and courts decide which apply, not this tool.'));
 ku.appendChild(make('li',null,'This explains what the law requires. It isn\'t a prediction of any charge or outcome.'));
 card.appendChild(ku);
-if(!o.review||o.review.status!=='verified'){card.appendChild(make('div','warn','Draft: this record hasn\'t been verified against current law yet.'));}else{card.appendChild(make('div','note','Checked against the statute text'+(o.review.verified_on?' on '+o.review.verified_on:'')+'. Meanings that come from court decisions rest on the sources listed above, not the statute.'));}
+if(o.review&&o.review.status==='needs_review'){card.appendChild(make('div','warn','Out of date? The law this record rests on has changed since it was checked, so treat this record with extra caution until it is checked again.'));}else if(!o.review||o.review.status!=='verified'){card.appendChild(make('div','warn','Draft: this record hasn\'t been verified against current law yet.'));}else{card.appendChild(make('div','note','Checked against the statute text'+(o.review.verified_on?' on '+o.review.verified_on:'')+'. Meanings that come from court decisions rest on the sources listed above, not the statute.'));}
 return card;
 }
 
@@ -445,7 +445,9 @@ d.appendChild(u);g3.appendChild(d);
 cmpOut.appendChild(g3);
 
 cmpOut.appendChild(make('p','keep','Keep in mind: one event can fit more than one offense, and a lesser offense can sit inside a greater one. This compares what the law requires. It doesn\'t predict any charge or outcome.'));
-var drafts=list.filter(function(o){return !o.review||o.review.status!=='verified';});
+var stale=list.filter(function(o){return o.review&&o.review.status==='needs_review';});
+if(stale.length){cmpOut.appendChild(make('div','warn','Out of date? The law behind '+stale.map(function(o){return o.name;}).join(', ')+' has changed since it was checked. Treat with extra caution until it is checked again.'));}
+var drafts=list.filter(function(o){return !o.review||(o.review.status!=='verified'&&o.review.status!=='needs_review');});
 if(drafts.length){cmpOut.appendChild(make('div','warn','Draft: '+drafts.map(function(o){return o.name;}).join(', ')+(drafts.length>1?' haven\'t':' hasn\'t')+' been verified against current law yet.'));}
 }
 
