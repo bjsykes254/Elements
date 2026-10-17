@@ -8,7 +8,7 @@ Elements is an interactive explainer of North Carolina criminal offenses, built 
 - Licenses: MIT for code (LICENSE); CC BY 4.0 for the data (LICENSE-DATA.md). The data file's meta carries a draft/reuse notice.
 
 ## Verified so far (Oct 17, third pass)
-- Homicide statutes G.S. 14-17, 14-18 and 14-23.2 read as full text on ncleg.gov; text saved in each record's `text_snapshot` with a SHA-256 fingerprint checked against the live page. Records corrected (see each record's `comparison_note`). Status is still draft until the owner signs off.
+- Homicide statutes G.S. 14-17, 14-18 and 14-23.2 read as full text on ncleg.gov; text saved in sources/NC/ with a SHA-256 fingerprint checked against the live page. Records corrected (see each record's `comparison_note`). Status is still draft until the owner signs off.
 - Manslaughter has no statutory definition (14-18 sets punishment only), so its elements rest on case law and the pattern jury instructions, not statute text.
 
 ## Burglary and breaking or entering (Oct 17, fourth pass)
@@ -36,7 +36,7 @@ Re-verify a family whenever a legislative session changes the statutes it cites.
 
 ## Change checker and automation (Oct 17, sixth pass)
 What exists:
-- `tools/check_statutes.py check` reads every statute page the data cites, compares it with the saved `text_snapshot` (ignoring spacing), and reports changed, repealed or missing sections, new or removed sections in the four watched articles (6, 8, 14, 16), and newer versions of the pattern jury instructions the records cite. It never edits wording and never marks anything verified.
+- `tools/check_statutes.py check` reads every statute page the data cites, compares it with the saved text in sources/ (ignoring spacing), and reports changed, repealed or missing sections, new or removed sections in the four watched articles (6, 8, 14, 16), and newer versions of the pattern jury instructions the records cite. It never edits wording and never marks anything verified.
 - `tools/check_statutes.py accept 14-52` is the approval step. After you have read a change and edited the affected records, it saves the new text, updates last_session_law_seen, and sets any verified record that cites the section to needs_review (with a note in review.history). Then you verify it again.
 - `tools/validate_data.py` checks the data file (unknown elements, broken flows, hash mismatches, verified records missing a name, date or saved text).
 - `.github/workflows/validate.yml` runs the validator, the tests and a JavaScript syntax check on every push. `.github/workflows/check-statutes.yml` runs the checker every Monday and on demand, opens or updates an Issue, and marks the run failed so GitHub emails you.
@@ -59,8 +59,22 @@ Limits to remember:
 - If the checker says a page could not be read, the check is incomplete. Silence from the Monday run is only good news if the run itself shows as passed.
 - Historical statute language is not stored (decision Oct 17). Only the current text is kept.
 
+## Refactor: saved statute text and state adapters (Oct 17, seventh pass)
+- Saved statute text no longer sits in elements-nc.json. Each section has its own file in sources/NC/ (for example sources/NC/GS_14-52.txt, one paragraph per block). Each statutes[] entry holds source_file, text_sha256, text_captured_on and last_session_law_seen. The data file dropped from about 135 KB to about 105 KB, and the page never loads sources/. Schema is now 0.6.
+- Everything specific to one state's website (how to find a section, read a page, spot a repeal, which article pages to watch, which secondary sources to check) lives in tools/adapters/<state>.py. The checker and validator are generic. To add a state, copy tools/adapters/nc.py, change the URLs and parsing, add a saved page to tests/fixtures/, and add a test.
+- To capture text for a section that has none yet (for example a section added later), read the live text first, then run `py tools/check_statutes.py accept 14-33`. It saves the text, the fingerprint and the session law, and notes it in review.history. It does not change a draft record's status.
+- Open questions for scale: check whether each state publishes bulk files or an API instead of page-by-page reading; check each site's terms for automated access; keep annotations out (only unannotated statute text is saved).
+
+## Assault pass (Oct 17, eighth pass)
+- Read in full on ncleg.gov: G.S. 14-32, 14-32.4, 14-33, 14-34, and 50B-1(b) for reference. Saved the four assault sections to sources/NC/ with fingerprints that match the ones computed in the browser.
+- All classes matched. Fixes were to wording: utility or communications worker (liquid petroleum, agents and contractors, 'readily identifiable' not limited to logo clothing), school employee and volunteer definition, sports official definition, serious bodily injury ('protracted' and 'impairment'), personal relationship (now follows G.S. 50B-1(b)), pointing a gun (statute lists no exceptions or intent word).
+- Effective dates noted: 14-33(b)(10) (S.L. 2025-71, s. 1(a)) and 14-33(e) (S.L. 2025-70, s. 17(a)), both for offenses on or after Dec 1, 2025.
+- G.S. 50B-1 is not tracked by the checker. If it changes, the personal-relationship element would go stale unnoticed. Add it as a statute entry (the NC adapter would need Chapter 50B support) before verifying nc_assault_dom_minor.
+- Not modeled: habitual misdemeanor assault (14-33.2), misdemeanor crime of domestic violence (14-32.5), other Article 8 offenses.
+- Records stay `draft`.
+
 ## Built
-- Data file (schema 0.5): 22 offenses in 4 families (homicide 4, burglary and breaking or entering 4, larceny 2, assault 12), plus elements, bubble flows, compare presets, and search aliases. Every record has a `jurisdiction` field.
+- Data file (schema 0.6): 22 offenses in 4 families (homicide 4, burglary and breaking or entering 4, larceny 2, assault 12), plus elements, bubble flows, compare presets, and search aliases. Every record has a `jurisdiction` field.
 - Three modes: Build an offense (bubble game), Compare (2 offenses, 3 on wide screens), Find (category drill-down, search, plain-language offense pages).
 - Beta banner and a collapsed "questions for testers" block on the page; README added.
 - Guards against misreading: a permanent scope note under the title, neutral Build-mode wording (questions describe an offense, not an incident), a "Keep in mind" section on every offense card and compare view (overlap between offenses; not a prediction of any charge), and a "What this tool doesn't cover" box at the bottom of every mode.
@@ -78,9 +92,9 @@ Read in full through the School of Government website (PDFs open in a browser; t
 - Larceny and burglary elements otherwise matched.
 
 ## Not verified yet
-- Every record is `draft`. Homicide statutes (G.S. 14-17, 14-18) were read as full text. Property and assault statutes (14-32, 14-32.4, 14-33, 14-34, 14-51, 14-52, 14-54, 14-72) were read through summaries only and need a line-by-line check.
+- Every record is `draft`. Homicide statutes (G.S. 14-17, 14-18) were read as full text. All 22 records' statutes (14-17, 14-18, 14-32, 14-32.4, 14-33, 14-34, 14-51, 14-52, 14-54, 14-72) have now been read as full text and compared (see Assault pass below). Still unverified: G.S. 50B-1(b), read for reference only and not tracked by the checker; the case-law meanings.
 - The instructions are the judges' summary of the law, so common-law terms still deserve a check against NC appellate cases before anything is marked verified. Not yet cross-checked: 206.00, the other 206-series variants, 214.30/214.32, 208.25, the remaining statutes word for word.
-- `text_snapshot` fields are empty for every statute.
+- Saved statute text exists in sources/NC/ for G.S. 14-17, 14-18, 14-32, 14-32.4, 14-33, 14-34, 14-51, 14-52, 14-54 and 14-72.
 
 ## Not built yet
 - Change checker: compare live ncleg.gov pages to stored snapshots, flag changes for human approval, then update the data. Plan: data in a GitHub repo, scheduled script, proposed change reviewed by the owner. Scheduled runs are not available from the chat on the free plan.
@@ -98,6 +112,6 @@ Read in full through the School of Government website (PDFs open in a browser; t
 - Publishing venue (personal vs. official) is undecided.
 
 ## Suggested next steps
-1. Owner reviews the homicide comparison notes and, if satisfied, sets review.status to verified for the four homicide records. Then read the remaining statutes word for word (the ncleg.gov site works in the browser) and verify one family line by line, then set `review.status` to `verified`. Capture `text_snapshot` for each statute while there; that seeds the change checker.
+1. Owner reviews the homicide comparison notes and, if satisfied, sets review.status to verified for the four homicide records. Then read the remaining statutes word for word (the ncleg.gov site works in the browser) and verify one family line by line, then set `review.status` to `verified`. Save the text for each statute while there (`py tools/check_statutes.py accept <section>`); that seeds the change checker.
 2. Change checker built (see above). Next: first Actions run, then more families.
 3. Add more families, then more states.

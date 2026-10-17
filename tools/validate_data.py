@@ -27,7 +27,8 @@ def offense_elements(o):
     return s
 
 
-def validate(d):
+def validate(d, base="."):
+    base = Path(base)
     problems, notes = [], []
     P = lambda *a: problems.append(" ".join(str(x) for x in a))
     N = lambda *a: notes.append(" ".join(str(x) for x in a))
@@ -72,17 +73,24 @@ def validate(d):
         for s in o.get("statutes", []):
             if not s.get("url", "").startswith("https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/"):
                 P("statute url not on ncleg.gov", oid, s.get("cite"))
-            snap = s.get("text_snapshot")
-            if snap:
-                if hashlib.sha256(norm(snap).encode("utf-8")).hexdigest() != s.get("text_sha256"):
-                    P("text_snapshot does not match text_sha256", oid, s.get("cite"))
-                sl = s.get("last_session_law_seen")
-                if not sl:
-                    P("snapshot without last_session_law_seen", oid, s.get("cite"))
-                elif sl not in snap:
-                    P("last_session_law_seen not found in saved text", oid, s.get("cite"), sl)
-                if not s.get("text_captured_on"):
-                    P("snapshot without text_captured_on", oid, s.get("cite"))
+            if s.get("text_snapshot"):
+                P("text_snapshot should live in sources/, not in the data file", oid, s.get("cite"))
+            sf = s.get("source_file")
+            if sf:
+                path = base / sf
+                if not path.exists():
+                    P("source_file does not exist", oid, sf)
+                else:
+                    snap = path.read_text(encoding="utf-8")
+                    if hashlib.sha256(norm(snap).encode("utf-8")).hexdigest() != s.get("text_sha256"):
+                        P("saved text does not match text_sha256", oid, sf)
+                    sl = s.get("last_session_law_seen")
+                    if not sl:
+                        P("saved text without last_session_law_seen", oid, s.get("cite"))
+                    elif sl not in snap:
+                        P("last_session_law_seen not found in saved text", oid, s.get("cite"), sl)
+                    if not s.get("text_captured_on"):
+                        P("saved text without text_captured_on", oid, s.get("cite"))
             elif st == "verified":
                 P("verified but statute has no saved text", oid, s.get("cite"))
         for c in o.get("cross_checks", []):
@@ -160,7 +168,7 @@ def main(argv):
     except Exception as ex:
         print("PROBLEM: file is not valid JSON:", ex)
         return 1
-    problems, notes = validate(d)
+    problems, notes = validate(d, path.parent)
     print("%d offenses, %d elements, %d flows" % (len(d["offenses"]), len(d["elements"]), len(d["flows"])))
     by = {}
     for o in d["offenses"]:

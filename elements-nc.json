@@ -2,11 +2,11 @@
   "_readme": "Elements: data file for North Carolina criminal offenses. Every other part of the tool (drill-down, compare, bubble game, explain-like-I'm-5, change checker) reads from this file. Records are DRAFT until a human sets review.status to 'verified'. Records that are not 'verified' may appear only in a clearly labeled beta (as now), never presented as verified.",
   "meta": {
     "project": "Elements",
-    "schema_version": "0.5",
+    "schema_version": "0.6",
     "jurisdiction": "NC",
     "jurisdiction_name": "North Carolina",
     "scope": "homicide; burglary and breaking or entering; larceny; assault (prototype)",
-    "statute_text_checked_on": "2026-10-17 (G.S. 14-17, 14-18, 14-23.2, 14-51, 14-52, 14-54, 14-72)",
+    "statute_text_checked_on": "2026-10-17 (G.S. 14-17, 14-18, 14-23.2, 14-32, 14-32.4, 14-33, 14-34, 14-51, 14-52, 14-54, 14-72; 50B-1(b) read for reference)",
     "schema_changes": [
       "0.2: felony_class replaced by class + grade (felony or misdemeanor), because property offenses include misdemeanors",
       "0.2: flows now carry a name and are selectable; the page no longer assumes one flow",
@@ -19,9 +19,11 @@
       "0.5 (Oct 17, third pass): homicide statutes compared with full text. statutes[] entries may carry text_snapshot (whitespace-normalized section text), text_captured_on and text_sha256. review may carry statute_text_compared_on and comparison_note. definition_source for murder records changed from statute to mixed. Special rules added for G.S. 14-17(a1) detail, 14-17(c) born-alive, and the 14-23.2 exclusion.",
       "0.5 (Oct 17, fourth pass): burglary and breaking or entering compared with full statute text. S.L. 2025-71 (effective Dec 1, 2025, offenses on or after that date) rewrote G.S. 14-51, added firearm enhancements to 14-52/14-54 and added 14-54(b1). The nighttime and not_nighttime elements and the nighttime question in the burglary flow were removed. The tool models current law; earlier offenses fall under earlier text.",
       "0.5 (Oct 17, fifth pass): larceny compared with full text of G.S. 14-72. Felony-circumstance element rewritten as the complete statutory list. Mail enhancement (14-72(c1), S.L. 2025-71) noted.",
-      "0.5 (Oct 17, sixth pass): review.status may also be needs_review; review.history logs status changes made by tools/check_statutes.py; meta.review_statuses explains the three statuses; meta.watch_articles lists article pages the change checker watches for added or removed sections (headings are filled in by 'check_statutes.py baseline')."
+      "0.5 (Oct 17, sixth pass): review.status may also be needs_review; review.history logs status changes made by tools/check_statutes.py; meta.review_statuses explains the three statuses; meta.watch_articles lists article pages the change checker watches for added or removed sections (headings are filled in by 'check_statutes.py baseline').",
+      "0.6 (Oct 17): text_snapshot removed from statutes[]; the saved text now lives in sources/<jurisdiction>/<section>.txt and statutes[] carries source_file. Keeps this file small so the page loads fast as coverage grows.",
+      "0.6 (Oct 17, seventh pass): assault group compared with full text of G.S. 14-32, 14-32.4, 14-33 and 14-34. Statute text saved. Utility-worker (S.L. 2025-71) and 14-33(e) (S.L. 2025-70) noted with effective dates. Personal-relationship, school-worker and utility-worker definitions rewritten."
     ],
-    "check_notes": "Homicide statutes were read as full text. The property statutes (14-51, 14-52, 14-54, 14-72) were read through a summarizing fetch, not word for word, so every property record needs a line-by-line check before it is marked verified. Text snapshots are still empty for all records. Assault statutes (14-32, 14-32.4, 14-33, 14-34) were also read through a summarizing fetch and need a line-by-line check. On 2026-10-17 the homicide records were compared with N.C.P.I.-Crim. 206.15, 206.41 and 206.50, read through a summarizing fetch tool. 206.00, 206.10, 206.13, 206.30 and 206.40 were not read in full. Heat of passion, imperfect self-defense and malice wording still need case-law review. No record is verified. Second pass on 2026-10-17: the School's website was read in a browser, so the instruction PDFs were read in full for 206.10, 206.30A, 206.40, 214.10, 214.34, 214.47, 216.05, 216.10, 216.20, 216.35, 120.20 and the assault instructions listed in each record's cross_checks. G.S. 14-33 was read in full for two disputed points. Pattern instructions are the judges' summary of the law; where one is older than the statute (208.14, 208.55) the statute is followed. Still not checked: the remaining statutes word for word, 206.00, 206.11-206.35 variants, 214.30/214.32, 208.25, and case law for malice-adjacent terms. No record is verified. On 2026-10-17 G.S. 14-17, 14-18 and 14-23.2 were read as full text in the browser and the four homicide records compared; text snapshots saved. Records stay draft until the owner signs off. On 2026-10-17 G.S. 14-51, 14-52 and 14-54 were read as full text and S.L. 2025-71 sections 4 and 10 were read. Not modeled: G.S. 14-53 (breaking out of a dwelling), 14-54(b1), and other breaking or entering statutes (14-54.1 and others). On 2026-10-17 G.S. 14-72 was read as full text. Not modeled: receiving or possessing stolen goods, larceny of mail as its own offense, larceny of gift cards (14-72.12), retail theft offenses, other larceny sections.",
+    "check_notes": "Homicide statutes were read as full text. The property statutes (14-51, 14-52, 14-54, 14-72) were read through a summarizing fetch, not word for word, so every property record needs a line-by-line check before it is marked verified. Text snapshots are still empty for all records. Assault statutes (14-32, 14-32.4, 14-33, 14-34) were also read through a summarizing fetch and need a line-by-line check. On 2026-10-17 the homicide records were compared with N.C.P.I.-Crim. 206.15, 206.41 and 206.50, read through a summarizing fetch tool. 206.00, 206.10, 206.13, 206.30 and 206.40 were not read in full. Heat of passion, imperfect self-defense and malice wording still need case-law review. No record is verified. Second pass on 2026-10-17: the School's website was read in a browser, so the instruction PDFs were read in full for 206.10, 206.30A, 206.40, 214.10, 214.34, 214.47, 216.05, 216.10, 216.20, 216.35, 120.20 and the assault instructions listed in each record's cross_checks. G.S. 14-33 was read in full for two disputed points. Pattern instructions are the judges' summary of the law; where one is older than the statute (208.14, 208.55) the statute is followed. Still not checked: the remaining statutes word for word, 206.00, 206.11-206.35 variants, 214.30/214.32, 208.25, and case law for malice-adjacent terms. No record is verified. On 2026-10-17 G.S. 14-17, 14-18 and 14-23.2 were read as full text in the browser and the four homicide records compared; text snapshots saved. Records stay draft until the owner signs off. On 2026-10-17 G.S. 14-51, 14-52 and 14-54 were read as full text and S.L. 2025-71 sections 4 and 10 were read. Not modeled: G.S. 14-53 (breaking out of a dwelling), 14-54(b1), and other breaking or entering statutes (14-54.1 and others). On 2026-10-17 G.S. 14-72 was read as full text. Not modeled: receiving or possessing stolen goods, larceny of mail as its own offense, larceny of gift cards (14-72.12), retail theft offenses, other larceny sections. On 2026-10-17 the assault group (G.S. 14-32, 14-32.4, 14-33, 14-34) was read as full text and saved. Not modeled: habitual misdemeanor assault (14-33.2), other assault statutes in Article 8, misdemeanor crime of domestic violence (14-32.5).",
     "license": {
       "data": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)",
       "code": "MIT (see LICENSE)",
@@ -62,7 +64,8 @@
         "headings": [],
         "captured_on": null
       }
-    ]
+    ],
+    "snapshot_store": "Saved statute text lives in sources/<jurisdiction>/, one file per section, not in this file. Each statutes[] entry holds source_file, text_sha256 (SHA-256 of the text with whitespace collapsed), text_captured_on and last_session_law_seen."
   },
   "categories": [
     {
@@ -413,7 +416,7 @@
     {
       "id": "serious_bodily_injury",
       "name": "Serious bodily injury",
-      "plain": "Injury that creates a substantial risk of death, causes serious permanent disfigurement or a coma, causes a long-lasting or permanent condition with extreme pain, causes lasting loss of function of a body part or organ, or results in a long hospital stay.",
+      "plain": "Injury that creates a substantial risk of death, causes serious permanent disfigurement or a coma, causes a permanent or long-lasting condition with extreme pain, causes permanent or long-lasting loss or impairment of the function of a body part or organ, or results in prolonged hospitalization.",
       "source": "statute",
       "statute_cite": "G.S. 14-32.4(a)"
     },
@@ -451,7 +454,8 @@
       "name": "The victim is an emergency worker",
       "plain": "A law enforcement officer, firefighter, emergency medical technician, or medical responder.",
       "source": "statute",
-      "statute_cite": "G.S. 14-32(f)"
+      "statute_cite": "G.S. 14-32(f)",
+      "note": "G.S. 14-32(f) names four groups and defines none of them. 'Medical responder' in particular has no definition in this section."
     },
     {
       "id": "not_emergency_worker",
@@ -517,12 +521,13 @@
     {
       "id": "victim_school_worker",
       "name": "The victim is a school employee or volunteer on duty",
-      "plain": "A school employee, contractor, or supervised volunteer, assaulted while doing their duties or because of them.",
+      "plain": "An employee of a school board, charter school or registered nonpublic school; an independent contractor (or its employee) who does work schools' own employees customarily do; or an adult volunteer supervised by one of them. The assault is on them while doing their duties, or because of their duties. 'Duties' covers all activities on school property, school-authorized events (and getting students to or from them), and school transportation.",
       "source": "statute",
       "statute_cite": "G.S. 14-33(c)(6)",
       "implies": [
         "victim_protected_group"
-      ]
+      ],
+      "note": "G.S. 14-33(c)(6). G.S. 14-33(c1) separately protects school personnel who take reasonable good-faith action to end a fight between students from civil or criminal liability."
     },
     {
       "id": "victim_transit_operator",
@@ -557,7 +562,7 @@
     {
       "id": "victim_sports_official",
       "name": "The victim is a sports official on duty",
-      "plain": "An umpire, referee, or coach doing their duties at a sports event or right after it.",
+      "plain": "An umpire, referee, coach or similar person who enforces the rules or supervises players at an organized athletic event (school, college, community, business, nonprofit, professional or semiprofessional), doing their duties at the event or right after it.",
       "source": "statute",
       "statute_cite": "G.S. 14-33(b)(9)",
       "note": "N.C.P.I.-Crim. 208.14 (2011) lists only an assault. G.S. 14-33(b)(9), read in full on 2026-10-17, says 'assault and battery', so the statute is followed here."
@@ -565,24 +570,26 @@
     {
       "id": "victim_utility_worker",
       "name": "The victim is a utility or communications worker on duty",
-      "plain": "A worker clearly identifiable as working for an electric, gas, water, wastewater, phone, or internet provider, doing their duties.",
+      "plain": "A worker for a company that provides electricity, natural gas, liquid petroleum, water, wastewater, phone or internet service (an employee, an agent, or someone under contract with it), assaulted while doing their duties and while readily identifiable as a worker. Wearing a uniform, hat or outerwear with the company's logo counts, but the statute says the term 'includes' that, so it isn't the only way.",
       "source": "statute",
-      "statute_cite": "G.S. 14-33(b)(10)"
+      "statute_cite": "G.S. 14-33(b)(10)",
+      "note": "G.S. 14-33(b)(10), added by S.L. 2025-71, s. 1(a), for offenses committed on or after Dec 1, 2025. The statute applies to companies that are State-created or privately, municipally, county or cooperatively owned."
     },
     {
       "id": "personal_relationship_victim",
       "name": "A personal relationship with the victim",
-      "plain": "A relationship of the kind covered by the domestic violence law, such as spouses or people who date or live together.",
+      "plain": "A relationship covered by the domestic violence law, G.S. 50B-1(b): current or former spouses; people who live or have lived together (the statute says 'of opposite sex'); parent and child (including someone acting in place of a parent) or grandparent and grandchild; people with a child in common; current or former household members; or people in a dating relationship (the statute says 'of the opposite sex'), meaning romantically involved over time and on a continuous basis. A casual acquaintance is not a dating relationship.",
       "source": "statute",
-      "statute_cite": "G.S. 14-33(d); G.S. 50B-1(b)"
+      "statute_cite": "G.S. 14-33(d); G.S. 50B-1(b)",
+      "note": "G.S. 14-33(d)(1) points to G.S. 50B-1(b). That definition was read in full on 2026-10-17 and is quoted as published. The wording about the sex of the parties is shown as the statute states it; this tool doesn't evaluate how it is applied. G.S. 50B-1 is not yet among the sections the change checker watches."
     },
     {
       "id": "in_presence_of_minor",
       "name": "In the presence of a minor",
-      "plain": "The assault happens where a minor could see or hear it. Here a minor is someone under 18 who lives with, or is under the care and supervision of, and has a personal relationship with the victim or the offender.",
+      "plain": "A minor was in a position to see or hear the assault. A minor is a person under 18 who lives with, or is under the care and supervision of, and has a personal relationship with, the person assaulted or the person who committed the assault.",
       "source": "statute",
       "statute_cite": "G.S. 14-33(d)",
-      "note": "Definition from N.C.P.I.-Crim. 208.72."
+      "note": "G.S. 14-33(d)(2) and (3). N.C.P.I.-Crim. 208.72 follows the same definitions."
     },
     {
       "id": "pointing_gun",
@@ -590,7 +597,7 @@
       "plain": "The person intentionally points a gun at someone. It doesn't matter whether it is loaded, or whether it is done as a joke.",
       "source": "mixed",
       "statute_cite": "G.S. 14-34",
-      "note": "N.C.P.I.-Crim. 208.85."
+      "note": "G.S. 14-34 says only 'point any gun or pistol at any person'. The statute's text has no intent word and lists no exceptions. The plain-language wording follows N.C.P.I.-Crim. 208.85."
     }
   ],
   "offenses": [
@@ -608,9 +615,9 @@
           "cite": "G.S. 14-17(a)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-17.html",
           "last_session_law_seen": "2023-123, s. 2(a)",
-          "text_snapshot": "§ 14-17. Murder in the first and second degree defined; punishment. (a) A murder which shall be perpetrated by means of a nuclear, biological, or chemical weapon of mass destruction as defined in G.S. 14-288.21, poison, lying in wait, imprisonment, starving, torture, or by any other kind of willful, deliberate, and premeditated killing, or which shall be committed in the perpetration or attempted perpetration of any arson, rape or a sex offense, robbery, kidnapping, burglary, or other felony committed or attempted with the use of a deadly weapon shall be deemed to be murder in the first degree, a Class A felony, and any person who commits such murder shall be punished with death or imprisonment in the State's prison for life without parole as the court shall determine pursuant to G.S. 15A-2000, except that any such person who was under 18 years of age at the time of the murder shall be punished in accordance with Part 2A of Article 81B of Chapter 15A of the General Statutes. (a1) If a murder was perpetrated with malice as described in subsection (b) of this section, and committed against a spouse, former spouse, a person with whom the defendant lives or has lived as if married, a person with whom the defendant is or has been in a dating relationship as defined in G.S. 50B-1(b)(6), or a person with whom the defendant shares a child in common, there shall be a rebuttable presumption that the murder is a \"willful, deliberate, and premeditated killing\" under subsection (a) of this section and shall be deemed to be murder in the first degree, a Class A felony, if the perpetrator has previously been convicted of one of the following offenses involving the same victim: (1) An act of domestic violence as defined in G.S. 50B-1(a). (2) A violation of a domestic violence protective order under G.S. 50B-4.1(a), (f), (g), or (g1) or G.S. 14-269.8 when the same victim is the subject of the domestic violence protective order. (3) Communicating a threat under G.S. 14-277.1. (4) Stalking as defined in G.S. 14-277.3A. (5) Cyberstalking as defined in G.S. 14-196.3. (6) Domestic criminal trespass as defined in G.S. 14-134.3. (b) A murder other than described in subsection (a) or (a1) of this section or in G.S. 14-23.2 shall be deemed second degree murder. Any person who commits second degree murder shall be punished as a Class B1 felon, except that a person who commits second degree murder shall be punished as a Class B2 felon if the malice necessary to prove second degree murder is based on an inherently dangerous act or omission, done in such a reckless and wanton manner as to manifest a mind utterly without regard for human life and social duty and deliberately bent on mischief. (c) For the purposes of this section, it shall constitute murder where a child is born alive but (i) dies as a result of injuries inflicted prior to the child being born alive or (ii) dies as a result of an intentional, overt act performed after the child is born alive. The degree of murder shall be determined as described in subsections (a) and (b) of this section. (1893, cc. 85, 281; Rev., s. 3631; C.S., s. 4200; 1949, c. 299, s. 1; 1973, c. 1201, s. 1; 1977, c. 406, s. 1; 1979, c. 682, s. 6; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1251, ss. 1, 2; c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; c. 662, s. 1; 1987, c. 693; 1989, c. 694; 1993, c. 539, s. 112; 1994, Ex. Sess., c. 21, s. 1; c. 22, s. 4; c. 24, s. 14(c); 2001-470, s. 2; 2004-178, s. 1; 2007-81, s. 1; 2012-165, s. 1; 2013-47, s. 2; 2013-410, s. 3(a); 2017-94, s. 1; 2017-115, s. 9; 2023-14, s. 3(b); 2023-123, s. 2(a).)",
           "text_captured_on": "2026-10-17",
-          "text_sha256": "a87e30adb47dedf33b25b8dc97ebc8bfd98794472fb55cb80eecad6e855adc77"
+          "text_sha256": "a87e30adb47dedf33b25b8dc97ebc8bfd98794472fb55cb80eecad6e855adc77",
+          "source_file": "sources/NC/GS_14-17.txt"
         }
       ],
       "elements": {
@@ -691,9 +698,9 @@
           "cite": "G.S. 14-17(b)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-17.html",
           "last_session_law_seen": "2023-123, s. 2(a)",
-          "text_snapshot": "§ 14-17. Murder in the first and second degree defined; punishment. (a) A murder which shall be perpetrated by means of a nuclear, biological, or chemical weapon of mass destruction as defined in G.S. 14-288.21, poison, lying in wait, imprisonment, starving, torture, or by any other kind of willful, deliberate, and premeditated killing, or which shall be committed in the perpetration or attempted perpetration of any arson, rape or a sex offense, robbery, kidnapping, burglary, or other felony committed or attempted with the use of a deadly weapon shall be deemed to be murder in the first degree, a Class A felony, and any person who commits such murder shall be punished with death or imprisonment in the State's prison for life without parole as the court shall determine pursuant to G.S. 15A-2000, except that any such person who was under 18 years of age at the time of the murder shall be punished in accordance with Part 2A of Article 81B of Chapter 15A of the General Statutes. (a1) If a murder was perpetrated with malice as described in subsection (b) of this section, and committed against a spouse, former spouse, a person with whom the defendant lives or has lived as if married, a person with whom the defendant is or has been in a dating relationship as defined in G.S. 50B-1(b)(6), or a person with whom the defendant shares a child in common, there shall be a rebuttable presumption that the murder is a \"willful, deliberate, and premeditated killing\" under subsection (a) of this section and shall be deemed to be murder in the first degree, a Class A felony, if the perpetrator has previously been convicted of one of the following offenses involving the same victim: (1) An act of domestic violence as defined in G.S. 50B-1(a). (2) A violation of a domestic violence protective order under G.S. 50B-4.1(a), (f), (g), or (g1) or G.S. 14-269.8 when the same victim is the subject of the domestic violence protective order. (3) Communicating a threat under G.S. 14-277.1. (4) Stalking as defined in G.S. 14-277.3A. (5) Cyberstalking as defined in G.S. 14-196.3. (6) Domestic criminal trespass as defined in G.S. 14-134.3. (b) A murder other than described in subsection (a) or (a1) of this section or in G.S. 14-23.2 shall be deemed second degree murder. Any person who commits second degree murder shall be punished as a Class B1 felon, except that a person who commits second degree murder shall be punished as a Class B2 felon if the malice necessary to prove second degree murder is based on an inherently dangerous act or omission, done in such a reckless and wanton manner as to manifest a mind utterly without regard for human life and social duty and deliberately bent on mischief. (c) For the purposes of this section, it shall constitute murder where a child is born alive but (i) dies as a result of injuries inflicted prior to the child being born alive or (ii) dies as a result of an intentional, overt act performed after the child is born alive. The degree of murder shall be determined as described in subsections (a) and (b) of this section. (1893, cc. 85, 281; Rev., s. 3631; C.S., s. 4200; 1949, c. 299, s. 1; 1973, c. 1201, s. 1; 1977, c. 406, s. 1; 1979, c. 682, s. 6; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1251, ss. 1, 2; c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; c. 662, s. 1; 1987, c. 693; 1989, c. 694; 1993, c. 539, s. 112; 1994, Ex. Sess., c. 21, s. 1; c. 22, s. 4; c. 24, s. 14(c); 2001-470, s. 2; 2004-178, s. 1; 2007-81, s. 1; 2012-165, s. 1; 2013-47, s. 2; 2013-410, s. 3(a); 2017-94, s. 1; 2017-115, s. 9; 2023-14, s. 3(b); 2023-123, s. 2(a).)",
           "text_captured_on": "2026-10-17",
-          "text_sha256": "a87e30adb47dedf33b25b8dc97ebc8bfd98794472fb55cb80eecad6e855adc77"
+          "text_sha256": "a87e30adb47dedf33b25b8dc97ebc8bfd98794472fb55cb80eecad6e855adc77",
+          "source_file": "sources/NC/GS_14-17.txt"
         }
       ],
       "elements": {
@@ -748,9 +755,9 @@
           "cite": "G.S. 14-18 (punishment only)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-18.html",
           "last_session_law_seen": "1997-443, s. 19.25(q)",
-          "text_snapshot": "§ 14-18. Punishment for manslaughter. Voluntary manslaughter shall be punishable as a Class D felony, and involuntary manslaughter shall be punishable as a Class F felony. (4 Hen. VII, s. 13; 1816, c. 918, P.R.; R.C., c. 34, s. 24; 1879, c. 255; Code, s. 1055; Rev., s. 3632; C.S., s. 4201; 1933, c. 249; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; 1993, c. 539, s. 112; 1994, Ex. Sess., c. 24, s. 14(c); 1997-443, s. 19.25(q).)",
           "text_captured_on": "2026-10-17",
-          "text_sha256": "2725f9e11dbb1cfe480825f38fb849b0d9ba3ee44d6debf601ea82bbfca3d3ad"
+          "text_sha256": "2725f9e11dbb1cfe480825f38fb849b0d9ba3ee44d6debf601ea82bbfca3d3ad",
+          "source_file": "sources/NC/GS_14-18.txt"
         }
       ],
       "elements": {
@@ -830,9 +837,9 @@
           "cite": "G.S. 14-18 (punishment only)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-18.html",
           "last_session_law_seen": "1997-443, s. 19.25(q)",
-          "text_snapshot": "§ 14-18. Punishment for manslaughter. Voluntary manslaughter shall be punishable as a Class D felony, and involuntary manslaughter shall be punishable as a Class F felony. (4 Hen. VII, s. 13; 1816, c. 918, P.R.; R.C., c. 34, s. 24; 1879, c. 255; Code, s. 1055; Rev., s. 3632; C.S., s. 4201; 1933, c. 249; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; 1993, c. 539, s. 112; 1994, Ex. Sess., c. 24, s. 14(c); 1997-443, s. 19.25(q).)",
           "text_captured_on": "2026-10-17",
-          "text_sha256": "2725f9e11dbb1cfe480825f38fb849b0d9ba3ee44d6debf601ea82bbfca3d3ad"
+          "text_sha256": "2725f9e11dbb1cfe480825f38fb849b0d9ba3ee44d6debf601ea82bbfca3d3ad",
+          "source_file": "sources/NC/GS_14-18.txt"
         }
       ],
       "elements": {
@@ -894,17 +901,17 @@
           "cite": "G.S. 14-51(a)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-51.html",
           "last_session_law_seen": "2025-71, s. 10(a)",
-          "text_snapshot": "§ 14-51. First and second degree burglary. (a) Burglary in the First Degree. - Any person who shall break and enter the dwelling house or room used as a sleeping apartment of another with the intent to commit any felony or larceny therein and any person is in the actual occupation of any part of said dwelling house or sleeping apartment at the time of the commission of such crime, it shall be burglary in the first degree. (b) Burglary in the Second Degree. - Any person who shall break and enter the dwelling house or room used as a sleeping apartment of another with the intent to commit any felony or larceny therein and the property was not actually occupied at the time of the commission of the crime, it shall be burglary in the second degree. (1889, c. 434, s. 1; Rev., s. 3331; C.S., s. 4232; 1969, c. 543, s. 1; 2025-71, s. 10(a).)",
           "text_captured_on": "2026-10-17",
-          "text_sha256": "c4291ada6c15903ada3622162ce2cf100dcc3c5008d22c9d316ea022328a7154"
+          "text_sha256": "c4291ada6c15903ada3622162ce2cf100dcc3c5008d22c9d316ea022328a7154",
+          "source_file": "sources/NC/GS_14-51.txt"
         },
         {
           "cite": "G.S. 14-52",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-52.html",
           "last_session_law_seen": "2025-71, s. 10(b)",
-          "text_snapshot": "§ 14-52. Punishment for burglary. (a) Punishment. - Burglary in the first degree shall be punishable as a Class D felony, and burglary in the second degree shall be punishable as a Class G felony. (b) Enhancement. - If a person possessed a firearm about his or her person during the commission of an offense under G.S. 14-51, in addition to any other sentence enhancement required by law, the person shall be sentenced at a felony class level one class higher than the principal felony for which the person was convicted. An indictment or information for the felony shall allege in that indictment or information the facts that qualify the offense for an enhancement under this subsection. One pleading is sufficient for all felonies that are tried at a single trial. (1870-1, c. 222; Code, s. 994; 1889, c. 434, s. 2; Rev., s. 3330; C.S., s. 4233; 1941, c. 215, s. 1; 1949, c. 299, s. 2; 1973, c. 1201, s. 3; 1977, c. 871, s. 2; 1979, c. 672; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; 1993, c. 539, s. 1151; 1994, Ex. Sess., c. 24, s. 14(c); 2025-71, s. 10(b).)",
           "text_captured_on": "2026-10-17",
-          "text_sha256": "fd2baf12b30b21c4d4f4b1114996b300beb342363d7bf6f576b5b2c015858dfa"
+          "text_sha256": "fd2baf12b30b21c4d4f4b1114996b300beb342363d7bf6f576b5b2c015858dfa",
+          "source_file": "sources/NC/GS_14-52.txt"
         }
       ],
       "elements": {
@@ -959,17 +966,17 @@
           "cite": "G.S. 14-51(b)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-51.html",
           "last_session_law_seen": "2025-71, s. 10(a)",
-          "text_snapshot": "§ 14-51. First and second degree burglary. (a) Burglary in the First Degree. - Any person who shall break and enter the dwelling house or room used as a sleeping apartment of another with the intent to commit any felony or larceny therein and any person is in the actual occupation of any part of said dwelling house or sleeping apartment at the time of the commission of such crime, it shall be burglary in the first degree. (b) Burglary in the Second Degree. - Any person who shall break and enter the dwelling house or room used as a sleeping apartment of another with the intent to commit any felony or larceny therein and the property was not actually occupied at the time of the commission of the crime, it shall be burglary in the second degree. (1889, c. 434, s. 1; Rev., s. 3331; C.S., s. 4232; 1969, c. 543, s. 1; 2025-71, s. 10(a).)",
           "text_captured_on": "2026-10-17",
-          "text_sha256": "c4291ada6c15903ada3622162ce2cf100dcc3c5008d22c9d316ea022328a7154"
+          "text_sha256": "c4291ada6c15903ada3622162ce2cf100dcc3c5008d22c9d316ea022328a7154",
+          "source_file": "sources/NC/GS_14-51.txt"
         },
         {
           "cite": "G.S. 14-52",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-52.html",
           "last_session_law_seen": "2025-71, s. 10(b)",
-          "text_snapshot": "§ 14-52. Punishment for burglary. (a) Punishment. - Burglary in the first degree shall be punishable as a Class D felony, and burglary in the second degree shall be punishable as a Class G felony. (b) Enhancement. - If a person possessed a firearm about his or her person during the commission of an offense under G.S. 14-51, in addition to any other sentence enhancement required by law, the person shall be sentenced at a felony class level one class higher than the principal felony for which the person was convicted. An indictment or information for the felony shall allege in that indictment or information the facts that qualify the offense for an enhancement under this subsection. One pleading is sufficient for all felonies that are tried at a single trial. (1870-1, c. 222; Code, s. 994; 1889, c. 434, s. 2; Rev., s. 3330; C.S., s. 4233; 1941, c. 215, s. 1; 1949, c. 299, s. 2; 1973, c. 1201, s. 3; 1977, c. 871, s. 2; 1979, c. 672; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; 1993, c. 539, s. 1151; 1994, Ex. Sess., c. 24, s. 14(c); 2025-71, s. 10(b).)",
           "text_captured_on": "2026-10-17",
-          "text_sha256": "fd2baf12b30b21c4d4f4b1114996b300beb342363d7bf6f576b5b2c015858dfa"
+          "text_sha256": "fd2baf12b30b21c4d4f4b1114996b300beb342363d7bf6f576b5b2c015858dfa",
+          "source_file": "sources/NC/GS_14-52.txt"
         }
       ],
       "elements": {
@@ -1022,9 +1029,9 @@
           "cite": "G.S. 14-54(a), (a1)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-54.html",
           "last_session_law_seen": "2025-71, ss. 4(a), 10(d)",
-          "text_snapshot": "§ 14-54. Breaking or entering buildings generally. (a) Offense with Intent to Commit Felony or Larceny; Punishment. - Any person who breaks or enters any building with intent to commit any felony or larceny therein shall be punished as a Class H felon. (a1) Offense with Intent to Terrorize or Injure; Punishment. - Any person who breaks or enters any building with intent to terrorize or injure an occupant of the building is guilty of a Class H felony. (b) Offense Generally; Punishment. - Any person who wrongfully breaks or enters any building is guilty of a Class 1 misdemeanor. (b1) Offense Involving Unlawful Business Entry. - Any person who, with the intent to commit an unlawful act, enters any area of a building (i) that is commonly reserved for personnel of a commercial business where money or other property is kept or (ii) clearly marked with a sign that indicates to the public that entry is forbidden is guilty of a Class 1 misdemeanor for a first offense and a Class I felony for a second or subsequent offense. (b2) Enhancement. - If a person possessed a firearm about his or her person during the commission of an offense under this section, in addition to any other sentence enhancement required by law, the person shall be sentenced at a class level one class higher than the principal offense for which the person was convicted. An indictment or information for the offense shall allege in that indictment or information the facts that qualify the offense for an enhancement under this subsection. One pleading is sufficient for all offenses that are tried at a single trial. (c) Definition. - As used in this section, \"building\" shall be construed to include any dwelling, dwelling house, uninhabited house, building under construction, building within the curtilage of a dwelling house, and any other structure designed to house or secure within it any activity or property. (1874-5, c. 166; 1879, c. 323; Code, s. 996; Rev., s. 3333; C.S., s. 4235; 1955, c. 1015; 1969, c. 543, s. 3; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; 1993, c. 539, s. 26; 1994, Ex. Sess., c. 24, s. 14(c); 2013-95, s. 1; 2025-71, ss. 4(a), 10(d).)",
           "text_captured_on": "2026-10-17",
-          "text_sha256": "90b8b598fae0079ab3171c05a66a361df83851041b149b495786b291394b2253"
+          "text_sha256": "90b8b598fae0079ab3171c05a66a361df83851041b149b495786b291394b2253",
+          "source_file": "sources/NC/GS_14-54.txt"
         }
       ],
       "elements": {
@@ -1096,9 +1103,9 @@
           "cite": "G.S. 14-54(b)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-54.html",
           "last_session_law_seen": "2025-71, ss. 4(a), 10(d)",
-          "text_snapshot": "§ 14-54. Breaking or entering buildings generally. (a) Offense with Intent to Commit Felony or Larceny; Punishment. - Any person who breaks or enters any building with intent to commit any felony or larceny therein shall be punished as a Class H felon. (a1) Offense with Intent to Terrorize or Injure; Punishment. - Any person who breaks or enters any building with intent to terrorize or injure an occupant of the building is guilty of a Class H felony. (b) Offense Generally; Punishment. - Any person who wrongfully breaks or enters any building is guilty of a Class 1 misdemeanor. (b1) Offense Involving Unlawful Business Entry. - Any person who, with the intent to commit an unlawful act, enters any area of a building (i) that is commonly reserved for personnel of a commercial business where money or other property is kept or (ii) clearly marked with a sign that indicates to the public that entry is forbidden is guilty of a Class 1 misdemeanor for a first offense and a Class I felony for a second or subsequent offense. (b2) Enhancement. - If a person possessed a firearm about his or her person during the commission of an offense under this section, in addition to any other sentence enhancement required by law, the person shall be sentenced at a class level one class higher than the principal offense for which the person was convicted. An indictment or information for the offense shall allege in that indictment or information the facts that qualify the offense for an enhancement under this subsection. One pleading is sufficient for all offenses that are tried at a single trial. (c) Definition. - As used in this section, \"building\" shall be construed to include any dwelling, dwelling house, uninhabited house, building under construction, building within the curtilage of a dwelling house, and any other structure designed to house or secure within it any activity or property. (1874-5, c. 166; 1879, c. 323; Code, s. 996; Rev., s. 3333; C.S., s. 4235; 1955, c. 1015; 1969, c. 543, s. 3; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; 1993, c. 539, s. 26; 1994, Ex. Sess., c. 24, s. 14(c); 2013-95, s. 1; 2025-71, ss. 4(a), 10(d).)",
           "text_captured_on": "2026-10-17",
-          "text_sha256": "90b8b598fae0079ab3171c05a66a361df83851041b149b495786b291394b2253"
+          "text_sha256": "90b8b598fae0079ab3171c05a66a361df83851041b149b495786b291394b2253",
+          "source_file": "sources/NC/GS_14-54.txt"
         }
       ],
       "elements": {
@@ -1151,9 +1158,9 @@
           "cite": "G.S. 14-72(a), (b)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-72.html",
           "last_session_law_seen": "2025-71, s. 9(a)",
-          "text_snapshot": "§ 14-72. Larceny of property; receiving stolen goods or possessing stolen goods. (a) Larceny of goods of the value of more than one thousand dollars ($1,000) is a Class H felony. The receiving or possessing of stolen goods of the value of more than one thousand dollars ($1,000) while knowing or having reasonable grounds to believe that the goods are stolen is a Class H felony. Larceny as provided in subsection (b) of this section is a Class H felony. Receiving or possession of stolen goods as provided in subsection (c) of this section is a Class H felony. Except as provided in subsections (b) and (c) of this section, larceny of property, or the receiving or possession of stolen goods knowing or having reasonable grounds to believe them to be stolen, where the value of the property or goods is not more than one thousand dollars ($1,000), is a Class 1 misdemeanor. In all cases of doubt, the jury shall, in the verdict, fix the value of the property stolen. (b) The crime of larceny is a felony, without regard to the value of the property in question, if the larceny is any of the following: (1) From the person. (2) Committed pursuant to a violation of G.S. 14-51, 14-53, 14-54, 14-54.1, or 14-57. (3) Of any explosive or incendiary device or substance. As used in this section, the phrase \"explosive or incendiary device or substance\" shall include any explosive or incendiary grenade or bomb; any dynamite, blasting powder, nitroglycerin, TNT, or other high explosive; or any device, ingredient for such device, or type or quantity of substance primarily useful for large-scale destruction of property by explosive or incendiary action or lethal injury to persons by explosive or incendiary action. This definition shall not include fireworks; or any form, type, or quantity of gasoline, butane gas, natural gas, or any other substance having explosive or incendiary properties but serving a legitimate nondestructive or nonlethal use in the form, type, or quantity stolen. (4) Of any firearm. As used in this section, the term \"firearm\" shall include any instrument used in the propulsion of a shot, shell or bullet by the action of gunpowder or any other explosive substance within it. A \"firearm,\" which at the time of theft is not capable of being fired, shall be included within this definition if it can be made to work. This definition shall not include air rifles or air pistols. (5) Of any record or paper in the custody of the North Carolina State Archives as defined by G.S. 121-2(7) and G.S. 121-2(8). (6) Committed after the defendant has been convicted in this State or in another jurisdiction for any offense of larceny under this section, or any offense deemed or punishable as larceny under this section, or of any substantially similar offense in any other jurisdiction, regardless of whether the prior convictions were misdemeanors, felonies, or a combination thereof, at least four times. A conviction shall not be included in the four prior convictions required under this subdivision unless the defendant was represented by counsel or waived counsel at first appearance or otherwise prior to trial or plea. If a person is convicted of more than one offense of misdemeanor larceny in a single session of district court, or in a single week of superior court or of a court in another jurisdiction, only one of the convictions may be used as a prior conviction under this subdivision; except that convictions based upon offenses which occurred in separate counties shall each count as a separate prior conviction under this subdivision. (c) The crime of possessing stolen goods knowing or having reasonable grounds to believe them to be stolen in the circumstances described in subsection (b) is a felony or the crime of receiving stolen goods knowing or having reasonable grounds to believe them to be stolen in the circumstances described in subsection (b) is a felony, without regard to the value of the property in question. (c1) Notwithstanding the provision of subsection (a) of this section, where the larceny or receiving or possession of stolen goods is of mail, the person shall be sentenced at one class level higher than the principal offense for which the person was convicted. For the purposes of this section, the term \"mail\" means a letter, package, bag, or other item of value sent or delivered to another by any method of delivery, including through a common carrier, commercial delivery service, or private delivery. (d) Where the larceny or receiving or possession of stolen goods as described in subsection (a) of this section involves the merchandise of any store, a merchant, a merchant's agent, a merchant's employee, or a peace officer who detains or causes the arrest of any person shall not be held civilly liable for detention, malicious prosecution, false imprisonment, or false arrest of the person detained or arrested, when such detention is upon the premises of the store or in a reasonable proximity thereto, is in a reasonable manner for a reasonable length of time, and, if in detaining or in causing the arrest of such person, the merchant, the merchant's agent, the merchant's employee, or the peace officer had, at the time of the detention or arrest, probable cause to believe that the person committed an offense under subsection (a) of this section. If the person being detained by the merchant, the merchant's agent, or the merchant's employee, is a minor under the age of 18 years, the merchant, the merchant's agent, or the merchant's employee, shall call or notify, or make a reasonable effort to call or notify the parent or guardian of the minor, during the period of detention. A merchant, a merchant's agent, or a merchant's employee, who makes a reasonable effort to call or notify the parent or guardian of the minor shall not be held civilly liable for failing to notify the parent or guardian of the minor. (1895, c. 285; Rev., s. 3506; 1913, c. 118, s. 1; C.S., s. 4251; 1941, c. 178, s. 1; 1949, c. 145, s. 2; 1959, c. 1285; 1961, c. 39, s. 1; 1965, c. 621, s. 5; 1969, c. 522, s. 2; 1973, c. 238, ss. 1, 2; 1975, c. 163, s. 2; c. 696, s. 4; 1977, c. 978, ss. 2, 3; 1979, c. 408, s. 1; c. 760, s. 5; 1979, 2nd Sess., c. 1316, ss. 11, 47; 1981, c. 63, s. 1; c. 179, s. 14; 1991, c. 523, s. 2; 1993, c. 539, s. 34; 1994, Ex. Sess., c. 24, s. 14(c); 1995, c. 185, s. 2; 2006-259, s. 4(a); 2012-154, s. 1; 2025-71, s. 9(a).)",
           "text_captured_on": "2026-10-17",
-          "text_sha256": "4107bda4bee22063b0d6f455587d5acff23cb1f0e375ceba061eae9b7487046b"
+          "text_sha256": "4107bda4bee22063b0d6f455587d5acff23cb1f0e375ceba061eae9b7487046b",
+          "source_file": "sources/NC/GS_14-72.txt"
         }
       ],
       "elements": {
@@ -1231,9 +1238,9 @@
           "cite": "G.S. 14-72(a)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-72.html",
           "last_session_law_seen": "2025-71, s. 9(a)",
-          "text_snapshot": "§ 14-72. Larceny of property; receiving stolen goods or possessing stolen goods. (a) Larceny of goods of the value of more than one thousand dollars ($1,000) is a Class H felony. The receiving or possessing of stolen goods of the value of more than one thousand dollars ($1,000) while knowing or having reasonable grounds to believe that the goods are stolen is a Class H felony. Larceny as provided in subsection (b) of this section is a Class H felony. Receiving or possession of stolen goods as provided in subsection (c) of this section is a Class H felony. Except as provided in subsections (b) and (c) of this section, larceny of property, or the receiving or possession of stolen goods knowing or having reasonable grounds to believe them to be stolen, where the value of the property or goods is not more than one thousand dollars ($1,000), is a Class 1 misdemeanor. In all cases of doubt, the jury shall, in the verdict, fix the value of the property stolen. (b) The crime of larceny is a felony, without regard to the value of the property in question, if the larceny is any of the following: (1) From the person. (2) Committed pursuant to a violation of G.S. 14-51, 14-53, 14-54, 14-54.1, or 14-57. (3) Of any explosive or incendiary device or substance. As used in this section, the phrase \"explosive or incendiary device or substance\" shall include any explosive or incendiary grenade or bomb; any dynamite, blasting powder, nitroglycerin, TNT, or other high explosive; or any device, ingredient for such device, or type or quantity of substance primarily useful for large-scale destruction of property by explosive or incendiary action or lethal injury to persons by explosive or incendiary action. This definition shall not include fireworks; or any form, type, or quantity of gasoline, butane gas, natural gas, or any other substance having explosive or incendiary properties but serving a legitimate nondestructive or nonlethal use in the form, type, or quantity stolen. (4) Of any firearm. As used in this section, the term \"firearm\" shall include any instrument used in the propulsion of a shot, shell or bullet by the action of gunpowder or any other explosive substance within it. A \"firearm,\" which at the time of theft is not capable of being fired, shall be included within this definition if it can be made to work. This definition shall not include air rifles or air pistols. (5) Of any record or paper in the custody of the North Carolina State Archives as defined by G.S. 121-2(7) and G.S. 121-2(8). (6) Committed after the defendant has been convicted in this State or in another jurisdiction for any offense of larceny under this section, or any offense deemed or punishable as larceny under this section, or of any substantially similar offense in any other jurisdiction, regardless of whether the prior convictions were misdemeanors, felonies, or a combination thereof, at least four times. A conviction shall not be included in the four prior convictions required under this subdivision unless the defendant was represented by counsel or waived counsel at first appearance or otherwise prior to trial or plea. If a person is convicted of more than one offense of misdemeanor larceny in a single session of district court, or in a single week of superior court or of a court in another jurisdiction, only one of the convictions may be used as a prior conviction under this subdivision; except that convictions based upon offenses which occurred in separate counties shall each count as a separate prior conviction under this subdivision. (c) The crime of possessing stolen goods knowing or having reasonable grounds to believe them to be stolen in the circumstances described in subsection (b) is a felony or the crime of receiving stolen goods knowing or having reasonable grounds to believe them to be stolen in the circumstances described in subsection (b) is a felony, without regard to the value of the property in question. (c1) Notwithstanding the provision of subsection (a) of this section, where the larceny or receiving or possession of stolen goods is of mail, the person shall be sentenced at one class level higher than the principal offense for which the person was convicted. For the purposes of this section, the term \"mail\" means a letter, package, bag, or other item of value sent or delivered to another by any method of delivery, including through a common carrier, commercial delivery service, or private delivery. (d) Where the larceny or receiving or possession of stolen goods as described in subsection (a) of this section involves the merchandise of any store, a merchant, a merchant's agent, a merchant's employee, or a peace officer who detains or causes the arrest of any person shall not be held civilly liable for detention, malicious prosecution, false imprisonment, or false arrest of the person detained or arrested, when such detention is upon the premises of the store or in a reasonable proximity thereto, is in a reasonable manner for a reasonable length of time, and, if in detaining or in causing the arrest of such person, the merchant, the merchant's agent, the merchant's employee, or the peace officer had, at the time of the detention or arrest, probable cause to believe that the person committed an offense under subsection (a) of this section. If the person being detained by the merchant, the merchant's agent, or the merchant's employee, is a minor under the age of 18 years, the merchant, the merchant's agent, or the merchant's employee, shall call or notify, or make a reasonable effort to call or notify the parent or guardian of the minor, during the period of detention. A merchant, a merchant's agent, or a merchant's employee, who makes a reasonable effort to call or notify the parent or guardian of the minor shall not be held civilly liable for failing to notify the parent or guardian of the minor. (1895, c. 285; Rev., s. 3506; 1913, c. 118, s. 1; C.S., s. 4251; 1941, c. 178, s. 1; 1949, c. 145, s. 2; 1959, c. 1285; 1961, c. 39, s. 1; 1965, c. 621, s. 5; 1969, c. 522, s. 2; 1973, c. 238, ss. 1, 2; 1975, c. 163, s. 2; c. 696, s. 4; 1977, c. 978, ss. 2, 3; 1979, c. 408, s. 1; c. 760, s. 5; 1979, 2nd Sess., c. 1316, ss. 11, 47; 1981, c. 63, s. 1; c. 179, s. 14; 1991, c. 523, s. 2; 1993, c. 539, s. 34; 1994, Ex. Sess., c. 24, s. 14(c); 1995, c. 185, s. 2; 2006-259, s. 4(a); 2012-154, s. 1; 2025-71, s. 9(a).)",
           "text_captured_on": "2026-10-17",
-          "text_sha256": "4107bda4bee22063b0d6f455587d5acff23cb1f0e375ceba061eae9b7487046b"
+          "text_sha256": "4107bda4bee22063b0d6f455587d5acff23cb1f0e375ceba061eae9b7487046b",
+          "source_file": "sources/NC/GS_14-72.txt"
         }
       ],
       "elements": {
@@ -1285,8 +1292,10 @@
         {
           "cite": "G.S. 14-32(a)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2023-76, s. 7",
+          "source_file": "sources/NC/GS_14-32.txt",
+          "text_sha256": "b98d59f2eeede291166dd6a215029f1ff56da986fcb58be02c33ecfd924c658b",
+          "text_captured_on": "2026-10-17"
         }
       ],
       "elements": {
@@ -1303,7 +1312,9 @@
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-32(a). Elements and Class C match. Serious injury and deadly weapon meanings come from case law and the pattern instructions; the statute defines neither."
       },
       "aliases": [
         "stabbing",
@@ -1333,8 +1344,10 @@
         {
           "cite": "G.S. 14-32(b)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2023-76, s. 7",
+          "source_file": "sources/NC/GS_14-32.txt",
+          "text_sha256": "b98d59f2eeede291166dd6a215029f1ff56da986fcb58be02c33ecfd924c658b",
+          "text_captured_on": "2026-10-17"
         }
       ],
       "elements": {
@@ -1352,7 +1365,9 @@
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-32(b). Elements and Class E match; the statute lists no intent-to-kill element."
       },
       "aliases": [
         "stabbing",
@@ -1383,8 +1398,10 @@
         {
           "cite": "G.S. 14-32(c)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2023-76, s. 7",
+          "source_file": "sources/NC/GS_14-32.txt",
+          "text_sha256": "b98d59f2eeede291166dd6a215029f1ff56da986fcb58be02c33ecfd924c658b",
+          "text_captured_on": "2026-10-17"
         }
       ],
       "elements": {
@@ -1402,7 +1419,9 @@
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-32(c). Elements and Class E match; the statute lists no injury element."
       },
       "aliases": [
         "assault with a weapon",
@@ -1422,8 +1441,10 @@
         {
           "cite": "G.S. 14-32(d)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2023-76, s. 7",
+          "source_file": "sources/NC/GS_14-32.txt",
+          "text_sha256": "b98d59f2eeede291166dd6a215029f1ff56da986fcb58be02c33ecfd924c658b",
+          "text_captured_on": "2026-10-17"
         }
       ],
       "elements": {
@@ -1435,12 +1456,16 @@
         ],
         "any_of_routes": []
       },
-      "special_rules": [],
+      "special_rules": [
+        "'Emergency worker' is limited to the four groups named in G.S. 14-32(f): law enforcement officer, firefighter, emergency medical technician, medical responder. The statute defines none of them."
+      ],
       "explain_like_5": "Someone attacked a police officer, firefighter, EMT, or medical responder with a deadly weapon and seriously hurt them.",
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-32(d) and (f). Elements and Class D match. Added the note that the four groups in (f) are undefined."
       },
       "aliases": [
         "assaulting an officer",
@@ -1470,8 +1495,10 @@
         {
           "cite": "G.S. 14-32(e)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2023-76, s. 7",
+          "source_file": "sources/NC/GS_14-32.txt",
+          "text_sha256": "b98d59f2eeede291166dd6a215029f1ff56da986fcb58be02c33ecfd924c658b",
+          "text_captured_on": "2026-10-17"
         }
       ],
       "elements": {
@@ -1484,13 +1511,16 @@
         "any_of_routes": []
       },
       "special_rules": [
-        "If serious injury was also inflicted, G.S. 14-32(a) may apply too. This record doesn't model how those overlap."
+        "'Emergency worker' is limited to the four groups named in G.S. 14-32(f). The statute defines none of them.",
+        "If serious injury was also inflicted, other parts of G.S. 14-32 may fit the same conduct too (for example (a) or (d)). This record doesn't model how those overlap."
       ],
       "explain_like_5": "Someone attacked a police officer, firefighter, EMT, or medical responder with a deadly weapon, meaning to kill them.",
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-32(e) and (f). Elements and Class D match."
       },
       "aliases": [
         "assaulting an officer",
@@ -1520,8 +1550,10 @@
         {
           "cite": "G.S. 14-32.4(a)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.4.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2004-186, s. 9.1",
+          "source_file": "sources/NC/GS_14-32.4.txt",
+          "text_sha256": "784f29a10f88ca5c6b57aaba16eccd30c551c907f966abafade25d623bc0aa86",
+          "text_captured_on": "2026-10-17"
         }
       ],
       "elements": {
@@ -1539,7 +1571,9 @@
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-32.4(a). Elements, the 'unless covered by a law with greater punishment' limit, the Class F class and the definition of serious bodily injury match. Tightened the definition to say 'protracted' means long-lasting and that impairment of function counts."
       },
       "aliases": [
         "badly hurting someone",
@@ -1568,8 +1602,10 @@
         {
           "cite": "G.S. 14-32.4(b)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.4.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2004-186, s. 9.1",
+          "source_file": "sources/NC/GS_14-32.4.txt",
+          "text_sha256": "784f29a10f88ca5c6b57aaba16eccd30c551c907f966abafade25d623bc0aa86",
+          "text_captured_on": "2026-10-17"
         }
       ],
       "elements": {
@@ -1585,7 +1621,9 @@
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-32.4(b). Elements, the greater-punishment limit and Class H match. What counts as strangulation and as physical injury comes from the pattern instruction and an unpublished decision, not the statute."
       },
       "aliases": [
         "choking",
@@ -1614,8 +1652,10 @@
         {
           "cite": "G.S. 14-33(c)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2025-71, s. 1(a)",
+          "source_file": "sources/NC/GS_14-33.txt",
+          "text_sha256": "62c1c0da739fd1aab7084273e2b1d1f0f3ca78b134562bd7c634c69b98518aba",
+          "text_captured_on": "2026-10-17"
         }
       ],
       "elements": {
@@ -1690,13 +1730,16 @@
         "North Carolina's statute headings call this 'aggravated assault, assault and battery, or affray', but it is a misdemeanor. In many other states, 'aggravated assault' is a felony.",
         "Using a deadly weapon, or causing serious injury, makes it this offense at the misdemeanor level. The felony assault offenses in G.S. 14-32 add further elements.",
         "A 2002 pattern instruction (208.55) also lists 'attempting to inflict serious injury' under this subsection. The current text of G.S. 14-33(c)(1), read on 2026-10-17, says 'inflicts serious injury upon another person or uses a deadly weapon', so the attempt wording isn't followed here.",
-        "If a man is also convicted of a higher-class assault for the same conduct, a court should arrest judgment on assault on a female (N.C.P.I.-Crim. 208.70, n.1, citing an unpublished case)."
+        "If a man is also convicted of a higher-class assault for the same conduct, a court should arrest judgment on assault on a female (N.C.P.I.-Crim. 208.70, n.1, citing an unpublished case).",
+        "G.S. 14-33(c1) protects school personnel who take reasonable good-faith action to end a fight between students from civil or criminal liability. It is not an element of any offense."
       ],
       "explain_like_5": "Someone assaulted another person, and either seriously hurt them, used a deadly weapon, or the victim was in a group the law gives extra protection.",
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-33(c). All nine victim or conduct categories, the greater-punishment limit and Class A1 match. Expanded the school-worker definition (contractors, supervised volunteers, what counts as duties). The attempt wording in a 2002 instruction is not in the current statute."
       },
       "aliases": [
         "aggravated assault",
@@ -1740,8 +1783,10 @@
         {
           "cite": "G.S. 14-33(b)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2025-71, s. 1(a)",
+          "source_file": "sources/NC/GS_14-33.txt",
+          "text_sha256": "62c1c0da739fd1aab7084273e2b1d1f0f3ca78b134562bd7c634c69b98518aba",
+          "text_captured_on": "2026-10-17"
         }
       ],
       "elements": {
@@ -1766,13 +1811,16 @@
         ]
       },
       "special_rules": [
-        "The older subdivisions of G.S. 14-33(b) have been repealed. Only these two remain."
+        "The older subdivisions of G.S. 14-33(b) have been repealed. Only (9) sports official and (10) utility or communications worker remain.",
+        "Subdivision (10), the utility or communications worker, was added by S.L. 2025-71, s. 1(a), and applies to offenses committed on or after Dec 1, 2025."
       ],
       "explain_like_5": "Someone assaulted a referee, umpire, or coach at a sports event, or a utility or phone or internet worker doing their job.",
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-33(b). Both remaining subdivisions, the greater-punishment limit and Class 1 match. Fixed the utility-worker definition (it covers liquid petroleum, agents and contractors, and 'readily identifiable' is not limited to logo clothing) and broadened the sports-official definition."
       },
       "aliases": [
         "aggravated assault",
@@ -1802,8 +1850,10 @@
         {
           "cite": "G.S. 14-33(a)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2025-71, s. 1(a)",
+          "source_file": "sources/NC/GS_14-33.txt",
+          "text_sha256": "62c1c0da739fd1aab7084273e2b1d1f0f3ca78b134562bd7c634c69b98518aba",
+          "text_captured_on": "2026-10-17"
         }
       ],
       "elements": {
@@ -1819,7 +1869,9 @@
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-33(a). Class 2 matches. The statute doesn't define assault, so that meaning rests on case law and N.C.P.I.-Crim. 120.20."
       },
       "aliases": [
         "fight",
@@ -1858,8 +1910,10 @@
         {
           "cite": "G.S. 14-33(d)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2025-71, s. 1(a)",
+          "source_file": "sources/NC/GS_14-33.txt",
+          "text_sha256": "62c1c0da739fd1aab7084273e2b1d1f0f3ca78b134562bd7c634c69b98518aba",
+          "text_captured_on": "2026-10-17"
         }
       ],
       "elements": {
@@ -1883,12 +1937,18 @@
           }
         ]
       },
-      "special_rules": [],
+      "special_rules": [
+        "The offense is G.S. 14-33(c)(1) conduct (serious injury or a deadly weapon) done to a person in a personal relationship with the offender, in the presence of a minor.",
+        "A conviction under G.S. 14-33 is not a lesser included offense of misdemeanor crime of domestic violence under G.S. 14-32.5 (G.S. 14-33(e), added by S.L. 2025-70, s. 17(a), for offenses on or after Dec 1, 2025).",
+        "Related offenses that cover other domestic violence situations aren't modeled yet."
+      ],
       "explain_like_5": "Someone seriously hurt, or used a deadly weapon on, a partner or family-type relation while a child could see or hear it.",
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-33(d) and (e), with the definition of personal relationship in G.S. 50B-1(b). Elements, Class A1, the supervised-probation rule and the 30-day active term for a second offense match. Rewrote the personal-relationship definition to follow G.S. 50B-1(b) closely."
       },
       "aliases": [
         "assault in front of a child"
@@ -1916,8 +1976,10 @@
         {
           "cite": "G.S. 14-34",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "1995, c. 507, s. 19.5(d)",
+          "source_file": "sources/NC/GS_14-34.txt",
+          "text_sha256": "43a0e3f9e02322c11b2c6960e5319a8f4d9094d227ca14962c2caf5600e4ea31",
+          "text_captured_on": "2026-10-17"
         }
       ],
       "elements": {
@@ -1927,13 +1989,15 @@
         "any_of_routes": []
       },
       "special_rules": [
-        "Applies 'in fun or otherwise', and whether or not the gun is loaded. No injury is required. Check the statute for exceptions."
+        "Applies 'in fun or otherwise', and whether or not the gun is loaded. No injury is required. The statute's text lists no exceptions, though courts may recognize defenses that aren't modeled here."
       ],
       "explain_like_5": "Someone pointed a gun at another person. It doesn't matter if it was a joke or if the gun wasn't loaded.",
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-34. Elements and Class A1 match. The statute has no intent word and lists no exceptions; the word 'intentionally' in the plain wording comes from the pattern instruction."
       },
       "aliases": [
         "pointing a gun",

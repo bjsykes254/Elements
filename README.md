@@ -25,7 +25,8 @@ See `handoff.md` for the full list of what is verified, what is not, and what is
 | `index.html` | The whole tool: plain HTML, CSS and JavaScript, no libraries. |
 | `elements-nc.json` | The data: categories, elements, offenses, question flows, and compare presets. Every record has a `jurisdiction` field. |
 | `handoff.md` | Where things stand, decisions made, and next steps. |
-| `tools/` | The data validator and the statute change checker. |
+| `sources/` | The saved statute text, one file per section, used to detect changes. The page doesn't load these. |
+| `tools/` | The data validator and the statute change checker. State-specific code is in `tools/adapters/`. |
 | `tests/` | Tests for those tools. |
 | `.github/workflows/` | The automatic checks that run on GitHub. |
 
