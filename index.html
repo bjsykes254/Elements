@@ -40,6 +40,10 @@ button:hover{background:var(--card)}
 .note a{color:var(--acc)}
 .scope{font-size:12px;line-height:1.45;background:var(--card);border-left:3px solid var(--acc);padding:8px 10px;border-radius:0 8px 8px 0;margin:0 0 14px}
 .scope a,.cover a{color:var(--acc)}
+.beta{font-size:12px;line-height:1.45;background:var(--warn-bg);color:var(--warn-tx);padding:8px 10px;border-radius:8px;margin:0 0 14px}
+.tester{margin-top:14px;font-size:13px;line-height:1.45}
+.tester summary{cursor:pointer;color:var(--acc)}
+.tester ul{margin:6px 0 0;padding-left:18px}
 .cover{margin-top:22px;border:.5px solid var(--line);border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.45}
 .cover h2{font-size:14px;font-weight:500;margin:0 0 6px}
 .cover ul{margin:0;padding-left:18px}
@@ -98,6 +102,7 @@ main.wide{max-width:780px}
 <h1>Elements</h1>
 <p class="tag" id="tag">How North Carolina's crimes are built</p>
 <p class="scope" id="scope">Elements explains what the law says an offense is made of. It doesn't say whether anyone did it, and it isn't legal advice. <a href="#cover">What this doesn't cover</a></p>
+<p class="beta" id="beta"><b>Beta.</b> These records are drafts that haven't been verified against the law yet, so some may be wrong. Please tell whoever shared this with you what was confusing or looks wrong.</p>
 <div id="modes"><button type="button" data-m="build" class="on">Build an offense</button><button type="button" data-m="cmp">Compare</button><button type="button" data-m="find">Find</button></div>
 <div id="buildView">
 <p class="note" id="bintro" style="margin:0 0 10px">Pick the answers that describe an offense you want to understand. You're exploring how the law is built, not judging a real event.</p>
@@ -135,6 +140,15 @@ main.wide{max-width:780px}
 <li><b>Any real situation.</b> This is general information, not legal advice. For a real situation, talk to a lawyer.</li>
 </ul>
 </section>
+<details class="tester" id="tester">
+<summary>Helping test this? Questions to think about</summary>
+<ul>
+<li>What did you think this page was showing you?</li>
+<li>Did anything read like it was saying what someone would be charged with?</li>
+<li>Where did you get stuck or confused?</li>
+<li>Did anything look wrong to you?</li>
+</ul>
+</details>
 <p class="note" id="note"></p>
 </main>
 <script>

@@ -1,10 +1,15 @@
-# Elements: where things stand (as of Oct 17, 2026, second pass)
+# Elements: where things stand (as of Oct 17, 2026)
 
-Elements is an interactive explainer of North Carolina criminal offenses, built from each offense's legal elements. The page (`elements.html`) reads everything from the data file (`elements-nc.json`). Keep both in one folder. Open through a local server (`python3 -m http.server`) for automatic loading, or use the "Choose file" button.
+Elements is an interactive explainer of North Carolina criminal offenses, built from each offense's legal elements. The page (`index.html`, formerly `elements.html`) reads everything from the data file (`elements-nc.json`). Keep both in one folder. Open through a local server (`python3 -m http.server`) for automatic loading, or use the "Choose file" button.
+
+## Where the files live
+- Source of truth: the folder `Documents\Elements` on the owner's computer (version controlled in Positron) and the private GitHub repository bjsykes254/Elements. Copies in the Claude Writing project are older snapshots.
+- GitHub Pages is not turned on. Free Pages makes the site public, so it waits on verification and the venue decision.
 
 ## Built
 - Data file (schema 0.5): 22 offenses in 4 families (homicide 4, burglary and breaking or entering 4, larceny 2, assault 12), plus elements, bubble flows, compare presets, and search aliases. Every record has a `jurisdiction` field.
 - Three modes: Build an offense (bubble game), Compare (2 offenses, 3 on wide screens), Find (category drill-down, search, plain-language offense pages).
+- Beta banner and a collapsed "questions for testers" block on the page; README added.
 - Guards against misreading: a permanent scope note under the title, neutral Build-mode wording (questions describe an offense, not an incident), a "Keep in mind" section on every offense card and compare view (overlap between offenses; not a prediction of any charge), and a "What this tool doesn't cover" box at the bottom of every mode.
 - Offenses can carry `cross_checks` (comparison against outside sources). A cross-check is not verification.
 - Schema notes are in the data file under `meta.schema_changes`.
