@@ -1,0 +1,2312 @@
+{
+  "_readme": "Elements: data file for North Carolina criminal offenses. Every other part of the tool (drill-down, compare, bubble game, explain-like-I'm-5, change checker) reads from this file. Records are DRAFT until a human sets review.status to 'verified'. Never publish a record whose review.status is not 'verified'.",
+  "meta": {
+    "project": "Elements",
+    "schema_version": "0.5",
+    "jurisdiction": "NC",
+    "jurisdiction_name": "North Carolina",
+    "scope": "homicide; burglary and breaking or entering; larceny; assault (prototype)",
+    "statute_text_checked_on": "2026-10-15",
+    "schema_changes": [
+      "0.2: felony_class replaced by class + grade (felony or misdemeanor), because property offenses include misdemeanors",
+      "0.2: flows now carry a name and are selectable; the page no longer assumes one flow",
+      "0.2: elements may carry 'negates' (the element they are the opposite of) and 'implies' (a broader element they include, such as a dwelling being a building)",
+      "0.3: compare_presets added (shortcut pairs for compare mode)",
+      "0.3: breaking_and_entering marked as implying breaking_or_entering, so compare mode can show one covers the other",
+      "0.4: offenses may carry 'aliases' (everyday words) used by Find mode search",
+      "0.5: offenses may carry 'cross_checks' (comparisons against outside sources such as pattern jury instructions; a cross-check is not verification). Homicide records corrected after reading N.C.P.I.-Crim. 206.15/206.41/206.50: voluntary manslaughter no longer requires intent to kill, proximate cause added as an element, 'culpable' negligence reworded to 'criminal' negligence. Build-mode questions reworded to describe an offense rather than an incident.",
+      "0.5 (Oct 17, second pass): cross_checks added for burglary, larceny and assault. Manslaughter flow rebuilt: the line between voluntary and involuntary is the kind of act (a deliberate felony-level or likely-deadly act done in passion or imperfect self-defense versus a lesser unlawful or criminally negligent act), not whether the act was on purpose. New element no_consent_of_owner on all burglary and breaking or entering records. Definitions in elements updated from the instructions' own wording."
+    ],
+    "check_notes": "Homicide statutes were read as full text. The property statutes (14-51, 14-52, 14-54, 14-72) were read through a summarizing fetch, not word for word, so every property record needs a line-by-line check before it is marked verified. Text snapshots are still empty for all records. Assault statutes (14-32, 14-32.4, 14-33, 14-34) were also read through a summarizing fetch and need a line-by-line check. On 2026-10-17 the homicide records were compared with N.C.P.I.-Crim. 206.15, 206.41 and 206.50, read through a summarizing fetch tool. 206.00, 206.10, 206.13, 206.30 and 206.40 were not read in full. Heat of passion, imperfect self-defense and malice wording still need case-law review. No record is verified. Second pass on 2026-10-17: the School's website was read in a browser, so the instruction PDFs were read in full for 206.10, 206.30A, 206.40, 214.10, 214.34, 214.47, 216.05, 216.10, 216.20, 216.35, 120.20 and the assault instructions listed in each record's cross_checks. G.S. 14-33 was read in full for two disputed points. Pattern instructions are the judges' summary of the law; where one is older than the statute (208.14, 208.55) the statute is followed. Still not checked: the remaining statutes word for word, 206.00, 206.11-206.35 variants, 214.30/214.32, 208.25, and case law for malice-adjacent terms. No record is verified."
+  },
+  "categories": [
+    {
+      "id": "crimes_against_person",
+      "jurisdiction": "NC",
+      "name": "Crimes against a person",
+      "parent": null,
+      "ncgs_ref": "Chapter 14, Subchapter III (Offenses Against the Person)",
+      "status": "built"
+    },
+    {
+      "id": "homicide",
+      "jurisdiction": "NC",
+      "name": "Homicide",
+      "parent": "crimes_against_person",
+      "ncgs_ref": "Chapter 14, Article 6",
+      "status": "built"
+    },
+    {
+      "id": "crimes_against_property",
+      "jurisdiction": "NC",
+      "name": "Crimes against property",
+      "parent": null,
+      "status": "built"
+    },
+    {
+      "id": "crimes_against_society",
+      "jurisdiction": "NC",
+      "name": "Crimes against society",
+      "parent": null,
+      "status": "planned"
+    },
+    {
+      "id": "burglary_be",
+      "jurisdiction": "NC",
+      "name": "Burglary and breaking or entering",
+      "parent": "crimes_against_property",
+      "ncgs_ref": null,
+      "status": "built"
+    },
+    {
+      "id": "larceny",
+      "jurisdiction": "NC",
+      "name": "Larceny",
+      "parent": "crimes_against_property",
+      "ncgs_ref": null,
+      "status": "built"
+    },
+    {
+      "id": "assault",
+      "jurisdiction": "NC",
+      "name": "Assault",
+      "parent": "crimes_against_person",
+      "ncgs_ref": "Chapter 14, Article 8",
+      "status": "built"
+    }
+  ],
+  "elements": [
+    {
+      "id": "unlawful_killing",
+      "name": "Unlawful killing of another person",
+      "plain": "A person is killed by another person, and the law doesn't excuse it.",
+      "source": "mixed"
+    },
+    {
+      "id": "proximate_cause",
+      "name": "The act caused the death",
+      "plain": "The person's act was a real cause of the death: without it the person wouldn't have died, and a reasonably careful person could have seen that it would probably lead to that result. It doesn't have to be the only cause.",
+      "source": "case_law",
+      "note": "Listed as a separate thing the State must prove in N.C.P.I.-Crim. 206.10, 206.15, 206.41 and 206.50."
+    },
+    {
+      "id": "malice",
+      "name": "Malice",
+      "plain": "Not just hatred or ill will. It also means the state of mind that leads a person to intentionally take a life, or to intentionally cause serious bodily harm that results in death, without justification. An act so reckless that it shows no regard for human life can also count.",
+      "source": "case_law",
+      "note": "G.S. 14-17(b) uses the word but the meaning comes from court decisions. Wording follows N.C.P.I.-Crim. 206.10. That instruction also lets a jury infer malice from an intentional killing with a deadly weapon; that is evidence guidance, so it isn't shown here."
+    },
+    {
+      "id": "premeditation_deliberation",
+      "name": "Premeditated and deliberate",
+      "plain": "Premeditation: the person formed the intent to kill over some period of time, however short, before acting. Deliberation: the person acted in a cool state of mind, not under a suddenly aroused violent passion. A total absence of emotion isn't required.",
+      "source": "mixed",
+      "note": "The statute says 'willful, deliberate, and premeditated'. These definitions follow N.C.P.I.-Crim. 206.10, which lists premeditation and deliberation as separate things the State must prove."
+    },
+    {
+      "id": "specified_means",
+      "name": "Killing by a specified method",
+      "plain": "The killing was done by one of the methods the statute names: poison, lying in wait, imprisonment, starving, torture, or a nuclear, biological, or chemical weapon of mass destruction.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-17(a)"
+    },
+    {
+      "id": "listed_felony",
+      "name": "Killing during a listed felony",
+      "plain": "The death happened while the person was committing, or trying to commit, arson, rape or a sex offense, robbery, kidnapping, burglary, or another felony using a deadly weapon.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-17(a)"
+    },
+    {
+      "id": "not_first_degree",
+      "name": "Not first-degree murder",
+      "plain": "The killing doesn't meet any of the first-degree routes.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-17(b)"
+    },
+    {
+      "id": "inherently_dangerous_act",
+      "name": "Inherently dangerous act (malice basis)",
+      "plain": "The malice rests on an act so dangerous and reckless it shows a mind utterly without regard for human life. This is what makes second-degree murder a lower class (B2 instead of B1).",
+      "source": "statute",
+      "statute_cite": "G.S. 14-17(b)"
+    },
+    {
+      "id": "intent_to_kill",
+      "name": "Intent to kill",
+      "plain": "The person meant to cause the death.",
+      "source": "case_law",
+      "note": "In the assault offenses this is a specific intent to kill (N.C.P.I.-Crim. 208.10). The homicide offenses don't require it."
+    },
+    {
+      "id": "intentional_act",
+      "name": "A deliberate act likely to cause death or serious injury",
+      "plain": "The act that caused the death was done on purpose, and it was an assault that is itself a felony or is likely to cause death or serious injury. It doesn't mean the person meant to kill.",
+      "source": "case_law",
+      "note": "N.C.P.I.-Crim. 206.10, footnote 21 (citing State v. Ray): 'intentional killing' refers to the act, not to a specific intent to kill."
+    },
+    {
+      "id": "no_intent_to_kill",
+      "name": "No intent to kill",
+      "plain": "The person didn't mean to cause the death.",
+      "source": "case_law",
+      "negates": "intent_to_kill"
+    },
+    {
+      "id": "unintentional_killing",
+      "name": "Death was unintended",
+      "plain": "The person didn't mean to cause the death.",
+      "source": "case_law",
+      "note": "The act that caused the death can itself be intentional or not (N.C.P.I.-Crim. 206.10, n.21). What matters is that the act isn't a felony and isn't likely to cause death or serious injury, or that it was criminally negligent."
+    },
+    {
+      "id": "no_malice",
+      "name": "No malice",
+      "plain": "Something reduces the killing below murder, so malice is absent.",
+      "source": "case_law",
+      "negates": "malice"
+    },
+    {
+      "id": "heat_of_passion",
+      "name": "Heat of passion on adequate provocation",
+      "plain": "The person's state of mind was so violent that it overcame reason: they couldn't think well enough to form a deliberate purpose or control their actions. Mere anger isn't enough. It follows adequate provocation, meaning anything that would naturally produce that passion in a person of average mind and disposition, and the act comes soon after.",
+      "source": "case_law",
+      "note": "Follows N.C.P.I.-Crim. 206.10, 206.30A and 206.40. In a murder case the State has to disprove heat of passion; if it can't, the most that remains is voluntary manslaughter."
+    },
+    {
+      "id": "imperfect_self_defense",
+      "name": "Imperfect self-defense",
+      "plain": "The person acted in self-defense but used more force than the law allows, or was the one who started the fight without meaning to kill when it began.",
+      "source": "case_law",
+      "note": "Follows N.C.P.I.-Crim. 206.10 (the voluntary manslaughter instruction on excessive force and the aggressor). Replaces an earlier draft wording based on honest belief, which the instruction doesn't use."
+    },
+    {
+      "id": "unlawful_act_or_criminal_negligence",
+      "name": "Unlawful act (not a felony) or criminal negligence",
+      "plain": "The death came from breaking the law in a way that isn't a felony, or from criminal negligence: carelessness so serious it amounts to heedless indifference to other people's safety and rights.",
+      "source": "case_law",
+      "note": "Wording follows the 206 series (206.10, 206.30A, 206.40, 206.50), which say 'criminal negligence'; older cases may say 'culpable negligence'. The act, intentional or not, must not itself be a felony or likely to result in death or great bodily harm. An act like that done in passion or imperfect self-defense is voluntary manslaughter, never involuntary (206.10, n.21, citing State v. Ray)."
+    },
+    {
+      "id": "breaking_and_entering",
+      "name": "Breaking and entering",
+      "plain": "The person both breaks in and goes inside. A breaking can be physical, or by threat of force, or by a trick that gets someone to open the way in. An entry can be with any part of the body or a tool the person controls.",
+      "source": "case_law",
+      "note": "Burglary needs both. Definitions follow N.C.P.I.-Crim. 214.10, nn.1-2.",
+      "implies": [
+        "breaking_or_entering"
+      ]
+    },
+    {
+      "id": "no_consent_of_owner",
+      "name": "No consent from the owner or tenant",
+      "plain": "The owner or tenant didn't agree to the person breaking in or going in.",
+      "source": "mixed",
+      "note": "Listed as its own thing the State must prove in N.C.P.I.-Crim. 214.10, 214.34 and 214.47. Missing from the first drafts."
+    },
+    {
+      "id": "breaking_or_entering",
+      "name": "Breaking or entering",
+      "plain": "The person breaks in or goes in. Either one is enough. A breaking can be by threat of force or a trick, and an entry can be with any part of the body or a tool.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-54",
+      "note": "Same meanings as in N.C.P.I.-Crim. 214.10, nn.1-2."
+    },
+    {
+      "id": "dwelling_or_sleeping_room",
+      "name": "A home or sleeping room",
+      "plain": "Someone's home, including other buildings used as part of it and close by (like a kitchen or smokehouse in the yard), or a room used for sleeping.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-51",
+      "implies": [
+        "building"
+      ],
+      "note": "Reach of 'dwelling house' comes from State v. Green, cited in N.C.P.I.-Crim. 214.10, n.3."
+    },
+    {
+      "id": "building",
+      "name": "A building",
+      "plain": "Includes homes, empty houses, buildings under construction, buildings next to a home, and other structures built to house or protect people, activities, or property.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-54(c)"
+    },
+    {
+      "id": "nighttime",
+      "name": "At night",
+      "plain": "It is so dark that a person's face couldn't be recognized except by artificial light or moonlight.",
+      "source": "case_law",
+      "note": "Definition the instruction offers when nighttime is in doubt (N.C.P.I.-Crim. 214.10, n.4). Common-law element of burglary."
+    },
+    {
+      "id": "not_nighttime",
+      "name": "Not at night",
+      "plain": "It happens during the day.",
+      "source": "case_law",
+      "negates": "nighttime"
+    },
+    {
+      "id": "intent_felony_or_larceny",
+      "name": "Intent to commit a felony or larceny inside",
+      "plain": "When the person gets in, they plan to commit a serious crime (a felony) or to steal something inside.",
+      "source": "mixed",
+      "note": "N.C.P.I.-Crim. 214.10 says 'intent to commit a felony' and uses larceny as its example of a felony the judge must define. It doesn't use the phrase 'felony or larceny'. Check whether any larceny counts."
+    },
+    {
+      "id": "no_felony_larceny_intent",
+      "name": "No plan to commit a felony or steal",
+      "plain": "The person doesn't plan a felony or theft inside.",
+      "source": "mixed",
+      "negates": "intent_felony_or_larceny"
+    },
+    {
+      "id": "intent_terrorize_injure",
+      "name": "Intent to terrorize or injure an occupant",
+      "plain": "The person means to terrorize (fill with terror) or injure someone inside the building.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-54(a1)",
+      "note": "'Terrorize' is defined in N.C.P.I.-Crim. 214.47, n.2, from case law."
+    },
+    {
+      "id": "no_terror_intent",
+      "name": "No intent to terrorize or injure",
+      "plain": "The person doesn't mean to scare or hurt anyone inside.",
+      "source": "statute",
+      "negates": "intent_terrorize_injure"
+    },
+    {
+      "id": "wrongful_entry",
+      "name": "Wrongful entry",
+      "plain": "The person acted wrongfully, without any claim of right to be there.",
+      "source": "mixed",
+      "statute_cite": "G.S. 14-54(b)",
+      "note": "The statute says 'wrongfully'. N.C.P.I.-Crim. 214.34 explains it as 'without any claim of right'."
+    },
+    {
+      "id": "occupied_at_time",
+      "name": "Someone inside at the time",
+      "plain": "A person is actually inside some part of the home or sleeping room while it happens.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-51(a)"
+    },
+    {
+      "id": "not_occupied_at_time",
+      "name": "Nobody inside at the time",
+      "plain": "No one is actually inside while it happens.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-51(b)",
+      "negates": "occupied_at_time"
+    },
+    {
+      "id": "larceny_taking",
+      "name": "Taking and carrying away another's property",
+      "plain": "The person takes someone else's property and carries it away (even the slightest movement counts), without the owner's consent, knowing they aren't entitled to it and meaning to deprive the owner of it permanently. Taking it only temporarily isn't enough.",
+      "source": "case_law",
+      "note": "The pattern instructions (216.05, 216.10) list these as five separate things; they are combined here. A footnote on temporary deprivation says to compare State v. Smith."
+    },
+    {
+      "id": "larceny_felony_circumstance",
+      "name": "A special circumstance that makes it a felony",
+      "plain": "Examples: taken from a person, a firearm or explosive, taken during a burglary or breaking or entering, or after several earlier larceny convictions.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-72(b)"
+    },
+    {
+      "id": "no_special_circumstance",
+      "name": "No special circumstance",
+      "plain": "None of the felony-regardless-of-value situations applies.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-72(b)",
+      "negates": "larceny_felony_circumstance"
+    },
+    {
+      "id": "value_over_1000",
+      "name": "Property worth more than $1,000",
+      "plain": "The stolen property is worth more than $1,000. If the value is unclear, the jury decides it.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-72(a)"
+    },
+    {
+      "id": "value_1000_or_less",
+      "name": "Property worth $1,000 or less",
+      "plain": "The stolen property is worth $1,000 or less.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-72(a)"
+    },
+    {
+      "id": "assault_on_person",
+      "name": "An assault on another person",
+      "plain": "An intentional act that applies force, however slight, to another person's body without consent, or an intentional attempt or show of force that would make a person of reasonable firmness fear immediate bodily harm.",
+      "source": "case_law",
+      "note": "From N.C.P.I.-Crim. 120.20, which gives several definitions depending on whether there is a physical touching. Self-defense and other justifications are separate instructions (308 series) and aren't modeled."
+    },
+    {
+      "id": "battery_touching",
+      "name": "Actually touching or striking the victim",
+      "plain": "The person doesn't just threaten. They actually make unwanted physical contact.",
+      "source": "case_law",
+      "note": "Needed where the statute says 'assault and battery'. Wording needs review."
+    },
+    {
+      "id": "deadly_weapon",
+      "name": "Use of a deadly weapon",
+      "plain": "A weapon likely to cause death or serious bodily injury. A jury looks at what the object is, how it was used, and the size and strength of the person using it compared with the victim.",
+      "source": "mixed",
+      "statute_cite": "G.S. 14-32, 14-33",
+      "note": "The statutes use the term without defining it. The definition and factors follow N.C.P.I.-Crim. 208.15."
+    },
+    {
+      "id": "no_deadly_weapon",
+      "name": "No deadly weapon",
+      "plain": "No deadly weapon was used.",
+      "source": "mixed",
+      "negates": "deadly_weapon"
+    },
+    {
+      "id": "serious_injury",
+      "name": "Serious injury",
+      "plain": "Physical injury that causes great pain and suffering.",
+      "source": "mixed",
+      "statute_cite": "G.S. 14-32, 14-33",
+      "note": "Not the same as 'serious bodily injury' in G.S. 14-32.4, which the statute defines. The definition comes from cases cited in N.C.P.I.-Crim. 208.15, n.4; a judge may tell the jury that an obviously severe injury is serious."
+    },
+    {
+      "id": "no_serious_injury",
+      "name": "No serious injury",
+      "plain": "The victim wasn't seriously injured.",
+      "source": "mixed",
+      "negates": "serious_injury"
+    },
+    {
+      "id": "serious_bodily_injury",
+      "name": "Serious bodily injury",
+      "plain": "Injury that creates a substantial risk of death, causes serious permanent disfigurement or a coma, causes a long-lasting or permanent condition with extreme pain, causes lasting loss of function of a body part or organ, or results in a long hospital stay.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.4(a)"
+    },
+    {
+      "id": "no_serious_bodily_injury",
+      "name": "No serious bodily injury",
+      "plain": "The injury doesn't meet the statute's definition of serious bodily injury.",
+      "source": "statute",
+      "negates": "serious_bodily_injury"
+    },
+    {
+      "id": "strangulation_injury",
+      "name": "Physical injury by strangulation",
+      "plain": "The assault injures the victim by strangling them: outside pressure on the neck closes blood vessels or air passages. Complete closure isn't needed, but there must be enough pressure that the victim had difficulty breathing. 'Physical injury' means hurt, damage, or loss to the body.",
+      "source": "mixed",
+      "statute_cite": "G.S. 14-32.4(b)",
+      "note": "From N.C.P.I.-Crim. 208.61, nn.1 and 4. The definition of physical injury comes from an unpublished appellate decision cited there."
+    },
+    {
+      "id": "no_strangulation",
+      "name": "No strangulation injury",
+      "plain": "The injury wasn't caused by strangulation.",
+      "source": "mixed",
+      "negates": "strangulation_injury"
+    },
+    {
+      "id": "no_greater_punishment_law",
+      "name": "No other law punishes it more",
+      "plain": "If another law punishes the same conduct more harshly, that law applies instead.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.4, 14-33"
+    },
+    {
+      "id": "victim_emergency_worker",
+      "name": "The victim is an emergency worker",
+      "plain": "A law enforcement officer, firefighter, emergency medical technician, or medical responder.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32(f)"
+    },
+    {
+      "id": "not_emergency_worker",
+      "name": "The victim is not an emergency worker",
+      "plain": "The victim isn't a law enforcement officer, firefighter, EMT, or medical responder.",
+      "source": "statute",
+      "negates": "victim_emergency_worker"
+    },
+    {
+      "id": "victim_protected_group",
+      "name": "The victim is in a protected group",
+      "plain": "Examples: a woman assaulted by a man at least 18, a pregnant woman, a child under 12, a government employee on duty, a school employee or volunteer on duty, a public transit operator, a company or campus police officer, or a rideshare driver working.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-33(c)"
+    },
+    {
+      "id": "not_protected_victim",
+      "name": "The victim is not in a protected group",
+      "plain": "None of the protected categories applies.",
+      "source": "statute",
+      "negates": "victim_protected_group"
+    },
+    {
+      "id": "victim_female_by_adult_male",
+      "name": "Female victim, male offender at least 18",
+      "plain": "A man at least 18 years old assaults a woman or girl.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-33(c)(2)",
+      "implies": [
+        "victim_protected_group"
+      ]
+    },
+    {
+      "id": "victim_pregnant",
+      "name": "The victim is pregnant",
+      "plain": "The person assaults a pregnant woman.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-33(c)(2a)",
+      "implies": [
+        "victim_protected_group"
+      ]
+    },
+    {
+      "id": "victim_child_under_12",
+      "name": "The victim is a child under 12",
+      "plain": "The person assaults a child younger than 12.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-33(c)(3)",
+      "implies": [
+        "victim_protected_group"
+      ]
+    },
+    {
+      "id": "victim_gov_employee",
+      "name": "The victim is a government officer or employee on duty",
+      "plain": "A State or local government officer or employee doing official duties.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-33(c)(4)",
+      "implies": [
+        "victim_protected_group"
+      ]
+    },
+    {
+      "id": "victim_school_worker",
+      "name": "The victim is a school employee or volunteer on duty",
+      "plain": "A school employee, contractor, or supervised volunteer, assaulted while doing their duties or because of them.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-33(c)(6)",
+      "implies": [
+        "victim_protected_group"
+      ]
+    },
+    {
+      "id": "victim_transit_operator",
+      "name": "The victim is a public transit operator on duty",
+      "plain": "A public transit operator doing their job.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-33(c)(7)",
+      "implies": [
+        "victim_protected_group"
+      ]
+    },
+    {
+      "id": "victim_company_campus_police",
+      "name": "The victim is a company or campus police officer on duty",
+      "plain": "A certified company police officer or campus police officer doing their duties.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-33(c)(8)",
+      "implies": [
+        "victim_protected_group"
+      ]
+    },
+    {
+      "id": "victim_tnc_driver",
+      "name": "The victim is a rideshare driver working",
+      "plain": "A transportation network company driver providing rideshare service.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-33(c)(9)",
+      "implies": [
+        "victim_protected_group"
+      ]
+    },
+    {
+      "id": "victim_sports_official",
+      "name": "The victim is a sports official on duty",
+      "plain": "An umpire, referee, or coach doing their duties at a sports event or right after it.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-33(b)(9)",
+      "note": "N.C.P.I.-Crim. 208.14 (2011) lists only an assault. G.S. 14-33(b)(9), read in full on 2026-10-17, says 'assault and battery', so the statute is followed here."
+    },
+    {
+      "id": "victim_utility_worker",
+      "name": "The victim is a utility or communications worker on duty",
+      "plain": "A worker clearly identifiable as working for an electric, gas, water, wastewater, phone, or internet provider, doing their duties.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-33(b)(10)"
+    },
+    {
+      "id": "personal_relationship_victim",
+      "name": "A personal relationship with the victim",
+      "plain": "A relationship of the kind covered by the domestic violence law, such as spouses or people who date or live together.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-33(d); G.S. 50B-1(b)"
+    },
+    {
+      "id": "in_presence_of_minor",
+      "name": "In the presence of a minor",
+      "plain": "The assault happens where a minor could see or hear it. Here a minor is someone under 18 who lives with, or is under the care and supervision of, and has a personal relationship with the victim or the offender.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-33(d)",
+      "note": "Definition from N.C.P.I.-Crim. 208.72."
+    },
+    {
+      "id": "pointing_gun",
+      "name": "Pointing a gun or pistol at another person",
+      "plain": "The person intentionally points a gun at someone. It doesn't matter whether it is loaded, or whether it is done as a joke.",
+      "source": "mixed",
+      "statute_cite": "G.S. 14-34",
+      "note": "N.C.P.I.-Crim. 208.85."
+    }
+  ],
+  "offenses": [
+    {
+      "id": "nc_murder_1",
+      "jurisdiction": "NC",
+      "name": "First-degree murder",
+      "category": "homicide",
+      "class": "A",
+      "grade": "felony",
+      "punishment_note": "Death or life imprisonment without parole. Separate sentencing rules apply if the person was under 18 at the time.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-17(a)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-17.html",
+          "last_session_law_seen": "2023-123, s. 2(a)",
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "unlawful_killing",
+          "proximate_cause"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Planned killing",
+            "all_of": [
+              "malice",
+              "premeditation_deliberation"
+            ]
+          },
+          {
+            "route": "Specified method",
+            "all_of": [
+              "specified_means"
+            ]
+          },
+          {
+            "route": "Killing during a listed felony",
+            "all_of": [
+              "listed_felony"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "G.S. 14-17(a1): a rebuttable presumption of premeditation can apply when the murder is of a current or former partner or similar relationship and the person has certain prior convictions involving the same victim.",
+        "Felony-murder route: the person must have committed or tried to commit the underlying felony and meant to commit it. Malice and intent to kill aren't separate requirements on this route (N.C.P.I.-Crim. 206.15, as summarized)."
+      ],
+      "explain_like_5": "Someone caused another person's death on purpose after planning it, or while doing another very serious crime. This is the most serious kind of murder.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "murder",
+        "premeditated murder",
+        "planned killing",
+        "felony murder"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 206.15, felony murder",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/206.15%20First%20Degree%20Murder%20in%20Perpetration%20of%20a%20Felony.%20Felony%20%5B2014%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "read through a summarizing fetch tool, not word for word",
+          "note": "Felony route matches. Used the earlier summary, not a full read."
+        },
+        {
+          "label": "N.C.P.I.-Crim. 206.10, first-degree murder (deadly weapon) with lesser offenses",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/206.10%20First%20Degree%20Murder%20Where%20a%20Deadly%20Weapon%20is%20Used%2C%20Covering%20All%20Lesser%20Included%20Homicide%20Offenses%20and%20Self-Defense.%20Felony%20%5B2022%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Planned-killing route: malice, premeditation and deliberation now follow its definitions. The specified-method routes weren't read."
+        }
+      ]
+    },
+    {
+      "id": "nc_murder_2",
+      "jurisdiction": "NC",
+      "name": "Second-degree murder",
+      "category": "homicide",
+      "class": "B1 or B2",
+      "grade": "felony",
+      "punishment_note": "Class B1 felony; Class B2 felony in the inherently dangerous act form.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-17(b)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-17.html",
+          "last_session_law_seen": "2023-123, s. 2(a)",
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "unlawful_killing",
+          "proximate_cause",
+          "malice",
+          "not_first_degree"
+        ],
+        "any_of_routes": [],
+        "variant_b2_requires": [
+          "inherently_dangerous_act"
+        ]
+      },
+      "special_rules": [],
+      "explain_like_5": "Someone caused another person's death and meant to hurt them badly, or acted with no care at all for human life, but didn't plan it ahead of time.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "murder",
+        "killing"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 206.30A, second-degree murder (deadly weapon)",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/206.30A%20Second%20Degree%20Murder%20Where%20a%20Deadly%20Weapon%20Is%20Used%2C%20Not%20Including%20Self-Defense%2C%20Covering%20All%20Lesser%20Included%20Homicide%20Offenses%20%5B2014%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Malice with an intentional act, and the inherently dangerous act form, match."
+        }
+      ]
+    },
+    {
+      "id": "nc_manslaughter_voluntary",
+      "jurisdiction": "NC",
+      "name": "Voluntary manslaughter",
+      "category": "homicide",
+      "class": "D",
+      "grade": "felony",
+      "punishment_note": "Class D felony.",
+      "definition_source": "case_law",
+      "statutes": [
+        {
+          "cite": "G.S. 14-18 (punishment only)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-18.html",
+          "last_session_law_seen": "1997-443, s. 19.25(q)",
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "unlawful_killing",
+          "proximate_cause",
+          "intentional_act",
+          "no_malice"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Sudden passion",
+            "all_of": [
+              "heat_of_passion"
+            ]
+          },
+          {
+            "route": "Imperfect self-defense",
+            "all_of": [
+              "imperfect_self_defense"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "Intent to kill isn't required. 'Intentional' means the act was done on purpose and was an assault that is itself a felony or likely to cause death or serious injury (N.C.P.I.-Crim. 206.10, n.21).",
+        "In a murder case the State must disprove heat of passion and self-defense. If it can't, the most that remains is voluntary manslaughter (206.10)."
+      ],
+      "explain_like_5": "Someone did something deliberate and dangerous that killed another person, but without malice: they acted in a sudden violent passion after being badly provoked, or used too much force defending themselves, or started a fight without meaning to kill. They didn't have to mean to kill.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "manslaughter",
+        "killing",
+        "heat of passion"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 206.41, voluntary manslaughter",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/206.41%20Voluntary%20Manslaughter%20Not%20Involving%20Self-Defense%2C%20also%20Including%20Involuntary%20Manslaughter.%20Felony%20%5B2014%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "read through a summarizing fetch tool, not word for word",
+          "note": "Changed: intent to kill replaced by a deliberate dangerous act; proximate cause added. Summary read."
+        },
+        {
+          "label": "N.C.P.I.-Crim. 206.40, voluntary manslaughter (heat of passion, imperfect self-defense)",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/206.40%20Voluntary%20Manslaughter%20Including%20Self-Defense%20%28In%20the%20Heat%20of%20Passion%20or%20Imperfect%20Self-Defense%29%2C%20Also%20Including%20Inv.%20Mansl.%20%5B2019%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Heat of passion and imperfect self-defense wording now follows the instruction, which does define them."
+        },
+        {
+          "label": "N.C.P.I.-Crim. 206.10, lesser included offenses",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/206.10%20First%20Degree%20Murder%20Where%20a%20Deadly%20Weapon%20is%20Used%2C%20Covering%20All%20Lesser%20Included%20Homicide%20Offenses%20and%20Self-Defense.%20Felony%20%5B2022%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Footnote 21 gives the meaning of 'intentional' and the line between voluntary and involuntary manslaughter."
+        }
+      ]
+    },
+    {
+      "id": "nc_manslaughter_involuntary",
+      "jurisdiction": "NC",
+      "name": "Involuntary manslaughter",
+      "category": "homicide",
+      "class": "F",
+      "grade": "felony",
+      "punishment_note": "Class F felony.",
+      "definition_source": "case_law",
+      "statutes": [
+        {
+          "cite": "G.S. 14-18 (punishment only)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-18.html",
+          "last_session_law_seen": "1997-443, s. 19.25(q)",
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "unlawful_killing",
+          "proximate_cause",
+          "unintentional_killing",
+          "no_malice",
+          "unlawful_act_or_criminal_negligence"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "The act can be intentional or not, but it can't itself be a felony or likely to result in death or great bodily harm. An act like that, done in passion or imperfect self-defense, is voluntary manslaughter, never involuntary (N.C.P.I.-Crim. 206.10, n.21).",
+        "If the death was an accident, with no wrongful purpose or criminal negligence, the person is not guilty (206.10)."
+      ],
+      "explain_like_5": "Someone caused another person's death without meaning to, through a lesser unlawful act (not a felony) or through carelessness so serious it showed no concern for other people's safety. It wasn't the kind of dangerous act that makes a killing voluntary manslaughter.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "manslaughter",
+        "accidental killing",
+        "accidental death",
+        "negligent killing"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 206.50, involuntary manslaughter",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/206.50%20Involuntary%20Manslaughter%20-%20Other%20Than%20by%20Automobile.%20Felony%20%5B2023%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "read through a summarizing fetch tool, not word for word",
+          "note": "Changed: 'criminal negligence' wording and proximate cause added. Summary read."
+        },
+        {
+          "label": "N.C.P.I.-Crim. 206.10, lesser included offenses",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/206.10%20First%20Degree%20Murder%20Where%20a%20Deadly%20Weapon%20is%20Used%2C%20Covering%20All%20Lesser%20Included%20Homicide%20Offenses%20and%20Self-Defense.%20Felony%20%5B2022%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Footnote 21: the act can be intentional or not, but not a felony or likely to cause death or great bodily harm."
+        }
+      ]
+    },
+    {
+      "id": "nc_burglary_1",
+      "jurisdiction": "NC",
+      "name": "First-degree burglary",
+      "category": "burglary_be",
+      "class": "D",
+      "grade": "felony",
+      "punishment_note": "Class D felony. Having a firearm on the person during the offense raises the class by one (G.S. 14-52(b)).",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-51(a)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-51.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        },
+        {
+          "cite": "G.S. 14-52",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-52.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "breaking_and_entering",
+          "dwelling_or_sleeping_room",
+          "nighttime",
+          "intent_felony_or_larceny",
+          "occupied_at_time",
+          "no_consent_of_owner"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "G.S. 14-51 defines burglary as it was defined at common law, so the breaking and entering, nighttime, and intent elements come from court decisions rather than the statute's own words."
+      ],
+      "explain_like_5": "Someone broke into and went inside a home at night, planning to commit a serious crime or steal, while a person was inside.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "burglary",
+        "break-in",
+        "breaking into a house",
+        "home break-in"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 214.10, burglary and lesser offenses",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/214.10%20First%20Degree%20Burglary%20Covering%20Second%20Degree%20Burglary%2C%20Felonious%20Breaking%20Or%20Entering%20And%20Nonfelonious%20Breaking...%20%5B2011%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Elements match, and no consent was missing and has been added."
+        }
+      ]
+    },
+    {
+      "id": "nc_burglary_2",
+      "jurisdiction": "NC",
+      "name": "Second-degree burglary",
+      "category": "burglary_be",
+      "class": "G",
+      "grade": "felony",
+      "punishment_note": "Class G felony. Having a firearm on the person during the offense raises the class by one (G.S. 14-52(b)).",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-51(b)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-51.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        },
+        {
+          "cite": "G.S. 14-52",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-52.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "breaking_and_entering",
+          "dwelling_or_sleeping_room",
+          "nighttime",
+          "intent_felony_or_larceny",
+          "not_occupied_at_time",
+          "no_consent_of_owner"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Second-degree burglary needs no one inside. It also reaches a house within the curtilage of a dwelling, and a building in which a room is used as a sleeping apartment (N.C.P.I.-Crim. 214.10)."
+      ],
+      "explain_like_5": "The same as first-degree burglary, except nobody was inside when it happened.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "burglary",
+        "break-in"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 214.10, burglary and lesser offenses",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/214.10%20First%20Degree%20Burglary%20Covering%20Second%20Degree%20Burglary%2C%20Felonious%20Breaking%20Or%20Entering%20And%20Nonfelonious%20Breaking...%20%5B2011%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches. 'Not occupied' is how it differs from first-degree."
+        }
+      ]
+    },
+    {
+      "id": "nc_be_felony",
+      "jurisdiction": "NC",
+      "name": "Felony breaking or entering",
+      "category": "burglary_be",
+      "class": "H",
+      "grade": "felony",
+      "punishment_note": "Class H felony. Having a firearm on the person during the offense raises the class by one (G.S. 14-54(b2)).",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-54(a), (a1)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-54.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "breaking_or_entering",
+          "building",
+          "no_consent_of_owner"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Plan to commit a felony or larceny",
+            "all_of": [
+              "intent_felony_or_larceny"
+            ]
+          },
+          {
+            "route": "Plan to terrorize or injure an occupant",
+            "all_of": [
+              "intent_terrorize_injure"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "A daytime break-in of a home with intent to commit a felony or larceny lands here, not in burglary, because burglary requires nighttime."
+      ],
+      "explain_like_5": "Someone broke into or went into a building planning to steal or commit another crime inside, or to scare or hurt someone there.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "break-in",
+        "b&e",
+        "breaking into a building"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 214.10, felonious breaking or entering",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/214.10%20First%20Degree%20Burglary%20Covering%20Second%20Degree%20Burglary%2C%20Felonious%20Breaking%20Or%20Entering%20And%20Nonfelonious%20Breaking...%20%5B2011%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches, with no consent added."
+        },
+        {
+          "label": "N.C.P.I.-Crim. 214.47, felonious breaking or entering with intent to injure or terrorize",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/214.47%20Felonious%20Breaking%20or%20Entering%20-%20Intent%20to%20%5BInjure%5D%20%5BTerrorize%5D%20Occupant%20%5B2014%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches, with no consent added."
+        }
+      ]
+    },
+    {
+      "id": "nc_be_misd",
+      "jurisdiction": "NC",
+      "name": "Misdemeanor breaking or entering",
+      "category": "burglary_be",
+      "class": "1",
+      "grade": "misdemeanor",
+      "punishment_note": "Class 1 misdemeanor.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-54(b)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-54.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "breaking_or_entering",
+          "building",
+          "wrongful_entry",
+          "no_consent_of_owner"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "G.S. 14-54(b1) separately covers unlawful business entry into restricted commercial areas; not modeled yet."
+      ],
+      "explain_like_5": "Someone broke into or went into a building without permission, without a plan to steal or hurt anyone.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "break-in",
+        "b&e",
+        "entering a building"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 214.34, misdemeanor breaking or entering",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/214.34%20Misdemeanor%20Breaking%20or%20Entering%20%5B2002%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches, with no consent added."
+        }
+      ]
+    },
+    {
+      "id": "nc_larceny_felony",
+      "jurisdiction": "NC",
+      "name": "Felony larceny",
+      "category": "larceny",
+      "class": "H",
+      "grade": "felony",
+      "punishment_note": "Class H felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-72(a), (b)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-72.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "larceny_taking"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Value over $1,000",
+            "all_of": [
+              "value_over_1000"
+            ]
+          },
+          {
+            "route": "Special circumstance, whatever the value",
+            "all_of": [
+              "larceny_felony_circumstance"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "G.S. 14-72 also covers receiving or possessing stolen goods and raises the class for stolen mail. Neither is modeled yet."
+      ],
+      "explain_like_5": "Someone took something that belonged to another person and meant to keep it, and either it was worth more than $1,000 or the way it was taken made it more serious, like taking it from a person or taking a gun.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "theft",
+        "stealing",
+        "steal"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 216.10, felonious larceny over $1,000",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/216.10%20Felonious%20Larceny%20-%20Goods%20Worth%20More%20Than%20%241000%20%5B2021%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        },
+        {
+          "label": "N.C.P.I.-Crim. 216.20, felonious larceny from the person",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/216.20%20Felonious%20Larceny%20-%20From%20the%20Person%20%5B2011%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        },
+        {
+          "label": "N.C.P.I.-Crim. 216.35, felonious larceny pursuant to breaking or entering",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/216.35%20Felonious%20Larceny%20-%20Pursuant%20to%20Breaking%20or%20Entering%20Offense%20Where%20the%20Property%20Is%20Worth%20More%20Than%20%241000%20%5B2002-already%20fixed%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        }
+      ]
+    },
+    {
+      "id": "nc_larceny_misd",
+      "jurisdiction": "NC",
+      "name": "Misdemeanor larceny",
+      "category": "larceny",
+      "class": "1",
+      "grade": "misdemeanor",
+      "punishment_note": "Class 1 misdemeanor.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-72(a)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-72.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "larceny_taking",
+          "value_1000_or_less",
+          "no_special_circumstance"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [],
+      "explain_like_5": "Someone took something that belonged to another person and meant to keep it, and it was worth $1,000 or less.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "theft",
+        "stealing",
+        "petty theft",
+        "steal"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 216.05, misdemeanor larceny",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/216.05%20Misdemeanor%20Larceny%20%5B2002-already%20fixed%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Elements match once consent, knowledge and permanence are included in the taking."
+        }
+      ]
+    },
+    {
+      "id": "nc_awdwikisi",
+      "jurisdiction": "NC",
+      "name": "Assault with a deadly weapon with intent to kill, inflicting serious injury",
+      "category": "assault",
+      "class": "C",
+      "grade": "felony",
+      "punishment_note": "Class C felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32(a)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "deadly_weapon",
+          "intent_to_kill",
+          "serious_injury"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [],
+      "explain_like_5": "Someone attacked another person with a deadly weapon, meaning to kill them, and seriously hurt them.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "stabbing",
+        "shooting",
+        "assault with a weapon"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.10, assault with a deadly weapon with intent to kill inflicting serious injury",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.10%20Assault%20with%20a%20Deadly%20Weapon%20with%20Intent%20to%20Kill%20Inflicting%20Serious%20Injury%20%5B2002-already%20fixed%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Four things listed; matches."
+        }
+      ]
+    },
+    {
+      "id": "nc_awdwisi",
+      "jurisdiction": "NC",
+      "name": "Assault with a deadly weapon inflicting serious injury",
+      "category": "assault",
+      "class": "E",
+      "grade": "felony",
+      "punishment_note": "Class E felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32(b)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "deadly_weapon",
+          "serious_injury"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "No intent to kill is required. The statute lists none."
+      ],
+      "explain_like_5": "Someone attacked another person with a deadly weapon and seriously hurt them. They didn't have to mean to kill.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "stabbing",
+        "shooting",
+        "assault with a weapon",
+        "AWDWISI"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.15, assault with a deadly weapon inflicting serious injury",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.15%20Assault%20with%20a%20Deadly%20Weapon%20Inflicting%20Serious%20Injury%20%5B2008%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        }
+      ]
+    },
+    {
+      "id": "nc_awdwik",
+      "jurisdiction": "NC",
+      "name": "Assault with a deadly weapon with intent to kill",
+      "category": "assault",
+      "class": "E",
+      "grade": "felony",
+      "punishment_note": "Class E felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32(c)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "deadly_weapon",
+          "intent_to_kill"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "No injury is required. The statute lists none."
+      ],
+      "explain_like_5": "Someone attacked another person with a deadly weapon, meaning to kill them. The victim didn't have to be seriously hurt.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "assault with a weapon",
+        "AWDWIK"
+      ]
+    },
+    {
+      "id": "nc_assault_ew_si",
+      "jurisdiction": "NC",
+      "name": "Assault on an emergency worker with a deadly weapon inflicting serious injury",
+      "category": "assault",
+      "class": "D",
+      "grade": "felony",
+      "punishment_note": "Class D felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32(d)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "deadly_weapon",
+          "serious_injury",
+          "victim_emergency_worker"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [],
+      "explain_like_5": "Someone attacked a police officer, firefighter, EMT, or medical responder with a deadly weapon and seriously hurt them.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "assaulting an officer",
+        "assault on a police officer",
+        "assault on a firefighter"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.95H, emergency worker, deadly weapon, serious injury",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.95H%20Assault%20on%20an%20Emergency%20Worker%20with%20a%20Deadly%20Weapon%20Inflicting%20Serious%20Injury.%20Felony%20%5B2024%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        }
+      ]
+    },
+    {
+      "id": "nc_assault_ew_ik",
+      "jurisdiction": "NC",
+      "name": "Assault on an emergency worker with a deadly weapon with intent to kill",
+      "category": "assault",
+      "class": "D",
+      "grade": "felony",
+      "punishment_note": "Class D felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32(e)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "deadly_weapon",
+          "intent_to_kill",
+          "victim_emergency_worker"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "If serious injury was also inflicted, G.S. 14-32(a) may apply too. This record doesn't model how those overlap."
+      ],
+      "explain_like_5": "Someone attacked a police officer, firefighter, EMT, or medical responder with a deadly weapon, meaning to kill them.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "assaulting an officer",
+        "assault on a police officer",
+        "assault on a firefighter"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.95J, emergency worker, deadly weapon, intent to kill",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.95J%20Assault%20on%20an%20Emergency%20Worker%20with%20a%20Deadly%20Weapon%20with%20Intent%20to%20Kill.%20Felony%20%5B2024%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        }
+      ]
+    },
+    {
+      "id": "nc_assault_sbi",
+      "jurisdiction": "NC",
+      "name": "Assault inflicting serious bodily injury",
+      "category": "assault",
+      "class": "F",
+      "grade": "felony",
+      "punishment_note": "Class F felony.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32.4(a)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.4.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "serious_bodily_injury",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Not the same as 'serious injury' in G.S. 14-32 and 14-33. 'Serious bodily injury' has its own statutory definition."
+      ],
+      "explain_like_5": "Someone attacked another person and caused a life-threatening or lasting injury, and no other law punishes it more.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "badly hurting someone",
+        "serious injury assault"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.16, felonious assault inflicting serious bodily injury",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.16%20Felonious%20Assault%20Inflicting%20Serious%20Bodily%20Injury%20%5B2002-already%20fixed%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        }
+      ]
+    },
+    {
+      "id": "nc_assault_strang",
+      "jurisdiction": "NC",
+      "name": "Assault inflicting physical injury by strangulation",
+      "category": "assault",
+      "class": "H",
+      "grade": "felony",
+      "punishment_note": "Class H felony.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32.4(b)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.4.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "strangulation_injury",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [],
+      "explain_like_5": "Someone attacked another person and hurt them by strangling them, and no other law punishes it more.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "choking",
+        "strangling"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.61, assault inflicting physical injury by strangulation",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.61%20Assault%20Inflicting%20Physical%20Injury%20by%20Strangulation%20%5B2023%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        }
+      ]
+    },
+    {
+      "id": "nc_assault_a1",
+      "jurisdiction": "NC",
+      "name": "Aggravated assault (Class A1 misdemeanor)",
+      "category": "assault",
+      "class": "A1",
+      "grade": "misdemeanor",
+      "punishment_note": "Class A1 misdemeanor.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-33(c)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Serious injury",
+            "all_of": [
+              "serious_injury"
+            ]
+          },
+          {
+            "route": "Deadly weapon",
+            "all_of": [
+              "deadly_weapon"
+            ]
+          },
+          {
+            "route": "Female victim, male offender 18 or older",
+            "all_of": [
+              "victim_female_by_adult_male"
+            ]
+          },
+          {
+            "route": "Pregnant victim",
+            "all_of": [
+              "victim_pregnant"
+            ]
+          },
+          {
+            "route": "Child under 12",
+            "all_of": [
+              "victim_child_under_12"
+            ]
+          },
+          {
+            "route": "Government officer or employee on duty",
+            "all_of": [
+              "victim_gov_employee"
+            ]
+          },
+          {
+            "route": "School employee or volunteer",
+            "all_of": [
+              "victim_school_worker"
+            ]
+          },
+          {
+            "route": "Public transit operator",
+            "all_of": [
+              "victim_transit_operator"
+            ]
+          },
+          {
+            "route": "Company or campus police officer",
+            "all_of": [
+              "victim_company_campus_police"
+            ]
+          },
+          {
+            "route": "Rideshare driver",
+            "all_of": [
+              "victim_tnc_driver"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "North Carolina's statute headings call this 'aggravated assault, assault and battery, or affray', but it is a misdemeanor. In many other states, 'aggravated assault' is a felony.",
+        "Using a deadly weapon, or causing serious injury, makes it this offense at the misdemeanor level. The felony assault offenses in G.S. 14-32 add further elements.",
+        "A 2002 pattern instruction (208.55) also lists 'attempting to inflict serious injury' under this subsection. The current text of G.S. 14-33(c)(1), read on 2026-10-17, says 'inflicts serious injury upon another person or uses a deadly weapon', so the attempt wording isn't followed here.",
+        "If a man is also convicted of a higher-class assault for the same conduct, a court should arrest judgment on assault on a female (N.C.P.I.-Crim. 208.70, n.1, citing an unpublished case)."
+      ],
+      "explain_like_5": "Someone assaulted another person, and either seriously hurt them, used a deadly weapon, or the victim was in a group the law gives extra protection.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "aggravated assault",
+        "assault on a woman",
+        "assault on a child"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.60, assault inflicting serious injury",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.60%20Assault%20Inflicting%20Serious%20Injury%20%5B2020%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        },
+        {
+          "label": "N.C.P.I.-Crim. 208.70, assault on a female by a male",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.70%20Assault%20on%20a%20Female%20by%20a%20Male%20Person.%20Misdemeanor%20%5B2024%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        },
+        {
+          "label": "N.C.P.I.-Crim. 208.75, assault on a child under 12",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.75%20Assault%20on%20a%20Child%20under%20the%20Age%20of%20Twelve%20Years%20%5B2011%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        }
+      ]
+    },
+    {
+      "id": "nc_assault_class1",
+      "jurisdiction": "NC",
+      "name": "Aggravated assault on a sports official or utility worker (Class 1 misdemeanor)",
+      "category": "assault",
+      "class": "1",
+      "grade": "misdemeanor",
+      "punishment_note": "Class 1 misdemeanor.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-33(b)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Sports official (assault and battery)",
+            "all_of": [
+              "victim_sports_official",
+              "battery_touching"
+            ]
+          },
+          {
+            "route": "Utility or communications worker",
+            "all_of": [
+              "victim_utility_worker"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "The older subdivisions of G.S. 14-33(b) have been repealed. Only these two remain."
+      ],
+      "explain_like_5": "Someone assaulted a referee, umpire, or coach at a sports event, or a utility or phone or internet worker doing their job.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "aggravated assault",
+        "assault on a referee",
+        "assault on an umpire"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.14, assault upon a sports official",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.14%20Assault%20upon%20a%20Sports%20Official%20%5B2011%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Differs on battery: the instruction says assault only, the current statute says assault and battery. Statute followed."
+        }
+      ]
+    },
+    {
+      "id": "nc_assault_simple",
+      "jurisdiction": "NC",
+      "name": "Simple assault",
+      "category": "assault",
+      "class": "2",
+      "grade": "misdemeanor",
+      "punishment_note": "Class 2 misdemeanor.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-33(a)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Also covers simple assault and battery and simple affray. No weapon, injury, or victim category is required."
+      ],
+      "explain_like_5": "Someone threatened or hit another person, without a weapon, without seriously hurting them, and without the victim being in a specially protected group.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "fight",
+        "hitting someone",
+        "punching",
+        "battery",
+        "affray"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.40, simple assault",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.40%20Simple%20Assault.%20Misdemeanor%20%5B2011%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        },
+        {
+          "label": "N.C.P.I.-Crim. 120.20, definition of assault",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/120.20%20Definition%20of%20Assault%20%5B2011%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Definition used for the assault element."
+        }
+      ]
+    },
+    {
+      "id": "nc_assault_dom_minor",
+      "jurisdiction": "NC",
+      "name": "Assault in the presence of a minor against a person with a personal relationship",
+      "category": "assault",
+      "class": "A1",
+      "grade": "misdemeanor",
+      "punishment_note": "Class A1 misdemeanor. If community punishment is imposed, supervised probation is required. A second or later offense requires an active sentence of at least 30 days.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-33(d)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "personal_relationship_victim",
+          "in_presence_of_minor"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Serious injury",
+            "all_of": [
+              "serious_injury"
+            ]
+          },
+          {
+            "route": "Deadly weapon",
+            "all_of": [
+              "deadly_weapon"
+            ]
+          }
+        ]
+      },
+      "special_rules": [],
+      "explain_like_5": "Someone seriously hurt, or used a deadly weapon on, a partner or family-type relation while a child could see or hear it.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "assault in front of a child"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.72, assault in the presence of a minor",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.72%20Assault%20by%20%5BInflicting%20Serious%20Injury%5D%20%5BUsing%20a%20Deadly%20Weapon%5D%20in%20the%20Presence%20of%20a%20Minor.%20%5B2017%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Four things listed; matches."
+        }
+      ]
+    },
+    {
+      "id": "nc_assault_pointing",
+      "jurisdiction": "NC",
+      "name": "Assault by pointing a gun",
+      "category": "assault",
+      "class": "A1",
+      "grade": "misdemeanor",
+      "punishment_note": "Class A1 misdemeanor.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.html",
+          "last_session_law_seen": null,
+          "text_snapshot": null
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "pointing_gun"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Applies 'in fun or otherwise', and whether or not the gun is loaded. No injury is required. Check the statute for exceptions."
+      ],
+      "explain_like_5": "Someone pointed a gun at another person. It doesn't matter if it was a joke or if the gun wasn't loaded.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null
+      },
+      "aliases": [
+        "pointing a gun",
+        "gun",
+        "waving a gun"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.85, assault by pointing a gun",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.85%20Assault%20by%20Pointing%20a%20Gun%20%5B2002-already%20fixed%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "nc_homicide_bubbles",
+      "jurisdiction": "NC",
+      "category": "homicide",
+      "start": "q_malice",
+      "nodes": {
+        "q_malice": {
+          "question": "Does this kind of homicide involve malice?",
+          "hint": "Malice: intent to kill or seriously harm, or reckless disregard for human life.",
+          "options": [
+            {
+              "label": "Malice is part of it",
+              "adds_element": "malice",
+              "next": "q_planned"
+            },
+            {
+              "label": "Malice is not part of it",
+              "adds_element": "no_malice",
+              "next": "q_intent"
+            }
+          ]
+        },
+        "q_planned": {
+          "question": "Does it involve planning, or a listed felony?",
+          "hint": "Listed: arson, rape or sex offense, robbery, kidnapping, burglary, or a deadly-weapon felony.",
+          "options": [
+            {
+              "label": "Planning and deliberation, or a listed felony",
+              "adds_element": "premeditation_deliberation",
+              "result": "nc_murder_1"
+            },
+            {
+              "label": "No planning and no listed felony",
+              "adds_element": "not_first_degree",
+              "result": "nc_murder_2"
+            }
+          ]
+        },
+        "q_intent": {
+          "question": "What puts this kind of killing below murder?",
+          "hint": "Without malice. Voluntary manslaughter: a deliberate, dangerous act done in passion or imperfect self-defense. Involuntary: an unintended death from a lesser unlawful act or criminal negligence.",
+          "options": [
+            {
+              "label": "Sudden passion after adequate provocation",
+              "adds_element": "heat_of_passion",
+              "result": "nc_manslaughter_voluntary"
+            },
+            {
+              "label": "Imperfect self-defense",
+              "adds_element": "imperfect_self_defense",
+              "result": "nc_manslaughter_voluntary"
+            },
+            {
+              "label": "An unintended death from a lesser unlawful act or criminal negligence",
+              "adds_element": "unlawful_act_or_criminal_negligence",
+              "result": "nc_manslaughter_involuntary"
+            }
+          ]
+        }
+      },
+      "simplification_note": "The bubble flow compresses the first-degree routes (specified method, listed felony, planned killing) into one question. The offense records above hold the full structure.",
+      "name": "Homicide"
+    },
+    {
+      "id": "nc_burglary_be_bubbles",
+      "name": "Burglary and breaking or entering",
+      "jurisdiction": "NC",
+      "category": "burglary_be",
+      "start": "q_building",
+      "nodes": {
+        "q_building": {
+          "question": "What kind of building does the offense involve?",
+          "hint": "Someone enters a building without permission, with or without breaking in.",
+          "options": [
+            {
+              "label": "A home or sleeping room",
+              "adds_element": "dwelling_or_sleeping_room",
+              "next": "q_intent_home"
+            },
+            {
+              "label": "Another kind of building",
+              "adds_element": "building",
+              "next": "q_intent_other"
+            }
+          ]
+        },
+        "q_intent_home": {
+          "question": "Is a plan to commit a felony or steal inside part of it?",
+          "hint": "What matters is what the person means to do when they get in.",
+          "options": [
+            {
+              "label": "A plan to commit a felony or theft",
+              "adds_element": "intent_felony_or_larceny",
+              "next": "q_night"
+            },
+            {
+              "label": "No such plan",
+              "adds_element": "no_felony_larceny_intent",
+              "next": "q_terror"
+            }
+          ]
+        },
+        "q_intent_other": {
+          "question": "Is a plan to commit a felony or steal inside part of it?",
+          "hint": "What matters is what the person means to do when they get in.",
+          "options": [
+            {
+              "label": "A plan to commit a felony or theft",
+              "adds_element": "intent_felony_or_larceny",
+              "result": "nc_be_felony"
+            },
+            {
+              "label": "No such plan",
+              "adds_element": "no_felony_larceny_intent",
+              "next": "q_terror"
+            }
+          ]
+        },
+        "q_terror": {
+          "question": "Is an intent to terrorize or injure someone inside part of it?",
+          "hint": "",
+          "options": [
+            {
+              "label": "Intent to terrorize or injure",
+              "adds_element": "intent_terrorize_injure",
+              "result": "nc_be_felony"
+            },
+            {
+              "label": "No such intent",
+              "adds_element": "no_terror_intent",
+              "result": "nc_be_misd"
+            }
+          ]
+        },
+        "q_night": {
+          "question": "Does it happen at night?",
+          "hint": "Burglary requires nighttime. A daytime break-in is a different offense.",
+          "options": [
+            {
+              "label": "At night",
+              "adds_element": "nighttime",
+              "next": "q_occupied"
+            },
+            {
+              "label": "During the day",
+              "adds_element": "not_nighttime",
+              "result": "nc_be_felony"
+            }
+          ]
+        },
+        "q_occupied": {
+          "question": "Is someone inside at the time?",
+          "hint": "",
+          "options": [
+            {
+              "label": "Someone is inside",
+              "adds_element": "occupied_at_time",
+              "result": "nc_burglary_1"
+            },
+            {
+              "label": "Nobody is inside",
+              "adds_element": "not_occupied_at_time",
+              "result": "nc_burglary_2"
+            }
+          ]
+        }
+      },
+      "simplification_note": "The flow assumes the person got into the building. Burglary needs both breaking and entering, while the lesser offenses need only one. Second-degree burglary may reach structures beyond homes; check G.S. 14-51(b)."
+    },
+    {
+      "id": "nc_larceny_bubbles",
+      "name": "Larceny",
+      "jurisdiction": "NC",
+      "category": "larceny",
+      "start": "q_circ",
+      "nodes": {
+        "q_circ": {
+          "question": "Does a special circumstance apply?",
+          "hint": "Examples: taken from a person, a firearm, an explosive, during a burglary or breaking or entering, or after several prior larceny convictions.",
+          "options": [
+            {
+              "label": "A special circumstance",
+              "adds_element": "larceny_felony_circumstance",
+              "result": "nc_larceny_felony"
+            },
+            {
+              "label": "No special circumstance",
+              "adds_element": "no_special_circumstance",
+              "next": "q_value"
+            }
+          ]
+        },
+        "q_value": {
+          "question": "Is the property worth more than $1,000?",
+          "hint": "If the value is unclear, a jury decides it.",
+          "options": [
+            {
+              "label": "Worth more than $1,000",
+              "adds_element": "value_over_1000",
+              "result": "nc_larceny_felony"
+            },
+            {
+              "label": "Worth $1,000 or less",
+              "adds_element": "value_1000_or_less",
+              "result": "nc_larceny_misd"
+            }
+          ]
+        }
+      },
+      "simplification_note": "The flow assumes someone took another person's property intending to keep it. Receiving or possessing stolen goods, and the higher class for stolen mail, are not modeled yet."
+    },
+    {
+      "id": "nc_assault_bubbles",
+      "name": "Assault",
+      "jurisdiction": "NC",
+      "category": "assault",
+      "start": "q_weapon",
+      "nodes": {
+        "q_weapon": {
+          "question": "Is a deadly weapon involved?",
+          "hint": "Such as a gun or a knife. What counts can depend on how it was used.",
+          "options": [
+            {
+              "label": "Deadly weapon involved",
+              "adds_element": "deadly_weapon",
+              "next": "q_kill"
+            },
+            {
+              "label": "No deadly weapon",
+              "adds_element": "no_deadly_weapon",
+              "next": "q_sbi"
+            }
+          ]
+        },
+        "q_kill": {
+          "question": "Is an intent to kill part of it?",
+          "hint": "",
+          "options": [
+            {
+              "label": "Intent to kill",
+              "adds_element": "intent_to_kill",
+              "next": "q_worker_k"
+            },
+            {
+              "label": "No intent to kill",
+              "adds_element": "no_intent_to_kill",
+              "next": "q_inj_n"
+            }
+          ]
+        },
+        "q_worker_k": {
+          "question": "Is the victim an emergency worker?",
+          "hint": "A law enforcement officer, firefighter, EMT, or medical responder.",
+          "options": [
+            {
+              "label": "Emergency worker",
+              "adds_element": "victim_emergency_worker",
+              "result": "nc_assault_ew_ik"
+            },
+            {
+              "label": "Not an emergency worker",
+              "adds_element": "not_emergency_worker",
+              "next": "q_inj_k"
+            }
+          ]
+        },
+        "q_inj_k": {
+          "question": "Does it involve serious injury to the victim?",
+          "hint": "",
+          "options": [
+            {
+              "label": "Serious injury",
+              "adds_element": "serious_injury",
+              "result": "nc_awdwikisi"
+            },
+            {
+              "label": "No serious injury",
+              "adds_element": "no_serious_injury",
+              "result": "nc_awdwik"
+            }
+          ]
+        },
+        "q_inj_n": {
+          "question": "Does it involve serious injury to the victim?",
+          "hint": "",
+          "options": [
+            {
+              "label": "Serious injury",
+              "adds_element": "serious_injury",
+              "next": "q_worker_n"
+            },
+            {
+              "label": "No serious injury",
+              "adds_element": "no_serious_injury",
+              "result": "nc_assault_a1"
+            }
+          ]
+        },
+        "q_worker_n": {
+          "question": "Is the victim an emergency worker?",
+          "hint": "A law enforcement officer, firefighter, EMT, or medical responder.",
+          "options": [
+            {
+              "label": "Emergency worker",
+              "adds_element": "victim_emergency_worker",
+              "result": "nc_assault_ew_si"
+            },
+            {
+              "label": "Not an emergency worker",
+              "adds_element": "not_emergency_worker",
+              "result": "nc_awdwisi"
+            }
+          ]
+        },
+        "q_sbi": {
+          "question": "Does it involve serious bodily injury?",
+          "hint": "A risk of death, permanent disfigurement or coma, lasting extreme pain, lasting loss of function, or a long hospital stay.",
+          "options": [
+            {
+              "label": "Serious bodily injury",
+              "adds_element": "serious_bodily_injury",
+              "result": "nc_assault_sbi"
+            },
+            {
+              "label": "No serious bodily injury",
+              "adds_element": "no_serious_bodily_injury",
+              "next": "q_strang"
+            }
+          ]
+        },
+        "q_strang": {
+          "question": "Is the injury caused by strangulation?",
+          "hint": "",
+          "options": [
+            {
+              "label": "Strangulation",
+              "adds_element": "strangulation_injury",
+              "result": "nc_assault_strang"
+            },
+            {
+              "label": "No strangulation",
+              "adds_element": "no_strangulation",
+              "next": "q_protected"
+            }
+          ]
+        },
+        "q_protected": {
+          "question": "Is the victim in a protected group?",
+          "hint": "Examples: a woman assaulted by a man at least 18, a pregnant woman, a child under 12, a government or school employee on duty, a transit operator, or a rideshare driver working.",
+          "options": [
+            {
+              "label": "Protected group",
+              "adds_element": "victim_protected_group",
+              "result": "nc_assault_a1"
+            },
+            {
+              "label": "Not a protected group",
+              "adds_element": "not_protected_victim",
+              "next": "q_si_nw"
+            }
+          ]
+        },
+        "q_si_nw": {
+          "question": "Does it involve serious injury to the victim?",
+          "hint": "Short of the 'serious bodily injury' question you already answered.",
+          "options": [
+            {
+              "label": "Serious injury",
+              "adds_element": "serious_injury",
+              "result": "nc_assault_a1"
+            },
+            {
+              "label": "No serious injury",
+              "adds_element": "no_serious_injury",
+              "result": "nc_assault_simple"
+            }
+          ]
+        }
+      },
+      "simplification_note": "Not modeled in this flow: assault in the presence of a minor against a partner (G.S. 14-33(d)), assaults on sports officials or utility workers (G.S. 14-33(b)), and pointing a gun (G.S. 14-34). Find those in Compare. If a deadly weapon causes serious bodily injury, the felony offenses in G.S. 14-32 are the ones this flow reaches."
+    }
+  ],
+  "compare_presets": [
+    {
+      "label": "First vs. second-degree murder",
+      "ids": [
+        "nc_murder_1",
+        "nc_murder_2"
+      ]
+    },
+    {
+      "label": "Murder vs. manslaughter",
+      "ids": [
+        "nc_murder_2",
+        "nc_manslaughter_voluntary"
+      ]
+    },
+    {
+      "label": "Voluntary vs. involuntary manslaughter",
+      "ids": [
+        "nc_manslaughter_voluntary",
+        "nc_manslaughter_involuntary"
+      ]
+    },
+    {
+      "label": "Burglary vs. breaking or entering",
+      "ids": [
+        "nc_burglary_2",
+        "nc_be_felony"
+      ]
+    },
+    {
+      "label": "First vs. second-degree burglary",
+      "ids": [
+        "nc_burglary_1",
+        "nc_burglary_2"
+      ]
+    },
+    {
+      "label": "Felony vs. misdemeanor larceny",
+      "ids": [
+        "nc_larceny_felony",
+        "nc_larceny_misd"
+      ]
+    },
+    {
+      "label": "Simple vs. aggravated assault",
+      "ids": [
+        "nc_assault_simple",
+        "nc_assault_a1"
+      ]
+    },
+    {
+      "label": "Serious injury vs. serious bodily injury",
+      "ids": [
+        "nc_awdwisi",
+        "nc_assault_sbi"
+      ]
+    },
+    {
+      "label": "Felony vs. misdemeanor assault with a weapon",
+      "ids": [
+        "nc_awdwisi",
+        "nc_assault_a1"
+      ]
+    }
+  ]
+}

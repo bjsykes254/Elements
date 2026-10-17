@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elements: how North Carolina's crimes are built</title>
+<style>
+:root{--bg:#faf9f5;--fg:#1f1e1d;--mut:#5f5e5a;--card:#f1efe8;--line:#d3d1c7;--a-bg:#e6f1fb;--a-bd:#378add;--a-tx:#0c447c;--b-bg:#eeedfe;--b-bd:#7f77dd;--b-tx:#3c3489;--acc:#185fa5;--warn-bg:#faeeda;--warn-tx:#633806}
+@media (prefers-color-scheme:dark){:root{--bg:#1f1e1d;--fg:#f1efe8;--mut:#b4b2a9;--card:#2c2c2a;--line:#444441;--a-bg:#0c447c;--a-bd:#85b7eb;--a-tx:#e6f1fb;--b-bg:#3c3489;--b-bd:#afa9ec;--b-tx:#eeedfe;--acc:#85b7eb;--warn-bg:#633806;--warn-tx:#faeeda}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+main{max-width:440px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:22px;font-weight:500;margin:0}
+.tag{font-size:14px;color:var(--mut);margin:2px 0 16px}
+#flows{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+#flows button.on{background:var(--a-bg);color:var(--a-tx);border-color:var(--a-bd)}
+#stage{background:var(--card);border-radius:12px;padding:14px;overflow:hidden}
+#q{font-size:15px;font-weight:500}
+#h{font-size:12px;color:var(--mut);margin-top:2px;min-height:17px}
+#area{position:relative;height:240px;transition:height .4s ease}
+.bw{position:absolute;width:144px;height:144px;transition:transform .25s ease-out,opacity .25s ease-out}
+.bb{width:100%;height:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;font-size:13px;line-height:1.35;cursor:pointer;border:1.5px solid;animation:bob 3.4s ease-in-out infinite;user-select:none}
+.bb:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+#pile{display:flex;flex-direction:column-reverse;gap:6px}
+.pb{border-radius:8px;padding:8px 12px;font-size:13px;border:.5px solid;animation:drop .65s ease-in both}
+.fin{background:var(--bg);border:2px solid var(--acc);border-radius:10px;padding:12px 14px;animation:drop .65s ease-in both}
+.fin h2{font-size:16px;font-weight:500;margin:0}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:8px;margin:4px 6px 6px 0;background:var(--a-bg);color:var(--a-tx)}
+.pill.s{background:var(--b-bg);color:var(--b-tx)}
+.fin p{font-size:13px;margin:6px 0}
+.fin h3{font-size:12px;font-weight:500;color:var(--mut);margin:10px 0 2px}
+.fin ul{margin:0;padding-left:18px;font-size:13px}
+.fin a{color:var(--acc)}
+.warn{font-size:12px;background:var(--warn-bg);color:var(--warn-tx);padding:6px 10px;border-radius:8px;margin-top:10px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+.row span,.note{font-size:12px;color:var(--mut)}
+button{font:inherit;font-size:13px;padding:6px 14px;border-radius:8px;border:.5px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+button:hover{background:var(--card)}
+.note{margin:14px 0 0}
+.note a{color:var(--acc)}
+.scope{font-size:12px;line-height:1.45;background:var(--card);border-left:3px solid var(--acc);padding:8px 10px;border-radius:0 8px 8px 0;margin:0 0 14px}
+.scope a,.cover a{color:var(--acc)}
+.cover{margin-top:22px;border:.5px solid var(--line);border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.45}
+.cover h2{font-size:14px;font-weight:500;margin:0 0 6px}
+.cover ul{margin:0;padding-left:18px}
+.cover li{margin:4px 0}
+.keep{font-size:12px;color:var(--mut);margin:14px 0 0}
+.keep ul{margin:2px 0 0;padding-left:18px}
+#load{display:none;margin-top:14px;padding:14px;border:.5px solid var(--line);border-radius:12px;font-size:13px}
+main.wide{max-width:780px}
+#modes{display:flex;gap:6px;margin:0 0 14px}
+#modes button.on{background:var(--a-bg);color:var(--a-tx);border-color:var(--a-bd)}
+.sel{display:grid;gap:8px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.sel select{font:inherit;font-size:13px;padding:7px 8px;border-radius:8px;border:.5px solid var(--line);background:var(--bg);color:var(--fg);width:100%}
+#sel3{display:none}
+@media (min-width:640px){.sel{grid-template-columns:repeat(3,minmax(0,1fr))}#sel3{display:block}}
+.pre{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:6px;margin:10px 0 4px;padding-bottom:6px}
+.pre button{font-size:12px;padding:4px 10px;flex:none;white-space:nowrap}
+@media (min-width:640px){.pre{flex-wrap:wrap;overflow-x:visible}}
+.cg{display:grid;gap:8px}
+.hc{border:.5px solid var(--line);border-radius:8px;padding:10px;background:var(--card)}
+.hn{font-size:14px;font-weight:500}
+.sum{font-size:13px;margin:14px 0 0}
+.sh{font-size:12px;font-weight:500;color:var(--mut);margin:18px 0 4px}
+.er{margin-top:10px}
+.er.diff .lab{border-left:3px solid var(--acc);padding-left:8px}
+.lab{font-size:13px;font-weight:500;margin-bottom:5px}
+.lab small{display:block;font-weight:400;font-size:12px;color:var(--mut)}
+.cc{background:var(--card);border-radius:8px;padding:8px 10px;font-size:13px;line-height:1.45}
+.cc small{display:block;font-size:12px}
+.cc.req{background:var(--a-bg);color:var(--a-tx)}
+.cc.route{background:var(--b-bg);color:var(--b-tx)}
+.cc.neg{background:var(--warn-bg);color:var(--warn-tx)}
+.cc.none{color:var(--mut)}
+.cc ul{margin:0;padding-left:16px}
+.cc a{color:var(--acc)}
+#search{width:100%;font:inherit;font-size:14px;padding:9px 12px;border-radius:8px;border:.5px solid var(--line);background:var(--bg);color:var(--fg)}
+#crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin:12px 0 8px;min-height:26px}
+#crumbs .cr{font-size:12px;padding:3px 8px}
+#crumbs .sep{font-size:12px;color:var(--mut)}
+.fh{font-size:15px;font-weight:500;margin:6px 0 8px}
+.fc{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;text-align:left;padding:12px 14px;margin:0 0 8px;border-radius:10px;border:.5px solid var(--line);background:var(--card);font-size:14px}
+.fc small{font-size:12px;color:var(--mut);flex:none}
+.fc:disabled{cursor:default;color:var(--mut)}
+.fc:disabled:hover{background:var(--card)}
+.rr{display:block;width:100%;text-align:left;padding:10px 12px;margin:0 0 8px;border-radius:10px;border:.5px solid var(--line);background:transparent}
+.rr .rn{display:block;font-size:14px;font-weight:500}
+.rr small{display:block;font-size:12px;color:var(--mut);margin-top:2px}
+.fin.static{animation:none}
+.cmpwith select{font:inherit;font-size:13px;padding:7px 8px;border-radius:8px;border:.5px solid var(--line);background:var(--bg);color:var(--fg);width:100%}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes drop{0%{transform:translateY(-320px);opacity:0}12%{opacity:1}68%{transform:translateY(0)}84%{transform:translateY(-9px)}100%{transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.bb,.pb,.fin{animation:none}}
+</style>
+</head>
+<body>
+<main>
+<h1>Elements</h1>
+<p class="tag" id="tag">How North Carolina's crimes are built</p>
+<p class="scope" id="scope">Elements explains what the law says an offense is made of. It doesn't say whether anyone did it, and it isn't legal advice. <a href="#cover">What this doesn't cover</a></p>
+<div id="modes"><button type="button" data-m="build" class="on">Build an offense</button><button type="button" data-m="cmp">Compare</button><button type="button" data-m="find">Find</button></div>
+<div id="buildView">
+<p class="note" id="bintro" style="margin:0 0 10px">Pick the answers that describe an offense you want to understand. You're exploring how the law is built, not judging a real event.</p>
+<div id="flows"></div>
+<div id="stage">
+<div id="q">Loading…</div>
+<div id="h"></div>
+<div id="area"></div>
+<div id="pile"></div>
+</div>
+<div class="row"><span>Pop a bubble to pick</span><button id="reset" type="button">Start over</button></div>
+<div id="load">
+<div style="margin-bottom:8px">This page couldn't load <code>elements-nc.json</code> automatically, which is normal when a page is opened straight from a folder. Choose the file to continue.</div>
+<input type="file" id="pick" accept=".json,application/json">
+</div>
+<p class="note" id="sim"></p>
+</div>
+<div id="cmpView" hidden>
+<div class="sel"><select id="sel1" aria-label="First offense"></select><select id="sel2" aria-label="Second offense"></select><select id="sel3" aria-label="Third offense, optional"></select></div>
+<div class="pre" id="pre"></div>
+<div id="cmpOut"></div>
+</div>
+<div id="findView" hidden>
+<input id="search" type="search" placeholder="Search a crime, like theft, break-in, or murder" aria-label="Search offenses" autocomplete="off" enterkeyhint="search">
+<div id="crumbs"></div>
+<div id="findOut"></div>
+</div>
+<section class="cover" id="cover">
+<h2>What this tool doesn't cover</h2>
+<ul>
+<li><b>Evidence and proof.</b> What facts show that an element is met, and how strong the proof has to be at each stage of a case.</li>
+<li><b>Defenses and excuses,</b> such as self-defense, except where they are part of an offense's definition.</li>
+<li><b>How charges are chosen.</b> One event can fit several offenses, and prosecutors and courts decide which apply. Practices differ by office.</li>
+<li><b>Sentencing.</b> Only the offense class is shown, not how a sentence is worked out.</li>
+<li><b>Any real situation.</b> This is general information, not legal advice. For a real situation, talk to a lawyer.</li>
+</ul>
+</section>
+<p class="note" id="note"></p>
+</main>
+<script>
+(function(){
+var DATA_URL='elements-nc.json';
+var stage=document.getElementById('stage'),qEl=document.getElementById('q'),hEl=document.getElementById('h');
+var area=document.getElementById('area'),pile=document.getElementById('pile'),noteEl=document.getElementById('note');
+var loadBox=document.getElementById('load');
+var COL=[{bg:'var(--a-bg)',bd:'var(--a-bd)',tx:'var(--a-tx)',raw:'#378add'},{bg:'var(--b-bg)',bd:'var(--b-bd)',tx:'var(--b-tx)',raw:'#7f77dd'}];
+var D=null,els={},offs={},flow=null,bubbles=[],busy=false,gen=0;
+
+function make(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+function elName(id){return els[id]?els[id].name:id;}
+
+function begin(data){
+if(!data||!data.flows||!data.flows.length||!data.offenses||!data.elements){fail('That file doesn\'t look like an Elements data file.');return;}
+D=data;els={};offs={};
+D.elements.forEach(function(e){els[e.id]=e;});
+D.offenses.forEach(function(o){offs[o.id]=o;});
+document.getElementById('tag').textContent='How '+(D.meta&&D.meta.jurisdiction_name?D.meta.jurisdiction_name:'the')+'\'s crimes are built';
+loadBox.style.display='none';
+noteEl.textContent='';
+noteEl.appendChild(document.createTextNode('Shows how the elements of each offense differ, not what anyone would be charged with. General information, not legal advice.'));
+if(D.meta&&D.meta.statute_text_checked_on){noteEl.appendChild(document.createTextNode(' Statute text last checked '+D.meta.statute_text_checked_on+'.'));}
+buildChips();
+selectFlow(0);
+initCompare();
+initFind();
+}
+
+function buildChips(){
+var box=document.getElementById('flows');box.innerHTML='';
+D.flows.forEach(function(f,i){
+var b=make('button',null,f.name||f.id);b.type='button';
+b.addEventListener('click',function(){selectFlow(i);});
+box.appendChild(b);
+});
+}
+
+function selectFlow(i){
+flow=D.flows[i];
+var bs=document.getElementById('flows').children;
+for(var k=0;k<bs.length;k++){bs[k].className=(k===i)?'on':'';}
+document.getElementById('sim').textContent=flow.simplification_note||'';
+reset();
+}
+
+function fail(msg){
+qEl.textContent=msg;hEl.textContent='';area.innerHTML='';loadBox.style.display='block';
+}
+
+function clearBubbles(){bubbles.forEach(function(b){if(b.parentNode)b.parentNode.removeChild(b);});bubbles=[];}
+
+function reset(){
+gen++;clearBubbles();pile.innerHTML='';busy=false;
+show(flow.start);
+}
+
+function show(nodeId){
+var node=flow.nodes[nodeId];
+if(!node){fail('The flow points to a question that doesn\'t exist: '+nodeId);return;}
+clearBubbles();busy=true;
+area.style.height=(240+150*(Math.ceil(node.options.length/2)-1))+'px';
+qEl.textContent=node.question;hEl.textContent=node.hint||'';
+node.options.forEach(function(opt,n){
+var w=make('div','bw');
+w.style.top=(10+Math.floor(n/2)*150+(n%2)*60)+'px';
+if(n%2===0)w.style.left='4%';else w.style.right='4%';
+w.style.opacity='0';w.style.transform='scale(.4)';
+var c=COL[n%2];
+var b=make('div','bb',opt.label);
+b.setAttribute('role','button');b.setAttribute('tabindex','0');b.setAttribute('aria-label',opt.label);
+b.style.background=c.bg;b.style.borderColor=c.bd;b.style.color=c.tx;b.style.animationDelay=(n*0.9)+'s';
+w.appendChild(b);area.appendChild(w);bubbles.push(w);
+function go(){pick(node,n,opt,w);}
+b.addEventListener('click',go);
+b.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
+requestAnimationFrame(function(){requestAnimationFrame(function(){w.style.opacity='1';w.style.transform='scale(1)';});});
+});
+setTimeout(function(){busy=false;},300);
+}
+
+function burst(w,col){
+var r=w.getBoundingClientRect(),ar=area.getBoundingClientRect();
+var cx=r.left-ar.left+r.width/2,cy=r.top-ar.top+r.height/2;
+for(var i=0;i<9;i++){
+var p=document.createElement('span');
+p.style.cssText='position:absolute;width:8px;height:8px;border-radius:50%;background:'+col+';left:'+(cx-4)+'px;top:'+(cy-4)+'px;transition:transform .5s ease-out,opacity .5s ease-out;pointer-events:none';
+area.appendChild(p);
+(function(p,a){
+requestAnimationFrame(function(){requestAnimationFrame(function(){p.style.transform='translate('+Math.round(Math.cos(a)*78)+'px,'+Math.round(Math.sin(a)*78)+'px)';p.style.opacity='0';});});
+setTimeout(function(){if(p.parentNode)p.parentNode.removeChild(p);},560);
+})(p,i*Math.PI*2/9);
+}
+}
+
+function pick(node,n,opt,w){
+if(busy)return;busy=true;
+var g=gen,c=COL[n%2];
+burst(w,c.raw);
+w.style.transform='scale(1.35)';w.style.opacity='0';
+bubbles.forEach(function(o){if(o!==w){o.style.transition='transform .7s ease-in,opacity .7s ease-in';o.style.transform='translateY(-170px)';o.style.opacity='0';}});
+setTimeout(function(){
+if(g!==gen)return;
+var d=make('div','pb',elName(opt.adds_element));
+d.style.background=c.bg;d.style.borderColor=c.bd;d.style.color=c.tx;
+pile.appendChild(d);
+},180);
+setTimeout(function(){
+if(g!==gen)return;
+clearBubbles();
+if(opt.next){show(opt.next);}else{finish(opt.result);}
+},900);
+}
+
+function sourceText(s){return s==='statute'?'Defined by statute':s==='case_law'?'Definition comes from court decisions':'Statute plus court decisions';}
+
+function finish(id){
+var g=gen,o=offs[id];
+if(!o){fail('The flow ends at an offense that isn\'t in the data: '+id);return;}
+area.style.height='0px';
+qEl.textContent='This offense has the elements you picked';
+hEl.textContent='';
+var card=buildCard(o,false);
+setTimeout(function(){if(g!==gen)return;pile.appendChild(card);busy=false;},200);
+}
+
+function buildCard(o,isStatic){
+var card=make('div','fin'+(isStatic?' static':''));
+card.appendChild(make('h2',null,o.name));
+card.appendChild(make('span','pill',classText(o)));
+card.appendChild(make('span','pill s',sourceText(o.definition_source)));
+if(o.explain_like_5){card.appendChild(make('h3',null,'Explained simply'));card.appendChild(make('p',null,o.explain_like_5));}
+if(o.punishment_note){card.appendChild(make('h3',null,'Punishment'));card.appendChild(make('p',null,o.punishment_note));}
+var e=o.elements||{};
+card.appendChild(make('h3',null,'Elements'));
+var ul=make('ul');
+if(e.all_of&&e.all_of.length){ul.appendChild(make('li',null,'All of: '+e.all_of.map(elName).join('; ')));}
+if(e.any_of_routes&&e.any_of_routes.length){
+var li=make('li',null,'Any one of these routes:');
+var sub=make('ul');
+e.any_of_routes.forEach(function(r){sub.appendChild(make('li',null,r.route+': '+r.all_of.map(elName).join(' + ')));});
+li.appendChild(sub);ul.appendChild(li);
+}
+if(e.variant_b2_requires&&e.variant_b2_requires.length){ul.appendChild(make('li',null,'Lower-class variant also requires: '+e.variant_b2_requires.map(elName).join('; ')));}
+card.appendChild(ul);
+if(o.special_rules&&o.special_rules.length){
+card.appendChild(make('h3',null,'Special rules'));
+var su=make('ul');o.special_rules.forEach(function(s){su.appendChild(make('li',null,s));});card.appendChild(su);
+}
+if(o.statutes&&o.statutes.length){
+card.appendChild(make('h3',null,'Statute text'));
+var tu=make('ul');
+o.statutes.forEach(function(s){
+var li=make('li');var a=make('a',null,s.cite);a.href=safeUrl(s.url);a.target='_blank';a.rel='noopener noreferrer';li.appendChild(a);tu.appendChild(li);
+});
+card.appendChild(tu);
+}
+if(o.cross_checks&&o.cross_checks.length){
+card.appendChild(make('h3',null,'Cross-checked against'));
+var cu=make('ul');
+o.cross_checks.forEach(function(c){
+var li=make('li');var a=make('a',null,c.label);a.href=safeUrl(c.url);a.target='_blank';a.rel='noopener noreferrer';li.appendChild(a);
+if(c.note)li.appendChild(document.createTextNode(': '+c.note));
+cu.appendChild(li);
+});
+card.appendChild(cu);
+card.appendChild(make('p','keep','A cross-check is a comparison with another source, not verification.'));
+}
+card.appendChild(make('h3',null,'Keep in mind'));
+var ku=make('ul');
+ku.appendChild(make('li',null,'One event can fit more than one offense, and a lesser offense can sit inside a greater one. Prosecutors and courts decide which apply, not this tool.'));
+ku.appendChild(make('li',null,'This explains what the law requires. It isn\'t a prediction of any charge or outcome.'));
+card.appendChild(ku);
+if(!o.review||o.review.status!=='verified'){card.appendChild(make('div','warn','Draft: this record hasn\'t been verified against current law yet.'));}
+return card;
+}
+
+var cmpSel=[],cmpMode=false,cmpOut=document.getElementById('cmpOut');
+var sels=[document.getElementById('sel1'),document.getElementById('sel2'),document.getElementById('sel3')];
+
+function safeUrl(u){return /^https?:\/\//i.test(u||'')?u:'#';}
+function cmpCols(){return window.innerWidth>=640?3:2;}
+function pill(t,c){return make('span','pill'+(c?' '+c:''),t);}
+function grid(n){var g=make('div','cg');g.style.gridTemplateColumns='repeat('+n+',minmax(0,1fr))';return g;}
+function classText(o){return 'Class '+(o['class']||o.felony_class)+' '+(o.grade||'felony');}
+
+function elemMap(o){
+var e=o.elements||{},res={};
+function put(id,state,extra){
+var el=els[id];if(!el)return;
+res[el.negates||id]={state:state,neg:!!el.negates,extra:extra||''};
+}
+(e.variant_b2_requires||[]).forEach(function(id){put(id,'variant');});
+(e.any_of_routes||[]).forEach(function(r){(r.all_of||[]).forEach(function(id){put(id,'route',r.route);});});
+(e.all_of||[]).forEach(function(id){put(id,'req');});
+return res;
+}
+
+function cellFor(k,m,mp){
+if(m){
+if(m.neg)return {sig:'no',cls:'neg',text:'Not present'};
+if(m.state==='route')return {sig:'route',cls:'route',text:'One way to meet it',sub:m.extra};
+if(m.state==='variant')return {sig:'variant',cls:'route',text:'Only for the lower-class form'};
+return {sig:'req',cls:'req',text:'Required'};
+}
+var imp=(els[k]&&els[k].implies)||[];
+for(var j=0;j<imp.length;j++){
+var ie=els[imp[j]];if(!ie)continue;
+var ik=ie.negates||imp[j];
+if(mp[ik]&&!mp[ik].neg)return {sig:'broader',cls:'none',text:'Not required',sub:'Only needs: '+ie.name};
+}
+var mk=Object.keys(mp);
+for(var q=0;q<mk.length;q++){
+var oe=els[mk[q]];
+if(oe&&!mp[mk[q]].neg&&(oe.implies||[]).indexOf(k)>=0)return {sig:'narrower',cls:'none',text:'Already covered',sub:'Included in: '+oe.name};
+}
+return {sig:'none',cls:'none',text:'Not part of it'};
+}
+
+function renderCmp(){
+var n=cmpCols(),list=[];
+for(var i=0;i<n;i++){var o=offs[cmpSel[i]];if(o)list.push(o);}
+cmpOut.innerHTML='';
+if(list.length<2){cmpOut.appendChild(make('p','note','Choose at least two offenses to compare.'));return;}
+var c=list.length;
+var head=grid(c);
+list.forEach(function(o){
+var h=make('div','hc');
+h.appendChild(make('div','hn',o.name));
+h.appendChild(pill(classText(o)));
+h.appendChild(pill(sourceText(o.definition_source),'s'));
+head.appendChild(h);
+});
+cmpOut.appendChild(head);
+
+var maps=list.map(elemMap),keys=[];
+maps.forEach(function(m){Object.keys(m).forEach(function(k){if(keys.indexOf(k)<0)keys.push(k);});});
+var rows=keys.map(function(k){
+var cells=maps.map(function(m){return cellFor(k,m[k],m);});
+var same=cells.every(function(x){return x.sig===cells[0].sig;});
+return {k:k,cells:cells,same:same};
+});
+var diff=rows.filter(function(r){return !r.same;}),same=rows.filter(function(r){return r.same;});
+cmpOut.appendChild(make('p','sum','Of the '+rows.length+' element'+(rows.length===1?'':'s')+' involved, '+(same.length===1?'1 is the same':same.length+' are the same')+' and '+diff.length+' differ. '+list.map(classText).join(' vs. ')+'.'));
+
+function addRows(title,arr,isDiff,emptyText){
+cmpOut.appendChild(make('div','sh',title));
+if(!arr.length){cmpOut.appendChild(make('p','note',emptyText));return;}
+arr.forEach(function(r){
+var el=els[r.k];
+var wrap=make('div','er'+(isDiff?' diff':''));
+var lab=make('div','lab',el.name);
+lab.appendChild(make('small',null,el.plain));
+if(el.source&&el.source!=='statute'){var sp=make('small',null,sourceText(el.source));lab.appendChild(sp);}
+wrap.appendChild(lab);
+var g=grid(c);
+r.cells.forEach(function(x){
+var d=make('div','cc '+x.cls,x.text);
+if(x.sub)d.appendChild(make('small',null,x.sub));
+g.appendChild(d);
+});
+wrap.appendChild(g);
+cmpOut.appendChild(wrap);
+});
+}
+addRows('Where they differ',diff,true,'No differences in the elements.');
+addRows('What they share',same,false,'These offenses share no elements.');
+
+cmpOut.appendChild(make('div','sh','Explained simply'));
+var g1=grid(c);
+list.forEach(function(o){g1.appendChild(make('div','cc',o.explain_like_5||''));});
+cmpOut.appendChild(g1);
+
+cmpOut.appendChild(make('div','sh','Special rules'));
+var g2=grid(c);
+list.forEach(function(o){
+var d=make('div','cc');
+if(o.special_rules&&o.special_rules.length){var u=make('ul');o.special_rules.forEach(function(s){u.appendChild(make('li',null,s));});d.appendChild(u);}
+else{d.className='cc none';d.textContent='None noted.';}
+g2.appendChild(d);
+});
+cmpOut.appendChild(g2);
+
+cmpOut.appendChild(make('div','sh','Statute text'));
+var g3=grid(c);
+list.forEach(function(o){
+var d=make('div','cc');var u=make('ul');
+(o.statutes||[]).forEach(function(s){
+var li=make('li');var a=make('a',null,s.cite);a.href=safeUrl(s.url);a.target='_blank';a.rel='noopener noreferrer';li.appendChild(a);u.appendChild(li);
+});
+d.appendChild(u);g3.appendChild(d);
+});
+cmpOut.appendChild(g3);
+
+cmpOut.appendChild(make('p','keep','Keep in mind: one event can fit more than one offense, and a lesser offense can sit inside a greater one. This compares what the law requires. It doesn\'t predict any charge or outcome.'));
+var drafts=list.filter(function(o){return !o.review||o.review.status!=='verified';});
+if(drafts.length){cmpOut.appendChild(make('div','warn','Draft: '+drafts.map(function(o){return o.name;}).join(', ')+(drafts.length>1?' haven\'t':' hasn\'t')+' been verified against current law yet.'));}
+}
+
+function syncSelects(){sels.forEach(function(s,i){s.value=cmpSel[i]||'';});}
+
+function initCompare(){
+var catName={};
+(D.categories||[]).forEach(function(ct){catName[ct.id]=ct.name;});
+var order=[],by={};
+D.offenses.forEach(function(o){if(!by[o.category]){by[o.category]=[];order.push(o.category);}by[o.category].push(o);});
+sels.forEach(function(s,i){
+s.innerHTML='';
+s.appendChild(new Option(i<2?'Choose an offense':'Add a third (optional)',''));
+order.forEach(function(cid){
+var g=document.createElement('optgroup');g.label=catName[cid]||cid;
+by[cid].forEach(function(o){g.appendChild(new Option(o.name,o.id));});
+s.appendChild(g);
+});
+s.onchange=function(){cmpSel[i]=s.value;renderCmp();};
+});
+var pre=document.getElementById('pre');pre.innerHTML='';
+var presets=(D.compare_presets||[]).filter(function(p){return p.ids&&p.ids.every(function(id){return offs[id];});});
+presets.forEach(function(p){
+var b=make('button',null,p.label);b.type='button';
+b.addEventListener('click',function(){cmpSel=p.ids.slice(0,3);syncSelects();renderCmp();});
+pre.appendChild(b);
+});
+cmpSel=presets.length?presets[0].ids.slice(0,3):[D.offenses[0].id,D.offenses[1]?D.offenses[1].id:''];
+syncSelects();
+if(cmpMode)renderCmp();
+}
+
+var cats={},findCat=null,findOff=null,findQ='',elText={};
+var findOut=document.getElementById('findOut'),crumbs=document.getElementById('crumbs'),searchEl=document.getElementById('search');
+var STOP={the:1,an:1,of:1,to:1,in:1,for:1,and:1,or:1,is:1,what:1,whats:1,crime:1,crimes:1,offense:1,offenses:1,about:1,with:1,on:1,at:1};
+
+function initFind(){
+cats={};(D.categories||[]).forEach(function(c){cats[c.id]=c;});
+elText={};findCat=null;findOff=null;findQ='';searchEl.value='';
+}
+function inCat(o,id){var c=o.category,n=0;while(c&&n++<10){if(c===id)return true;c=cats[c]?cats[c].parent:null;}return false;}
+function childCats(id){return (D.categories||[]).filter(function(c){return (c.parent||null)===id;});}
+function catCount(id){return D.offenses.filter(function(o){return inCat(o,id);}).length;}
+function trunc(s,n){return s.length>n?s.slice(0,n-1).replace(/\s+\S*$/,'')+'…':s;}
+
+function offElementText(o){
+if(elText[o.id])return elText[o.id];
+var e=o.elements||{},ids=(e.all_of||[]).concat(e.variant_b2_requires||[]);
+(e.any_of_routes||[]).forEach(function(r){ids=ids.concat(r.all_of||[]);});
+elText[o.id]=ids.map(function(id){return els[id]?els[id].name+' '+els[id].plain:'';}).join(' ').toLowerCase();
+return elText[o.id];
+}
+function stem(t){return t.length>4?t.replace(/(ing|ed|es|s)$/,''):t;}
+function wordRe(t,phrase){return new RegExp('(?:^|[^a-z0-9])'+t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+(phrase?'(?![a-z0-9])':''));}
+function tokenize(q){
+var out=[],s=q.toLowerCase();
+s=s.replace(/\bclass\s+([a-i][12]?|[12])(?![a-z0-9])/g,function(m,c){out.push({res:[wordRe('class '+c,true)]});return ' ';});
+s.replace(/[^a-z0-9.&\- ]/g,' ').split(/\s+/).forEach(function(t){
+if(t.length<2||STOP[t])return;
+var st=stem(t),res=[wordRe(t,false)];
+if(st!==t)res.push(wordRe(st,false));
+out.push({res:res});
+});
+return out;
+}
+function searchScore(o,tokens){
+var f=[[o.name,5],[(o.aliases||[]).join(' '),4],[(o.statutes||[]).map(function(s){return s.cite;}).join(' '),3],
+[(cats[o.category]||{}).name||'',2],[o.explain_like_5||'',2],[classText(o),2],[(o.special_rules||[]).join(' '),1],[offElementText(o),1]];
+f=f.map(function(x){return [String(x[0]).toLowerCase(),x[1]];});
+var total=0;
+for(var i=0;i<tokens.length;i++){
+var tk=tokens[i],best=0;
+for(var j=0;j<f.length;j++){if(tk.res.some(function(r){return r.test(f[j][0]);}))best=Math.max(best,f[j][1]);}
+if(!best)return 0;
+total+=best;
+}
+return total;
+}
+
+function crumb(label,fn){var b=make('button','cr',label);b.type='button';b.addEventListener('click',fn);crumbs.appendChild(b);}
+function sep(){crumbs.appendChild(make('span','sep','›'));}
+function clearSearch(){findQ='';searchEl.value='';}
+function trail(){
+var chain=[],c=findCat,n=0;
+while(c&&cats[c]&&n++<10){chain.unshift(c);c=cats[c].parent;}
+crumb('All crimes',function(){findCat=null;findOff=null;clearSearch();renderFind();});
+chain.forEach(function(id){sep();crumb(cats[id].name,function(){findCat=id;findOff=null;clearSearch();renderFind();});});
+}
+function openOffense(id){findOff=id;findCat=offs[id].category;renderFind();crumbs.scrollIntoView({block:'start'});}
+
+function offRow(o){
+var b=make('button','rr');b.type='button';
+b.appendChild(make('span','rn',o.name));
+b.appendChild(make('small',null,classText(o)+' · '+((cats[o.category]||{}).name||'')));
+if(o.explain_like_5)b.appendChild(make('small',null,trunc(o.explain_like_5,120)));
+b.addEventListener('click',function(){openOffense(o.id);});
+return b;
+}
+
+function renderBrowse(){
+trail();
+var cur=findCat?cats[findCat]:null;
+findOut.appendChild(make('div','fh',cur?cur.name:'Browse by category'));
+var kids=childCats(findCat);
+kids.forEach(function(c){
+var n=catCount(c.id),planned=(c.status==='planned'&&n===0);
+var b=make('button','fc');b.type='button';
+b.appendChild(make('span',null,c.name));
+b.appendChild(make('small',null,planned?'Coming soon':n+(n===1?' offense':' offenses')));
+if(planned)b.disabled=true;
+b.addEventListener('click',function(){findCat=c.id;renderFind();});
+findOut.appendChild(b);
+});
+var mine=D.offenses.filter(function(o){return o.category===findCat;});
+mine.forEach(function(o){findOut.appendChild(offRow(o));});
+if(!kids.length&&!mine.length)findOut.appendChild(make('p','note','Nothing here yet.'));
+}
+
+function renderResults(q){
+crumb('Clear search',function(){clearSearch();renderFind();});
+var tokens=tokenize(q),res=[];
+if(tokens.length){D.offenses.forEach(function(o){var s=searchScore(o,tokens);if(s)res.push({o:o,s:s});});}
+res.sort(function(a,b){return b.s-a.s||a.o.name.localeCompare(b.o.name);});
+if(!res.length){findOut.appendChild(make('p','note','No match for "'+q+'". Try an everyday word like theft, break-in, or fight, or clear the search to browse by category.'));return;}
+findOut.appendChild(make('div','fh',res.length+(res.length===1?' result':' results')));
+res.forEach(function(r){findOut.appendChild(offRow(r.o));});
+}
+
+function renderDetail(o,q){
+if(q){crumb('Back to results',function(){findOff=null;renderFind();});}
+else{trail();sep();crumbs.appendChild(make('span','sep',o.name));}
+findOut.appendChild(buildCard(o,true));
+var w=make('div','cmpwith');
+w.appendChild(make('div','sh','Compare with another offense'));
+var s=document.createElement('select');s.setAttribute('aria-label','Compare '+o.name+' with');
+s.appendChild(new Option('Choose an offense',''));
+var fam=D.offenses.filter(function(x){return x.id!==o.id&&x.category===o.category;});
+var oth=D.offenses.filter(function(x){return x.id!==o.id&&x.category!==o.category;});
+[['In the same family',fam],['Other offenses',oth]].forEach(function(g){
+if(!g[1].length)return;
+var og=document.createElement('optgroup');og.label=g[0];
+g[1].forEach(function(x){og.appendChild(new Option(x.name,x.id));});
+s.appendChild(og);
+});
+s.onchange=function(){if(!s.value)return;cmpSel=[o.id,s.value];syncSelects();setMode('cmp');};
+w.appendChild(s);
+findOut.appendChild(w);
+}
+
+function renderFind(){
+findOut.innerHTML='';crumbs.innerHTML='';
+var q=findQ.trim();
+if(findOff&&offs[findOff]){renderDetail(offs[findOff],q);return;}
+if(q){renderResults(q);return;}
+renderBrowse();
+}
+searchEl.addEventListener('input',function(){findQ=searchEl.value;findOff=null;if(D)renderFind();});
+
+function setMode(m){
+cmpMode=(m==='cmp');
+var views={build:'buildView',cmp:'cmpView',find:'findView'};
+Object.keys(views).forEach(function(k){document.getElementById(views[k]).hidden=(k!==m);});
+document.querySelector('main').className=cmpMode?'wide':'';
+var bs=document.getElementById('modes').children;
+for(var k=0;k<bs.length;k++){bs[k].className=(bs[k].getAttribute('data-m')===m)?'on':'';}
+if(cmpMode&&D)renderCmp();
+if(m==='find'&&D)renderFind();
+}
+document.getElementById('modes').addEventListener('click',function(e){
+var b=e.target.closest('button[data-m]');if(b)setMode(b.getAttribute('data-m'));
+});
+window.addEventListener('resize',function(){if(cmpMode&&D)renderCmp();});
+
+document.getElementById('reset').addEventListener('click',function(){if(D)reset();});
+document.getElementById('pick').addEventListener('change',function(ev){
+var f=ev.target.files[0];if(!f)return;
+var r=new FileReader();
+r.onload=function(){try{begin(JSON.parse(r.result));}catch(err){fail('That file isn\'t valid JSON.');}};
+r.readAsText(f);
+});
+
+fetch(DATA_URL).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(begin).catch(function(){fail('Couldn\'t load the data file.');});
+})();
+</script>
+</body>
+</html>
