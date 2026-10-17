@@ -3,8 +3,9 @@
 Elements is an interactive explainer of North Carolina criminal offenses, built from each offense's legal elements. The page (`index.html`, formerly `elements.html`) reads everything from the data file (`elements-nc.json`). Keep both in one folder. Open through a local server (`python3 -m http.server`) for automatic loading, or use the "Choose file" button.
 
 ## Where the files live
-- Source of truth: the folder `Documents\Elements` on the owner's computer (version controlled in Positron) and the private GitHub repository bjsykes254/Elements. Copies in the Claude Writing project are older snapshots.
-- GitHub Pages is not turned on. Free Pages makes the site public, so it waits on verification and the venue decision.
+- Source of truth: the folder `Documents\Elements` on the owner's computer (version controlled in Positron) and the public GitHub repository bjsykes254/Elements. Copies in the Claude Writing project are older snapshots.
+- GitHub Pages is on: public beta at https://bjsykes254.github.io/Elements/ (live Oct 17). Pushing to main republishes in a minute or two.
+- Licenses: MIT for code (LICENSE); CC BY 4.0 for the data (LICENSE-DATA.md). The data file's meta carries a draft/reuse notice.
 
 ## Built
 - Data file (schema 0.5): 22 offenses in 4 families (homicide 4, burglary and breaking or entering 4, larceny 2, assault 12), plus elements, bubble flows, compare presets, and search aliases. Every record has a `jurisdiction` field.
@@ -40,7 +41,8 @@ Read in full through the School of Government website (PDFs open in a browser; t
 - Public explainer, not a charging or conviction tool. The proof standard (probable cause or beyond a reasonable doubt) does not change what the elements are, so the tool stays at the definition layer and says so.
 - Plain-language text is stored in each record and reviewed, never generated live.
 - Free source for checking elements: NC Pattern Jury Instructions, sog.unc.edu (criminal series list: .../north-carolina-pattern-jury-instructions-criminal-cases). The $200 SOG guidebook is not being bought. Instructions summarize the law; statute and cases win if they differ.
-- Nothing should be shown to anyone outside the household until verified.
+- Decided Oct 17: run a labeled public beta (family, friends, maybe coworkers) while records are still drafts, with the beta banner and scope safeguards. The owner decided the project does not interfere with his job and needs nothing from his employer.
+- Open license chosen (MIT code, CC BY 4.0 data) so others may reuse it for the public good. Credit and the draft notice travel with the data.
 - Publishing venue (personal vs. official) is undecided.
 
 ## Suggested next steps

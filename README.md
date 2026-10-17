@@ -47,6 +47,13 @@ Everything the page shows comes from the JSON file, so adding or fixing an offen
 
 Pattern jury instructions are a summary of the law written for judges. Where an instruction is older than the statute, the statute is followed.
 
+## License
+
+- The code (`index.html`) is under the MIT license. See `LICENSE`.
+- The data (`elements-nc.json`) is under CC BY 4.0, which asks for credit. See `LICENSE-DATA.md`.
+- The data is draft and unverified. If you reuse it, keep that notice with it and check the current statutes at ncleg.gov.
+- The statutes themselves are public law and are not claimed by either license.
+
 ## About
 
 A personal prototype. It is not an official publication of any government agency.
