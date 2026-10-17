@@ -6,7 +6,7 @@
     "jurisdiction": "NC",
     "jurisdiction_name": "North Carolina",
     "scope": "homicide; burglary and breaking or entering; larceny; assault (prototype)",
-    "statute_text_checked_on": "2026-10-15",
+    "statute_text_checked_on": "2026-10-17 (G.S. 14-17, 14-18, 14-23.2, 14-51, 14-52, 14-54, 14-72)",
     "schema_changes": [
       "0.2: felony_class replaced by class + grade (felony or misdemeanor), because property offenses include misdemeanors",
       "0.2: flows now carry a name and are selectable; the page no longer assumes one flow",
@@ -15,9 +15,12 @@
       "0.3: breaking_and_entering marked as implying breaking_or_entering, so compare mode can show one covers the other",
       "0.4: offenses may carry 'aliases' (everyday words) used by Find mode search",
       "0.5: offenses may carry 'cross_checks' (comparisons against outside sources such as pattern jury instructions; a cross-check is not verification). Homicide records corrected after reading N.C.P.I.-Crim. 206.15/206.41/206.50: voluntary manslaughter no longer requires intent to kill, proximate cause added as an element, 'culpable' negligence reworded to 'criminal' negligence. Build-mode questions reworded to describe an offense rather than an incident.",
-      "0.5 (Oct 17, second pass): cross_checks added for burglary, larceny and assault. Manslaughter flow rebuilt: the line between voluntary and involuntary is the kind of act (a deliberate felony-level or likely-deadly act done in passion or imperfect self-defense versus a lesser unlawful or criminally negligent act), not whether the act was on purpose. New element no_consent_of_owner on all burglary and breaking or entering records. Definitions in elements updated from the instructions' own wording."
+      "0.5 (Oct 17, second pass): cross_checks added for burglary, larceny and assault. Manslaughter flow rebuilt: the line between voluntary and involuntary is the kind of act (a deliberate felony-level or likely-deadly act done in passion or imperfect self-defense versus a lesser unlawful or criminally negligent act), not whether the act was on purpose. New element no_consent_of_owner on all burglary and breaking or entering records. Definitions in elements updated from the instructions' own wording.",
+      "0.5 (Oct 17, third pass): homicide statutes compared with full text. statutes[] entries may carry text_snapshot (whitespace-normalized section text), text_captured_on and text_sha256. review may carry statute_text_compared_on and comparison_note. definition_source for murder records changed from statute to mixed. Special rules added for G.S. 14-17(a1) detail, 14-17(c) born-alive, and the 14-23.2 exclusion.",
+      "0.5 (Oct 17, fourth pass): burglary and breaking or entering compared with full statute text. S.L. 2025-71 (effective Dec 1, 2025, offenses on or after that date) rewrote G.S. 14-51, added firearm enhancements to 14-52/14-54 and added 14-54(b1). The nighttime and not_nighttime elements and the nighttime question in the burglary flow were removed. The tool models current law; earlier offenses fall under earlier text.",
+      "0.5 (Oct 17, fifth pass): larceny compared with full text of G.S. 14-72. Felony-circumstance element rewritten as the complete statutory list. Mail enhancement (14-72(c1), S.L. 2025-71) noted."
     ],
-    "check_notes": "Homicide statutes were read as full text. The property statutes (14-51, 14-52, 14-54, 14-72) were read through a summarizing fetch, not word for word, so every property record needs a line-by-line check before it is marked verified. Text snapshots are still empty for all records. Assault statutes (14-32, 14-32.4, 14-33, 14-34) were also read through a summarizing fetch and need a line-by-line check. On 2026-10-17 the homicide records were compared with N.C.P.I.-Crim. 206.15, 206.41 and 206.50, read through a summarizing fetch tool. 206.00, 206.10, 206.13, 206.30 and 206.40 were not read in full. Heat of passion, imperfect self-defense and malice wording still need case-law review. No record is verified. Second pass on 2026-10-17: the School's website was read in a browser, so the instruction PDFs were read in full for 206.10, 206.30A, 206.40, 214.10, 214.34, 214.47, 216.05, 216.10, 216.20, 216.35, 120.20 and the assault instructions listed in each record's cross_checks. G.S. 14-33 was read in full for two disputed points. Pattern instructions are the judges' summary of the law; where one is older than the statute (208.14, 208.55) the statute is followed. Still not checked: the remaining statutes word for word, 206.00, 206.11-206.35 variants, 214.30/214.32, 208.25, and case law for malice-adjacent terms. No record is verified.",
+    "check_notes": "Homicide statutes were read as full text. The property statutes (14-51, 14-52, 14-54, 14-72) were read through a summarizing fetch, not word for word, so every property record needs a line-by-line check before it is marked verified. Text snapshots are still empty for all records. Assault statutes (14-32, 14-32.4, 14-33, 14-34) were also read through a summarizing fetch and need a line-by-line check. On 2026-10-17 the homicide records were compared with N.C.P.I.-Crim. 206.15, 206.41 and 206.50, read through a summarizing fetch tool. 206.00, 206.10, 206.13, 206.30 and 206.40 were not read in full. Heat of passion, imperfect self-defense and malice wording still need case-law review. No record is verified. Second pass on 2026-10-17: the School's website was read in a browser, so the instruction PDFs were read in full for 206.10, 206.30A, 206.40, 214.10, 214.34, 214.47, 216.05, 216.10, 216.20, 216.35, 120.20 and the assault instructions listed in each record's cross_checks. G.S. 14-33 was read in full for two disputed points. Pattern instructions are the judges' summary of the law; where one is older than the statute (208.14, 208.55) the statute is followed. Still not checked: the remaining statutes word for word, 206.00, 206.11-206.35 variants, 214.30/214.32, 208.25, and case law for malice-adjacent terms. No record is verified. On 2026-10-17 G.S. 14-17, 14-18 and 14-23.2 were read as full text in the browser and the four homicide records compared; text snapshots saved. Records stay draft until the owner signs off. On 2026-10-17 G.S. 14-51, 14-52 and 14-54 were read as full text and S.L. 2025-71 sections 4 and 10 were read. Not modeled: G.S. 14-53 (breaking out of a dwelling), 14-54(b1), and other breaking or entering statutes (14-54.1 and others). On 2026-10-17 G.S. 14-72 was read as full text. Not modeled: receiving or possessing stolen goods, larceny of mail as its own offense, larceny of gift cards (14-72.12), retail theft offenses, other larceny sections.",
     "license": {
       "data": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)",
       "code": "MIT (see LICENSE)",
@@ -133,7 +136,7 @@
     {
       "id": "inherently_dangerous_act",
       "name": "Inherently dangerous act (malice basis)",
-      "plain": "The malice rests on an act so dangerous and reckless it shows a mind utterly without regard for human life. This is what makes second-degree murder a lower class (B2 instead of B1).",
+      "plain": "The malice rests on an act or failure to act that is inherently dangerous and done so recklessly and wantonly that it shows a mind utterly without regard for human life and social duty, and deliberately bent on mischief. This is what makes second-degree murder a lower class (B2 instead of B1).",
       "source": "statute",
       "statute_cite": "G.S. 14-17(b)"
     },
@@ -198,10 +201,11 @@
       "name": "Breaking and entering",
       "plain": "The person both breaks in and goes inside. A breaking can be physical, or by threat of force, or by a trick that gets someone to open the way in. An entry can be with any part of the body or a tool the person controls.",
       "source": "case_law",
-      "note": "Burglary needs both. Definitions follow N.C.P.I.-Crim. 214.10, nn.1-2.",
+      "note": "The statute says 'break and enter'. Burglary needs both. Meanings of breaking and entering follow N.C.P.I.-Crim. 214.10, nn.1-2, which are case-law definitions.",
       "implies": [
         "breaking_or_entering"
-      ]
+      ],
+      "statute_cite": "G.S. 14-51"
     },
     {
       "id": "no_consent_of_owner",
@@ -221,41 +225,28 @@
     {
       "id": "dwelling_or_sleeping_room",
       "name": "A home or sleeping room",
-      "plain": "Someone's home, including other buildings used as part of it and close by (like a kitchen or smokehouse in the yard), or a room used for sleeping.",
+      "plain": "Someone else's home, including other buildings used as part of it and close by (like a kitchen or smokehouse in the yard), or a room used for sleeping.",
       "source": "statute",
       "statute_cite": "G.S. 14-51",
       "implies": [
         "building"
       ],
-      "note": "Reach of 'dwelling house' comes from State v. Green, cited in N.C.P.I.-Crim. 214.10, n.3."
+      "note": "The statute says 'dwelling house or room used as a sleeping apartment of another'. How far 'dwelling house' reaches comes from State v. Green, cited in N.C.P.I.-Crim. 214.10, n.3."
     },
     {
       "id": "building",
       "name": "A building",
-      "plain": "Includes homes, empty houses, buildings under construction, buildings next to a home, and other structures built to house or protect people, activities, or property.",
+      "plain": "Includes homes, empty houses, buildings under construction, buildings within the curtilage of a home (the yard area around it), and other structures designed to house or secure activities or property.",
       "source": "statute",
       "statute_cite": "G.S. 14-54(c)"
-    },
-    {
-      "id": "nighttime",
-      "name": "At night",
-      "plain": "It is so dark that a person's face couldn't be recognized except by artificial light or moonlight.",
-      "source": "case_law",
-      "note": "Definition the instruction offers when nighttime is in doubt (N.C.P.I.-Crim. 214.10, n.4). Common-law element of burglary."
-    },
-    {
-      "id": "not_nighttime",
-      "name": "Not at night",
-      "plain": "It happens during the day.",
-      "source": "case_law",
-      "negates": "nighttime"
     },
     {
       "id": "intent_felony_or_larceny",
       "name": "Intent to commit a felony or larceny inside",
       "plain": "When the person gets in, they plan to commit a serious crime (a felony) or to steal something inside.",
-      "source": "mixed",
-      "note": "N.C.P.I.-Crim. 214.10 says 'intent to commit a felony' and uses larceny as its example of a felony the judge must define. It doesn't use the phrase 'felony or larceny'. Check whether any larceny counts."
+      "source": "statute",
+      "note": "The statutes say 'intent to commit any felony or larceny'. Any larceny counts by those words. N.C.P.I.-Crim. 214.10 says 'felony' and treats larceny as an example.",
+      "statute_cite": "G.S. 14-51; G.S. 14-54(a)"
     },
     {
       "id": "no_felony_larceny_intent",
@@ -297,7 +288,7 @@
     {
       "id": "not_occupied_at_time",
       "name": "Nobody inside at the time",
-      "plain": "No one is actually inside while it happens.",
+      "plain": "No one is actually inside the home or sleeping room while it happens.",
       "source": "statute",
       "statute_cite": "G.S. 14-51(b)",
       "negates": "occupied_at_time"
@@ -312,9 +303,10 @@
     {
       "id": "larceny_felony_circumstance",
       "name": "A special circumstance that makes it a felony",
-      "plain": "Examples: taken from a person, a firearm or explosive, taken during a burglary or breaking or entering, or after several earlier larceny convictions.",
+      "plain": "The larceny falls into one of the situations the statute makes a felony whatever the value: taken from a person; taken as part of a burglary or breaking or entering offense (including breaking out of a home, breaking into a place of worship, and burglary with explosives); the property is an explosive or incendiary device or substance; the property is a firearm; the property is a record or paper in the custody of the State Archives; or the person has at least four earlier larceny convictions.",
       "source": "statute",
-      "statute_cite": "G.S. 14-72(b)"
+      "statute_cite": "G.S. 14-72(b)",
+      "note": "G.S. 14-72(b)(1)-(6). The statute's list is complete as written here. Counting the earlier convictions has rules: the person must have had a lawyer or waived one, and several convictions in one court session or week count once unless the offenses were in different counties. Fireworks and ordinary fuels such as gasoline and natural gas don't count as explosive or incendiary substances; air rifles and air pistols don't count as firearms."
     },
     {
       "id": "no_special_circumstance",
@@ -327,7 +319,7 @@
     {
       "id": "value_over_1000",
       "name": "Property worth more than $1,000",
-      "plain": "The stolen property is worth more than $1,000. If the value is unclear, the jury decides it.",
+      "plain": "The stolen property is worth more than $1,000. If the value is in doubt, the jury sets it in its verdict.",
       "source": "statute",
       "statute_cite": "G.S. 14-72(a)"
     },
@@ -573,14 +565,16 @@
       "category": "homicide",
       "class": "A",
       "grade": "felony",
-      "punishment_note": "Death or life imprisonment without parole. Separate sentencing rules apply if the person was under 18 at the time.",
-      "definition_source": "statute",
+      "punishment_note": "Death or life imprisonment without parole, as the court decides under the sentencing procedure in G.S. 15A-2000. Separate sentencing rules apply if the person was under 18 at the time.",
+      "definition_source": "mixed",
       "statutes": [
         {
           "cite": "G.S. 14-17(a)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-17.html",
           "last_session_law_seen": "2023-123, s. 2(a)",
-          "text_snapshot": null
+          "text_snapshot": "§ 14-17. Murder in the first and second degree defined; punishment. (a) A murder which shall be perpetrated by means of a nuclear, biological, or chemical weapon of mass destruction as defined in G.S. 14-288.21, poison, lying in wait, imprisonment, starving, torture, or by any other kind of willful, deliberate, and premeditated killing, or which shall be committed in the perpetration or attempted perpetration of any arson, rape or a sex offense, robbery, kidnapping, burglary, or other felony committed or attempted with the use of a deadly weapon shall be deemed to be murder in the first degree, a Class A felony, and any person who commits such murder shall be punished with death or imprisonment in the State's prison for life without parole as the court shall determine pursuant to G.S. 15A-2000, except that any such person who was under 18 years of age at the time of the murder shall be punished in accordance with Part 2A of Article 81B of Chapter 15A of the General Statutes. (a1) If a murder was perpetrated with malice as described in subsection (b) of this section, and committed against a spouse, former spouse, a person with whom the defendant lives or has lived as if married, a person with whom the defendant is or has been in a dating relationship as defined in G.S. 50B-1(b)(6), or a person with whom the defendant shares a child in common, there shall be a rebuttable presumption that the murder is a \"willful, deliberate, and premeditated killing\" under subsection (a) of this section and shall be deemed to be murder in the first degree, a Class A felony, if the perpetrator has previously been convicted of one of the following offenses involving the same victim: (1) An act of domestic violence as defined in G.S. 50B-1(a). (2) A violation of a domestic violence protective order under G.S. 50B-4.1(a), (f), (g), or (g1) or G.S. 14-269.8 when the same victim is the subject of the domestic violence protective order. (3) Communicating a threat under G.S. 14-277.1. (4) Stalking as defined in G.S. 14-277.3A. (5) Cyberstalking as defined in G.S. 14-196.3. (6) Domestic criminal trespass as defined in G.S. 14-134.3. (b) A murder other than described in subsection (a) or (a1) of this section or in G.S. 14-23.2 shall be deemed second degree murder. Any person who commits second degree murder shall be punished as a Class B1 felon, except that a person who commits second degree murder shall be punished as a Class B2 felon if the malice necessary to prove second degree murder is based on an inherently dangerous act or omission, done in such a reckless and wanton manner as to manifest a mind utterly without regard for human life and social duty and deliberately bent on mischief. (c) For the purposes of this section, it shall constitute murder where a child is born alive but (i) dies as a result of injuries inflicted prior to the child being born alive or (ii) dies as a result of an intentional, overt act performed after the child is born alive. The degree of murder shall be determined as described in subsections (a) and (b) of this section. (1893, cc. 85, 281; Rev., s. 3631; C.S., s. 4200; 1949, c. 299, s. 1; 1973, c. 1201, s. 1; 1977, c. 406, s. 1; 1979, c. 682, s. 6; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1251, ss. 1, 2; c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; c. 662, s. 1; 1987, c. 693; 1989, c. 694; 1993, c. 539, s. 112; 1994, Ex. Sess., c. 21, s. 1; c. 22, s. 4; c. 24, s. 14(c); 2001-470, s. 2; 2004-178, s. 1; 2007-81, s. 1; 2012-165, s. 1; 2013-47, s. 2; 2013-410, s. 3(a); 2017-94, s. 1; 2017-115, s. 9; 2023-14, s. 3(b); 2023-123, s. 2(a).)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "a87e30adb47dedf33b25b8dc97ebc8bfd98794472fb55cb80eecad6e855adc77"
         }
       ],
       "elements": {
@@ -611,14 +605,18 @@
         ]
       },
       "special_rules": [
-        "G.S. 14-17(a1): a rebuttable presumption of premeditation can apply when the murder is of a current or former partner or similar relationship and the person has certain prior convictions involving the same victim.",
-        "Felony-murder route: the person must have committed or tried to commit the underlying felony and meant to commit it. Malice and intent to kill aren't separate requirements on this route (N.C.P.I.-Crim. 206.15, as summarized)."
+        "G.S. 14-17(a1): if the murder was committed with malice against a spouse, former spouse, someone the person lives or lived with as if married, someone the person is or was in a dating relationship with, or someone the person shares a child with, and the person has an earlier conviction involving the same victim for domestic violence, violating a domestic violence protective order, communicating a threat, stalking, cyberstalking, or domestic criminal trespass, the law presumes the killing was willful, deliberate and premeditated. The presumption can be rebutted. If it holds, the murder is first-degree.",
+        "Felony-murder route: the person must have committed or tried to commit the underlying felony and meant to commit it. Malice and intent to kill aren't separate requirements on this route (N.C.P.I.-Crim. 206.15, as summarized).",
+        "G.S. 14-17(c): a child born alive who dies from injuries inflicted before birth, or from an intentional, overt act after birth, can be the victim of murder. The degree is decided by the same rules.",
+        "Killing an unborn child is a separate offense under G.S. 14-23.2. It isn't covered in this tool yet."
       ],
       "explain_like_5": "Someone caused another person's death on purpose after planning it, or while doing another very serious crime. This is the most serious kind of murder.",
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-17(a), (a1), (c). Means, listed felonies, class, punishment and under-18 rule match. Malice and premeditation/deliberation meanings come from case law and the pattern jury instructions, not from the statute."
       },
       "aliases": [
         "murder",
@@ -651,13 +649,15 @@
       "class": "B1 or B2",
       "grade": "felony",
       "punishment_note": "Class B1 felony; Class B2 felony in the inherently dangerous act form.",
-      "definition_source": "statute",
+      "definition_source": "mixed",
       "statutes": [
         {
           "cite": "G.S. 14-17(b)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-17.html",
           "last_session_law_seen": "2023-123, s. 2(a)",
-          "text_snapshot": null
+          "text_snapshot": "§ 14-17. Murder in the first and second degree defined; punishment. (a) A murder which shall be perpetrated by means of a nuclear, biological, or chemical weapon of mass destruction as defined in G.S. 14-288.21, poison, lying in wait, imprisonment, starving, torture, or by any other kind of willful, deliberate, and premeditated killing, or which shall be committed in the perpetration or attempted perpetration of any arson, rape or a sex offense, robbery, kidnapping, burglary, or other felony committed or attempted with the use of a deadly weapon shall be deemed to be murder in the first degree, a Class A felony, and any person who commits such murder shall be punished with death or imprisonment in the State's prison for life without parole as the court shall determine pursuant to G.S. 15A-2000, except that any such person who was under 18 years of age at the time of the murder shall be punished in accordance with Part 2A of Article 81B of Chapter 15A of the General Statutes. (a1) If a murder was perpetrated with malice as described in subsection (b) of this section, and committed against a spouse, former spouse, a person with whom the defendant lives or has lived as if married, a person with whom the defendant is or has been in a dating relationship as defined in G.S. 50B-1(b)(6), or a person with whom the defendant shares a child in common, there shall be a rebuttable presumption that the murder is a \"willful, deliberate, and premeditated killing\" under subsection (a) of this section and shall be deemed to be murder in the first degree, a Class A felony, if the perpetrator has previously been convicted of one of the following offenses involving the same victim: (1) An act of domestic violence as defined in G.S. 50B-1(a). (2) A violation of a domestic violence protective order under G.S. 50B-4.1(a), (f), (g), or (g1) or G.S. 14-269.8 when the same victim is the subject of the domestic violence protective order. (3) Communicating a threat under G.S. 14-277.1. (4) Stalking as defined in G.S. 14-277.3A. (5) Cyberstalking as defined in G.S. 14-196.3. (6) Domestic criminal trespass as defined in G.S. 14-134.3. (b) A murder other than described in subsection (a) or (a1) of this section or in G.S. 14-23.2 shall be deemed second degree murder. Any person who commits second degree murder shall be punished as a Class B1 felon, except that a person who commits second degree murder shall be punished as a Class B2 felon if the malice necessary to prove second degree murder is based on an inherently dangerous act or omission, done in such a reckless and wanton manner as to manifest a mind utterly without regard for human life and social duty and deliberately bent on mischief. (c) For the purposes of this section, it shall constitute murder where a child is born alive but (i) dies as a result of injuries inflicted prior to the child being born alive or (ii) dies as a result of an intentional, overt act performed after the child is born alive. The degree of murder shall be determined as described in subsections (a) and (b) of this section. (1893, cc. 85, 281; Rev., s. 3631; C.S., s. 4200; 1949, c. 299, s. 1; 1973, c. 1201, s. 1; 1977, c. 406, s. 1; 1979, c. 682, s. 6; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1251, ss. 1, 2; c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; c. 662, s. 1; 1987, c. 693; 1989, c. 694; 1993, c. 539, s. 112; 1994, Ex. Sess., c. 21, s. 1; c. 22, s. 4; c. 24, s. 14(c); 2001-470, s. 2; 2004-178, s. 1; 2007-81, s. 1; 2012-165, s. 1; 2013-47, s. 2; 2013-410, s. 3(a); 2017-94, s. 1; 2017-115, s. 9; 2023-14, s. 3(b); 2023-123, s. 2(a).)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "a87e30adb47dedf33b25b8dc97ebc8bfd98794472fb55cb80eecad6e855adc77"
         }
       ],
       "elements": {
@@ -672,12 +672,17 @@
           "inherently_dangerous_act"
         ]
       },
-      "special_rules": [],
+      "special_rules": [
+        "G.S. 14-17(c): a child born alive who dies from injuries inflicted before birth, or from an intentional, overt act after birth, can be the victim of murder. The degree is decided by the same rules.",
+        "Second-degree murder is defined by exclusion: a murder that isn't first-degree under 14-17(a) or (a1), and isn't murder of an unborn child under G.S. 14-23.2 (14-17(b)). The statute doesn't define malice; the meaning comes from court decisions."
+      ],
       "explain_like_5": "Someone caused another person's death and meant to hurt them badly, or acted with no care at all for human life, but didn't plan it ahead of time.",
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-17(b), (c). Class B1/B2 and the B2 condition match after adding 'or omission' and the 'social duty and deliberately bent on mischief' wording. 14-23.2 exclusion added as a note."
       },
       "aliases": [
         "murder",
@@ -707,7 +712,9 @@
           "cite": "G.S. 14-18 (punishment only)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-18.html",
           "last_session_law_seen": "1997-443, s. 19.25(q)",
-          "text_snapshot": null
+          "text_snapshot": "§ 14-18. Punishment for manslaughter. Voluntary manslaughter shall be punishable as a Class D felony, and involuntary manslaughter shall be punishable as a Class F felony. (4 Hen. VII, s. 13; 1816, c. 918, P.R.; R.C., c. 34, s. 24; 1879, c. 255; Code, s. 1055; Rev., s. 3632; C.S., s. 4201; 1933, c. 249; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; 1993, c. 539, s. 112; 1994, Ex. Sess., c. 24, s. 14(c); 1997-443, s. 19.25(q).)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "2725f9e11dbb1cfe480825f38fb849b0d9ba3ee44d6debf601ea82bbfca3d3ad"
         }
       ],
       "elements": {
@@ -740,7 +747,9 @@
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "G.S. 14-18 sets punishment only (voluntary Class D, involuntary Class F) and matches. The statute doesn't define the offense, so the elements rest on case law and N.C.P.I.-Crim. 206 and cannot be verified against statute text."
       },
       "aliases": [
         "manslaughter",
@@ -785,7 +794,9 @@
           "cite": "G.S. 14-18 (punishment only)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-18.html",
           "last_session_law_seen": "1997-443, s. 19.25(q)",
-          "text_snapshot": null
+          "text_snapshot": "§ 14-18. Punishment for manslaughter. Voluntary manslaughter shall be punishable as a Class D felony, and involuntary manslaughter shall be punishable as a Class F felony. (4 Hen. VII, s. 13; 1816, c. 918, P.R.; R.C., c. 34, s. 24; 1879, c. 255; Code, s. 1055; Rev., s. 3632; C.S., s. 4201; 1933, c. 249; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; 1993, c. 539, s. 112; 1994, Ex. Sess., c. 24, s. 14(c); 1997-443, s. 19.25(q).)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "2725f9e11dbb1cfe480825f38fb849b0d9ba3ee44d6debf601ea82bbfca3d3ad"
         }
       ],
       "elements": {
@@ -806,7 +817,9 @@
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "G.S. 14-18 sets punishment only (voluntary Class D, involuntary Class F) and matches. The statute doesn't define the offense, so the elements rest on case law and N.C.P.I.-Crim. 206 and cannot be verified against statute text."
       },
       "aliases": [
         "manslaughter",
@@ -838,27 +851,30 @@
       "category": "burglary_be",
       "class": "D",
       "grade": "felony",
-      "punishment_note": "Class D felony. Having a firearm on the person during the offense raises the class by one (G.S. 14-52(b)).",
+      "punishment_note": "Class D felony. If the person had a firearm on their person during the offense, the sentence is one class higher (G.S. 14-52(b); offenses on or after Dec 1, 2025).",
       "definition_source": "mixed",
       "statutes": [
         {
           "cite": "G.S. 14-51(a)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-51.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2025-71, s. 10(a)",
+          "text_snapshot": "§ 14-51. First and second degree burglary. (a) Burglary in the First Degree. - Any person who shall break and enter the dwelling house or room used as a sleeping apartment of another with the intent to commit any felony or larceny therein and any person is in the actual occupation of any part of said dwelling house or sleeping apartment at the time of the commission of such crime, it shall be burglary in the first degree. (b) Burglary in the Second Degree. - Any person who shall break and enter the dwelling house or room used as a sleeping apartment of another with the intent to commit any felony or larceny therein and the property was not actually occupied at the time of the commission of the crime, it shall be burglary in the second degree. (1889, c. 434, s. 1; Rev., s. 3331; C.S., s. 4232; 1969, c. 543, s. 1; 2025-71, s. 10(a).)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "c4291ada6c15903ada3622162ce2cf100dcc3c5008d22c9d316ea022328a7154"
         },
         {
           "cite": "G.S. 14-52",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-52.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2025-71, s. 10(b)",
+          "text_snapshot": "§ 14-52. Punishment for burglary. (a) Punishment. - Burglary in the first degree shall be punishable as a Class D felony, and burglary in the second degree shall be punishable as a Class G felony. (b) Enhancement. - If a person possessed a firearm about his or her person during the commission of an offense under G.S. 14-51, in addition to any other sentence enhancement required by law, the person shall be sentenced at a felony class level one class higher than the principal felony for which the person was convicted. An indictment or information for the felony shall allege in that indictment or information the facts that qualify the offense for an enhancement under this subsection. One pleading is sufficient for all felonies that are tried at a single trial. (1870-1, c. 222; Code, s. 994; 1889, c. 434, s. 2; Rev., s. 3330; C.S., s. 4233; 1941, c. 215, s. 1; 1949, c. 299, s. 2; 1973, c. 1201, s. 3; 1977, c. 871, s. 2; 1979, c. 672; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; 1993, c. 539, s. 1151; 1994, Ex. Sess., c. 24, s. 14(c); 2025-71, s. 10(b).)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "fd2baf12b30b21c4d4f4b1114996b300beb342363d7bf6f576b5b2c015858dfa"
         }
       ],
       "elements": {
         "all_of": [
           "breaking_and_entering",
           "dwelling_or_sleeping_room",
-          "nighttime",
           "intent_felony_or_larceny",
           "occupied_at_time",
           "no_consent_of_owner"
@@ -866,13 +882,16 @@
         "any_of_routes": []
       },
       "special_rules": [
-        "G.S. 14-51 defines burglary as it was defined at common law, so the breaking and entering, nighttime, and intent elements come from court decisions rather than the statute's own words."
+        "Law changed Dec 1, 2025. S.L. 2025-71, s. 10(a) rewrote G.S. 14-51. The old text said burglary was 'as defined at the common law'; the new text spells out the offense and doesn't mention nighttime. This record follows the current text and applies to offenses committed on or after Dec 1, 2025. For earlier offenses the old law applies, and N.C.P.I.-Crim. 214.10 (dated 2011) lists a nighttime element.",
+        "The statute says 'any person is in the actual occupation of any part of' the home or sleeping room. That is what separates first-degree from second-degree burglary."
       ],
-      "explain_like_5": "Someone broke into and went inside a home at night, planning to commit a serious crime or steal, while a person was inside.",
+      "explain_like_5": "Someone broke into and went inside someone else's home, planning to commit a serious crime or steal, while a person was inside.",
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-51(a) and 14-52 as amended by S.L. 2025-71 (effective Dec 1, 2025). Removed the nighttime element, made the home 'of another', corrected the class-enhancement wording. N.C.P.I.-Crim. 214.10 (2011) predates the rewrite."
       },
       "aliases": [
         "burglary",
@@ -886,7 +905,7 @@
           "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/214.10%20First%20Degree%20Burglary%20Covering%20Second%20Degree%20Burglary%2C%20Felonious%20Breaking%20Or%20Entering%20And%20Nonfelonious%20Breaking...%20%5B2011%5D.pdf",
           "checked_on": "2026-10-17",
           "method": "text of the PDF read in full",
-          "note": "Elements match, and no consent was missing and has been added."
+          "note": "Elements match, and no consent was missing and has been added. Instruction is dated 2011 and predates S.L. 2025-71, which rewrote G.S. 14-51 effective Dec 1, 2025; where they differ the statute is followed."
         }
       ]
     },
@@ -897,27 +916,30 @@
       "category": "burglary_be",
       "class": "G",
       "grade": "felony",
-      "punishment_note": "Class G felony. Having a firearm on the person during the offense raises the class by one (G.S. 14-52(b)).",
+      "punishment_note": "Class G felony. If the person had a firearm on their person during the offense, the sentence is one class higher (G.S. 14-52(b); offenses on or after Dec 1, 2025).",
       "definition_source": "mixed",
       "statutes": [
         {
           "cite": "G.S. 14-51(b)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-51.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2025-71, s. 10(a)",
+          "text_snapshot": "§ 14-51. First and second degree burglary. (a) Burglary in the First Degree. - Any person who shall break and enter the dwelling house or room used as a sleeping apartment of another with the intent to commit any felony or larceny therein and any person is in the actual occupation of any part of said dwelling house or sleeping apartment at the time of the commission of such crime, it shall be burglary in the first degree. (b) Burglary in the Second Degree. - Any person who shall break and enter the dwelling house or room used as a sleeping apartment of another with the intent to commit any felony or larceny therein and the property was not actually occupied at the time of the commission of the crime, it shall be burglary in the second degree. (1889, c. 434, s. 1; Rev., s. 3331; C.S., s. 4232; 1969, c. 543, s. 1; 2025-71, s. 10(a).)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "c4291ada6c15903ada3622162ce2cf100dcc3c5008d22c9d316ea022328a7154"
         },
         {
           "cite": "G.S. 14-52",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-52.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2025-71, s. 10(b)",
+          "text_snapshot": "§ 14-52. Punishment for burglary. (a) Punishment. - Burglary in the first degree shall be punishable as a Class D felony, and burglary in the second degree shall be punishable as a Class G felony. (b) Enhancement. - If a person possessed a firearm about his or her person during the commission of an offense under G.S. 14-51, in addition to any other sentence enhancement required by law, the person shall be sentenced at a felony class level one class higher than the principal felony for which the person was convicted. An indictment or information for the felony shall allege in that indictment or information the facts that qualify the offense for an enhancement under this subsection. One pleading is sufficient for all felonies that are tried at a single trial. (1870-1, c. 222; Code, s. 994; 1889, c. 434, s. 2; Rev., s. 3330; C.S., s. 4233; 1941, c. 215, s. 1; 1949, c. 299, s. 2; 1973, c. 1201, s. 3; 1977, c. 871, s. 2; 1979, c. 672; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; 1993, c. 539, s. 1151; 1994, Ex. Sess., c. 24, s. 14(c); 2025-71, s. 10(b).)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "fd2baf12b30b21c4d4f4b1114996b300beb342363d7bf6f576b5b2c015858dfa"
         }
       ],
       "elements": {
         "all_of": [
           "breaking_and_entering",
           "dwelling_or_sleeping_room",
-          "nighttime",
           "intent_felony_or_larceny",
           "not_occupied_at_time",
           "no_consent_of_owner"
@@ -925,13 +947,16 @@
         "any_of_routes": []
       },
       "special_rules": [
-        "Second-degree burglary needs no one inside. It also reaches a house within the curtilage of a dwelling, and a building in which a room is used as a sleeping apartment (N.C.P.I.-Crim. 214.10)."
+        "Law changed Dec 1, 2025. S.L. 2025-71, s. 10(a) rewrote G.S. 14-51. The old text said burglary was 'as defined at the common law'; the new text spells out the offense and doesn't mention nighttime. This record follows the current text and applies to offenses committed on or after Dec 1, 2025. For earlier offenses the old law applies, and N.C.P.I.-Crim. 214.10 (dated 2011) lists a nighttime element.",
+        "Second-degree burglary needs no one actually inside. The old text also reached a house within the curtilage of a dwelling and a building that isn't a dwelling but has a sleeping room; the current text of 14-51(b) names only the dwelling house or sleeping room 'of another'."
       ],
       "explain_like_5": "The same as first-degree burglary, except nobody was inside when it happened.",
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-51(b) and 14-52. Removed nighttime; dropped the curtilage/sleeping-room-in-another-building reach, which the current text doesn't name."
       },
       "aliases": [
         "burglary",
@@ -943,7 +968,7 @@
           "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/214.10%20First%20Degree%20Burglary%20Covering%20Second%20Degree%20Burglary%2C%20Felonious%20Breaking%20Or%20Entering%20And%20Nonfelonious%20Breaking...%20%5B2011%5D.pdf",
           "checked_on": "2026-10-17",
           "method": "text of the PDF read in full",
-          "note": "Matches. 'Not occupied' is how it differs from first-degree."
+          "note": "Matches. 'Not occupied' is how it differs from first-degree. Instruction is dated 2011 and predates S.L. 2025-71, which rewrote G.S. 14-51 effective Dec 1, 2025; where they differ the statute is followed."
         }
       ]
     },
@@ -954,14 +979,16 @@
       "category": "burglary_be",
       "class": "H",
       "grade": "felony",
-      "punishment_note": "Class H felony. Having a firearm on the person during the offense raises the class by one (G.S. 14-54(b2)).",
+      "punishment_note": "Class H felony. If the person had a firearm on their person during the offense, the sentence is one class higher (G.S. 14-54(b2); offenses on or after Dec 1, 2025).",
       "definition_source": "statute",
       "statutes": [
         {
           "cite": "G.S. 14-54(a), (a1)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-54.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2025-71, ss. 4(a), 10(d)",
+          "text_snapshot": "§ 14-54. Breaking or entering buildings generally. (a) Offense with Intent to Commit Felony or Larceny; Punishment. - Any person who breaks or enters any building with intent to commit any felony or larceny therein shall be punished as a Class H felon. (a1) Offense with Intent to Terrorize or Injure; Punishment. - Any person who breaks or enters any building with intent to terrorize or injure an occupant of the building is guilty of a Class H felony. (b) Offense Generally; Punishment. - Any person who wrongfully breaks or enters any building is guilty of a Class 1 misdemeanor. (b1) Offense Involving Unlawful Business Entry. - Any person who, with the intent to commit an unlawful act, enters any area of a building (i) that is commonly reserved for personnel of a commercial business where money or other property is kept or (ii) clearly marked with a sign that indicates to the public that entry is forbidden is guilty of a Class 1 misdemeanor for a first offense and a Class I felony for a second or subsequent offense. (b2) Enhancement. - If a person possessed a firearm about his or her person during the commission of an offense under this section, in addition to any other sentence enhancement required by law, the person shall be sentenced at a class level one class higher than the principal offense for which the person was convicted. An indictment or information for the offense shall allege in that indictment or information the facts that qualify the offense for an enhancement under this subsection. One pleading is sufficient for all offenses that are tried at a single trial. (c) Definition. - As used in this section, \"building\" shall be construed to include any dwelling, dwelling house, uninhabited house, building under construction, building within the curtilage of a dwelling house, and any other structure designed to house or secure within it any activity or property. (1874-5, c. 166; 1879, c. 323; Code, s. 996; Rev., s. 3333; C.S., s. 4235; 1955, c. 1015; 1969, c. 543, s. 3; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; 1993, c. 539, s. 26; 1994, Ex. Sess., c. 24, s. 14(c); 2013-95, s. 1; 2025-71, ss. 4(a), 10(d).)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "90b8b598fae0079ab3171c05a66a361df83851041b149b495786b291394b2253"
         }
       ],
       "elements": {
@@ -986,13 +1013,16 @@
         ]
       },
       "special_rules": [
-        "A daytime break-in of a home with intent to commit a felony or larceny lands here, not in burglary, because burglary requires nighttime."
+        "A break-in of a home with intent to commit a felony or larceny can fit both burglary (G.S. 14-51) and felonious breaking or entering (14-54(a)). Burglary needs both a breaking and an entering of a home or sleeping room 'of another'; felonious breaking or entering needs only a breaking or an entering, of any building.",
+        "Before Dec 1, 2025, a daytime break-in of a home landed here instead of burglary, because burglary required nighttime. S.L. 2025-71 removed that distinction from the statute's text."
       ],
       "explain_like_5": "Someone broke into or went into a building planning to steal or commit another crime inside, or to scare or hurt someone there.",
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-54(a), (a1), (b2), (c). Class H and elements match. Special rule about daytime break-ins rewritten for the Dec 1, 2025 change to burglary."
       },
       "aliases": [
         "break-in",
@@ -1005,7 +1035,7 @@
           "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/214.10%20First%20Degree%20Burglary%20Covering%20Second%20Degree%20Burglary%2C%20Felonious%20Breaking%20Or%20Entering%20And%20Nonfelonious%20Breaking...%20%5B2011%5D.pdf",
           "checked_on": "2026-10-17",
           "method": "text of the PDF read in full",
-          "note": "Matches, with no consent added."
+          "note": "Matches, with no consent added. Instruction is dated 2011 and predates S.L. 2025-71, which rewrote G.S. 14-51 effective Dec 1, 2025; where they differ the statute is followed."
         },
         {
           "label": "N.C.P.I.-Crim. 214.47, felonious breaking or entering with intent to injure or terrorize",
@@ -1023,14 +1053,16 @@
       "category": "burglary_be",
       "class": "1",
       "grade": "misdemeanor",
-      "punishment_note": "Class 1 misdemeanor.",
+      "punishment_note": "Class 1 misdemeanor. If the person had a firearm on their person during the offense, the sentence is one class higher (G.S. 14-54(b2); offenses on or after Dec 1, 2025).",
       "definition_source": "statute",
       "statutes": [
         {
           "cite": "G.S. 14-54(b)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-54.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2025-71, ss. 4(a), 10(d)",
+          "text_snapshot": "§ 14-54. Breaking or entering buildings generally. (a) Offense with Intent to Commit Felony or Larceny; Punishment. - Any person who breaks or enters any building with intent to commit any felony or larceny therein shall be punished as a Class H felon. (a1) Offense with Intent to Terrorize or Injure; Punishment. - Any person who breaks or enters any building with intent to terrorize or injure an occupant of the building is guilty of a Class H felony. (b) Offense Generally; Punishment. - Any person who wrongfully breaks or enters any building is guilty of a Class 1 misdemeanor. (b1) Offense Involving Unlawful Business Entry. - Any person who, with the intent to commit an unlawful act, enters any area of a building (i) that is commonly reserved for personnel of a commercial business where money or other property is kept or (ii) clearly marked with a sign that indicates to the public that entry is forbidden is guilty of a Class 1 misdemeanor for a first offense and a Class I felony for a second or subsequent offense. (b2) Enhancement. - If a person possessed a firearm about his or her person during the commission of an offense under this section, in addition to any other sentence enhancement required by law, the person shall be sentenced at a class level one class higher than the principal offense for which the person was convicted. An indictment or information for the offense shall allege in that indictment or information the facts that qualify the offense for an enhancement under this subsection. One pleading is sufficient for all offenses that are tried at a single trial. (c) Definition. - As used in this section, \"building\" shall be construed to include any dwelling, dwelling house, uninhabited house, building under construction, building within the curtilage of a dwelling house, and any other structure designed to house or secure within it any activity or property. (1874-5, c. 166; 1879, c. 323; Code, s. 996; Rev., s. 3333; C.S., s. 4235; 1955, c. 1015; 1969, c. 543, s. 3; 1979, c. 760, s. 5; 1979, 2nd Sess., c. 1316, s. 47; 1981, c. 63, s. 1; c. 179, s. 14; 1993, c. 539, s. 26; 1994, Ex. Sess., c. 24, s. 14(c); 2013-95, s. 1; 2025-71, ss. 4(a), 10(d).)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "90b8b598fae0079ab3171c05a66a361df83851041b149b495786b291394b2253"
         }
       ],
       "elements": {
@@ -1043,13 +1075,16 @@
         "any_of_routes": []
       },
       "special_rules": [
-        "G.S. 14-54(b1) separately covers unlawful business entry into restricted commercial areas; not modeled yet."
+        "G.S. 14-54(b1), added by S.L. 2025-71 (offenses on or after Dec 1, 2025), separately covers entering a back-of-store area or a marked 'no entry' area with intent to commit an unlawful act: Class 1 misdemeanor, Class I felony for a second or later offense. Not modeled yet.",
+        "A firearm on the person raises the class by one (G.S. 14-54(b2))."
       ],
       "explain_like_5": "Someone broke into or went into a building without permission, without a plan to steal or hurt anyone.",
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-54(b), (b1), (b2). Class 1 matches. (b1) note updated with the Class I felony for repeat offenses."
       },
       "aliases": [
         "break-in",
@@ -1073,14 +1108,16 @@
       "category": "larceny",
       "class": "H",
       "grade": "felony",
-      "punishment_note": "Class H felony.",
+      "punishment_note": "Class H felony (14-72(a)). If the larceny is of mail, one class level higher (14-72(c1)).",
       "definition_source": "mixed",
       "statutes": [
         {
           "cite": "G.S. 14-72(a), (b)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-72.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2025-71, s. 9(a)",
+          "text_snapshot": "§ 14-72. Larceny of property; receiving stolen goods or possessing stolen goods. (a) Larceny of goods of the value of more than one thousand dollars ($1,000) is a Class H felony. The receiving or possessing of stolen goods of the value of more than one thousand dollars ($1,000) while knowing or having reasonable grounds to believe that the goods are stolen is a Class H felony. Larceny as provided in subsection (b) of this section is a Class H felony. Receiving or possession of stolen goods as provided in subsection (c) of this section is a Class H felony. Except as provided in subsections (b) and (c) of this section, larceny of property, or the receiving or possession of stolen goods knowing or having reasonable grounds to believe them to be stolen, where the value of the property or goods is not more than one thousand dollars ($1,000), is a Class 1 misdemeanor. In all cases of doubt, the jury shall, in the verdict, fix the value of the property stolen. (b) The crime of larceny is a felony, without regard to the value of the property in question, if the larceny is any of the following: (1) From the person. (2) Committed pursuant to a violation of G.S. 14-51, 14-53, 14-54, 14-54.1, or 14-57. (3) Of any explosive or incendiary device or substance. As used in this section, the phrase \"explosive or incendiary device or substance\" shall include any explosive or incendiary grenade or bomb; any dynamite, blasting powder, nitroglycerin, TNT, or other high explosive; or any device, ingredient for such device, or type or quantity of substance primarily useful for large-scale destruction of property by explosive or incendiary action or lethal injury to persons by explosive or incendiary action. This definition shall not include fireworks; or any form, type, or quantity of gasoline, butane gas, natural gas, or any other substance having explosive or incendiary properties but serving a legitimate nondestructive or nonlethal use in the form, type, or quantity stolen. (4) Of any firearm. As used in this section, the term \"firearm\" shall include any instrument used in the propulsion of a shot, shell or bullet by the action of gunpowder or any other explosive substance within it. A \"firearm,\" which at the time of theft is not capable of being fired, shall be included within this definition if it can be made to work. This definition shall not include air rifles or air pistols. (5) Of any record or paper in the custody of the North Carolina State Archives as defined by G.S. 121-2(7) and G.S. 121-2(8). (6) Committed after the defendant has been convicted in this State or in another jurisdiction for any offense of larceny under this section, or any offense deemed or punishable as larceny under this section, or of any substantially similar offense in any other jurisdiction, regardless of whether the prior convictions were misdemeanors, felonies, or a combination thereof, at least four times. A conviction shall not be included in the four prior convictions required under this subdivision unless the defendant was represented by counsel or waived counsel at first appearance or otherwise prior to trial or plea. If a person is convicted of more than one offense of misdemeanor larceny in a single session of district court, or in a single week of superior court or of a court in another jurisdiction, only one of the convictions may be used as a prior conviction under this subdivision; except that convictions based upon offenses which occurred in separate counties shall each count as a separate prior conviction under this subdivision. (c) The crime of possessing stolen goods knowing or having reasonable grounds to believe them to be stolen in the circumstances described in subsection (b) is a felony or the crime of receiving stolen goods knowing or having reasonable grounds to believe them to be stolen in the circumstances described in subsection (b) is a felony, without regard to the value of the property in question. (c1) Notwithstanding the provision of subsection (a) of this section, where the larceny or receiving or possession of stolen goods is of mail, the person shall be sentenced at one class level higher than the principal offense for which the person was convicted. For the purposes of this section, the term \"mail\" means a letter, package, bag, or other item of value sent or delivered to another by any method of delivery, including through a common carrier, commercial delivery service, or private delivery. (d) Where the larceny or receiving or possession of stolen goods as described in subsection (a) of this section involves the merchandise of any store, a merchant, a merchant's agent, a merchant's employee, or a peace officer who detains or causes the arrest of any person shall not be held civilly liable for detention, malicious prosecution, false imprisonment, or false arrest of the person detained or arrested, when such detention is upon the premises of the store or in a reasonable proximity thereto, is in a reasonable manner for a reasonable length of time, and, if in detaining or in causing the arrest of such person, the merchant, the merchant's agent, the merchant's employee, or the peace officer had, at the time of the detention or arrest, probable cause to believe that the person committed an offense under subsection (a) of this section. If the person being detained by the merchant, the merchant's agent, or the merchant's employee, is a minor under the age of 18 years, the merchant, the merchant's agent, or the merchant's employee, shall call or notify, or make a reasonable effort to call or notify the parent or guardian of the minor, during the period of detention. A merchant, a merchant's agent, or a merchant's employee, who makes a reasonable effort to call or notify the parent or guardian of the minor shall not be held civilly liable for failing to notify the parent or guardian of the minor. (1895, c. 285; Rev., s. 3506; 1913, c. 118, s. 1; C.S., s. 4251; 1941, c. 178, s. 1; 1949, c. 145, s. 2; 1959, c. 1285; 1961, c. 39, s. 1; 1965, c. 621, s. 5; 1969, c. 522, s. 2; 1973, c. 238, ss. 1, 2; 1975, c. 163, s. 2; c. 696, s. 4; 1977, c. 978, ss. 2, 3; 1979, c. 408, s. 1; c. 760, s. 5; 1979, 2nd Sess., c. 1316, ss. 11, 47; 1981, c. 63, s. 1; c. 179, s. 14; 1991, c. 523, s. 2; 1993, c. 539, s. 34; 1994, Ex. Sess., c. 24, s. 14(c); 1995, c. 185, s. 2; 2006-259, s. 4(a); 2012-154, s. 1; 2025-71, s. 9(a).)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "4107bda4bee22063b0d6f455587d5acff23cb1f0e375ceba061eae9b7487046b"
         }
       ],
       "elements": {
@@ -1103,13 +1140,17 @@
         ]
       },
       "special_rules": [
-        "G.S. 14-72 also covers receiving or possessing stolen goods and raises the class for stolen mail. Neither is modeled yet."
+        "G.S. 14-72 also covers receiving or possessing stolen goods knowing or having reasonable grounds to believe they are stolen, with the same value and circumstance rules (Class H over $1,000 or in a (b) circumstance, otherwise Class 1 misdemeanor). Not modeled yet.",
+        "Mail: if the larceny is of mail, the sentence is one class level higher than the principal offense (14-72(c1); added by S.L. 2025-71, s. 9, for offenses on or after Dec 1, 2025). Not modeled as its own offense.",
+        "Other larceny-type offenses exist in other sections, such as larceny of gift cards (G.S. 14-72.12, added by S.L. 2025-71 for offenses on or after Dec 1, 2025) and retail theft offenses. Not modeled yet."
       ],
       "explain_like_5": "Someone took something that belonged to another person and meant to keep it, and either it was worth more than $1,000 or the way it was taken made it more serious, like taking it from a person or taking a gun.",
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-72(a)-(c1). Class H, the $1,000 line and the jury-sets-value rule match. The felony-circumstance list was incomplete (State Archives records missing; 'several' earlier convictions is four; 'burglary or B&E' covers 14-51, 14-53, 14-54, 14-54.1, 14-57). Fixed. The meaning of larceny itself (the taking) comes from case law and N.C.P.I.-Crim. 216, not from the statute."
       },
       "aliases": [
         "theft",
@@ -1122,21 +1163,21 @@
           "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/216.10%20Felonious%20Larceny%20-%20Goods%20Worth%20More%20Than%20%241000%20%5B2021%5D.pdf",
           "checked_on": "2026-10-17",
           "method": "text of the PDF read in full",
-          "note": "Matches."
+          "note": "Matches. Compared with the instruction only; the statute doesn't define the taking."
         },
         {
           "label": "N.C.P.I.-Crim. 216.20, felonious larceny from the person",
           "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/216.20%20Felonious%20Larceny%20-%20From%20the%20Person%20%5B2011%5D.pdf",
           "checked_on": "2026-10-17",
           "method": "text of the PDF read in full",
-          "note": "Matches."
+          "note": "Matches. Compared with the instruction only; the statute doesn't define the taking."
         },
         {
           "label": "N.C.P.I.-Crim. 216.35, felonious larceny pursuant to breaking or entering",
           "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/216.35%20Felonious%20Larceny%20-%20Pursuant%20to%20Breaking%20or%20Entering%20Offense%20Where%20the%20Property%20Is%20Worth%20More%20Than%20%241000%20%5B2002-already%20fixed%5D.pdf",
           "checked_on": "2026-10-17",
           "method": "text of the PDF read in full",
-          "note": "Matches."
+          "note": "Matches. Compared with the instruction only; the statute doesn't define the taking."
         }
       ]
     },
@@ -1147,14 +1188,16 @@
       "category": "larceny",
       "class": "1",
       "grade": "misdemeanor",
-      "punishment_note": "Class 1 misdemeanor.",
+      "punishment_note": "Class 1 misdemeanor (14-72(a)). If the larceny is of mail, one class level higher (14-72(c1)).",
       "definition_source": "mixed",
       "statutes": [
         {
           "cite": "G.S. 14-72(a)",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-72.html",
-          "last_session_law_seen": null,
-          "text_snapshot": null
+          "last_session_law_seen": "2025-71, s. 9(a)",
+          "text_snapshot": "§ 14-72. Larceny of property; receiving stolen goods or possessing stolen goods. (a) Larceny of goods of the value of more than one thousand dollars ($1,000) is a Class H felony. The receiving or possessing of stolen goods of the value of more than one thousand dollars ($1,000) while knowing or having reasonable grounds to believe that the goods are stolen is a Class H felony. Larceny as provided in subsection (b) of this section is a Class H felony. Receiving or possession of stolen goods as provided in subsection (c) of this section is a Class H felony. Except as provided in subsections (b) and (c) of this section, larceny of property, or the receiving or possession of stolen goods knowing or having reasonable grounds to believe them to be stolen, where the value of the property or goods is not more than one thousand dollars ($1,000), is a Class 1 misdemeanor. In all cases of doubt, the jury shall, in the verdict, fix the value of the property stolen. (b) The crime of larceny is a felony, without regard to the value of the property in question, if the larceny is any of the following: (1) From the person. (2) Committed pursuant to a violation of G.S. 14-51, 14-53, 14-54, 14-54.1, or 14-57. (3) Of any explosive or incendiary device or substance. As used in this section, the phrase \"explosive or incendiary device or substance\" shall include any explosive or incendiary grenade or bomb; any dynamite, blasting powder, nitroglycerin, TNT, or other high explosive; or any device, ingredient for such device, or type or quantity of substance primarily useful for large-scale destruction of property by explosive or incendiary action or lethal injury to persons by explosive or incendiary action. This definition shall not include fireworks; or any form, type, or quantity of gasoline, butane gas, natural gas, or any other substance having explosive or incendiary properties but serving a legitimate nondestructive or nonlethal use in the form, type, or quantity stolen. (4) Of any firearm. As used in this section, the term \"firearm\" shall include any instrument used in the propulsion of a shot, shell or bullet by the action of gunpowder or any other explosive substance within it. A \"firearm,\" which at the time of theft is not capable of being fired, shall be included within this definition if it can be made to work. This definition shall not include air rifles or air pistols. (5) Of any record or paper in the custody of the North Carolina State Archives as defined by G.S. 121-2(7) and G.S. 121-2(8). (6) Committed after the defendant has been convicted in this State or in another jurisdiction for any offense of larceny under this section, or any offense deemed or punishable as larceny under this section, or of any substantially similar offense in any other jurisdiction, regardless of whether the prior convictions were misdemeanors, felonies, or a combination thereof, at least four times. A conviction shall not be included in the four prior convictions required under this subdivision unless the defendant was represented by counsel or waived counsel at first appearance or otherwise prior to trial or plea. If a person is convicted of more than one offense of misdemeanor larceny in a single session of district court, or in a single week of superior court or of a court in another jurisdiction, only one of the convictions may be used as a prior conviction under this subdivision; except that convictions based upon offenses which occurred in separate counties shall each count as a separate prior conviction under this subdivision. (c) The crime of possessing stolen goods knowing or having reasonable grounds to believe them to be stolen in the circumstances described in subsection (b) is a felony or the crime of receiving stolen goods knowing or having reasonable grounds to believe them to be stolen in the circumstances described in subsection (b) is a felony, without regard to the value of the property in question. (c1) Notwithstanding the provision of subsection (a) of this section, where the larceny or receiving or possession of stolen goods is of mail, the person shall be sentenced at one class level higher than the principal offense for which the person was convicted. For the purposes of this section, the term \"mail\" means a letter, package, bag, or other item of value sent or delivered to another by any method of delivery, including through a common carrier, commercial delivery service, or private delivery. (d) Where the larceny or receiving or possession of stolen goods as described in subsection (a) of this section involves the merchandise of any store, a merchant, a merchant's agent, a merchant's employee, or a peace officer who detains or causes the arrest of any person shall not be held civilly liable for detention, malicious prosecution, false imprisonment, or false arrest of the person detained or arrested, when such detention is upon the premises of the store or in a reasonable proximity thereto, is in a reasonable manner for a reasonable length of time, and, if in detaining or in causing the arrest of such person, the merchant, the merchant's agent, the merchant's employee, or the peace officer had, at the time of the detention or arrest, probable cause to believe that the person committed an offense under subsection (a) of this section. If the person being detained by the merchant, the merchant's agent, or the merchant's employee, is a minor under the age of 18 years, the merchant, the merchant's agent, or the merchant's employee, shall call or notify, or make a reasonable effort to call or notify the parent or guardian of the minor, during the period of detention. A merchant, a merchant's agent, or a merchant's employee, who makes a reasonable effort to call or notify the parent or guardian of the minor shall not be held civilly liable for failing to notify the parent or guardian of the minor. (1895, c. 285; Rev., s. 3506; 1913, c. 118, s. 1; C.S., s. 4251; 1941, c. 178, s. 1; 1949, c. 145, s. 2; 1959, c. 1285; 1961, c. 39, s. 1; 1965, c. 621, s. 5; 1969, c. 522, s. 2; 1973, c. 238, ss. 1, 2; 1975, c. 163, s. 2; c. 696, s. 4; 1977, c. 978, ss. 2, 3; 1979, c. 408, s. 1; c. 760, s. 5; 1979, 2nd Sess., c. 1316, ss. 11, 47; 1981, c. 63, s. 1; c. 179, s. 14; 1991, c. 523, s. 2; 1993, c. 539, s. 34; 1994, Ex. Sess., c. 24, s. 14(c); 1995, c. 185, s. 2; 2006-259, s. 4(a); 2012-154, s. 1; 2025-71, s. 9(a).)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "4107bda4bee22063b0d6f455587d5acff23cb1f0e375ceba061eae9b7487046b"
         }
       ],
       "elements": {
@@ -1165,12 +1208,17 @@
         ],
         "any_of_routes": []
       },
-      "special_rules": [],
+      "special_rules": [
+        "Misdemeanor larceny applies 'except as provided in subsections (b) and (c)': if any felony circumstance in 14-72(b) applies, it is felony larceny even when the value is $1,000 or less.",
+        "If the larceny is of mail, the sentence is one class level higher (14-72(c1); offenses on or after Dec 1, 2025)."
+      ],
       "explain_like_5": "Someone took something that belonged to another person and meant to keep it, and it was worth $1,000 or less.",
       "review": {
         "status": "draft",
         "verified_by": null,
-        "verified_on": null
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-72(a). Class 1 misdemeanor and the $1,000 line match; added the rule that a (b) circumstance makes it a felony whatever the value."
       },
       "aliases": [
         "theft",
@@ -1184,7 +1232,7 @@
           "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/216.05%20Misdemeanor%20Larceny%20%5B2002-already%20fixed%5D.pdf",
           "checked_on": "2026-10-17",
           "method": "text of the PDF read in full",
-          "note": "Elements match once consent, knowledge and permanence are included in the taking."
+          "note": "Elements match once consent, knowledge and permanence are included in the taking. Compared with the instruction only; the statute doesn't define the taking."
         }
       ]
     },
@@ -1961,7 +2009,7 @@
             {
               "label": "A plan to commit a felony or theft",
               "adds_element": "intent_felony_or_larceny",
-              "next": "q_night"
+              "next": "q_occupied"
             },
             {
               "label": "No such plan",
@@ -2002,25 +2050,9 @@
             }
           ]
         },
-        "q_night": {
-          "question": "Does it happen at night?",
-          "hint": "Burglary requires nighttime. A daytime break-in is a different offense.",
-          "options": [
-            {
-              "label": "At night",
-              "adds_element": "nighttime",
-              "next": "q_occupied"
-            },
-            {
-              "label": "During the day",
-              "adds_element": "not_nighttime",
-              "result": "nc_be_felony"
-            }
-          ]
-        },
         "q_occupied": {
           "question": "Is someone inside at the time?",
-          "hint": "",
+          "hint": "Someone is actually inside some part of the home or sleeping room.",
           "options": [
             {
               "label": "Someone is inside",
@@ -2035,7 +2067,7 @@
           ]
         }
       },
-      "simplification_note": "The flow assumes the person got into the building. Burglary needs both breaking and entering, while the lesser offenses need only one. Second-degree burglary may reach structures beyond homes; check G.S. 14-51(b)."
+      "simplification_note": "The flow assumes the person got into the building. Burglary needs both breaking and entering, while the lesser offenses need only one. A home break-in with intent can also fit felonious breaking or entering; the flow shows burglary, the more serious fit. Burglary of a home is limited to someone else's home or sleeping room."
     },
     {
       "id": "nc_larceny_bubbles",
@@ -2046,7 +2078,7 @@
       "nodes": {
         "q_circ": {
           "question": "Does a special circumstance apply?",
-          "hint": "Examples: taken from a person, a firearm, an explosive, during a burglary or breaking or entering, or after several prior larceny convictions.",
+          "hint": "From a person; taken as part of a burglary or breaking or entering; an explosive or incendiary device; a firearm; a State Archives record; or four or more earlier larceny convictions.",
           "options": [
             {
               "label": "A special circumstance",

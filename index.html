@@ -323,7 +323,7 @@ var ku=make('ul');
 ku.appendChild(make('li',null,'One event can fit more than one offense, and a lesser offense can sit inside a greater one. Prosecutors and courts decide which apply, not this tool.'));
 ku.appendChild(make('li',null,'This explains what the law requires. It isn\'t a prediction of any charge or outcome.'));
 card.appendChild(ku);
-if(!o.review||o.review.status!=='verified'){card.appendChild(make('div','warn','Draft: this record hasn\'t been verified against current law yet.'));}
+if(!o.review||o.review.status!=='verified'){card.appendChild(make('div','warn','Draft: this record hasn\'t been verified against current law yet.'));}else{card.appendChild(make('div','note','Checked against the statute text'+(o.review.verified_on?' on '+o.review.verified_on:'')+'. Meanings that come from court decisions rest on the sources listed above, not the statute.'));}
 return card;
 }
 
