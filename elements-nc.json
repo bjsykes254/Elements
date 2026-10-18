@@ -6,7 +6,7 @@
     "jurisdiction": "NC",
     "jurisdiction_name": "North Carolina",
     "scope": "homicide; burglary and breaking or entering; larceny; assault (prototype)",
-    "statute_text_checked_on": "2026-10-17 (G.S. 14-17, 14-18, 14-23.2, 14-32, 14-32.4, 14-33, 14-34, 14-51, 14-52, 14-54, 14-72; 50B-1(b) read for reference)",
+    "statute_text_checked_on": "2026-10-17 (G.S. 14-17, 14-18, 14-23.2, 14-32, 14-32.4, 14-33, 14-34, 14-28 to 14-34.10 (Article 8 other than those listed), 14-51, 14-52, 14-54, 14-72; 50B-1(b) read for reference)",
     "schema_changes": [
       "0.2: felony_class replaced by class + grade (felony or misdemeanor), because property offenses include misdemeanors",
       "0.2: flows now carry a name and are selectable; the page no longer assumes one flow",
@@ -21,9 +21,11 @@
       "0.5 (Oct 17, fifth pass): larceny compared with full text of G.S. 14-72. Felony-circumstance element rewritten as the complete statutory list. Mail enhancement (14-72(c1), S.L. 2025-71) noted.",
       "0.5 (Oct 17, sixth pass): review.status may also be needs_review; review.history logs status changes made by tools/check_statutes.py; meta.review_statuses explains the three statuses; meta.watch_articles lists article pages the change checker watches for added or removed sections (headings are filled in by 'check_statutes.py baseline').",
       "0.6 (Oct 17): text_snapshot removed from statutes[]; the saved text now lives in sources/<jurisdiction>/<section>.txt and statutes[] carries source_file. Keeps this file small so the page loads fast as coverage grows.",
-      "0.6 (Oct 17, seventh pass): assault group compared with full text of G.S. 14-32, 14-32.4, 14-33 and 14-34. Statute text saved. Utility-worker (S.L. 2025-71) and 14-33(e) (S.L. 2025-70) noted with effective dates. Personal-relationship, school-worker and utility-worker definitions rewritten."
+      "0.6 (Oct 17, seventh pass): assault group compared with full text of G.S. 14-32, 14-32.4, 14-33 and 14-34. Statute text saved. Utility-worker (S.L. 2025-71) and 14-33(e) (S.L. 2025-70) noted with effective dates. Personal-relationship, school-worker and utility-worker definitions rewritten.",
+      "0.6 (Oct 18): Find categories now follow the Chapter 14 subchapters of the N.C. General Statutes (III person, IV habitation and other buildings, V property, and the rest as 'coming soon'). The NIBRS-style person/property/society grouping was dropped; 'crimes against society' is not a statutory category. Burglary and breaking or entering moved from property to habitation. Subchapter I (General Provisions) is not shown.",
+      "0.6 (Oct 18): Article 8 completed. 40 offenses added from the full text of G.S. 14-28, 14-28.1, 14-29, 14-30, 14-30.1, 14-31, 14-32.1, 14-32.2, 14-32.3, 14-32.5, 14-32.6, 14-33.2, 14-34.1, 14-34.1A, 14-34.2, 14-34.3, 14-34.4, 14-34.5, 14-34.6, 14-34.7, 14-34.8, 14-34.9, 14-34.10. 73 elements added. Grade 'infraction' added (G.S. 14-34.8). The family was renamed 'Assaults' to match the article. G.S. 14-33.1 (evidence of former threats on a plea of self-defense) is a rule of evidence, not an offense, and is not modeled."
     ],
-    "check_notes": "Homicide statutes were read as full text. The property statutes (14-51, 14-52, 14-54, 14-72) were read through a summarizing fetch, not word for word, so every property record needs a line-by-line check before it is marked verified. Text snapshots are still empty for all records. Assault statutes (14-32, 14-32.4, 14-33, 14-34) were also read through a summarizing fetch and need a line-by-line check. On 2026-10-17 the homicide records were compared with N.C.P.I.-Crim. 206.15, 206.41 and 206.50, read through a summarizing fetch tool. 206.00, 206.10, 206.13, 206.30 and 206.40 were not read in full. Heat of passion, imperfect self-defense and malice wording still need case-law review. No record is verified. Second pass on 2026-10-17: the School's website was read in a browser, so the instruction PDFs were read in full for 206.10, 206.30A, 206.40, 214.10, 214.34, 214.47, 216.05, 216.10, 216.20, 216.35, 120.20 and the assault instructions listed in each record's cross_checks. G.S. 14-33 was read in full for two disputed points. Pattern instructions are the judges' summary of the law; where one is older than the statute (208.14, 208.55) the statute is followed. Still not checked: the remaining statutes word for word, 206.00, 206.11-206.35 variants, 214.30/214.32, 208.25, and case law for malice-adjacent terms. No record is verified. On 2026-10-17 G.S. 14-17, 14-18 and 14-23.2 were read as full text in the browser and the four homicide records compared; text snapshots saved. Records stay draft until the owner signs off. On 2026-10-17 G.S. 14-51, 14-52 and 14-54 were read as full text and S.L. 2025-71 sections 4 and 10 were read. Not modeled: G.S. 14-53 (breaking out of a dwelling), 14-54(b1), and other breaking or entering statutes (14-54.1 and others). On 2026-10-17 G.S. 14-72 was read as full text. Not modeled: receiving or possessing stolen goods, larceny of mail as its own offense, larceny of gift cards (14-72.12), retail theft offenses, other larceny sections. On 2026-10-17 the assault group (G.S. 14-32, 14-32.4, 14-33, 14-34) was read as full text and saved. Not modeled: habitual misdemeanor assault (14-33.2), other assault statutes in Article 8, misdemeanor crime of domestic violence (14-32.5).",
+    "check_notes": "Homicide statutes were read as full text. The property statutes (14-51, 14-52, 14-54, 14-72) were read through a summarizing fetch, not word for word, so every property record needs a line-by-line check before it is marked verified. Text snapshots are still empty for all records. Assault statutes (14-32, 14-32.4, 14-33, 14-34) were also read through a summarizing fetch and need a line-by-line check. On 2026-10-17 the homicide records were compared with N.C.P.I.-Crim. 206.15, 206.41 and 206.50, read through a summarizing fetch tool. 206.00, 206.10, 206.13, 206.30 and 206.40 were not read in full. Heat of passion, imperfect self-defense and malice wording still need case-law review. No record is verified. Second pass on 2026-10-17: the School's website was read in a browser, so the instruction PDFs were read in full for 206.10, 206.30A, 206.40, 214.10, 214.34, 214.47, 216.05, 216.10, 216.20, 216.35, 120.20 and the assault instructions listed in each record's cross_checks. G.S. 14-33 was read in full for two disputed points. Pattern instructions are the judges' summary of the law; where one is older than the statute (208.14, 208.55) the statute is followed. Still not checked: the remaining statutes word for word, 206.00, 206.11-206.35 variants, 214.30/214.32, 208.25, and case law for malice-adjacent terms. No record is verified. On 2026-10-17 G.S. 14-17, 14-18 and 14-23.2 were read as full text in the browser and the four homicide records compared; text snapshots saved. Records stay draft until the owner signs off. On 2026-10-17 G.S. 14-51, 14-52 and 14-54 were read as full text and S.L. 2025-71 sections 4 and 10 were read. Not modeled: G.S. 14-53 (breaking out of a dwelling), 14-54(b1), and other breaking or entering statutes (14-54.1 and others). On 2026-10-17 G.S. 14-72 was read as full text. Not modeled: receiving or possessing stolen goods, larceny of mail as its own offense, larceny of gift cards (14-72.12), retail theft offenses, other larceny sections. On 2026-10-17 the assault group (G.S. 14-32, 14-32.4, 14-33, 14-34) was read as full text and saved. Not modeled: habitual misdemeanor assault (14-33.2), other assault statutes in Article 8, misdemeanor crime of domestic violence (14-32.5). On 2026-10-18 the rest of Article 8 was read as full text and saved. These 40 records were drafted from the statute only: no pattern jury instruction was compared, and several terms the statutes leave undefined (for example 'serious injury' in G.S. 14-32.1, 'pattern of conduct' in G.S. 14-32.2, 'criminal gang activity' in G.S. 14-34.9) are flagged on the elements.",
     "license": {
       "data": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)",
       "code": "MIT (see LICENSE)",
@@ -69,58 +71,116 @@
   },
   "categories": [
     {
-      "id": "crimes_against_person",
+      "id": "sub_state",
       "jurisdiction": "NC",
-      "name": "Crimes against a person",
+      "name": "Offenses against the State",
       "parent": null,
-      "ncgs_ref": "Chapter 14, Subchapter III (Offenses Against the Person)",
+      "ncgs_ref": "Chapter 14, Subchapter II",
+      "status": "planned"
+    },
+    {
+      "id": "sub_person",
+      "jurisdiction": "NC",
+      "name": "Offenses against the person",
+      "parent": null,
+      "ncgs_ref": "Chapter 14, Subchapter III",
       "status": "built"
     },
     {
       "id": "homicide",
       "jurisdiction": "NC",
       "name": "Homicide",
-      "parent": "crimes_against_person",
+      "parent": "sub_person",
       "ncgs_ref": "Chapter 14, Article 6",
       "status": "built"
     },
     {
-      "id": "crimes_against_property",
+      "id": "assault",
       "jurisdiction": "NC",
-      "name": "Crimes against property",
-      "parent": null,
+      "name": "Assaults",
+      "parent": "sub_person",
+      "ncgs_ref": "Chapter 14, Article 8 (G.S. 14-28 to 14-34.10)",
       "status": "built"
     },
     {
-      "id": "crimes_against_society",
+      "id": "sub_habitation",
       "jurisdiction": "NC",
-      "name": "Crimes against society",
+      "name": "Offenses against the habitation and other buildings",
       "parent": null,
-      "status": "planned"
+      "ncgs_ref": "Chapter 14, Subchapter IV",
+      "status": "built"
     },
     {
       "id": "burglary_be",
       "jurisdiction": "NC",
       "name": "Burglary and breaking or entering",
-      "parent": "crimes_against_property",
-      "ncgs_ref": null,
+      "parent": "sub_habitation",
+      "ncgs_ref": "Chapter 14, Article 14",
+      "status": "built"
+    },
+    {
+      "id": "sub_property",
+      "jurisdiction": "NC",
+      "name": "Offenses against property",
+      "parent": null,
+      "ncgs_ref": "Chapter 14, Subchapter V",
       "status": "built"
     },
     {
       "id": "larceny",
       "jurisdiction": "NC",
       "name": "Larceny",
-      "parent": "crimes_against_property",
-      "ncgs_ref": null,
+      "parent": "sub_property",
+      "ncgs_ref": "Chapter 14, Article 16",
       "status": "built"
     },
     {
-      "id": "assault",
+      "id": "sub_trespass",
       "jurisdiction": "NC",
-      "name": "Assault",
-      "parent": "crimes_against_person",
-      "ncgs_ref": "Chapter 14, Article 8",
-      "status": "built"
+      "name": "Criminal trespass",
+      "parent": null,
+      "ncgs_ref": "Chapter 14, Subchapter VI",
+      "status": "planned"
+    },
+    {
+      "id": "sub_morality",
+      "jurisdiction": "NC",
+      "name": "Offenses against public morality and decency",
+      "parent": null,
+      "ncgs_ref": "Chapter 14, Subchapter VII",
+      "status": "planned"
+    },
+    {
+      "id": "sub_justice",
+      "jurisdiction": "NC",
+      "name": "Offenses against public justice",
+      "parent": null,
+      "ncgs_ref": "Chapter 14, Subchapter VIII",
+      "status": "planned"
+    },
+    {
+      "id": "sub_peace",
+      "jurisdiction": "NC",
+      "name": "Offenses against the public peace",
+      "parent": null,
+      "ncgs_ref": "Chapter 14, Subchapter IX",
+      "status": "planned"
+    },
+    {
+      "id": "sub_safety",
+      "jurisdiction": "NC",
+      "name": "Offenses against the public safety",
+      "parent": null,
+      "ncgs_ref": "Chapter 14, Subchapter X",
+      "status": "planned"
+    },
+    {
+      "id": "sub_police",
+      "jurisdiction": "NC",
+      "name": "General police regulations",
+      "parent": null,
+      "ncgs_ref": "Chapter 14, Subchapter XI",
+      "status": "planned"
     }
   ],
   "elements": [
@@ -598,6 +658,531 @@
       "source": "mixed",
       "statute_cite": "G.S. 14-34",
       "note": "G.S. 14-34 says only 'point any gun or pistol at any person'. The statute's text has no intent word and lists no exceptions. The plain-language wording follows N.C.P.I.-Crim. 208.85."
+    },
+    {
+      "id": "castration_or_genital_injury",
+      "name": "Castration, or cutting off, maiming or disfiguring the private parts",
+      "plain": "Castrating another person, or cutting off, maiming or disfiguring any of their private (genital) parts.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-28; G.S. 14-29"
+    },
+    {
+      "id": "malice_aforethought_maiming",
+      "name": "Malice aforethought",
+      "plain": "The act is done with malice aforethought. The statute uses the term without defining it.",
+      "source": "case_law",
+      "statute_cite": "G.S. 14-28; G.S. 14-30; G.S. 14-30.1",
+      "note": "The homicide element 'Malice' explains the term in murder cases; it may not carry over exactly to these sections. No pattern jury instruction was read for this term."
+    },
+    {
+      "id": "on_purpose_without_malice",
+      "name": "On purpose and unlawfully, but without malice aforethought",
+      "plain": "The act is done on purpose and unlawfully, but not with malice aforethought.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-29"
+    },
+    {
+      "id": "intent_murder_maim_disable_impotent",
+      "name": "Intent to murder, maim, disfigure, disable or render impotent",
+      "plain": "The person meant to murder, maim, disfigure, disable or render the victim impotent.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-28"
+    },
+    {
+      "id": "intent_kill_maim_disable_impotent",
+      "name": "Intent to kill, maim, disfigure, disable or render impotent",
+      "plain": "The person meant to kill, maim, disfigure, disable or render the victim impotent.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-29"
+    },
+    {
+      "id": "intent_murder_maim_disfigure",
+      "name": "Intent to murder, maim or disfigure",
+      "plain": "The person meant to murder, maim or disfigure the victim.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-30; G.S. 14-30.1"
+    },
+    {
+      "id": "cut_nose_lip_ear",
+      "name": "Cutting the nose, or cutting or biting off the nose, a lip or an ear",
+      "plain": "Cutting or slitting the nose, or biting or cutting off the nose, a lip or an ear.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-29"
+    },
+    {
+      "id": "disable_limb_or_member",
+      "name": "Disabling a limb or member",
+      "plain": "Disabling any limb or member of another person.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-29"
+    },
+    {
+      "id": "tongue_or_eye_injury",
+      "name": "Cutting out or disabling the tongue, or putting out an eye",
+      "plain": "Unlawfully cutting out or disabling another person's tongue, or putting out an eye.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-30"
+    },
+    {
+      "id": "acid_thrown_on_person",
+      "name": "Throwing corrosive acid or alkali on a person",
+      "plain": "Knowingly and willfully throwing, or causing to be thrown, corrosive acid or alkali on another person.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-30.1"
+    },
+    {
+      "id": "maliciously",
+      "name": "Done maliciously",
+      "plain": "The act is done maliciously. The statute doesn't define the word.",
+      "source": "case_law",
+      "statute_cite": "G.S. 14-31",
+      "note": "No pattern jury instruction was read for this term."
+    },
+    {
+      "id": "secret_manner",
+      "name": "Done in a secret manner",
+      "plain": "The assault is committed in a secret manner, such as by waylaying the victim. It is enough that the victim knew the attacker was nearby.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-31"
+    },
+    {
+      "id": "victim_child_under_18",
+      "name": "The victim is a child under 18",
+      "plain": "The child is younger than 18.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-28.1"
+    },
+    {
+      "id": "fgm_procedure",
+      "name": "Circumcising, excising or infibulating the genitals of a child",
+      "plain": "Circumcising, excising or infibulating the whole or any part of the labia majora, labia minora or clitoris, knowingly and unlawfully.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-28.1(b)",
+      "note": "A surgical operation is not a violation if it is necessary to the person's health and done by a licensed medical practitioner, or done on a person in labor who has just given birth for medical purposes connected with the labor or birth by a licensed practitioner, certified nurse midwife, or a person training for either (G.S. 14-28.1(e)). It is no defense that anyone believes it is required by custom or ritual, or that the person consented (G.S. 14-28.1(f))."
+    },
+    {
+      "id": "parent_or_caregiver_of_child",
+      "name": "A parent, or a person who provides care to or supervises the child",
+      "plain": "The person is the child's parent, or provides care to or supervises the child.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-28.1(c); G.S. 14-28.1(d)"
+    },
+    {
+      "id": "consents_or_permits_fgm",
+      "name": "Consenting to or permitting the procedure",
+      "plain": "Consenting to, or permitting, the unlawful circumcision, excision or infibulation of the child.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-28.1(c)"
+    },
+    {
+      "id": "removes_child_for_fgm",
+      "name": "Removing the child from the State for the procedure",
+      "plain": "Knowingly removing the child from North Carolina, or permitting the child's removal, for the purpose of having the procedure done.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-28.1(d)"
+    },
+    {
+      "id": "victim_disabled_individual",
+      "name": "The victim is an individual with a disability",
+      "plain": "A person with a physical or mental disability (such as decreased use of arms or legs, blindness, deafness, intellectual disability or mental illness) or an infirmity, that would substantially impair the ability to defend oneself.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.1(a)"
+    },
+    {
+      "id": "deadly_weapon_or_likely_serious_force",
+      "name": "A deadly weapon, or other force likely to inflict serious injury",
+      "plain": "Uses a deadly weapon or other means of force likely to inflict serious injury or serious damage to the individual with a disability.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.1(e)(1)"
+    },
+    {
+      "id": "serious_injury_or_damage",
+      "name": "Serious injury or serious damage",
+      "plain": "Inflicts serious injury or serious damage to the individual with a disability.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.1(e)(2)",
+      "note": "The statute doesn't define 'serious injury or serious damage'."
+    },
+    {
+      "id": "victim_patient_or_resident",
+      "name": "The victim is a patient or resident of a care facility",
+      "plain": "A patient of a health care facility (hospitals, nursing and other care facilities, psychiatric and rehabilitation facilities, home health agencies, and similar facilities) or a resident of a residential care facility (adult care homes and similar facilities), public or private.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.2(i)"
+    },
+    {
+      "id": "patient_abuse_injury_or_death",
+      "name": "Physical abuse that results in death or bodily injury",
+      "plain": "Physical abuse of a patient or resident that results in death or bodily injury. 'Abuse' means the willful or culpably negligent infliction of physical injury, or the willful or culpably negligent violation of any law designed for the health or welfare of a patient or resident.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.2(a); G.S. 14-32.2(i)(1)"
+    },
+    {
+      "id": "intentional_conduct_causes_death",
+      "name": "Intentional conduct proximately causes death",
+      "plain": "Intentional conduct proximately causes the patient's or resident's death.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.2(b)(1)",
+      "note": "'Proximately causes' isn't defined in the statute."
+    },
+    {
+      "id": "culpably_negligent_conduct_causes_death",
+      "name": "Culpably negligent conduct proximately causes death",
+      "plain": "Culpably negligent conduct proximately causes the patient's or resident's death. 'Culpably negligent' means conduct of a willful, gross and flagrant character, showing reckless disregard of human life.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.2(b)(2); G.S. 14-32.2(i)(2)"
+    },
+    {
+      "id": "willful_or_culpably_negligent_conduct",
+      "name": "Willful or culpably negligent conduct",
+      "plain": "The conduct is willful or culpably negligent.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.2(b)(3); G.S. 14-32.2(b)(4)"
+    },
+    {
+      "id": "pattern_of_conduct",
+      "name": "A pattern of conduct",
+      "plain": "The conduct shows a pattern of conduct.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.2(b)(4)",
+      "note": "The statute doesn't say how many acts make a pattern."
+    },
+    {
+      "id": "bodily_injury_to_patient",
+      "name": "Bodily injury to the patient or resident",
+      "plain": "The conduct proximately causes bodily injury to the patient or resident.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.2(b)(4)"
+    },
+    {
+      "id": "caretaker_of_adult_domestic",
+      "name": "A caretaker of a disabled or elder adult living in a home setting",
+      "plain": "The person is a caretaker, meaning they are responsible for the adult's care because of a family relationship or because they took on the care voluntarily or by contract. The adult is disabled (18 or older, or a lawfully emancipated minor, and physically or mentally incapacitated as defined in G.S. 108A-101(d)) or elderly (60 or older and unable to arrange the services needed to protect their rights and resources and maintain their well-being). The adult lives in a home setting, meaning any residence other than a health care facility or residential care facility as defined in G.S. 14-32.2.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.3(d)"
+    },
+    {
+      "id": "acts_with_malice_knowingly_willfully",
+      "name": "Malice aforethought, knowingly and willfully",
+      "plain": "The person acts with malice aforethought, knowingly and willfully.",
+      "source": "case_law",
+      "statute_cite": "G.S. 14-32.3(a)",
+      "note": "The statute doesn't define malice aforethought here. No pattern jury instruction was read for this term."
+    },
+    {
+      "id": "acts_wantonly_recklessly",
+      "name": "Wantonly, recklessly, or with gross carelessness",
+      "plain": "The person acts wantonly, recklessly, or with gross carelessness.",
+      "source": "case_law",
+      "statute_cite": "G.S. 14-32.3(b)",
+      "note": "The statute doesn't define these terms. No pattern jury instruction was read for this term."
+    },
+    {
+      "id": "assaults_adult",
+      "name": "Assaults the adult",
+      "plain": "The caretaker assaults the disabled or elder adult.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.3(a)"
+    },
+    {
+      "id": "fails_medical_hygienic_care",
+      "name": "Fails to provide medical or hygienic care",
+      "plain": "The caretaker fails to provide medical or hygienic care.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.3(a); G.S. 14-32.3(b)"
+    },
+    {
+      "id": "confines_cruel_or_unsafe",
+      "name": "Confines or restrains in a cruel or unsafe place or condition",
+      "plain": "Confines or restrains the adult in a place or under a condition that is cruel or unsafe.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.3(a)"
+    },
+    {
+      "id": "confines_unsafe",
+      "name": "Confines or restrains in an unsafe place or condition",
+      "plain": "Confines or restrains the adult in a place or under a condition that is unsafe.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.3(b)"
+    },
+    {
+      "id": "adult_suffers_injury",
+      "name": "The adult suffers mental or physical injury",
+      "plain": "As a result of the act or failure to act, the adult suffers mental or physical injury.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.3(a); G.S. 14-32.3(b)"
+    },
+    {
+      "id": "adult_suffers_serious_injury",
+      "name": "The adult suffers serious injury",
+      "plain": "As a result of the act or failure to act, the adult suffers serious injury.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.3(a); G.S. 14-32.3(b)",
+      "note": "The statute doesn't define 'serious injury' here."
+    },
+    {
+      "id": "force_or_weapon_threat",
+      "name": "Uses or attempts physical force, or threatens use of a deadly weapon",
+      "plain": "Uses or attempts to use physical force, or threatens the use of a deadly weapon, against another person.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.5(a)"
+    },
+    {
+      "id": "dv_spouse_parent_guardian",
+      "name": "A current or former spouse, parent or guardian of the victim",
+      "plain": "The person is a current or former spouse, parent, or guardian of the victim.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.5(a)(1)"
+    },
+    {
+      "id": "dv_child_in_common",
+      "name": "Shares a child in common with the victim",
+      "plain": "The person shares a child in common with the victim.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.5(a)(2)"
+    },
+    {
+      "id": "dv_cohabitating",
+      "name": "Lives or has lived with the victim as a spouse, parent or guardian",
+      "plain": "The person is cohabitating with, or has cohabitated with, the victim as a spouse, parent, or guardian.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.5(a)(3)"
+    },
+    {
+      "id": "dv_similarly_situated",
+      "name": "Similarly situated to a spouse, parent or guardian",
+      "plain": "The person is similarly situated to a spouse, parent, or guardian of the victim.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.5(a)(4)",
+      "note": "The statute doesn't say what 'similarly situated' covers."
+    },
+    {
+      "id": "dv_dating_relationship",
+      "name": "A current or recent former dating relationship",
+      "plain": "The person has a current or recent former dating relationship with the victim. The statute says 'dating relationship' is defined in the federal law 18 U.S.C. § 921, not in G.S. 14-32.5.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.5(a)(5); G.S. 14-32.5(b)"
+    },
+    {
+      "id": "current_dv_offense",
+      "name": "A current offense under G.S. 14-32.5, or an assault on a related person",
+      "plain": "The person commits an offense under G.S. 14-32.5, or commits an assault on someone related to them by one of the relationship descriptions in G.S. 14-32.5.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.6(a)"
+    },
+    {
+      "id": "prior_dv_convictions",
+      "name": "Two earlier qualifying convictions, the earlier within 15 years",
+      "plain": "Two or more earlier convictions in one of two combinations: (1) two or more convictions under G.S. 14-32.5, or a substantially similar offense in another jurisdiction; or (2) one conviction of that kind plus at least one conviction, in North Carolina or elsewhere, for an assault on a person related to them by a G.S. 14-32.5 relationship. The earlier of the two convictions must have been no more than 15 years before the current violation.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-32.6(a)"
+    },
+    {
+      "id": "current_habitual_assault_offense",
+      "name": "A current qualifying assault offense",
+      "plain": "The person violates G.S. 14-33 and causes physical injury, or violates G.S. 14-32.5 or G.S. 14-34.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-33.2"
+    },
+    {
+      "id": "prior_assault_convictions",
+      "name": "Two earlier assault convictions, the earlier within 15 years",
+      "plain": "Two or more earlier convictions for misdemeanor assault, felony assault, or a violation of G.S. 14-32.5, with the earlier of the two convictions no more than 15 years before the current violation.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-33.2"
+    },
+    {
+      "id": "discharge_weapon_600fps",
+      "name": "Willfully or wantonly discharging a firearm or barreled weapon",
+      "plain": "Willfully or wantonly discharging, or attempting to discharge, a firearm or barreled weapon capable of firing shot, bullets, pellets or other missiles at a muzzle velocity of at least 600 feet per second.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.1; G.S. 14-34.1A"
+    },
+    {
+      "id": "into_occupied_property",
+      "name": "Into occupied property",
+      "plain": "The discharge is into a building, structure, vehicle, aircraft, watercraft, or other conveyance, device, equipment, erection or enclosure while it is occupied.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.1(a)"
+    },
+    {
+      "id": "into_occupied_dwelling_or_moving_vehicle",
+      "name": "Into an occupied dwelling or an occupied vehicle in operation",
+      "plain": "The discharge is into an occupied dwelling, or into an occupied vehicle, aircraft, watercraft or other conveyance that is in operation.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.1(b)"
+    },
+    {
+      "id": "at_unoccupied_emergency_vehicle",
+      "name": "At or into an unoccupied emergency vehicle",
+      "plain": "The discharge is at or into an unoccupied emergency vehicle: law enforcement, fire department, ambulance, rescue squad, State or local emergency management, National Guard, U.S. Armed Forces, Department of Adult Correction, or Division of Juvenile Justice vehicles.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.1A(a); G.S. 14-34.1A(b)"
+    },
+    {
+      "id": "discharge_from_enclosure_toward_outsiders",
+      "name": "Discharging from inside an enclosure toward people outside it",
+      "plain": "Willfully or wantonly discharging, or attempting to discharge, a firearm from within a building, structure, motor vehicle, or other conveyance, erection or enclosure, toward a person or persons not within it.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.9"
+    },
+    {
+      "id": "criminal_gang_activity",
+      "name": "As part of criminal gang activity",
+      "plain": "The discharge is part of criminal gang activity. G.S. 14-34.9 doesn't define the term itself.",
+      "source": "mixed",
+      "statute_cite": "G.S. 14-34.9",
+      "note": "A definition may exist elsewhere in the statutes but wasn't looked up for this record. No pattern jury instruction was read for this term."
+    },
+    {
+      "id": "discharge_in_occupied_enclosure",
+      "name": "Discharging a firearm inside an occupied enclosure",
+      "plain": "Willfully or wantonly discharging, or attempting to discharge, a firearm within an occupied building, structure, motor vehicle, or other conveyance, erection or enclosure.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.10"
+    },
+    {
+      "id": "intent_to_incite_fear",
+      "name": "Intent to incite fear in another",
+      "plain": "The person meant to make another person afraid.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.10"
+    },
+    {
+      "id": "victim_leo_probation_parole",
+      "name": "The victim is a law enforcement, probation or parole officer on duty",
+      "plain": "A law enforcement officer, probation officer, or parole officer who is discharging or attempting to discharge official duties.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.5(a); G.S. 14-34.7(a); G.S. 14-34.7(c)(1)"
+    },
+    {
+      "id": "victim_national_guard",
+      "name": "The victim is a National Guard member on duty",
+      "plain": "A member of the North Carolina National Guard who is discharging or attempting to discharge official duties.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.5(a1); G.S. 14-34.7(a1); G.S. 14-34.7(c)(3)"
+    },
+    {
+      "id": "victim_detention_employee",
+      "name": "The victim is a detention facility employee on duty",
+      "plain": "A person employed at a detention facility operated under the jurisdiction of the State or a local government, who is performing their duties.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.5(b); G.S. 14-34.7(b); G.S. 14-34.7(c)(2)"
+    },
+    {
+      "id": "assault_with_firearm",
+      "name": "An assault with a firearm",
+      "plain": "An assault committed with a firearm.",
+      "source": "mixed",
+      "statute_cite": "G.S. 14-34.5",
+      "note": "The statute doesn't define 'firearm' in this section. No pattern jury instruction was read for this term."
+    },
+    {
+      "id": "physical_injury_minor",
+      "name": "Physical injury, including cuts, scrapes and bruises",
+      "plain": "Physical injury, which includes cuts, scrapes, bruises, or other physical injury that is not serious injury.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.7(c)"
+    },
+    {
+      "id": "victim_health_fire_worker",
+      "name": "The victim is a health care worker, firefighter or hospital worker on duty",
+      "plain": "An emergency medical technician or other emergency health care provider; a medical responder; a hospital employee, medical practice employee, licensed health care provider, or individual under contract to provide services at a hospital or medical practice; a firefighter; or hospital security personnel. They must be discharging or attempting to discharge their official duties.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.6(a)"
+    },
+    {
+      "id": "assault_or_affray_physical_injury",
+      "name": "An assault or affray causing physical injury",
+      "plain": "An assault or affray that causes physical injury.",
+      "source": "mixed",
+      "statute_cite": "G.S. 14-34.6(a)",
+      "note": "'Physical injury' isn't defined in G.S. 14-34.6 itself. No pattern jury instruction was read for this term."
+    },
+    {
+      "id": "deadly_weapon_not_firearm",
+      "name": "A deadly weapon other than a firearm",
+      "plain": "The person uses a deadly weapon that is not a firearm.",
+      "source": "mixed",
+      "statute_cite": "G.S. 14-34.6(b)"
+    },
+    {
+      "id": "uses_firearm",
+      "name": "Uses a firearm",
+      "plain": "The person uses a firearm.",
+      "source": "mixed",
+      "statute_cite": "G.S. 14-34.6(c)"
+    },
+    {
+      "id": "laser_pointed_emitting",
+      "name": "Intentionally pointing a laser device that is emitting a beam",
+      "plain": "Intentionally pointing a laser device while it is emitting a laser beam.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.8(b)"
+    },
+    {
+      "id": "laser_target_protected_worker",
+      "name": "At a law enforcement officer or other listed worker on duty",
+      "plain": "At a law enforcement officer; probation or parole officer; a person whose duties include custody, transportation or management of detained or confined persons; a firefighter; an emergency medical technician or other emergency health care provider; a National Guard member; a member of the U.S. Armed Forces; or a court counselor with juvenile intake, probation, post-release supervision or court supervision duties. They must be performing their duties.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.8(b)(1)"
+    },
+    {
+      "id": "laser_target_head_or_face",
+      "name": "At the head or face of another person",
+      "plain": "At the head or face of any person not covered by the list of workers.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.8(b)(2)"
+    },
+    {
+      "id": "laser_target_working_animal",
+      "name": "At a law enforcement or search and rescue animal on duty",
+      "plain": "At a law enforcement agency animal or a search and rescue animal while it is performing its duty.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.8(b)(3)"
+    },
+    {
+      "id": "animal_harmed",
+      "name": "The animal is caused 'harm'",
+      "plain": "The animal is caused 'harm' as G.S. 14-163.1 defines that term.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.8(c)"
+    },
+    {
+      "id": "teflon_bullet_handling",
+      "name": "Importing, making, possessing, selling or otherwise handling a teflon-coated bullet",
+      "plain": "Importing, manufacturing, possessing, storing, transporting, selling, offering to sell, purchasing, offering to purchase, delivering, giving to another, or acquiring a teflon-coated bullet.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.3(a)",
+      "note": "Exceptions in G.S. 14-34.3(b): armed forces and some officers acting in official duty; licensed importers, manufacturers and dealers who possess only to sell to authorized law enforcement; and people employed by or under contract with a manufacturer doing research on police-type body armor."
+    },
+    {
+      "id": "adulterates_food_drug_cosmetic",
+      "name": "Adulterating or misbranding, or selling adulterated or misbranded, food, drugs or cosmetics",
+      "plain": "Manufacturing, selling, delivering, offering or holding for sale an adulterated or misbranded food, drug or cosmetic, or adulterating or misbranding one, in violation of G.S. 106-122.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.4(a)"
+    },
+    {
+      "id": "intent_serious_injury_or_death",
+      "name": "Intent to cause serious injury or death",
+      "plain": "The person meant to cause serious injury or death.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.4(a)"
+    },
+    {
+      "id": "communicates_adulteration_for_gain",
+      "name": "Telling another that they have done, or will do, the adulteration",
+      "plain": "Communicating to another that the person has violated, or intends to violate, G.S. 14-34.4(a).",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.4(b)"
+    },
+    {
+      "id": "intent_wrongfully_obtain_value",
+      "name": "Intent to wrongfully obtain something of value, or an acquittance, advantage or immunity",
+      "plain": "The person meant to wrongfully obtain, directly or indirectly, anything of value or any acquittance, advantage, or immunity.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.4(b)"
     }
   ],
   "offenses": [
@@ -1280,6 +1865,379 @@
       ]
     },
     {
+      "id": "nc_malicious_castration",
+      "jurisdiction": "NC",
+      "name": "Malicious castration",
+      "category": "assault",
+      "class": "C",
+      "grade": "felony",
+      "punishment_note": "Class C felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-28",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-28.html",
+          "last_session_law_seen": "1994, Ex. Sess., c. 24, s. 14(c)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "37851a2a933c151b153ad5ee6a00aeb72ddac830a24b439af7d26a1996e41b10",
+          "source_file": "sources/NC/GS_14-28.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "castration_or_genital_injury",
+          "malice_aforethought_maiming",
+          "intent_murder_maim_disable_impotent"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Covers castrating a person, and also cutting off, maiming or disfiguring a person's private parts, with the stated intent. Worded in the statute as 'of malice aforethought' and 'unlawfully'."
+      ],
+      "explain_like_5": "Someone, with malice, castrated or badly injured another person's private parts, meaning to kill, maim, disable or disfigure them.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-28 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "castration",
+        "genital maiming"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_fgm_mutilation",
+      "jurisdiction": "NC",
+      "name": "Female genital mutilation of a child",
+      "category": "assault",
+      "class": "C",
+      "grade": "felony",
+      "punishment_note": "Class C felony.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-28.1(b)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-28.1.html",
+          "last_session_law_seen": "2019-183, s. 1",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "ed3deb2c5a0328408ff1aeef3eb39ca09fab6af255f9320d539a728a63a97019",
+          "source_file": "sources/NC/GS_14-28.1.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "fgm_procedure",
+          "victim_child_under_18"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Medical-necessity and childbirth exceptions apply (G.S. 14-28.1(e)). Belief that custom or ritual requires the procedure, or the child's consent, is no defense (G.S. 14-28.1(f)).",
+        "G.S. 14-28.1 includes a statement of legislative intent in subsection (a). It isn't an element."
+      ],
+      "explain_like_5": "Someone cut or altered the genitals of a girl under 18 for non-medical reasons.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-28.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "FGM",
+        "female circumcision"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_fgm_consent",
+      "jurisdiction": "NC",
+      "name": "Consenting to or permitting female genital mutilation of a child",
+      "category": "assault",
+      "class": "C",
+      "grade": "felony",
+      "punishment_note": "Class C felony.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-28.1(c)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-28.1.html",
+          "last_session_law_seen": "2019-183, s. 1",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "ed3deb2c5a0328408ff1aeef3eb39ca09fab6af255f9320d539a728a63a97019",
+          "source_file": "sources/NC/GS_14-28.1.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "parent_or_caregiver_of_child",
+          "victim_child_under_18",
+          "consents_or_permits_fgm"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Medical-necessity and childbirth exceptions apply (G.S. 14-28.1(e)). Belief that custom or ritual requires the procedure, or the child's consent, is no defense (G.S. 14-28.1(f))."
+      ],
+      "explain_like_5": "A parent or caregiver agreed to, or allowed, the genital mutilation of a child under 18.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-28.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "permitting FGM"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_fgm_removal",
+      "jurisdiction": "NC",
+      "name": "Removing a child from the State for female genital mutilation",
+      "category": "assault",
+      "class": "C",
+      "grade": "felony",
+      "punishment_note": "Class C felony.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-28.1(d)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-28.1.html",
+          "last_session_law_seen": "2019-183, s. 1",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "ed3deb2c5a0328408ff1aeef3eb39ca09fab6af255f9320d539a728a63a97019",
+          "source_file": "sources/NC/GS_14-28.1.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "parent_or_caregiver_of_child",
+          "victim_child_under_18",
+          "removes_child_for_fgm"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Medical-necessity and childbirth exceptions apply (G.S. 14-28.1(e)). Belief that custom or ritual requires the procedure, or the child's consent, is no defense (G.S. 14-28.1(f))."
+      ],
+      "explain_like_5": "A parent or caregiver took a child out of the state so the child's genitals could be mutilated.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-28.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "taking a child out of state for FGM"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_maiming_no_malice",
+      "jurisdiction": "NC",
+      "name": "Maiming without malice aforethought",
+      "category": "assault",
+      "class": "E",
+      "grade": "felony",
+      "punishment_note": "Class E felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-29",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-29.html",
+          "last_session_law_seen": "1994, Ex. Sess., c. 24, s. 14(c)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "70f06215a5391a397a6a1c8cec86df41bd1b402a265403f196304a1e8eb8740e",
+          "source_file": "sources/NC/GS_14-29.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "on_purpose_without_malice",
+          "intent_kill_maim_disable_impotent"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Cutting the nose, lip or ear",
+            "all_of": [
+              "cut_nose_lip_ear"
+            ]
+          },
+          {
+            "route": "Disabling a limb or member",
+            "all_of": [
+              "disable_limb_or_member"
+            ]
+          },
+          {
+            "route": "Castration or injury to the private parts",
+            "all_of": [
+              "castration_or_genital_injury"
+            ]
+          }
+        ]
+      },
+      "special_rules": [],
+      "explain_like_5": "Someone deliberately and unlawfully cut off or badly injured a body part, or castrated a person, meaning to kill, maim, disable or disfigure, but without malice aforethought.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-29 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "cutting off an ear",
+        "cutting off a nose",
+        "maiming"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_malicious_maiming",
+      "jurisdiction": "NC",
+      "name": "Malicious maiming",
+      "category": "assault",
+      "class": "C",
+      "grade": "felony",
+      "punishment_note": "Class C felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-30",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-30.html",
+          "last_session_law_seen": "1994, Ex. Sess., c. 24, s. 14(c)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "ff719ad58eafa125bce28b2357814de3a677bb30e58e5bd572abd9408eb852e4",
+          "source_file": "sources/NC/GS_14-30.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "tongue_or_eye_injury",
+          "malice_aforethought_maiming",
+          "intent_murder_maim_disfigure"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Counselors, abettors and aiders who know of and are privy to the offense are punished the same way (G.S. 14-30)."
+      ],
+      "explain_like_5": "Someone, with malice, cut out a person's tongue or put out an eye, meaning to maim or disfigure.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-30 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "gouging an eye",
+        "cutting out a tongue"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_acid_throwing",
+      "jurisdiction": "NC",
+      "name": "Malicious throwing of corrosive acid or alkali",
+      "category": "assault",
+      "class": "E",
+      "grade": "felony",
+      "punishment_note": "Class E felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-30.1",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-30.1.html",
+          "last_session_law_seen": "1994, Ex. Sess., c. 24, s. 14(c)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "52ee9cac8057a085d4201c673fdc49f0ad0103a4309305f8a45cc48eb8dc7a5a",
+          "source_file": "sources/NC/GS_14-30.1.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "acid_thrown_on_person",
+          "malice_aforethought_maiming",
+          "intent_murder_maim_disfigure",
+          "serious_injury"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Applies when the serious injury does not result in death ('not resulting in death')."
+      ],
+      "explain_like_5": "Someone threw acid or another corrosive substance on a person, meaning to maim or disfigure, and caused a serious injury.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-30.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "acid attack",
+        "throwing acid",
+        "lye"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_secret_assault",
+      "jurisdiction": "NC",
+      "name": "Assault with a deadly weapon in a secret manner with intent to kill",
+      "category": "assault",
+      "class": "E",
+      "grade": "felony",
+      "punishment_note": "Class E felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-31",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-31.html",
+          "last_session_law_seen": "1994, Ex. Sess., c. 24, s. 14(c)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "6d0d2fed68ee71b5386fa12da912bc16c83c31c675c3a9043b29718ed5aaf255",
+          "source_file": "sources/NC/GS_14-31.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "battery_touching",
+          "deadly_weapon",
+          "maliciously",
+          "secret_manner",
+          "intent_to_kill"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "The victim having been aware of the attacker's presence does not take the case out of the statute."
+      ],
+      "explain_like_5": "Someone lay in wait or otherwise attacked a person in a hidden way, with a deadly weapon, meaning to kill.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-31 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "ambush",
+        "waylaying",
+        "lying in wait assault"
+      ],
+      "cross_checks": []
+    },
+    {
       "id": "nc_awdwikisi",
       "jurisdiction": "NC",
       "name": "Assault with a deadly weapon with intent to kill, inflicting serious injury",
@@ -1538,6 +2496,538 @@
       ]
     },
     {
+      "id": "nc_assault_disabled_agg",
+      "jurisdiction": "NC",
+      "name": "Aggravated assault on an individual with a disability",
+      "category": "assault",
+      "class": "F",
+      "grade": "felony",
+      "punishment_note": "Class F felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32.1(e)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.1.html",
+          "last_session_law_seen": "2018-47, s. 4(m)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "8f57d95c61f64b8a7aff59dab1f9049db82a3f0fe302fa5f4f0c7b5ce2977b22",
+          "source_file": "sources/NC/GS_14-32.1.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "victim_disabled_individual",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Deadly weapon or force likely to inflict serious injury",
+            "all_of": [
+              "deadly_weapon_or_likely_serious_force"
+            ]
+          },
+          {
+            "route": "Serious injury or serious damage",
+            "all_of": [
+              "serious_injury_or_damage"
+            ]
+          },
+          {
+            "route": "Intent to kill",
+            "all_of": [
+              "intent_to_kill"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "Subsections (b) through (d) of G.S. 14-32.1 were repealed in 1994."
+      ],
+      "explain_like_5": "Someone assaulted a person who has a disability or infirmity that makes it hard to defend themselves, using a weapon, causing serious injury, or meaning to kill.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-32.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "assault on a disabled person",
+        "assault on a handicapped person"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_assault_disabled_simple",
+      "jurisdiction": "NC",
+      "name": "Simple assault or battery on an individual with a disability",
+      "category": "assault",
+      "class": "A1",
+      "grade": "misdemeanor",
+      "punishment_note": "Class A1 misdemeanor.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32.1(f)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.1.html",
+          "last_session_law_seen": "2018-47, s. 4(m)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "8f57d95c61f64b8a7aff59dab1f9049db82a3f0fe302fa5f4f0c7b5ce2977b22",
+          "source_file": "sources/NC/GS_14-32.1.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "victim_disabled_individual"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Applies to a simple assault or battery. Aggravated versions are covered by G.S. 14-32.1(e).",
+        "Subsections (b) through (d) of G.S. 14-32.1 were repealed in 1994."
+      ],
+      "explain_like_5": "Someone assaulted a person who has a disability or infirmity that makes it hard to defend themselves, without a weapon or serious injury.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-32.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "assault on a disabled person"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_patient_abuse_death_intent",
+      "jurisdiction": "NC",
+      "name": "Patient abuse causing death by intentional conduct",
+      "category": "assault",
+      "class": "C",
+      "grade": "felony",
+      "punishment_note": "Class C felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32.2(b)(1)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.2.html",
+          "last_session_law_seen": "2019-76, s. 12(a)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "fa41670ecf4abb980920548f2d62380ef2ed5a28c2d5a7c655b489fef6c6c937",
+          "source_file": "sources/NC/GS_14-32.2.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "victim_patient_or_resident",
+          "patient_abuse_injury_or_death",
+          "intentional_conduct_causes_death",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Criminal process may be issued only on the request of a district attorney (G.S. 14-32.2(g)).",
+        "This section does not replace other statutory or common-law offenses (G.S. 14-32.2(h)).",
+        "Subsections (c) through (e1) of G.S. 14-32.2 were repealed effective January 1, 2020."
+      ],
+      "explain_like_5": "A patient or care-home resident died because someone intentionally abused them.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-32.2 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "nursing home abuse",
+        "patient abuse"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_patient_abuse_death_neg",
+      "jurisdiction": "NC",
+      "name": "Patient abuse causing death by culpable negligence",
+      "category": "assault",
+      "class": "E",
+      "grade": "felony",
+      "punishment_note": "Class E felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32.2(b)(2)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.2.html",
+          "last_session_law_seen": "2019-76, s. 12(a)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "fa41670ecf4abb980920548f2d62380ef2ed5a28c2d5a7c655b489fef6c6c937",
+          "source_file": "sources/NC/GS_14-32.2.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "victim_patient_or_resident",
+          "patient_abuse_injury_or_death",
+          "culpably_negligent_conduct_causes_death",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Criminal process may be issued only on the request of a district attorney (G.S. 14-32.2(g)).",
+        "This section does not replace other statutory or common-law offenses (G.S. 14-32.2(h))."
+      ],
+      "explain_like_5": "A patient or care-home resident died because someone's gross, reckless abuse or neglect showed no regard for human life.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-32.2 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "nursing home neglect death"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_patient_abuse_sbi",
+      "jurisdiction": "NC",
+      "name": "Patient abuse causing serious bodily injury",
+      "category": "assault",
+      "class": "F",
+      "grade": "felony",
+      "punishment_note": "Class F felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32.2(b)(3)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.2.html",
+          "last_session_law_seen": "2019-76, s. 12(a)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "fa41670ecf4abb980920548f2d62380ef2ed5a28c2d5a7c655b489fef6c6c937",
+          "source_file": "sources/NC/GS_14-32.2.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "victim_patient_or_resident",
+          "patient_abuse_injury_or_death",
+          "willful_or_culpably_negligent_conduct",
+          "serious_bodily_injury",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "G.S. 14-32.2 doesn't define 'serious bodily injury'. The definition in G.S. 14-32.4(a) is shown on this record; whether it carries over is not decided here.",
+        "Criminal process may be issued only on the request of a district attorney (G.S. 14-32.2(g)).",
+        "This section does not replace other statutory or common-law offenses (G.S. 14-32.2(h))."
+      ],
+      "explain_like_5": "A patient or care-home resident was seriously hurt because of someone's willful or grossly careless abuse.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-32.2 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "patient abuse serious injury"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_patient_abuse_pattern",
+      "jurisdiction": "NC",
+      "name": "Patient abuse by a pattern of conduct causing bodily injury",
+      "category": "assault",
+      "class": "H",
+      "grade": "felony",
+      "punishment_note": "Class H felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32.2(b)(4)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.2.html",
+          "last_session_law_seen": "2019-76, s. 12(a)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "fa41670ecf4abb980920548f2d62380ef2ed5a28c2d5a7c655b489fef6c6c937",
+          "source_file": "sources/NC/GS_14-32.2.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "victim_patient_or_resident",
+          "patient_abuse_injury_or_death",
+          "willful_or_culpably_negligent_conduct",
+          "pattern_of_conduct",
+          "bodily_injury_to_patient",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Criminal process may be issued only on the request of a district attorney (G.S. 14-32.2(g)).",
+        "This section does not replace other statutory or common-law offenses (G.S. 14-32.2(h))."
+      ],
+      "explain_like_5": "A patient or care-home resident was hurt, and it was part of a pattern of willful or grossly careless abuse.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-32.2 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "repeated patient abuse"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_elder_abuse_serious",
+      "jurisdiction": "NC",
+      "name": "Domestic abuse of a disabled or elder adult causing serious injury",
+      "category": "assault",
+      "class": "F",
+      "grade": "felony",
+      "punishment_note": "Class F felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32.3(a)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.3.html",
+          "last_session_law_seen": "2005-272, s. 1",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "0fe29c772bd4e3340143972faa858ef09cff710e3a640dd5ea52cdba8a87bcfe",
+          "source_file": "sources/NC/GS_14-32.3.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "caretaker_of_adult_domestic",
+          "acts_with_malice_knowingly_willfully",
+          "adult_suffers_serious_injury"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Assaults the adult",
+            "all_of": [
+              "assaults_adult"
+            ]
+          },
+          {
+            "route": "Fails to provide medical or hygienic care",
+            "all_of": [
+              "fails_medical_hygienic_care"
+            ]
+          },
+          {
+            "route": "Confines or restrains in a cruel or unsafe way",
+            "all_of": [
+              "confines_cruel_or_unsafe"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "Not an offense if the act or failure to act is in accordance with G.S. 90-321 or G.S. 90-322 (natural death and advance directive provisions)."
+      ],
+      "explain_like_5": "A caretaker of an elderly or disabled adult at home, knowingly and with malice, hurt them, withheld care, or confined them cruelly, and the adult was seriously injured.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-32.3 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "elder abuse",
+        "abuse of a disabled adult"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_elder_abuse",
+      "jurisdiction": "NC",
+      "name": "Domestic abuse of a disabled or elder adult causing injury",
+      "category": "assault",
+      "class": "H",
+      "grade": "felony",
+      "punishment_note": "Class H felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32.3(a)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.3.html",
+          "last_session_law_seen": "2005-272, s. 1",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "0fe29c772bd4e3340143972faa858ef09cff710e3a640dd5ea52cdba8a87bcfe",
+          "source_file": "sources/NC/GS_14-32.3.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "caretaker_of_adult_domestic",
+          "acts_with_malice_knowingly_willfully",
+          "adult_suffers_injury"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Assaults the adult",
+            "all_of": [
+              "assaults_adult"
+            ]
+          },
+          {
+            "route": "Fails to provide medical or hygienic care",
+            "all_of": [
+              "fails_medical_hygienic_care"
+            ]
+          },
+          {
+            "route": "Confines or restrains in a cruel or unsafe way",
+            "all_of": [
+              "confines_cruel_or_unsafe"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "If the injury is serious, the offense is the Class F felony in the same subsection.",
+        "Not an offense if the act or failure to act is in accordance with G.S. 90-321 or G.S. 90-322."
+      ],
+      "explain_like_5": "A caretaker of an elderly or disabled adult at home, knowingly and with malice, hurt them, withheld care, or confined them cruelly, and the adult was injured.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-32.3 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "elder abuse"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_elder_neglect_serious",
+      "jurisdiction": "NC",
+      "name": "Domestic neglect of a disabled or elder adult causing serious injury",
+      "category": "assault",
+      "class": "G",
+      "grade": "felony",
+      "punishment_note": "Class G felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32.3(b)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.3.html",
+          "last_session_law_seen": "2005-272, s. 1",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "0fe29c772bd4e3340143972faa858ef09cff710e3a640dd5ea52cdba8a87bcfe",
+          "source_file": "sources/NC/GS_14-32.3.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "caretaker_of_adult_domestic",
+          "acts_wantonly_recklessly",
+          "adult_suffers_serious_injury"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Fails to provide medical or hygienic care",
+            "all_of": [
+              "fails_medical_hygienic_care"
+            ]
+          },
+          {
+            "route": "Confines or restrains in an unsafe way",
+            "all_of": [
+              "confines_unsafe"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "Neglect does not include assault. Assault falls under the abuse offenses in subsection (a).",
+        "Not an offense if the act or failure to act is in accordance with G.S. 90-321 or G.S. 90-322."
+      ],
+      "explain_like_5": "A caretaker of an elderly or disabled adult at home, recklessly or with gross carelessness, withheld care or confined them unsafely, and the adult was seriously injured.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-32.3 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "elder neglect"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_elder_neglect",
+      "jurisdiction": "NC",
+      "name": "Domestic neglect of a disabled or elder adult causing injury",
+      "category": "assault",
+      "class": "I",
+      "grade": "felony",
+      "punishment_note": "Class I felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32.3(b)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.3.html",
+          "last_session_law_seen": "2005-272, s. 1",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "0fe29c772bd4e3340143972faa858ef09cff710e3a640dd5ea52cdba8a87bcfe",
+          "source_file": "sources/NC/GS_14-32.3.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "caretaker_of_adult_domestic",
+          "acts_wantonly_recklessly",
+          "adult_suffers_injury"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Fails to provide medical or hygienic care",
+            "all_of": [
+              "fails_medical_hygienic_care"
+            ]
+          },
+          {
+            "route": "Confines or restrains in an unsafe way",
+            "all_of": [
+              "confines_unsafe"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "If the injury is serious, the offense is the Class G felony in the same subsection.",
+        "Not an offense if the act or failure to act is in accordance with G.S. 90-321 or G.S. 90-322."
+      ],
+      "explain_like_5": "A caretaker of an elderly or disabled adult at home, recklessly or with gross carelessness, withheld care or confined them unsafely, and the adult was injured.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-32.3 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "elder neglect"
+      ],
+      "cross_checks": []
+    },
+    {
       "id": "nc_assault_sbi",
       "jurisdiction": "NC",
       "name": "Assault inflicting serious bodily injury",
@@ -1636,6 +3126,253 @@
           "checked_on": "2026-10-17",
           "method": "text of the PDF read in full",
           "note": "Matches."
+        }
+      ]
+    },
+    {
+      "id": "nc_misd_dv",
+      "jurisdiction": "NC",
+      "name": "Misdemeanor crime of domestic violence",
+      "category": "assault",
+      "class": "A1",
+      "grade": "misdemeanor",
+      "punishment_note": "Class A1 misdemeanor.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32.5",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.5.html",
+          "last_session_law_seen": "2023-14, s. 8.3(a)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "3d46047b0f6658da4abfb513b0604a54c86365f20bd231b1e4bf36154f19f7f3",
+          "source_file": "sources/NC/GS_14-32.5.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "force_or_weapon_threat"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Spouse, parent or guardian (current or former)",
+            "all_of": [
+              "dv_spouse_parent_guardian"
+            ]
+          },
+          {
+            "route": "Shares a child with the victim",
+            "all_of": [
+              "dv_child_in_common"
+            ]
+          },
+          {
+            "route": "Lives or lived with the victim as a spouse, parent or guardian",
+            "all_of": [
+              "dv_cohabitating"
+            ]
+          },
+          {
+            "route": "Similarly situated to a spouse, parent or guardian",
+            "all_of": [
+              "dv_similarly_situated"
+            ]
+          },
+          {
+            "route": "Current or recent former dating relationship",
+            "all_of": [
+              "dv_dating_relationship"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "Unlike the assault offenses, this one is defined by the relationship and by force or a threatened deadly weapon, not by assault or injury.",
+        "A conviction under G.S. 14-33 is not a lesser included offense of this crime (G.S. 14-33(e)).",
+        "The relationship list here is not the same as the 'personal relationship' list in G.S. 50B-1(b), which G.S. 14-33(d) uses."
+      ],
+      "explain_like_5": "Someone used or tried to use force, or threatened to use a deadly weapon, against a partner, former partner, co-parent or family member covered by the law.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-32.5 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "domestic violence",
+        "DV",
+        "domestic assault"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_habitual_dv",
+      "jurisdiction": "NC",
+      "name": "Habitual domestic violence",
+      "category": "assault",
+      "class": "H",
+      "grade": "felony",
+      "punishment_note": "Class H felony for the first offense. Each later conviction under this section is one class higher than the most recent prior conviction under it, up to Class C.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-32.6",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.6.html",
+          "last_session_law_seen": "2025-70, s. 18(a)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "721439202ea39f0c3176992b45cb9c5726f8541301db64aa1ab401dc7b89fe79",
+          "source_file": "sources/NC/GS_14-32.6.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "current_dv_offense",
+          "prior_dv_convictions"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "A conviction under this section can't be used as a prior conviction for any other habitual offense statute (G.S. 14-32.6(b)).",
+        "The relationships are those listed in G.S. 14-32.5.",
+        "G.S. 14-32.6 was added by S.L. 2025-70, s. 18(a)."
+      ],
+      "explain_like_5": "Someone committed another domestic violence offense after at least two earlier qualifying convictions in the last 15 years.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-32.6 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "repeat domestic violence"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_assault_simple",
+      "jurisdiction": "NC",
+      "name": "Simple assault",
+      "category": "assault",
+      "class": "2",
+      "grade": "misdemeanor",
+      "punishment_note": "Class 2 misdemeanor.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-33(a)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
+          "last_session_law_seen": "2025-71, s. 1(a)",
+          "source_file": "sources/NC/GS_14-33.txt",
+          "text_sha256": "62c1c0da739fd1aab7084273e2b1d1f0f3ca78b134562bd7c634c69b98518aba",
+          "text_captured_on": "2026-10-17"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Also covers simple assault and battery and simple affray. No weapon, injury, or victim category is required."
+      ],
+      "explain_like_5": "Someone threatened or hit another person, without a weapon, without seriously hurting them, and without the victim being in a specially protected group.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-33(a). Class 2 matches. The statute doesn't define assault, so that meaning rests on case law and N.C.P.I.-Crim. 120.20."
+      },
+      "aliases": [
+        "fight",
+        "hitting someone",
+        "punching",
+        "battery",
+        "affray"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.40, simple assault",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.40%20Simple%20Assault.%20Misdemeanor%20%5B2011%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        },
+        {
+          "label": "N.C.P.I.-Crim. 120.20, definition of assault",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/120.20%20Definition%20of%20Assault%20%5B2011%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Definition used for the assault element."
+        }
+      ]
+    },
+    {
+      "id": "nc_assault_class1",
+      "jurisdiction": "NC",
+      "name": "Aggravated assault on a sports official or utility worker (Class 1 misdemeanor)",
+      "category": "assault",
+      "class": "1",
+      "grade": "misdemeanor",
+      "punishment_note": "Class 1 misdemeanor.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-33(b)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
+          "last_session_law_seen": "2025-71, s. 1(a)",
+          "source_file": "sources/NC/GS_14-33.txt",
+          "text_sha256": "62c1c0da739fd1aab7084273e2b1d1f0f3ca78b134562bd7c634c69b98518aba",
+          "text_captured_on": "2026-10-17"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Sports official (assault and battery)",
+            "all_of": [
+              "victim_sports_official",
+              "battery_touching"
+            ]
+          },
+          {
+            "route": "Utility or communications worker",
+            "all_of": [
+              "victim_utility_worker"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "The older subdivisions of G.S. 14-33(b) have been repealed. Only (9) sports official and (10) utility or communications worker remain.",
+        "Subdivision (10), the utility or communications worker, was added by S.L. 2025-71, s. 1(a), and applies to offenses committed on or after Dec 1, 2025."
+      ],
+      "explain_like_5": "Someone assaulted a referee, umpire, or coach at a sports event, or a utility or phone or internet worker doing their job.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Compared with full text of G.S. 14-33(b). Both remaining subdivisions, the greater-punishment limit and Class 1 match. Fixed the utility-worker definition (it covers liquid petroleum, agents and contractors, and 'readily identifiable' is not limited to logo clothing) and broadened the sports-official definition."
+      },
+      "aliases": [
+        "aggravated assault",
+        "assault on a referee",
+        "assault on an umpire"
+      ],
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.14, assault upon a sports official",
+          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.14%20Assault%20upon%20a%20Sports%20Official%20%5B2011%5D.pdf",
+          "checked_on": "2026-10-17",
+          "method": "text of the PDF read in full",
+          "note": "Differs on battery: the instruction says assault only, the current statute says assault and battery. Statute followed."
         }
       ]
     },
@@ -1771,133 +3508,6 @@
       ]
     },
     {
-      "id": "nc_assault_class1",
-      "jurisdiction": "NC",
-      "name": "Aggravated assault on a sports official or utility worker (Class 1 misdemeanor)",
-      "category": "assault",
-      "class": "1",
-      "grade": "misdemeanor",
-      "punishment_note": "Class 1 misdemeanor.",
-      "definition_source": "mixed",
-      "statutes": [
-        {
-          "cite": "G.S. 14-33(b)",
-          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
-          "last_session_law_seen": "2025-71, s. 1(a)",
-          "source_file": "sources/NC/GS_14-33.txt",
-          "text_sha256": "62c1c0da739fd1aab7084273e2b1d1f0f3ca78b134562bd7c634c69b98518aba",
-          "text_captured_on": "2026-10-17"
-        }
-      ],
-      "elements": {
-        "all_of": [
-          "assault_on_person",
-          "no_greater_punishment_law"
-        ],
-        "any_of_routes": [
-          {
-            "route": "Sports official (assault and battery)",
-            "all_of": [
-              "victim_sports_official",
-              "battery_touching"
-            ]
-          },
-          {
-            "route": "Utility or communications worker",
-            "all_of": [
-              "victim_utility_worker"
-            ]
-          }
-        ]
-      },
-      "special_rules": [
-        "The older subdivisions of G.S. 14-33(b) have been repealed. Only (9) sports official and (10) utility or communications worker remain.",
-        "Subdivision (10), the utility or communications worker, was added by S.L. 2025-71, s. 1(a), and applies to offenses committed on or after Dec 1, 2025."
-      ],
-      "explain_like_5": "Someone assaulted a referee, umpire, or coach at a sports event, or a utility or phone or internet worker doing their job.",
-      "review": {
-        "status": "draft",
-        "verified_by": null,
-        "verified_on": null,
-        "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Compared with full text of G.S. 14-33(b). Both remaining subdivisions, the greater-punishment limit and Class 1 match. Fixed the utility-worker definition (it covers liquid petroleum, agents and contractors, and 'readily identifiable' is not limited to logo clothing) and broadened the sports-official definition."
-      },
-      "aliases": [
-        "aggravated assault",
-        "assault on a referee",
-        "assault on an umpire"
-      ],
-      "cross_checks": [
-        {
-          "label": "N.C.P.I.-Crim. 208.14, assault upon a sports official",
-          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.14%20Assault%20upon%20a%20Sports%20Official%20%5B2011%5D.pdf",
-          "checked_on": "2026-10-17",
-          "method": "text of the PDF read in full",
-          "note": "Differs on battery: the instruction says assault only, the current statute says assault and battery. Statute followed."
-        }
-      ]
-    },
-    {
-      "id": "nc_assault_simple",
-      "jurisdiction": "NC",
-      "name": "Simple assault",
-      "category": "assault",
-      "class": "2",
-      "grade": "misdemeanor",
-      "punishment_note": "Class 2 misdemeanor.",
-      "definition_source": "mixed",
-      "statutes": [
-        {
-          "cite": "G.S. 14-33(a)",
-          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
-          "last_session_law_seen": "2025-71, s. 1(a)",
-          "source_file": "sources/NC/GS_14-33.txt",
-          "text_sha256": "62c1c0da739fd1aab7084273e2b1d1f0f3ca78b134562bd7c634c69b98518aba",
-          "text_captured_on": "2026-10-17"
-        }
-      ],
-      "elements": {
-        "all_of": [
-          "assault_on_person"
-        ],
-        "any_of_routes": []
-      },
-      "special_rules": [
-        "Also covers simple assault and battery and simple affray. No weapon, injury, or victim category is required."
-      ],
-      "explain_like_5": "Someone threatened or hit another person, without a weapon, without seriously hurting them, and without the victim being in a specially protected group.",
-      "review": {
-        "status": "draft",
-        "verified_by": null,
-        "verified_on": null,
-        "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Compared with full text of G.S. 14-33(a). Class 2 matches. The statute doesn't define assault, so that meaning rests on case law and N.C.P.I.-Crim. 120.20."
-      },
-      "aliases": [
-        "fight",
-        "hitting someone",
-        "punching",
-        "battery",
-        "affray"
-      ],
-      "cross_checks": [
-        {
-          "label": "N.C.P.I.-Crim. 208.40, simple assault",
-          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.40%20Simple%20Assault.%20Misdemeanor%20%5B2011%5D.pdf",
-          "checked_on": "2026-10-17",
-          "method": "text of the PDF read in full",
-          "note": "Matches."
-        },
-        {
-          "label": "N.C.P.I.-Crim. 120.20, definition of assault",
-          "url": "https://www.sog.unc.edu/sites/default/files/pji-master-2025/criminal/120.20%20Definition%20of%20Assault%20%5B2011%5D.pdf",
-          "checked_on": "2026-10-17",
-          "method": "text of the PDF read in full",
-          "note": "Definition used for the assault element."
-        }
-      ]
-    },
-    {
       "id": "nc_assault_dom_minor",
       "jurisdiction": "NC",
       "name": "Assault in the presence of a minor against a person with a personal relationship",
@@ -1964,6 +3574,50 @@
       ]
     },
     {
+      "id": "nc_habitual_misd_assault",
+      "jurisdiction": "NC",
+      "name": "Habitual misdemeanor assault",
+      "category": "assault",
+      "class": "H",
+      "grade": "felony",
+      "punishment_note": "Class H felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-33.2",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.2.html",
+          "last_session_law_seen": "2025-70, s. 17(b)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "6aceb172825cd83f61a358ee742c96cdcefb08e5da4b6da1fcf9f7521ba215d9",
+          "source_file": "sources/NC/GS_14-33.2.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "current_habitual_assault_offense",
+          "prior_assault_convictions"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "A conviction under this section can't be used as a prior conviction for any other habitual offense statute.",
+        "Amended by S.L. 2025-70, s. 17(b), effective for offenses committed on or after Dec 1, 2025."
+      ],
+      "explain_like_5": "Someone committed a new misdemeanor assault that caused injury, or domestic violence or pointing a gun, after at least two earlier assault convictions in the last 15 years.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-33.2 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "repeat assault",
+        "habitual assault"
+      ],
+      "cross_checks": []
+    },
+    {
       "id": "nc_assault_pointing",
       "jurisdiction": "NC",
       "name": "Assault by pointing a gun",
@@ -2013,6 +3667,933 @@
           "note": "Matches."
         }
       ]
+    },
+    {
+      "id": "nc_shoot_occupied_property",
+      "jurisdiction": "NC",
+      "name": "Discharging a weapon into occupied property",
+      "category": "assault",
+      "class": "E",
+      "grade": "felony",
+      "punishment_note": "Class E felony.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.1(a)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.1.html",
+          "last_session_law_seen": "2005-461, s. 1",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "1fbe50acfa21394aa2fdb16ad3db6f5f279474689a4b3ed4fb1cbf2771a31b06",
+          "source_file": "sources/NC/GS_14-34.1.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "discharge_weapon_600fps",
+          "into_occupied_property"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "If the property is an occupied dwelling or an occupied vehicle in operation, see the Class D version in subsection (b).",
+        "If the violation results in serious bodily injury to any person, see the Class C version in subsection (c).",
+        "'Attempts to discharge' is covered."
+      ],
+      "explain_like_5": "Someone fired a gun into a building or vehicle that had people in it.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "shooting into a building",
+        "shooting into a car",
+        "shooting into occupied property"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_shoot_occupied_dwelling",
+      "jurisdiction": "NC",
+      "name": "Discharging a weapon into an occupied dwelling or moving vehicle",
+      "category": "assault",
+      "class": "D",
+      "grade": "felony",
+      "punishment_note": "Class D felony.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.1(b)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.1.html",
+          "last_session_law_seen": "2005-461, s. 1",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "1fbe50acfa21394aa2fdb16ad3db6f5f279474689a4b3ed4fb1cbf2771a31b06",
+          "source_file": "sources/NC/GS_14-34.1.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "discharge_weapon_600fps",
+          "into_occupied_dwelling_or_moving_vehicle"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "If the violation results in serious bodily injury to any person, see the Class C version in subsection (c).",
+        "'Attempts to discharge' is covered."
+      ],
+      "explain_like_5": "Someone fired a gun into an occupied home, or into an occupied vehicle that was moving or in operation.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "drive-by shooting",
+        "shooting into a house",
+        "shooting into an occupied dwelling"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_shoot_sbi",
+      "jurisdiction": "NC",
+      "name": "Discharging a weapon into occupied property causing serious bodily injury",
+      "category": "assault",
+      "class": "C",
+      "grade": "felony",
+      "punishment_note": "Class C felony.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.1(c)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.1.html",
+          "last_session_law_seen": "2005-461, s. 1",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "1fbe50acfa21394aa2fdb16ad3db6f5f279474689a4b3ed4fb1cbf2771a31b06",
+          "source_file": "sources/NC/GS_14-34.1.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "discharge_weapon_600fps",
+          "serious_bodily_injury"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Into occupied property",
+            "all_of": [
+              "into_occupied_property"
+            ]
+          },
+          {
+            "route": "Into an occupied dwelling or moving vehicle",
+            "all_of": [
+              "into_occupied_dwelling_or_moving_vehicle"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "The statute says 'serious bodily injury to any person'. It doesn't say the injured person must be inside the property, and doesn't define the term here."
+      ],
+      "explain_like_5": "Someone fired a gun into occupied property, and a person was seriously hurt.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "drive-by shooting serious injury"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_shoot_emergency_vehicle",
+      "jurisdiction": "NC",
+      "name": "Discharging a weapon at or into an unoccupied emergency vehicle",
+      "category": "assault",
+      "class": "H",
+      "grade": "felony",
+      "punishment_note": "Class H felony.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.1A",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.1A.html",
+          "last_session_law_seen": "2023-76, s. 2",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "de1d1980ec591c787e811887e238d006c9c3304a86fffcccb9ec5b3695efd3e3",
+          "source_file": "sources/NC/GS_14-34.1A.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "discharge_weapon_600fps",
+          "at_unoccupied_emergency_vehicle",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "G.S. 14-34.1A was added by S.L. 2023-76, s. 2."
+      ],
+      "explain_like_5": "Someone fired a gun at or into a police car, ambulance, fire truck or similar vehicle with nobody inside.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.1A read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "shooting at a police car",
+        "shooting at an ambulance"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_assault_deadly_weapon_gov",
+      "jurisdiction": "NC",
+      "name": "Assault with a deadly weapon on a government officer or employee, company or campus police officer",
+      "category": "assault",
+      "class": "E",
+      "grade": "felony",
+      "punishment_note": "Class E felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.2",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.2.html",
+          "last_session_law_seen": "2023-76, s. 4",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "64fbc5e108ef1e2b3970f83c94bfec1c50eedc4fc36a4c503b36a3aedb542143",
+          "source_file": "sources/NC/GS_14-34.2.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "deadly_weapon",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Officer or employee of the State or a local government",
+            "all_of": [
+              "victim_gov_employee"
+            ]
+          },
+          {
+            "route": "Company or campus police officer",
+            "all_of": [
+              "victim_company_campus_police"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "The victim must be performing an official duty."
+      ],
+      "explain_like_5": "Someone assaulted a government officer or employee, or a company or campus police officer, with a deadly weapon while they were doing their job.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.2 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "assault on a government employee with a weapon"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_teflon_bullets",
+      "jurisdiction": "NC",
+      "name": "Teflon-coated bullets",
+      "category": "assault",
+      "class": "1",
+      "grade": "misdemeanor",
+      "punishment_note": "Class 1 misdemeanor.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.3",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.3.html",
+          "last_session_law_seen": "2011-183, s. 8",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "d00373c352903f73ecef1eed5762cdcfed8ef117c1ea6e820f787965e0cbae79",
+          "source_file": "sources/NC/GS_14-34.3.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "teflon_bullet_handling"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Exceptions apply for certain military and government officers acting in official duty, licensed dealers who possess only to sell to authorized law enforcement, and body armor researchers (G.S. 14-34.3(b))."
+      ],
+      "explain_like_5": "Someone made, sold, bought or kept teflon-coated bullets.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.3 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "armor-piercing bullets",
+        "teflon bullets"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_food_tampering_injury",
+      "jurisdiction": "NC",
+      "name": "Adulterating or misbranding food, drugs or cosmetics with intent to cause serious injury or death",
+      "category": "assault",
+      "class": "C",
+      "grade": "felony",
+      "punishment_note": "Class C felony.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.4(a)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.4.html",
+          "last_session_law_seen": "1987, c. 313",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "1c69b01c3a367d5757cd40582badcb0e854322742b1a6b23ee354fbe07150c11",
+          "source_file": "sources/NC/GS_14-34.4.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "adulterates_food_drug_cosmetic",
+          "intent_serious_injury_or_death"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [],
+      "explain_like_5": "Someone tampered with, or sold, tampered food, medicine or cosmetics, meaning to seriously hurt or kill.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.4 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "product tampering",
+        "poisoning food"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_food_tampering_extort",
+      "jurisdiction": "NC",
+      "name": "Threatening product tampering to obtain something of value",
+      "category": "assault",
+      "class": "C",
+      "grade": "felony",
+      "punishment_note": "Class C felony.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.4(b)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.4.html",
+          "last_session_law_seen": "1987, c. 313",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "1c69b01c3a367d5757cd40582badcb0e854322742b1a6b23ee354fbe07150c11",
+          "source_file": "sources/NC/GS_14-34.4.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "communicates_adulteration_for_gain",
+          "intent_wrongfully_obtain_value"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [],
+      "explain_like_5": "Someone told another person they had tampered, or would tamper, with food, medicine or cosmetics to get money or another advantage.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.4 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "product tampering extortion",
+        "tampering threat"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_assault_firearm_officer",
+      "jurisdiction": "NC",
+      "name": "Assault with a firearm on an officer, National Guard member or detention employee",
+      "category": "assault",
+      "class": "D",
+      "grade": "felony",
+      "punishment_note": "Class D felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.5",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.5.html",
+          "last_session_law_seen": "2023-76, s. 5",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "e97b997726a3858e7534c67101127432f9cb3a1184320ab3fbbcf7899569e56b",
+          "source_file": "sources/NC/GS_14-34.5.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "assault_with_firearm"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Law enforcement, probation or parole officer",
+            "all_of": [
+              "victim_leo_probation_parole"
+            ]
+          },
+          {
+            "route": "National Guard member",
+            "all_of": [
+              "victim_national_guard"
+            ]
+          },
+          {
+            "route": "Detention facility employee",
+            "all_of": [
+              "victim_detention_employee"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "G.S. 14-34.5 has no 'unless covered by a law with greater punishment' limit."
+      ],
+      "explain_like_5": "Someone assaulted a police, probation or parole officer, a National Guard member, or a jail or prison employee with a firearm while they were doing their job.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.5 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "assault on an officer with a gun"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_assault_health_worker",
+      "jurisdiction": "NC",
+      "name": "Assault or affray causing physical injury to a health care worker, firefighter or hospital worker",
+      "category": "assault",
+      "class": "I",
+      "grade": "felony",
+      "punishment_note": "Class I felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.6(a)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.6.html",
+          "last_session_law_seen": "2023-129, s. 8.2(a)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "dc69637c23fb74373c4c0e932c30457a7a871cc8b2e9005f0fce3a704411aba8",
+          "source_file": "sources/NC/GS_14-34.6.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_or_affray_physical_injury",
+          "victim_health_fire_worker"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Using a deadly weapon other than a firearm, or inflicting serious bodily injury, raises it to Class F under subsection (b). Using a firearm raises it to Class D under subsection (c).",
+        "Subdivision (a)(4) was repealed in 2011."
+      ],
+      "explain_like_5": "Someone hurt an EMT, firefighter, hospital worker or similar person who was doing their job.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.6 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "assault on a nurse",
+        "assault on a firefighter",
+        "assault on EMS",
+        "assault on hospital staff"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_assault_health_worker_sbi",
+      "jurisdiction": "NC",
+      "name": "Assault on a health care worker, firefighter or hospital worker causing serious bodily injury or with a non-firearm deadly weapon",
+      "category": "assault",
+      "class": "F",
+      "grade": "felony",
+      "punishment_note": "Class F felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.6(b)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.6.html",
+          "last_session_law_seen": "2023-129, s. 8.2(a)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "dc69637c23fb74373c4c0e932c30457a7a871cc8b2e9005f0fce3a704411aba8",
+          "source_file": "sources/NC/GS_14-34.6.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_or_affray_physical_injury",
+          "victim_health_fire_worker",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Serious bodily injury",
+            "all_of": [
+              "serious_bodily_injury"
+            ]
+          },
+          {
+            "route": "Deadly weapon other than a firearm",
+            "all_of": [
+              "deadly_weapon_not_firearm"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "G.S. 14-34.6 doesn't define serious bodily injury; the definition in G.S. 14-32.4(a) is shown on this record. Whether it carries over is not decided here."
+      ],
+      "explain_like_5": "Someone seriously hurt an EMT, firefighter or hospital worker doing their job, or attacked them with a deadly weapon that wasn't a firearm.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.6 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "assault on a nurse with a weapon"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_assault_health_worker_firearm",
+      "jurisdiction": "NC",
+      "name": "Assault on a health care worker, firefighter or hospital worker using a firearm",
+      "category": "assault",
+      "class": "D",
+      "grade": "felony",
+      "punishment_note": "Class D felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.6(c)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.6.html",
+          "last_session_law_seen": "2023-129, s. 8.2(a)",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "dc69637c23fb74373c4c0e932c30457a7a871cc8b2e9005f0fce3a704411aba8",
+          "source_file": "sources/NC/GS_14-34.6.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_or_affray_physical_injury",
+          "victim_health_fire_worker",
+          "uses_firearm",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [],
+      "explain_like_5": "Someone used a firearm in an assault that hurt an EMT, firefighter or hospital worker doing their job.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.6 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "assault on a nurse with a gun"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_assault_officer_sbi",
+      "jurisdiction": "NC",
+      "name": "Assault inflicting serious bodily injury on an officer, National Guard member or detention employee",
+      "category": "assault",
+      "class": "E",
+      "grade": "felony",
+      "punishment_note": "Class E felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.7(a)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.7.html",
+          "last_session_law_seen": "2023-76, s. 6",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "ef7678cfa746530f7d1b1465fecefef86679507b07a62cdf372d4ec3486e8339",
+          "source_file": "sources/NC/GS_14-34.7.txt"
+        },
+        {
+          "cite": "G.S. 14-34.7(a1)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.7.html",
+          "last_session_law_seen": "2023-76, s. 6",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "ef7678cfa746530f7d1b1465fecefef86679507b07a62cdf372d4ec3486e8339",
+          "source_file": "sources/NC/GS_14-34.7.txt"
+        },
+        {
+          "cite": "G.S. 14-34.7(b)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.7.html",
+          "last_session_law_seen": "2023-76, s. 6",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "ef7678cfa746530f7d1b1465fecefef86679507b07a62cdf372d4ec3486e8339",
+          "source_file": "sources/NC/GS_14-34.7.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "serious_bodily_injury",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Law enforcement, probation or parole officer",
+            "all_of": [
+              "victim_leo_probation_parole"
+            ]
+          },
+          {
+            "route": "National Guard member",
+            "all_of": [
+              "victim_national_guard"
+            ]
+          },
+          {
+            "route": "Detention facility employee",
+            "all_of": [
+              "victim_detention_employee"
+            ]
+          }
+        ]
+      },
+      "special_rules": [
+        "G.S. 14-34.7 doesn't define serious bodily injury; the definition in G.S. 14-32.4(a) is shown on this record. Whether it carries over is not decided here."
+      ],
+      "explain_like_5": "Someone seriously hurt a police, probation or parole officer, a National Guard member, or a jail or prison employee who was doing their job.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.7 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "assault on an officer serious injury"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_assault_officer_injury",
+      "jurisdiction": "NC",
+      "name": "Assault inflicting physical injury on an officer, National Guard member or detention employee",
+      "category": "assault",
+      "class": "H",
+      "grade": "felony",
+      "punishment_note": "Class H felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.7(c)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.7.html",
+          "last_session_law_seen": "2023-76, s. 6",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "ef7678cfa746530f7d1b1465fecefef86679507b07a62cdf372d4ec3486e8339",
+          "source_file": "sources/NC/GS_14-34.7.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "assault_on_person",
+          "physical_injury_minor",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": [
+          {
+            "route": "Law enforcement, probation or parole officer",
+            "all_of": [
+              "victim_leo_probation_parole"
+            ]
+          },
+          {
+            "route": "National Guard member",
+            "all_of": [
+              "victim_national_guard"
+            ]
+          },
+          {
+            "route": "Detention facility employee",
+            "all_of": [
+              "victim_detention_employee"
+            ]
+          }
+        ]
+      },
+      "special_rules": [],
+      "explain_like_5": "Someone hurt a police, probation or parole officer, a National Guard member, or a jail or prison employee who was doing their job, even with only cuts, scrapes or bruises.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.7 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "assault on an officer",
+        "assault on law enforcement",
+        "assault on a deputy"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_laser_worker",
+      "jurisdiction": "NC",
+      "name": "Pointing a laser at an officer or other listed worker on duty",
+      "category": "assault",
+      "class": "I",
+      "grade": "felony",
+      "punishment_note": "Class I felony.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.8(b)(1)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.8.html",
+          "last_session_law_seen": "2023-76, s. 3",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "c29c5125b16e05debe70a31124bccebea0eb2f8d55bce1bc9d0df1cdf1101d90",
+          "source_file": "sources/NC/GS_14-34.8.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "laser_pointed_emitting",
+          "laser_target_protected_worker"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Doesn't apply to law enforcement officers using a laser in their duties, licensed health care professionals, or people authorized to use a laser (G.S. 14-34.8(d)). Doesn't apply to laser tag, paintball and similar LED-based games (G.S. 14-34.8(e))."
+      ],
+      "explain_like_5": "Someone intentionally pointed a laser at a police officer, firefighter, EMT, guard or another listed worker doing their job.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.8 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "laser pointer at police",
+        "laser at a pilot"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_laser_face",
+      "jurisdiction": "NC",
+      "name": "Pointing a laser at a person's head or face",
+      "category": "assault",
+      "class": "infraction",
+      "grade": "infraction",
+      "punishment_note": "Infraction.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.8(b)(2)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.8.html",
+          "last_session_law_seen": "2023-76, s. 3",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "c29c5125b16e05debe70a31124bccebea0eb2f8d55bce1bc9d0df1cdf1101d90",
+          "source_file": "sources/NC/GS_14-34.8.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "laser_pointed_emitting",
+          "laser_target_head_or_face"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "An infraction is not a crime, so the usual felony and misdemeanor classes don't apply.",
+        "Doesn't apply to licensed health care professionals or people authorized to use a laser (G.S. 14-34.8(d)). Doesn't apply to laser tag, paintball and similar games (G.S. 14-34.8(e))."
+      ],
+      "explain_like_5": "Someone intentionally pointed a laser at another person's head or face.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.8 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "laser pointer in the face"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_laser_animal",
+      "jurisdiction": "NC",
+      "name": "Pointing a laser at a law enforcement or search and rescue animal, causing harm",
+      "category": "assault",
+      "class": "A1",
+      "grade": "misdemeanor",
+      "punishment_note": "Class A1 misdemeanor if the animal is caused harm. Otherwise it is an infraction.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.8(b)(3)",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.8.html",
+          "last_session_law_seen": "2023-76, s. 3",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "c29c5125b16e05debe70a31124bccebea0eb2f8d55bce1bc9d0df1cdf1101d90",
+          "source_file": "sources/NC/GS_14-34.8.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "laser_pointed_emitting",
+          "laser_target_working_animal",
+          "animal_harmed"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [
+        "Without harm to the animal, the same conduct is an infraction (G.S. 14-34.8(c)). An infraction is not a crime."
+      ],
+      "explain_like_5": "Someone intentionally pointed a laser at a police or search and rescue animal on duty and harmed it.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.8 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "laser at a police dog"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_gang_enclosure_discharge",
+      "jurisdiction": "NC",
+      "name": "Discharging a firearm from within an enclosure as part of criminal gang activity",
+      "category": "assault",
+      "class": "E",
+      "grade": "felony",
+      "punishment_note": "Class E felony.",
+      "definition_source": "mixed",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.9",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.9.html",
+          "last_session_law_seen": "2017-194, s. 6",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "514f4b7c3e181af49498791d10a9ea0e2691ac4aff19af96cfa486c34804a67f",
+          "source_file": "sources/NC/GS_14-34.9.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "discharge_from_enclosure_toward_outsiders",
+          "criminal_gang_activity",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [],
+      "explain_like_5": "As part of gang activity, someone fired a gun from inside a building or vehicle toward people outside it.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.9 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "gang drive-by",
+        "gang shooting"
+      ],
+      "cross_checks": []
+    },
+    {
+      "id": "nc_enclosure_fear_discharge",
+      "jurisdiction": "NC",
+      "name": "Discharging a firearm within an occupied enclosure to incite fear",
+      "category": "assault",
+      "class": "F",
+      "grade": "felony",
+      "punishment_note": "Class F felony.",
+      "definition_source": "statute",
+      "statutes": [
+        {
+          "cite": "G.S. 14-34.10",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.10.html",
+          "last_session_law_seen": "2013-144, s. 1",
+          "text_captured_on": "2026-10-17",
+          "text_sha256": "c76dcc6cc9e718f758934e3efdbb7f3e04d9c69d693f4767ba8e203362d767fd",
+          "source_file": "sources/NC/GS_14-34.10.txt"
+        }
+      ],
+      "elements": {
+        "all_of": [
+          "discharge_in_occupied_enclosure",
+          "intent_to_incite_fear",
+          "no_greater_punishment_law"
+        ],
+        "any_of_routes": []
+      },
+      "special_rules": [],
+      "explain_like_5": "Someone fired a gun inside a building or vehicle that had people in it, meaning to scare someone.",
+      "review": {
+        "status": "draft",
+        "verified_by": null,
+        "verified_on": null,
+        "statute_text_compared_on": "2026-10-17",
+        "comparison_note": "Drafted from the full text of G.S. 14-34.10 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+      },
+      "aliases": [
+        "firing a gun to scare someone"
+      ],
+      "cross_checks": []
     }
   ],
   "flows": [
@@ -2379,7 +4960,7 @@
           ]
         }
       },
-      "simplification_note": "Not modeled in this flow: assault in the presence of a minor against a partner (G.S. 14-33(d)), assaults on sports officials or utility workers (G.S. 14-33(b)), and pointing a gun (G.S. 14-34). Find those in Compare. If a deadly weapon causes serious bodily injury, the felony offenses in G.S. 14-32 are the ones this flow reaches."
+      "simplification_note": "Not modeled in this flow: assault in the presence of a minor against a partner (G.S. 14-33(d)), assaults on sports officials or utility workers (G.S. 14-33(b)), and pointing a gun (G.S. 14-34). Find those in Compare. If a deadly weapon causes serious bodily injury, the felony offenses in G.S. 14-32 are the ones this flow reaches. Also not reached here: the Article 8 offenses added on Oct 18 (maiming, female genital mutilation, offenses against people with disabilities, patients and elders, domestic violence, habitual offenses, firearm discharge offenses, assaults on officers and health care workers, lasers, teflon bullets and product tampering). Find them in Find or Compare."
     }
   ],
   "compare_presets": [
@@ -2444,6 +5025,34 @@
       "ids": [
         "nc_awdwisi",
         "nc_assault_a1"
+      ]
+    },
+    {
+      "label": "Misdemeanor vs. habitual domestic violence",
+      "ids": [
+        "nc_misd_dv",
+        "nc_habitual_dv"
+      ]
+    },
+    {
+      "label": "Simple assault vs. assault on an individual with a disability",
+      "ids": [
+        "nc_assault_simple",
+        "nc_assault_disabled_simple"
+      ]
+    },
+    {
+      "label": "Shooting into a building vs. into a dwelling",
+      "ids": [
+        "nc_shoot_occupied_property",
+        "nc_shoot_occupied_dwelling"
+      ]
+    },
+    {
+      "label": "Assault on an officer: injury vs. serious bodily injury",
+      "ids": [
+        "nc_assault_officer_injury",
+        "nc_assault_officer_sbi"
       ]
     }
   ]

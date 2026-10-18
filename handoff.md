@@ -73,8 +73,16 @@ Limits to remember:
 - Not modeled: habitual misdemeanor assault (14-33.2), misdemeanor crime of domestic violence (14-32.5), other Article 8 offenses.
 - Records stay `draft`.
 
+## Article 8 completed (Oct 18, ninth pass)
+- Added 40 offenses and 73 elements covering the rest of Article 8 (G.S. 14-28 to 14-34.10): maiming and acid (14-28 to 14-31), female genital mutilation (14-28.1, three offenses), assaults on people with disabilities (14-32.1), patient abuse (14-32.2, four), abuse and neglect of disabled or elder adults (14-32.3, four), misdemeanor and habitual domestic violence (14-32.5, 14-32.6), habitual misdemeanor assault (14-33.2), shooting into occupied property and emergency vehicles (14-34.1, 14-34.1A), assaults on officers, firefighters and health care workers (14-34.2, 14-34.5 to 14-34.7), teflon bullets (14-34.3), product tampering (14-34.4), lasers (14-34.8), and gang and fear discharges (14-34.9, 14-34.10).
+- Only the statute was used. No pattern jury instruction was read for these 40, so they carry `cross_checks: []` and the comparison note says so. Before verifying any of them, check the SOG pattern instructions and read the flagged elements (terms the statute leaves undefined, such as 'serious injury' in 14-32.1, 'pattern of conduct' in 14-32.2, 'criminal gang activity' in 14-34.9, and whether 'serious bodily injury' in 14-32.2, 14-34.1, 14-34.6 and 14-34.7 takes the 14-32.4(a) definition).
+- All 23 section texts were saved in sources/NC/ with fingerprints that match the browser's. Text was read page by page in the browser pane.
+- New grade `infraction` (G.S. 14-34.8). The family is now named 'Assaults' to match the article. G.S. 14-33.1 is an evidence rule and isn't modeled.
+- None of the new offenses are in the Build bubble flow. Find and Compare reach them.
+- The Assaults list in Find has 52 rows. If that is too long, the honest next layer is the individual section (for example 'G.S. 14-34.1, discharging into occupied property'), not a grouping invented by the tool.
+
 ## Built
-- Data file (schema 0.6): 22 offenses in 4 families (homicide 4, burglary and breaking or entering 4, larceny 2, assault 12), plus elements, bubble flows, compare presets, and search aliases. Every record has a `jurisdiction` field.
+- Data file (schema 0.6): 62 offenses in 4 families (homicide 4, burglary and breaking or entering 4, larceny 2, assaults 52, which is all of Article 8), plus elements, bubble flows, compare presets, and search aliases. Every record has a `jurisdiction` field.
 - Three modes: Build an offense (bubble game), Compare (2 offenses, 3 on wide screens), Find (category drill-down, search, plain-language offense pages).
 - Beta banner and a collapsed "questions for testers" block on the page; README added.
 - Guards against misreading: a permanent scope note under the title, neutral Build-mode wording (questions describe an offense, not an incident), a "Keep in mind" section on every offense card and compare view (overlap between offenses; not a prediction of any charge), and a "What this tool doesn't cover" box at the bottom of every mode.
@@ -98,7 +106,7 @@ Read in full through the School of Government website (PDFs open in a browser; t
 
 ## Not built yet
 - Change checker: compare live ncleg.gov pages to stored snapshots, flag changes for human approval, then update the data. Plan: data in a GitHub repo, scheduled script, proposed change reviewed by the owner. Scheduled runs are not available from the chat on the free plan.
-- Crimes against society category (planned, empty).
+- Find categories follow the Chapter 14 subchapters (decision Oct 18). Subchapters II and VI to XI are listed as 'coming soon'. Offenses outside Chapter 14 (for example drugs in Chapter 90, impaired driving in Chapter 20) have no home yet; decide how to show other chapters.
 - Other assault statutes in Chapter 14 (domestic, firearm, protected-victim offenses) not yet classified.
 - Multi-state support and the "closest equivalent in another state" idea (future).
 

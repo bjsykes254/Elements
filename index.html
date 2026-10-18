@@ -334,7 +334,7 @@ function safeUrl(u){return /^https?:\/\//i.test(u||'')?u:'#';}
 function cmpCols(){return window.innerWidth>=640?3:2;}
 function pill(t,c){return make('span','pill'+(c?' '+c:''),t);}
 function grid(n){var g=make('div','cg');g.style.gridTemplateColumns='repeat('+n+',minmax(0,1fr))';return g;}
-function classText(o){return 'Class '+(o['class']||o.felony_class)+' '+(o.grade||'felony');}
+function classText(o){if(o.grade==='infraction')return 'Infraction';return 'Class '+(o['class']||o.felony_class)+' '+(o.grade||'felony');}
 
 function elemMap(o){
 var e=o.elements||{},res={};
