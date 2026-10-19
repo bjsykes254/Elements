@@ -6,7 +6,7 @@
     "jurisdiction": "NC",
     "jurisdiction_name": "North Carolina",
     "scope": "homicide; burglary and breaking or entering; larceny; assault (prototype)",
-    "statute_text_checked_on": "2026-10-17 (G.S. 14-17, 14-18, 14-23.2, 14-28 to 14-34.10 except 14-33.1, 14-51, 14-52, 14-54, 14-72; 50B-1(b) read for reference)",
+    "statute_text_checked_on": "2026-10-17 (G.S. 14-17, 14-18, 14-23.2, 14-28 to 14-34.10 except 14-33.1, 14-50.16A, 14-51, 14-52, 14-54, 14-72; 50B-1(b) read for reference)",
     "schema_changes": [
       "0.2: felony_class replaced by class + grade (felony or misdemeanor), because property offenses include misdemeanors",
       "0.2: flows now carry a name and are selectable; the page no longer assumes one flow",
@@ -24,9 +24,11 @@
       "0.6 (Oct 17, seventh pass): assault group compared with full text of G.S. 14-32, 14-32.4, 14-33 and 14-34. Statute text saved. Utility-worker (S.L. 2025-71) and 14-33(e) (S.L. 2025-70) noted with effective dates. Personal-relationship, school-worker and utility-worker definitions rewritten.",
       "0.6 (Oct 18): Find categories now follow the Chapter 14 subchapters of the N.C. General Statutes (III person, IV habitation and other buildings, V property, and the rest as 'coming soon'). The NIBRS-style person/property/society grouping was dropped; 'crimes against society' is not a statutory category. Burglary and breaking or entering moved from property to habitation. Subchapter I (General Provisions) is not shown.",
       "0.6 (Oct 18): Article 8 completed. 40 offenses added from the full text of G.S. 14-28, 14-28.1, 14-29, 14-30, 14-30.1, 14-31, 14-32.1, 14-32.2, 14-32.3, 14-32.5, 14-32.6, 14-33.2, 14-34.1, 14-34.1A, 14-34.2, 14-34.3, 14-34.4, 14-34.5, 14-34.6, 14-34.7, 14-34.8, 14-34.9, 14-34.10. 73 elements added. Grade 'infraction' added (G.S. 14-34.8). The family was renamed 'Assaults' to match the article. G.S. 14-33.1 (evidence of former threats on a plea of self-defense) is a rule of evidence, not an offense, and is not modeled.",
-      "0.6 (Oct 18): Under 'Assaults', seven browsing groups made by this tool (categories with grouping 'tool'). They are not statutory categories; each offense is placed by what its statute section is about. Find shows these groups, then offense cards."
+      "0.6 (Oct 18): Under 'Assaults', seven browsing groups made by this tool (categories with grouping 'tool'). They are not statutory categories; each offense is placed by what its statute section is about. Find shows these groups, then offense cards.",
+      "0.6 (Oct 18): the 40 Article 8 records added on Oct 18 were cross-checked against the School of Government pattern jury instructions. Three requirements the statutes don't state were added as case-law elements: permanent injury (maiming), knowledge of the victim's disability or role, and knowledge that property was occupied.",
+      "0.6 (Oct 18): meta.pending_changes lists enacted law that isn't in effect yet and which records it will affect. First entry: S.L. 2026-37 (H1173)."
     ],
-    "check_notes": "Homicide statutes were read as full text. The property statutes (14-51, 14-52, 14-54, 14-72) were read through a summarizing fetch, not word for word, so every property record needs a line-by-line check before it is marked verified. Text snapshots are still empty for all records. Assault statutes (14-32, 14-32.4, 14-33, 14-34) were also read through a summarizing fetch and need a line-by-line check. On 2026-10-17 the homicide records were compared with N.C.P.I.-Crim. 206.15, 206.41 and 206.50, read through a summarizing fetch tool. 206.00, 206.10, 206.13, 206.30 and 206.40 were not read in full. Heat of passion, imperfect self-defense and malice wording still need case-law review. No record is verified. Second pass on 2026-10-17: the School's website was read in a browser, so the instruction PDFs were read in full for 206.10, 206.30A, 206.40, 214.10, 214.34, 214.47, 216.05, 216.10, 216.20, 216.35, 120.20 and the assault instructions listed in each record's cross_checks. G.S. 14-33 was read in full for two disputed points. Pattern instructions are the judges' summary of the law; where one is older than the statute (208.14, 208.55) the statute is followed. Still not checked: the remaining statutes word for word, 206.00, 206.11-206.35 variants, 214.30/214.32, 208.25, and case law for malice-adjacent terms. No record is verified. On 2026-10-17 G.S. 14-17, 14-18 and 14-23.2 were read as full text in the browser and the four homicide records compared; text snapshots saved. Records stay draft until the owner signs off. On 2026-10-17 G.S. 14-51, 14-52 and 14-54 were read as full text and S.L. 2025-71 sections 4 and 10 were read. Not modeled: G.S. 14-53 (breaking out of a dwelling), 14-54(b1), and other breaking or entering statutes (14-54.1 and others). On 2026-10-17 G.S. 14-72 was read as full text. Not modeled: receiving or possessing stolen goods, larceny of mail as its own offense, larceny of gift cards (14-72.12), retail theft offenses, other larceny sections. On 2026-10-17 the assault group (G.S. 14-32, 14-32.4, 14-33, 14-34) was read as full text and saved. Not modeled: habitual misdemeanor assault (14-33.2), other assault statutes in Article 8, misdemeanor crime of domestic violence (14-32.5). On 2026-10-18 the rest of Article 8 was read as full text and saved. These 40 records were drafted from the statute only: no pattern jury instruction was compared, and several terms the statutes leave undefined (for example 'serious injury' in G.S. 14-32.1, 'pattern of conduct' in G.S. 14-32.2, 'criminal gang activity' in G.S. 14-34.9) are flagged on the elements.",
+    "check_notes": "Homicide statutes were read as full text. The property statutes (14-51, 14-52, 14-54, 14-72) were read through a summarizing fetch, not word for word, so every property record needs a line-by-line check before it is marked verified. Text snapshots are still empty for all records. Assault statutes (14-32, 14-32.4, 14-33, 14-34) were also read through a summarizing fetch and need a line-by-line check. On 2026-10-17 the homicide records were compared with N.C.P.I.-Crim. 206.15, 206.41 and 206.50, read through a summarizing fetch tool. 206.00, 206.10, 206.13, 206.30 and 206.40 were not read in full. Heat of passion, imperfect self-defense and malice wording still need case-law review. No record is verified. Second pass on 2026-10-17: the School's website was read in a browser, so the instruction PDFs were read in full for 206.10, 206.30A, 206.40, 214.10, 214.34, 214.47, 216.05, 216.10, 216.20, 216.35, 120.20 and the assault instructions listed in each record's cross_checks. G.S. 14-33 was read in full for two disputed points. Pattern instructions are the judges' summary of the law; where one is older than the statute (208.14, 208.55) the statute is followed. Still not checked: the remaining statutes word for word, 206.00, 206.11-206.35 variants, 214.30/214.32, 208.25, and case law for malice-adjacent terms. No record is verified. On 2026-10-17 G.S. 14-17, 14-18 and 14-23.2 were read as full text in the browser and the four homicide records compared; text snapshots saved. Records stay draft until the owner signs off. On 2026-10-17 G.S. 14-51, 14-52 and 14-54 were read as full text and S.L. 2025-71 sections 4 and 10 were read. Not modeled: G.S. 14-53 (breaking out of a dwelling), 14-54(b1), and other breaking or entering statutes (14-54.1 and others). On 2026-10-17 G.S. 14-72 was read as full text. Not modeled: receiving or possessing stolen goods, larceny of mail as its own offense, larceny of gift cards (14-72.12), retail theft offenses, other larceny sections. On 2026-10-17 the assault group (G.S. 14-32, 14-32.4, 14-33, 14-34) was read as full text and saved. Not modeled: habitual misdemeanor assault (14-33.2), other assault statutes in Article 8, misdemeanor crime of domestic violence (14-32.5). On 2026-10-18 the rest of Article 8 was read as full text and saved. These 40 records were drafted from the statute and then, the same day, compared with 35 pattern jury instructions (five offenses have none). Several terms the statutes leave undefined (for example 'serious injury' in G.S. 14-32.1, 'pattern of conduct' in G.S. 14-32.2, 'criminal gang activity' in G.S. 14-34.9) are flagged on the elements.",
     "license": {
       "data": "CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)",
       "code": "MIT (see LICENSE)",
@@ -68,7 +70,21 @@
         "captured_on": null
       }
     ],
-    "snapshot_store": "Saved statute text lives in sources/<jurisdiction>/, one file per section, not in this file. Each statutes[] entry holds source_file, text_sha256 (SHA-256 of the text with whitespace collapsed), text_captured_on and last_session_law_seen."
+    "snapshot_store": "Saved statute text lives in sources/<jurisdiction>/, one file per section, not in this file. Each statutes[] entry holds source_file, text_sha256 (SHA-256 of the text with whitespace collapsed), text_captured_on and last_session_law_seen.",
+    "pending_changes": [
+      {
+        "session_law": "S.L. 2026-37 (House Bill 1173)",
+        "effective": "2026-12-01",
+        "applies_to": "offenses committed on or after December 1, 2026",
+        "sections": [
+          "G.S. 14-50.16A"
+        ],
+        "records": [
+          "nc_gang_enclosure_discharge"
+        ],
+        "note": "Rewrites the definitions of criminal gang, criminal gang activity, gang leader and gang member. Also adds new gang offenses to Article 13A and changes the gang sentencing enhancement in G.S. 15A-1340.16E; neither is modeled."
+      }
+    ]
   },
   "categories": [
     {
@@ -740,17 +756,18 @@
     {
       "id": "malice_aforethought_maiming",
       "name": "Malice aforethought",
-      "plain": "The act is done with malice aforethought. The statute uses the term without defining it.",
+      "plain": "The act is done with malice aforethought. Malice means not only hatred, ill will or spite, but also the state of mind that leads a person to intentionally inflict serious bodily harm that results in injury, without just cause, excuse or justification. Aforethought means the person formed the intent before acting.",
       "source": "case_law",
       "statute_cite": "G.S. 14-28; G.S. 14-30; G.S. 14-30.1",
-      "note": "The homicide element 'Malice' explains the term in murder cases; it may not carry over exactly to these sections. No pattern jury instruction was read for this term."
+      "note": "The statutes use the term without defining it. Definition from N.C.P.I.-Crim. 208.05, 208.07 and 208.08."
     },
     {
       "id": "on_purpose_without_malice",
-      "name": "On purpose and unlawfully, but without malice aforethought",
-      "plain": "The act is done on purpose and unlawfully, but not with malice aforethought.",
+      "name": "On purpose and unlawfully (malice not required)",
+      "plain": "The act is done on purpose and unlawfully. Unlike the malicious versions, the State doesn't have to prove malice aforethought.",
       "source": "statute",
-      "statute_cite": "G.S. 14-29"
+      "statute_cite": "G.S. 14-29",
+      "note": "The statute says 'without malice aforethought', but N.C.P.I.-Crim. 208.05 and 208.06 treat that as the absence of a requirement: this offense differs from malicious castration only in that malice need not be proved. The State doesn't have to prove that malice was absent."
     },
     {
       "id": "intent_murder_maim_disable_impotent",
@@ -771,7 +788,8 @@
       "name": "Intent to murder, maim or disfigure",
       "plain": "The person meant to murder, maim or disfigure the victim.",
       "source": "statute",
-      "statute_cite": "G.S. 14-30; G.S. 14-30.1"
+      "statute_cite": "G.S. 14-30; G.S. 14-30.1",
+      "note": "Intent to maim or disfigure may be inferred from an act that actually causes that injury (N.C.P.I.-Crim. 208.08, n.2)."
     },
     {
       "id": "cut_nose_lip_ear",
@@ -804,17 +822,18 @@
     {
       "id": "maliciously",
       "name": "Done maliciously",
-      "plain": "The act is done maliciously. The statute doesn't define the word.",
+      "plain": "Done maliciously, meaning with ill will, hatred or animosity toward the victim.",
       "source": "case_law",
       "statute_cite": "G.S. 14-31",
-      "note": "No pattern jury instruction was read for this term."
+      "note": "The statute doesn't define the word. Definition from N.C.P.I.-Crim. 208.09."
     },
     {
       "id": "secret_manner",
       "name": "Done in a secret manner",
-      "plain": "The assault is committed in a secret manner, such as by waylaying the victim. It is enough that the victim knew the attacker was nearby.",
+      "plain": "The assault and battery is committed in a secret manner, such as by waylaying: the victim didn't know the person meant to attack, even if the victim knew the person was there.",
       "source": "statute",
-      "statute_cite": "G.S. 14-31"
+      "statute_cite": "G.S. 14-31",
+      "note": "Definition from N.C.P.I.-Crim. 208.09."
     },
     {
       "id": "victim_child_under_18",
@@ -829,7 +848,7 @@
       "plain": "Circumcising, excising or infibulating the whole or any part of the labia majora, labia minora or clitoris, knowingly and unlawfully.",
       "source": "statute",
       "statute_cite": "G.S. 14-28.1(b)",
-      "note": "A surgical operation is not a violation if it is necessary to the person's health and done by a licensed medical practitioner, or done on a person in labor who has just given birth for medical purposes connected with the labor or birth by a licensed practitioner, certified nurse midwife, or a person training for either (G.S. 14-28.1(e)). It is no defense that anyone believes it is required by custom or ritual, or that the person consented (G.S. 14-28.1(f))."
+      "note": "A surgical operation is not a violation if it is necessary to the person's health and done by a licensed medical practitioner, or done on a person in labor who has just given birth for medical purposes connected with the labor or birth by a licensed practitioner, certified nurse midwife, or a person training for either (G.S. 14-28.1(e)). It is no defense that anyone believes it is required by custom or ritual, or that the person consented (G.S. 14-28.1(f)). 'Knowingly' means the person knew what they were about to do and went ahead with it (N.C.P.I.-Crim. 210.96, n.1)."
     },
     {
       "id": "parent_or_caregiver_of_child",
@@ -872,7 +891,7 @@
       "plain": "Inflicts serious injury or serious damage to the individual with a disability.",
       "source": "statute",
       "statute_cite": "G.S. 14-32.1(e)(2)",
-      "note": "The statute doesn't define 'serious injury or serious damage'."
+      "note": "The statute doesn't define 'serious injury or serious damage'. N.C.P.I.-Crim. 208.50A, n.5, defines serious injury as physical injury that causes great pain and suffering."
     },
     {
       "id": "victim_patient_or_resident",
@@ -894,14 +913,15 @@
       "plain": "Intentional conduct proximately causes the patient's or resident's death.",
       "source": "statute",
       "statute_cite": "G.S. 14-32.2(b)(1)",
-      "note": "'Proximately causes' isn't defined in the statute."
+      "note": "Proximate cause is a real cause, one without which the death would not have occurred (N.C.P.I.-Crim. 242.10)."
     },
     {
       "id": "culpably_negligent_conduct_causes_death",
       "name": "Culpably negligent conduct proximately causes death",
       "plain": "Culpably negligent conduct proximately causes the patient's or resident's death. 'Culpably negligent' means conduct of a willful, gross and flagrant character, showing reckless disregard of human life.",
       "source": "statute",
-      "statute_cite": "G.S. 14-32.2(b)(2); G.S. 14-32.2(i)(2)"
+      "statute_cite": "G.S. 14-32.2(b)(2); G.S. 14-32.2(i)(2)",
+      "note": "Proximate cause is a real cause, one without which the death would not have occurred (N.C.P.I.-Crim. 242.15)."
     },
     {
       "id": "willful_or_culpably_negligent_conduct",
@@ -916,29 +936,31 @@
       "plain": "The conduct shows a pattern of conduct.",
       "source": "statute",
       "statute_cite": "G.S. 14-32.2(b)(4)",
-      "note": "The statute doesn't say how many acts make a pattern."
+      "note": "The statute doesn't say what a pattern is. N.C.P.I.-Crim. 242.25 says it is two or more instances of similar conduct."
     },
     {
       "id": "bodily_injury_to_patient",
       "name": "Bodily injury to the patient or resident",
       "plain": "The conduct proximately causes bodily injury to the patient or resident.",
       "source": "statute",
-      "statute_cite": "G.S. 14-32.2(b)(4)"
+      "statute_cite": "G.S. 14-32.2(b)(4)",
+      "note": "N.C.P.I.-Crim. 242.25, n.1, points to a definition of bodily injury as any physical harm, including sickness or disease."
     },
     {
       "id": "caretaker_of_adult_domestic",
       "name": "A caretaker of a disabled or elder adult living in a home setting",
       "plain": "The person is a caretaker, meaning they are responsible for the adult's care because of a family relationship or because they took on the care voluntarily or by contract. The adult is disabled (18 or older, or a lawfully emancipated minor, and physically or mentally incapacitated as defined in G.S. 108A-101(d)) or elderly (60 or older and unable to arrange the services needed to protect their rights and resources and maintain their well-being). The adult lives in a home setting, meaning any residence other than a health care facility or residential care facility as defined in G.S. 14-32.2.",
       "source": "statute",
-      "statute_cite": "G.S. 14-32.3(d)"
+      "statute_cite": "G.S. 14-32.3(d)",
+      "note": "N.C.P.I.-Crim. 240.70 to 240.76 (2015) describe a disabled adult as 18 or older and leave out lawfully emancipated minors, which the current statute includes. The statute is followed."
     },
     {
       "id": "acts_with_malice_knowingly_willfully",
       "name": "Malice aforethought, knowingly and willfully",
-      "plain": "The person acts with malice aforethought, knowingly and willfully.",
+      "plain": "The person acts knowingly and willfully, with malice aforethought. Malice means not only hatred, ill will or spite, but also a state of mind that leads a person to intentionally cause injury to another without just cause, excuse or justification.",
       "source": "case_law",
       "statute_cite": "G.S. 14-32.3(a)",
-      "note": "The statute doesn't define malice aforethought here. No pattern jury instruction was read for this term."
+      "note": "The statute doesn't define malice. Definition from N.C.P.I.-Crim. 240.70 and 240.75."
     },
     {
       "id": "acts_wantonly_recklessly",
@@ -967,14 +989,16 @@
       "name": "Confines or restrains in a cruel or unsafe place or condition",
       "plain": "Confines or restrains the adult in a place or under a condition that is cruel or unsafe.",
       "source": "statute",
-      "statute_cite": "G.S. 14-32.3(a)"
+      "statute_cite": "G.S. 14-32.3(a)",
+      "note": "To confine or restrain means to imprison the adult or restrict their freedom of movement (N.C.P.I.-Crim. 240.70)."
     },
     {
       "id": "confines_unsafe",
       "name": "Confines or restrains in an unsafe place or condition",
       "plain": "Confines or restrains the adult in a place or under a condition that is unsafe.",
       "source": "statute",
-      "statute_cite": "G.S. 14-32.3(b)"
+      "statute_cite": "G.S. 14-32.3(b)",
+      "note": "To confine or restrain means to imprison the adult or restrict their freedom of movement (N.C.P.I.-Crim. 240.71)."
     },
     {
       "id": "adult_suffers_injury",
@@ -989,7 +1013,7 @@
       "plain": "As a result of the act or failure to act, the adult suffers serious injury.",
       "source": "statute",
       "statute_cite": "G.S. 14-32.3(a); G.S. 14-32.3(b)",
-      "note": "The statute doesn't define 'serious injury' here."
+      "note": "The statute doesn't define 'serious injury' here. N.C.P.I.-Crim. 240.75 and 240.76 use 'injury that causes great pain and suffering' and note that mental injury can be serious (State v. Boone)."
     },
     {
       "id": "force_or_weapon_threat",
@@ -1032,7 +1056,8 @@
       "name": "A current or recent former dating relationship",
       "plain": "The person has a current or recent former dating relationship with the victim. The statute says 'dating relationship' is defined in the federal law 18 U.S.C. § 921, not in G.S. 14-32.5.",
       "source": "statute",
-      "statute_cite": "G.S. 14-32.5(a)(5); G.S. 14-32.5(b)"
+      "statute_cite": "G.S. 14-32.5(a)(5); G.S. 14-32.5(b)",
+      "note": "N.C.P.I.-Crim. 208.79, n.2, points to 18 U.S.C. § 921(a)(37) for the definition."
     },
     {
       "id": "current_dv_offense",
@@ -1053,7 +1078,8 @@
       "name": "A current qualifying assault offense",
       "plain": "The person violates G.S. 14-33 and causes physical injury, or violates G.S. 14-32.5 or G.S. 14-34.",
       "source": "statute",
-      "statute_cite": "G.S. 14-33.2"
+      "statute_cite": "G.S. 14-33.2",
+      "note": "N.C.P.I.-Crim. 208.45A (2017) says 'physical injury' can be taken to mean any pain and suffering. That instruction is older than the changes that added G.S. 14-32.5, so it doesn't list misdemeanor domestic violence as a qualifying current offense or prior conviction."
     },
     {
       "id": "prior_assault_convictions",
@@ -1067,7 +1093,8 @@
       "name": "Willfully or wantonly discharging a firearm or barreled weapon",
       "plain": "Willfully or wantonly discharging, or attempting to discharge, a firearm or barreled weapon capable of firing shot, bullets, pellets or other missiles at a muzzle velocity of at least 600 feet per second.",
       "source": "statute",
-      "statute_cite": "G.S. 14-34.1; G.S. 14-34.1A"
+      "statute_cite": "G.S. 14-34.1; G.S. 14-34.1A",
+      "note": "'Willfully or wantonly' means done intentionally, with knowledge or reasonable grounds to believe the act would endanger the rights or safety of others (N.C.P.I.-Crim. 208.90). It is a general intent crime: the State must prove the firing was intentional, not that the person meant to hit occupied property (N.C.P.I.-Crim. 208.90C, n.4)."
     },
     {
       "id": "into_occupied_property",
@@ -1081,7 +1108,8 @@
       "name": "Into an occupied dwelling or an occupied vehicle in operation",
       "plain": "The discharge is into an occupied dwelling, or into an occupied vehicle, aircraft, watercraft or other conveyance that is in operation.",
       "source": "statute",
-      "statute_cite": "G.S. 14-34.1(b)"
+      "statute_cite": "G.S. 14-34.1(b)",
+      "note": "A dwelling is a house that is someone's permanent, temporary or seasonal residence, and it is occupied when someone is physically present (N.C.P.I.-Crim. 208.90C, n.2). 'In operation' isn't defined; N.C.P.I.-Crim. 208.90D, n.1, infers it means moving or with the engine running."
     },
     {
       "id": "at_unoccupied_emergency_vehicle",
@@ -1100,10 +1128,10 @@
     {
       "id": "criminal_gang_activity",
       "name": "As part of criminal gang activity",
-      "plain": "The discharge is part of criminal gang activity. G.S. 14-34.9 doesn't define the term itself.",
-      "source": "mixed",
-      "statute_cite": "G.S. 14-34.9",
-      "note": "A definition may exist elsewhere in the statutes but wasn't looked up for this record. No pattern jury instruction was read for this term."
+      "plain": "The discharge is part of criminal gang activity: committing or attempting a qualifying offense (most Chapter 14 offenses and drug offenses under Article 5 of Chapter 90), or soliciting, coercing or intimidating someone else to commit one, when either (a) it is done to benefit, promote or further the interests of a criminal gang, or to raise a person's own standing in one, or (b) the participants are identified as criminal gang members acting individually or together to further any criminal purpose of a criminal gang. A criminal gang is an ongoing group of three or more people that has committing criminal or delinquent acts as one of its primary activities and shares a name, signs, symbols, colors or other identifying traits.",
+      "source": "statute",
+      "statute_cite": "G.S. 14-34.9; G.S. 14-50.16A(2)",
+      "note": "G.S. 14-50.16A(1) and (2), read in full on 2026-10-18; matches the summary in N.C.P.I.-Crim. 204A.10A. Changing soon: S.L. 2026-37 (House Bill 1173), s. 2, rewrites these definitions for offenses committed on or after December 1, 2026. Condition (b) will no longer require acting 'to further any criminal purpose of a criminal gang', a criminal gang will no longer need criminal acts as a primary activity (it must engage in criminal gang activity instead), and the criteria for gang member and gang leader change. The statute page will show the new text after that date; update this element then."
     },
     {
       "id": "discharge_in_occupied_enclosure",
@@ -1146,7 +1174,7 @@
       "plain": "An assault committed with a firearm.",
       "source": "mixed",
       "statute_cite": "G.S. 14-34.5",
-      "note": "The statute doesn't define 'firearm' in this section. No pattern jury instruction was read for this term."
+      "note": "The statute doesn't define 'firearm'. N.C.P.I.-Crim. 208.95, n.3, points to G.S. 14-409.39(2)."
     },
     {
       "id": "physical_injury_minor",
@@ -1168,7 +1196,7 @@
       "plain": "An assault or affray that causes physical injury.",
       "source": "mixed",
       "statute_cite": "G.S. 14-34.6(a)",
-      "note": "'Physical injury' isn't defined in G.S. 14-34.6 itself. No pattern jury instruction was read for this term."
+      "note": "'Physical injury' isn't defined in G.S. 14-34.6 itself. N.C.P.I.-Crim. 208.95D borrows the G.S. 14-34.7 description: cuts, scrapes, bruises or other physical injury short of serious injury."
     },
     {
       "id": "deadly_weapon_not_firearm",
@@ -1232,7 +1260,8 @@
       "name": "Adulterating or misbranding, or selling adulterated or misbranded, food, drugs or cosmetics",
       "plain": "Manufacturing, selling, delivering, offering or holding for sale an adulterated or misbranded food, drug or cosmetic, or adulterating or misbranding one, in violation of G.S. 106-122.",
       "source": "statute",
-      "statute_cite": "G.S. 14-34.4(a)"
+      "statute_cite": "G.S. 14-34.4(a)",
+      "note": "N.C.P.I.-Crim. 208.96A requires that a seller knew the item was adulterated or misbranded, and that a person who adulterated or misbranded it did so knowingly. The statute's text doesn't say 'knowing'."
     },
     {
       "id": "intent_serious_injury_or_death",
@@ -1253,7 +1282,40 @@
       "name": "Intent to wrongfully obtain something of value, or an acquittance, advantage or immunity",
       "plain": "The person meant to wrongfully obtain, directly or indirectly, anything of value or any acquittance, advantage, or immunity.",
       "source": "statute",
-      "statute_cite": "G.S. 14-34.4(b)"
+      "statute_cite": "G.S. 14-34.4(b)",
+      "note": "'Wrongfully' means knowing the person wasn't entitled to obtain it this way (N.C.P.I.-Crim. 208.96B)."
+    },
+    {
+      "id": "permanent_injury",
+      "name": "The injury is permanent",
+      "plain": "The act permanently injures the victim.",
+      "source": "case_law",
+      "statute_cite": "G.S. 14-28; G.S. 14-29; G.S. 14-30",
+      "note": "Required by N.C.P.I.-Crim. 208.05, 208.06 and 208.07 ('thereby permanently injuring'). The statute text doesn't use the word 'permanent'."
+    },
+    {
+      "id": "knew_victim_disabled",
+      "name": "Knew of the disability",
+      "plain": "The person knew, or had reasonable grounds to know, that the victim had a disability.",
+      "source": "case_law",
+      "statute_cite": "G.S. 14-32.1",
+      "note": "Required by N.C.P.I.-Crim. 208.40A and 208.50A. The statute text has no knowledge word."
+    },
+    {
+      "id": "knew_victim_role",
+      "name": "Knew the victim's role",
+      "plain": "The person knew, or had reasonable grounds to know, that the victim held the protected role, such as a law enforcement officer, government employee, firefighter or health care worker.",
+      "source": "case_law",
+      "statute_cite": "G.S. 14-34.2; G.S. 14-34.5; G.S. 14-34.6; G.S. 14-34.7",
+      "note": "Required by the pattern instructions for these offenses (N.C.P.I.-Crim. 208.94, 208.95, 208.95B, 208.95C, 208.95D, 208.95E). The statute text has no knowledge word."
+    },
+    {
+      "id": "knew_property_occupied",
+      "name": "Knew the property was occupied",
+      "plain": "The person knew, or had reasonable grounds to believe, that someone was inside.",
+      "source": "case_law",
+      "statute_cite": "G.S. 14-34.1",
+      "note": "Required by N.C.P.I.-Crim. 208.90, 208.90C, 208.90D and 208.90F. The statute says only 'while it is occupied'."
     }
   ],
   "offenses": [
@@ -1987,14 +2049,22 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-31 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-31 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.09 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "ambush",
         "waylaying",
         "lying in wait assault"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.09, Malicious Assault and Battery in a Secret Manner with a Deadly Weapon with Intent to Kill [2002]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.09%20Malicious%20Assault%20and%20Battery%20in%20a%20Secret%20Manner%20with%20a%20Deadly%20Weapon%20with%20Intent%20to%20Kill%20%5B2002-already%20fixed%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches. Definitions of 'secret manner' and 'maliciously' taken from the instruction."
+        }
+      ]
     },
     {
       "id": "nc_awdwikisi",
@@ -2482,13 +2552,21 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-33.2 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-33.2 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.45A on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "repeat assault",
         "habitual assault"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.45A, Habitual Misdemeanor Assault. (Defendant Denies Prior Conviction) [2017]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.45A%20Habitual%20Misdemeanor%20Assault.%20%28Defendant%20Denies%20Prior%20Conviction%29%20%5B2017%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Older than the changes that added G.S. 14-32.5, so it doesn't include misdemeanor domestic violence as a current offense or prior. Otherwise matches. Statute followed."
+        }
+      ]
     },
     {
       "id": "nc_assault_pointing",
@@ -2745,7 +2823,8 @@
         "all_of": [
           "assault_on_person",
           "deadly_weapon",
-          "no_greater_punishment_law"
+          "no_greater_punishment_law",
+          "knew_victim_role"
         ],
         "any_of_routes": [
           {
@@ -2771,12 +2850,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.2 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.2 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.95B on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "assault on a government employee with a weapon"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.95B, Assault with a Deadly Weapon Upon an Officer or Employee of the State or of Any Politicial Subdivision [2023]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.95B%20Assault%20with%20a%20Deadly%20Weapon%20Upon%20an%20Officer%20or%20Employee%20of%20the%20State%20or%20of%20Any%20Politicial%20Subdivision...%20%5B2023%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Adds that the person knew or had reasonable grounds to know the victim's role. Added. Otherwise matches."
+        }
+      ]
     },
     {
       "id": "nc_assault_firearm_officer",
@@ -2801,7 +2888,8 @@
       "elements": {
         "all_of": [
           "assault_on_person",
-          "assault_with_firearm"
+          "assault_with_firearm",
+          "knew_victim_role"
         ],
         "any_of_routes": [
           {
@@ -2833,12 +2921,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.5 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.5 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.95 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "assault on an officer with a gun"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.95, Assault with a Firearm on a Law Enforcement, Probation, or Parole Officer or on a Person Employed at a State or [1998]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.95%20Assault%20with%20a%20Firearm%20on%20a%20Law%20Enforcement%2C%20Probation%2C%20or%20Parole%20Officer%20or%20on%20a%20Person%20Employed%20at%20a%20State%20or...%20%5B1998%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Adds knowledge of the victim's role (added). Dated 1998, so it doesn't cover the National Guard subsection (a1); statute followed."
+        }
+      ]
     },
     {
       "id": "nc_assault_health_worker",
@@ -2863,7 +2959,8 @@
       "elements": {
         "all_of": [
           "assault_or_affray_physical_injury",
-          "victim_health_fire_worker"
+          "victim_health_fire_worker",
+          "knew_victim_role"
         ],
         "any_of_routes": []
       },
@@ -2877,7 +2974,7 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.6 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.6 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.95D on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "assault on a nurse",
@@ -2885,7 +2982,15 @@
         "assault on EMS",
         "assault on hospital staff"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.95D, Assault On [Firefighter] [Emergency Medical Technician] [Emergency Health Care Provider] [Medical Responder] [Emergency [2018]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.95D%20Assault%20On%20%5BFirefighter%5D%20%5BEmergency%20Medical%20Technician%5D%20%5BEmergency%20Health%20Care%20Provider%5D%20%5BMedical%20Responder%5D%20%5BEmergency...%20%5B2018%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Adds knowledge of the victim's role (added). Otherwise matches."
+        }
+      ]
     },
     {
       "id": "nc_assault_health_worker_sbi",
@@ -2911,7 +3016,8 @@
         "all_of": [
           "assault_or_affray_physical_injury",
           "victim_health_fire_worker",
-          "no_greater_punishment_law"
+          "no_greater_punishment_law",
+          "knew_victim_role"
         ],
         "any_of_routes": [
           {
@@ -2929,7 +3035,7 @@
         ]
       },
       "special_rules": [
-        "G.S. 14-34.6 doesn't define serious bodily injury; the definition in G.S. 14-32.4(a) is shown on this record. Whether it carries over is not decided here."
+        "G.S. 14-34.6 doesn't define serious bodily injury. N.C.P.I.-Crim. 208.95E uses the G.S. 14-32.4(a) definition."
       ],
       "explain_like_5": "Someone seriously hurt an EMT, firefighter or hospital worker doing their job, or attacked them with a deadly weapon that wasn't a firearm.",
       "review": {
@@ -2937,12 +3043,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.6 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.6 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.95E on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "assault on a nurse with a weapon"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.95E, [Serious Bodily Injury Inflicted] [Deadly Weapon Used Other Than A Firearm] In Assault On [Firefighter] [Emergency [2012]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.95E%20%5BSerious%20Bodily%20Injury%20Inflicted%5D%20%5BDeadly%20Weapon%20Used%20Other%20Than%20A%20Firearm%5D%20In%20Assault%20On%20%5BFirefighter%5D%20%5BEmergency...%20%5B2012%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Adds knowledge of the victim's role (added). Dated 2012: it lists only emergency department staff, not the wider hospital and medical practice groups in the current statute, and doesn't require the physical injury that subsection (a) does. Statute followed."
+        }
+      ]
     },
     {
       "id": "nc_assault_health_worker_firearm",
@@ -2969,7 +3083,8 @@
           "assault_or_affray_physical_injury",
           "victim_health_fire_worker",
           "uses_firearm",
-          "no_greater_punishment_law"
+          "no_greater_punishment_law",
+          "knew_victim_role"
         ],
         "any_of_routes": []
       },
@@ -2980,12 +3095,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.6 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.6 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.95A on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "assault on a nurse with a gun"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.95A, Assault with a Firearm or Other Deadly Weapon Upon Emergency Medical Services Personnel. Felony [2024]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.95A%20Assault%20with%20a%20Firearm%20or%20Other%20Deadly%20Weapon%20Upon%20Emergency%20Medical%20Services%20Personnel.%20Felony%20%5B2024%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Labeled G.S. 14-34.6, but it describes an assault with a firearm or deadly weapon on emergency medical services personnel without the physical injury that subsection (a) requires. Statute followed. Adds knowledge of the victim's role (added)."
+        }
+      ]
     },
     {
       "id": "nc_assault_officer_sbi",
@@ -3029,7 +3152,8 @@
         "all_of": [
           "assault_on_person",
           "serious_bodily_injury",
-          "no_greater_punishment_law"
+          "no_greater_punishment_law",
+          "knew_victim_role"
         ],
         "any_of_routes": [
           {
@@ -3053,7 +3177,7 @@
         ]
       },
       "special_rules": [
-        "G.S. 14-34.7 doesn't define serious bodily injury; the definition in G.S. 14-32.4(a) is shown on this record. Whether it carries over is not decided here."
+        "G.S. 14-34.7 doesn't define serious bodily injury. N.C.P.I.-Crim. 208.94 uses the G.S. 14-32.4(a) definition."
       ],
       "explain_like_5": "Someone seriously hurt a police, probation or parole officer, a National Guard member, or a jail or prison employee who was doing their job.",
       "review": {
@@ -3061,12 +3185,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.7 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.7 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.94 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "assault on an officer serious injury"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.94, Assault Inflicting Serious Bodily Injury On A [[Law Enforcement] [Probation] [Parole] Officer]] [2017]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.94%20Assault%20Inflicting%20Serious%20Bodily%20Injury%20On%20A%20%5B%5BLaw%20Enforcement%5D%20%5BProbation%5D%20%5BParole%5D%20Officer%5D%5D...%20%5B2017%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Adds knowledge of the victim's role (added). Uses the G.S. 14-32.4(a) definition of serious bodily injury."
+        }
+      ]
     },
     {
       "id": "nc_assault_officer_injury",
@@ -3092,7 +3224,8 @@
         "all_of": [
           "assault_on_person",
           "physical_injury_minor",
-          "no_greater_punishment_law"
+          "no_greater_punishment_law",
+          "knew_victim_role"
         ],
         "any_of_routes": [
           {
@@ -3122,14 +3255,22 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.7 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.7 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.95C on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "assault on an officer",
         "assault on law enforcement",
         "assault on a deputy"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.95C, Assault On [[Law Enforcement] [Probation] [Parole] Officer]] [Member Of The North Carolina National Guard] [Person [2017]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.95C%20Assault%20On%20%5B%5BLaw%20Enforcement%5D%20%5BProbation%5D%20%5BParole%5D%20Officer%5D%5D%20%5BMember%20Of%20The%20North%20Carolina%20National%20Guard%5D%20%5BPerson...%20%5B2017%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Adds knowledge of the victim's role (added). Otherwise matches."
+        }
+      ]
     },
     {
       "id": "nc_laser_worker",
@@ -3167,13 +3308,21 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.8 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.8 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.93 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "laser pointer at police",
         "laser at a pilot"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.93, Pointing a Laser Device at Law Enforcement, Military, or Emergency Personnel. Felony [2023]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.93%20Pointing%20a%20Laser%20Device%20at%20Law%20Enforcement%2C%20Military%2C%20or%20Emergency%20Personnel.%20Felony%20%5B2023%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        }
+      ]
     },
     {
       "id": "nc_misd_dv",
@@ -3243,14 +3392,22 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-32.5 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-32.5 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.79 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "domestic violence",
         "DV",
         "domestic assault"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.79, Misdemeanor Crime of Domestic Violence. Misdemeanor [2024]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.79%20Misdemeanor%20Crime%20of%20Domestic%20Violence.%20Misdemeanor%20%5B2024%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches. Points to 18 U.S.C. § 921(a)(37) for 'dating relationship'."
+        }
+      ]
     },
     {
       "id": "nc_habitual_dv",
@@ -3290,7 +3447,7 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-32.6 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-32.6 read on 2026-10-17. No pattern instruction for G.S. 14-32.6 was found on the School of Government list (checked 2026-10-18). Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "repeat domestic violence"
@@ -3388,7 +3545,8 @@
         "all_of": [
           "assault_on_person",
           "victim_disabled_individual",
-          "no_greater_punishment_law"
+          "no_greater_punishment_law",
+          "knew_victim_disabled"
         ],
         "any_of_routes": [
           {
@@ -3420,13 +3578,21 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-32.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-32.1 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.50A on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "assault on a disabled person",
         "assault on a handicapped person"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.50A, Aggravated Assault on a Handicapped Person [2019]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.50A%20Aggravated%20Assault%20on%20a%20Handicapped%20Person%20%5B2019%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Adds that the person knew or had reasonable grounds to know of the disability. Added as an element. Otherwise matches."
+        }
+      ]
     },
     {
       "id": "nc_assault_disabled_simple",
@@ -3451,7 +3617,8 @@
       "elements": {
         "all_of": [
           "assault_on_person",
-          "victim_disabled_individual"
+          "victim_disabled_individual",
+          "knew_victim_disabled"
         ],
         "any_of_routes": []
       },
@@ -3465,12 +3632,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-32.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-32.1 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.40A on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "assault on a disabled person"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.40A, Simple Assault on a Handicapped Person [2019]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.40A%20Simple%20Assault%20on%20a%20Handicapped%20Person%20%5B2019%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Adds that the person knew or had reasonable grounds to know of the disability. Added as an element. Otherwise matches."
+        }
+      ]
     },
     {
       "id": "nc_patient_abuse_death_intent",
@@ -3512,13 +3687,21 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-32.2 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-32.2 read on 2026-10-17. Compared with N.C.P.I.-Crim. 242.10 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "nursing home abuse",
         "patient abuse"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 242.10, Intentional Patient Abuse Resulting in Death. Felony [2008]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/242.10%20Intentional%20Patient%20Abuse%20Resulting%20in%20Death.%20Felony%20%5B2008%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches. Defines proximate cause. Cites the statute's subsection letters from before the 2019 renumbering."
+        }
+      ]
     },
     {
       "id": "nc_patient_abuse_death_neg",
@@ -3559,12 +3742,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-32.2 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-32.2 read on 2026-10-17. Compared with N.C.P.I.-Crim. 242.15 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "nursing home neglect death"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 242.15, Culpably Negligent Patient Abuse Resulting in Death. Felony [2008]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/242.15%20Culpably%20Negligent%20Patient%20Abuse%20Resulting%20in%20Death.%20Felony%20%5B2008%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches. Defines proximate cause and culpable negligence. Cites the statute's subsection letters from before the 2019 renumbering."
+        }
+      ]
     },
     {
       "id": "nc_patient_abuse_sbi",
@@ -3597,7 +3788,7 @@
         "any_of_routes": []
       },
       "special_rules": [
-        "G.S. 14-32.2 doesn't define 'serious bodily injury'. The definition in G.S. 14-32.4(a) is shown on this record; whether it carries over is not decided here.",
+        "G.S. 14-32.2 doesn't define 'serious bodily injury'. N.C.P.I.-Crim. 242.20 uses the same definition as G.S. 14-32.4(a), shown on this record.",
         "Criminal process may be issued only on the request of a district attorney (G.S. 14-32.2(g)).",
         "This section does not replace other statutory or common-law offenses (G.S. 14-32.2(h))."
       ],
@@ -3607,12 +3798,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-32.2 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-32.2 read on 2026-10-17. Compared with N.C.P.I.-Crim. 242.20 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "patient abuse serious injury"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 242.20, Patient Abuse Resulting in Serious Bodily Injury. Felony [2008]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/242.20%20Patient%20Abuse%20Resulting%20in%20Serious%20Bodily%20Injury.%20Felony%20%5B2008%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches. Uses the G.S. 14-32.4(a) definition of serious bodily injury. Cites the statute's subsection letters from before the 2019 renumbering."
+        }
+      ]
     },
     {
       "id": "nc_patient_abuse_pattern",
@@ -3655,12 +3854,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-32.2 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-32.2 read on 2026-10-17. Compared with N.C.P.I.-Crim. 242.25 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "repeated patient abuse"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 242.25, Pattern Of Patient Abuse Resulting in Bodily Injury. Felony [2008]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/242.25%20Pattern%20Of%20Patient%20Abuse%20Resulting%20in%20Bodily%20Injury.%20Felony%20%5B2008%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches. Says a pattern is two or more instances of similar conduct. Cites the statute's subsection letters from before the 2019 renumbering."
+        }
+      ]
     },
     {
       "id": "nc_elder_abuse_serious",
@@ -3718,13 +3925,21 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-32.3 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-32.3 read on 2026-10-17. Compared with N.C.P.I.-Crim. 240.75 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "elder abuse",
         "abuse of a disabled adult"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 240.75, Domestic Abuse of a [Disabled] [Elder] Adult Inflicting Serious [Mental] [Physical] Injury. Felony [2015]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/240.75%20Domestic%20Abuse%20of%20a%20%5BDisabled%5D%20%5BElder%5D%20Adult%20Inflicting%20Serious%20%5BMental%5D%20%5BPhysical%5D%20Injury.%20Felony%20%5B2015%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches. Defines malice and 'confine or restrain'. Its description of a disabled adult leaves out lawfully emancipated minors, which the statute includes; statute followed."
+        }
+      ]
     },
     {
       "id": "nc_elder_abuse",
@@ -3783,12 +3998,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-32.3 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-32.3 read on 2026-10-17. Compared with N.C.P.I.-Crim. 240.70 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "elder abuse"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 240.70, Domestic Abuse of a [Disabled] [Elder] Adult Inflicting [Mental] [Physical] Injury. Felony [2015]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/240.70%20Domestic%20Abuse%20of%20a%20%5BDisabled%5D%20%5BElder%5D%20Adult%20Inflicting%20%5BMental%5D%20%5BPhysical%5D%20Injury.%20Felony%20%5B2015%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches. Defines malice and 'confine or restrain'. Its description of a disabled adult leaves out lawfully emancipated minors, which the statute includes; statute followed."
+        }
+      ]
     },
     {
       "id": "nc_elder_neglect_serious",
@@ -3841,12 +4064,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-32.3 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-32.3 read on 2026-10-17. Compared with N.C.P.I.-Crim. 240.76 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "elder neglect"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 240.76, Domestic Neglect of a [Disabled] [Elder] Adult Inflicting Serious [Mental] [Physical] Injury. Felony [2015]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/240.76%20Domestic%20Neglect%20of%20a%20%5BDisabled%5D%20%5BElder%5D%20Adult%20Inflicting%20Serious%20%5BMental%5D%20%5BPhysical%5D%20Injury.%20Felony%20%5B2015%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches. Defines 'confine or restrain'. Its description of a disabled adult leaves out lawfully emancipated minors, which the statute includes; statute followed."
+        }
+      ]
     },
     {
       "id": "nc_elder_neglect",
@@ -3899,12 +4130,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-32.3 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-32.3 read on 2026-10-17. Compared with N.C.P.I.-Crim. 240.71 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "elder neglect"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 240.71, Domestic Neglect of a [Disabled] [Elder] Adult Inflicting [Mental] [Physical] Injury. Felony [2015]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/240.71%20Domestic%20Neglect%20of%20a%20%5BDisabled%5D%20%5BElder%5D%20Adult%20Inflicting%20%5BMental%5D%20%5BPhysical%5D%20Injury.%20Felony%20%5B2015%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches. Defines 'confine or restrain'. Its description of a disabled adult leaves out lawfully emancipated minors, which the statute includes; statute followed."
+        }
+      ]
     },
     {
       "id": "nc_shoot_occupied_property",
@@ -3914,7 +4153,7 @@
       "class": "E",
       "grade": "felony",
       "punishment_note": "Class E felony.",
-      "definition_source": "statute",
+      "definition_source": "mixed",
       "statutes": [
         {
           "cite": "G.S. 14-34.1(a)",
@@ -3929,7 +4168,8 @@
       "elements": {
         "all_of": [
           "discharge_weapon_600fps",
-          "into_occupied_property"
+          "into_occupied_property",
+          "knew_property_occupied"
         ],
         "any_of_routes": []
       },
@@ -3944,14 +4184,22 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.1 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.90 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "shooting into a building",
         "shooting into a car",
         "shooting into occupied property"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.90, Discharging a Firearm into Occupied Property [2020]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.90%20Discharging%20a%20Firearm%20into%20Occupied%20Property%20%5B2020%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Adds that the person knew or had reasonable grounds to believe the property was occupied, and defines 'willfully or wantonly'. Added."
+        }
+      ]
     },
     {
       "id": "nc_shoot_occupied_dwelling",
@@ -3961,7 +4209,7 @@
       "class": "D",
       "grade": "felony",
       "punishment_note": "Class D felony.",
-      "definition_source": "statute",
+      "definition_source": "mixed",
       "statutes": [
         {
           "cite": "G.S. 14-34.1(b)",
@@ -3976,7 +4224,8 @@
       "elements": {
         "all_of": [
           "discharge_weapon_600fps",
-          "into_occupied_dwelling_or_moving_vehicle"
+          "into_occupied_dwelling_or_moving_vehicle",
+          "knew_property_occupied"
         ],
         "any_of_routes": []
       },
@@ -3990,14 +4239,29 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.1 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.90C, 208.90D on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "drive-by shooting",
         "shooting into a house",
         "shooting into an occupied dwelling"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.90C, Discharging a Barreled Weapon into an Occupied Dwelling [2016]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.90C%20Discharging%20a%20Barreled%20Weapon%20into%20an%20Occupied%20Dwelling%20%5B2016%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Covers the dwelling version (barreled weapon). Adds knowledge that the dwelling was occupied, and defines dwelling and occupied. Added."
+        },
+        {
+          "label": "N.C.P.I.-Crim. 208.90D, Discharging a Firearm into Occupied Vehicle in Operation [2021]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.90D%20Discharging%20a%20Firearm%20into%20Occupied%20Vehicle%20in%20Operation%20%5B2021%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Covers the moving-vehicle version (firearm). Adds knowledge that the vehicle was occupied, and infers that 'in operation' means moving or with the engine running."
+        }
+      ]
     },
     {
       "id": "nc_shoot_sbi",
@@ -4007,7 +4271,7 @@
       "class": "C",
       "grade": "felony",
       "punishment_note": "Class C felony.",
-      "definition_source": "statute",
+      "definition_source": "mixed",
       "statutes": [
         {
           "cite": "G.S. 14-34.1(c)",
@@ -4022,7 +4286,8 @@
       "elements": {
         "all_of": [
           "discharge_weapon_600fps",
-          "serious_bodily_injury"
+          "serious_bodily_injury",
+          "knew_property_occupied"
         ],
         "any_of_routes": [
           {
@@ -4040,7 +4305,7 @@
         ]
       },
       "special_rules": [
-        "The statute says 'serious bodily injury to any person'. It doesn't say the injured person must be inside the property, and doesn't define the term here."
+        "The statute says 'serious bodily injury to any person' and doesn't define the term here. N.C.P.I.-Crim. 208.90F uses the G.S. 14-32.4(a) definition."
       ],
       "explain_like_5": "Someone fired a gun into occupied property, and a person was seriously hurt.",
       "review": {
@@ -4048,12 +4313,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.1 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.90F on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "drive-by shooting serious injury"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.90F, Discharging a Firearm into Occupied Property Inflicting Serious Bodily Injury [2011]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.90F%20Discharging%20a%20Firearm%20into%20Occupied%20Property%20Inflicting%20Serious%20Bodily%20Injury%20%5B2011%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Adds knowledge that the property was occupied. Uses the G.S. 14-32.4(a) definition of serious bodily injury."
+        }
+      ]
     },
     {
       "id": "nc_shoot_emergency_vehicle",
@@ -4092,7 +4365,7 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.1A read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.1A read on 2026-10-17. No pattern instruction for G.S. 14-34.1A was found on the School of Government list (checked 2026-10-18). Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "shooting at a police car",
@@ -4118,6 +4391,15 @@
           "text_captured_on": "2026-10-17",
           "text_sha256": "514f4b7c3e181af49498791d10a9ea0e2691ac4aff19af96cfa486c34804a67f",
           "source_file": "sources/NC/GS_14-34.9.txt"
+        },
+        {
+          "cite": "G.S. 14-50.16A(2)",
+          "heading": "Criminal gang activity",
+          "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-50.16A.html",
+          "last_session_law_seen": "2017-194, s. 4",
+          "text_captured_on": "2026-10-18",
+          "text_sha256": "50f4a5e8c98175c5839cf2b099298ac6006ae9a5706f04e4d06a91a59ab49836",
+          "source_file": "sources/NC/GS_14-50.16A.txt"
         }
       ],
       "elements": {
@@ -4128,20 +4410,30 @@
         ],
         "any_of_routes": []
       },
-      "special_rules": [],
+      "special_rules": [
+        "The definitions of criminal gang and criminal gang activity change for offenses committed on or after December 1, 2026 (S.L. 2026-37, s. 2). This record shows the law in effect now."
+      ],
       "explain_like_5": "As part of gang activity, someone fired a gun from inside a building or vehicle toward people outside it.",
       "review": {
         "status": "draft",
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.9 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.9 read on 2026-10-17. Compared with N.C.P.I.-Crim. 204A.10A on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements. On 2026-10-18 the definition of criminal gang activity in G.S. 14-50.16A(2) was read in full and saved; S.L. 2026-37 (H1173), which changes it on December 1, 2026, was also read."
       },
       "aliases": [
         "gang drive-by",
         "gang shooting"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 204A.10A, Criminal Gang Activity-Discharging a Firearm from winthin an Enclosure. Felony [2018]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/204A.10A%20Criminal%20Gang%20Activity-Discharging%20a%20Firearm%20from%20winthin%20an%20Enclosure.%20Felony%20%5B2018%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches. Summarizes the definition of criminal gang activity from G.S. 14-50.16A(2), now shown on the element."
+        }
+      ]
     },
     {
       "id": "nc_enclosure_fear_discharge",
@@ -4178,12 +4470,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.10 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.10 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.90B on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "firing a gun to scare someone"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.90B, Discharging a Firearm Within Building or Other Enclosure With Intent to Incite Fear [2018]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.90B%20Discharging%20a%20Firearm%20Within%20Building%20or%20Other%20Enclosure%20With%20Intent%20to%20Incite%20Fear%20%5B2018%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        }
+      ]
     },
     {
       "id": "nc_malicious_castration",
@@ -4209,7 +4509,8 @@
         "all_of": [
           "castration_or_genital_injury",
           "malice_aforethought_maiming",
-          "intent_murder_maim_disable_impotent"
+          "intent_murder_maim_disable_impotent",
+          "permanent_injury"
         ],
         "any_of_routes": []
       },
@@ -4222,13 +4523,21 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-28 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-28 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.05 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "castration",
         "genital maiming"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.05, Malicious Castration [2002]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.05%20Malicious%20Castration%20%5B2002-already%20fixed%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Adds that the injury must be permanent, and defines malice and aforethought. Both added to the record."
+        }
+      ]
     },
     {
       "id": "nc_fgm_mutilation",
@@ -4267,13 +4576,21 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-28.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-28.1 read on 2026-10-17. Compared with N.C.P.I.-Crim. 210.96 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "FGM",
         "female circumcision"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 210.96, Knowingly Mutilating the Female Genitals of a Child Less Than 18 Years of Age [2020]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/210.96%20Knowingly%20Mutilating%20the%20Female%20Genitals%20of%20a%20Child%20Less%20Than%2018%20Years%20of%20Age%20%5B2020%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches. Defines 'knowingly'."
+        }
+      ]
     },
     {
       "id": "nc_fgm_consent",
@@ -4312,12 +4629,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-28.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-28.1 read on 2026-10-17. Compared with N.C.P.I.-Crim. 210.97 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "permitting FGM"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 210.97, [Consenting To] [Permitting] The Mutilation of the Female Genitals Of A Child Less Than 18 Years of Age [2020]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/210.97%20%5BConsenting%20To%5D%20%5BPermitting%5D%20The%20Mutilation%20of%20the%20Female%20Genitals%20Of%20A%20Child%20Less%20Than%2018%20Years%20of%20Age%20%5B2020%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches."
+        }
+      ]
     },
     {
       "id": "nc_fgm_removal",
@@ -4356,7 +4681,7 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-28.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-28.1 read on 2026-10-17. No pattern instruction for G.S. 14-28.1(d) was found on the School of Government list (checked 2026-10-18). Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "taking a child out of state for FGM"
@@ -4386,7 +4711,8 @@
       "elements": {
         "all_of": [
           "on_purpose_without_malice",
-          "intent_kill_maim_disable_impotent"
+          "intent_kill_maim_disable_impotent",
+          "permanent_injury"
         ],
         "any_of_routes": [
           {
@@ -4416,14 +4742,29 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-29 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-29 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.06, 208.05 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "cutting off an ear",
         "cutting off a nose",
         "maiming"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.06, Castration or Other Maiming without Malice Aforethought [2002]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.06%20Castration%20or%20Other%20Maiming%20without%20Malice%20Aforethought%20%5B2002-already%20fixed%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Adds that the injury must be permanent. With 208.05, shows the State doesn't have to prove malice, or that it was absent. Record corrected."
+        },
+        {
+          "label": "N.C.P.I.-Crim. 208.05, Malicious Castration [2002]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.05%20Malicious%20Castration%20%5B2002-already%20fixed%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Its lesser-offense paragraph describes castration without malice as differing only in that malice need not be proved."
+        }
+      ]
     },
     {
       "id": "nc_malicious_maiming",
@@ -4449,7 +4790,8 @@
         "all_of": [
           "tongue_or_eye_injury",
           "malice_aforethought_maiming",
-          "intent_murder_maim_disfigure"
+          "intent_murder_maim_disfigure",
+          "permanent_injury"
         ],
         "any_of_routes": []
       },
@@ -4462,13 +4804,21 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-30 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-30 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.07 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "gouging an eye",
         "cutting out a tongue"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.07, Malicious Maiming [2002]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.07%20Malicious%20Maiming%20%5B2002-already%20fixed%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Adds that the injury must be permanent and defines malice aforethought. Added to the record."
+        }
+      ]
     },
     {
       "id": "nc_acid_throwing",
@@ -4508,14 +4858,22 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-30.1 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-30.1 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.08 on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "acid attack",
         "throwing acid",
         "lye"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.08, Malicious Throwing of Corrosive Acid or Alkali. Felony [2002]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.08%20Malicious%20Throwing%20of%20Corrosive%20Acid%20or%20Alkali.%20Felony%20%5B2002%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches. Adds that intent may be inferred from the injury, and points to case definitions of serious injury."
+        }
+      ]
     },
     {
       "id": "nc_teflon_bullets",
@@ -4552,7 +4910,7 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.3 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.3 read on 2026-10-17. No pattern instruction for G.S. 14-34.3 was found on the School of Government list (checked 2026-10-18). Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "armor-piercing bullets",
@@ -4594,13 +4952,21 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.4 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.4 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.96A on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "product tampering",
         "poisoning food"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.96A, Adulteration or Misbranding of Food, Drugs, or Cosmetics with Intent to Inflict Serious Injury or Death [2002]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.96A%20Adulteration%20or%20Misbranding%20of%20Food%2C%20Drugs%2C%20or%20Cosmetics%20with%20Intent%20to%20Inflict%20Serious%20Injury%20or%20Death%20%5B2002-already%20fixed%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Requires knowledge for sellers and for the person who adulterates or misbrands. Noted on the element."
+        }
+      ]
     },
     {
       "id": "nc_food_tampering_extort",
@@ -4636,13 +5002,21 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.4 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.4 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.96B on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "product tampering extortion",
         "tampering threat"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.96B, Extortion by Adulteration or Misbranding of Food, Drugs, or Cosmetics [2002]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.96B%20Extortion%20by%20Adulteration%20or%20Misbranding%20of%20Food%2C%20Drugs%2C%20or%20Cosmetics%20%5B2002-already%20fixed%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches. Defines 'wrongfully'."
+        }
+      ]
     },
     {
       "id": "nc_laser_face",
@@ -4681,7 +5055,7 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.8 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.8 read on 2026-10-17. Infractions aren't tried to a jury; no pattern instruction on the School of Government list (checked 2026-10-18). Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "laser pointer in the face"
@@ -4725,12 +5099,20 @@
         "verified_by": null,
         "verified_on": null,
         "statute_text_compared_on": "2026-10-17",
-        "comparison_note": "Drafted from the full text of G.S. 14-34.8 read on 2026-10-17. No pattern jury instruction was compared for this record. Terms the statute leaves undefined are flagged on the elements."
+        "comparison_note": "Drafted from the full text of G.S. 14-34.8 read on 2026-10-17. Compared with N.C.P.I.-Crim. 208.93A on 2026-10-18; see cross-checks. Terms the statute leaves undefined are flagged on the elements."
       },
       "aliases": [
         "laser at a police dog"
       ],
-      "cross_checks": []
+      "cross_checks": [
+        {
+          "label": "N.C.P.I.-Crim. 208.93A, Pointing a Laser Device at a [Law Enforcement Agency Animal] [Search and Rescue Animal]. Misdemeanor [2023]",
+          "url": "https://sog.unc.edu/sites/default/files/pji-master-2025/criminal/208.93A%20Pointing%20a%20Laser%20Device%20at%20a%20%5BLaw%20Enforcement%20Agency%20Animal%5D%20%5BSearch%20and%20Rescue%20Animal%5D.%20Misdemeanor%20%5B2023%5D.pdf",
+          "checked_on": "2026-10-18",
+          "method": "text of the PDF read in full",
+          "note": "Matches. Points to G.S. 14-163.1 for the animal and harm definitions."
+        }
+      ]
     }
   ],
   "flows": [

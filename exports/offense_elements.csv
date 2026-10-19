@@ -45,29 +45,6 @@ nc_larceny_felony,Felony larceny,larceny_felony_circumstance,A special circumsta
 nc_larceny_misd,Misdemeanor larceny,larceny_taking,Taking and carrying away another's property,required,
 nc_larceny_misd,Misdemeanor larceny,value_1000_or_less,"Property worth $1,000 or less",required,
 nc_larceny_misd,Misdemeanor larceny,no_special_circumstance,No special circumstance,required,
-nc_malicious_castration,Malicious castration,castration_or_genital_injury,"Castration, or cutting off, maiming or disfiguring the private parts",required,
-nc_malicious_castration,Malicious castration,malice_aforethought_maiming,Malice aforethought,required,
-nc_malicious_castration,Malicious castration,intent_murder_maim_disable_impotent,"Intent to murder, maim, disfigure, disable or render impotent",required,
-nc_fgm_mutilation,Female genital mutilation of a child,fgm_procedure,"Circumcising, excising or infibulating the genitals of a child",required,
-nc_fgm_mutilation,Female genital mutilation of a child,victim_child_under_18,The victim is a child under 18,required,
-nc_fgm_consent,Consenting to or permitting female genital mutilation of a child,parent_or_caregiver_of_child,"A parent, or a person who provides care to or supervises the child",required,
-nc_fgm_consent,Consenting to or permitting female genital mutilation of a child,victim_child_under_18,The victim is a child under 18,required,
-nc_fgm_consent,Consenting to or permitting female genital mutilation of a child,consents_or_permits_fgm,Consenting to or permitting the procedure,required,
-nc_fgm_removal,Removing a child from the State for female genital mutilation,parent_or_caregiver_of_child,"A parent, or a person who provides care to or supervises the child",required,
-nc_fgm_removal,Removing a child from the State for female genital mutilation,victim_child_under_18,The victim is a child under 18,required,
-nc_fgm_removal,Removing a child from the State for female genital mutilation,removes_child_for_fgm,Removing the child from the State for the procedure,required,
-nc_maiming_no_malice,Maiming without malice aforethought,on_purpose_without_malice,"On purpose and unlawfully, but without malice aforethought",required,
-nc_maiming_no_malice,Maiming without malice aforethought,intent_kill_maim_disable_impotent,"Intent to kill, maim, disfigure, disable or render impotent",required,
-nc_maiming_no_malice,Maiming without malice aforethought,cut_nose_lip_ear,"Cutting the nose, or cutting or biting off the nose, a lip or an ear",one route needed,"Cutting the nose, lip or ear"
-nc_maiming_no_malice,Maiming without malice aforethought,disable_limb_or_member,Disabling a limb or member,one route needed,Disabling a limb or member
-nc_maiming_no_malice,Maiming without malice aforethought,castration_or_genital_injury,"Castration, or cutting off, maiming or disfiguring the private parts",one route needed,Castration or injury to the private parts
-nc_malicious_maiming,Malicious maiming,tongue_or_eye_injury,"Cutting out or disabling the tongue, or putting out an eye",required,
-nc_malicious_maiming,Malicious maiming,malice_aforethought_maiming,Malice aforethought,required,
-nc_malicious_maiming,Malicious maiming,intent_murder_maim_disfigure,"Intent to murder, maim or disfigure",required,
-nc_acid_throwing,Malicious throwing of corrosive acid or alkali,acid_thrown_on_person,Throwing corrosive acid or alkali on a person,required,
-nc_acid_throwing,Malicious throwing of corrosive acid or alkali,malice_aforethought_maiming,Malice aforethought,required,
-nc_acid_throwing,Malicious throwing of corrosive acid or alkali,intent_murder_maim_disfigure,"Intent to murder, maim or disfigure",required,
-nc_acid_throwing,Malicious throwing of corrosive acid or alkali,serious_injury,Serious injury,required,
 nc_secret_assault,Assault with a deadly weapon in a secret manner with intent to kill,assault_on_person,An assault on another person,required,
 nc_secret_assault,Assault with a deadly weapon in a secret manner with intent to kill,battery_touching,Actually touching or striking the victim,required,
 nc_secret_assault,Assault with a deadly weapon in a secret manner with intent to kill,deadly_weapon,Use of a deadly weapon,required,
@@ -84,6 +61,28 @@ nc_awdwisi,Assault with a deadly weapon inflicting serious injury,serious_injury
 nc_awdwik,Assault with a deadly weapon with intent to kill,assault_on_person,An assault on another person,required,
 nc_awdwik,Assault with a deadly weapon with intent to kill,deadly_weapon,Use of a deadly weapon,required,
 nc_awdwik,Assault with a deadly weapon with intent to kill,intent_to_kill,Intent to kill,required,
+nc_assault_sbi,Assault inflicting serious bodily injury,assault_on_person,An assault on another person,required,
+nc_assault_sbi,Assault inflicting serious bodily injury,serious_bodily_injury,Serious bodily injury,required,
+nc_assault_sbi,Assault inflicting serious bodily injury,no_greater_punishment_law,No other law punishes it more,required,
+nc_assault_strang,Assault inflicting physical injury by strangulation,assault_on_person,An assault on another person,required,
+nc_assault_strang,Assault inflicting physical injury by strangulation,strangulation_injury,Physical injury by strangulation,required,
+nc_assault_strang,Assault inflicting physical injury by strangulation,no_greater_punishment_law,No other law punishes it more,required,
+nc_assault_simple,Simple assault,assault_on_person,An assault on another person,required,
+nc_assault_a1,Aggravated assault (Class A1 misdemeanor),assault_on_person,An assault on another person,required,
+nc_assault_a1,Aggravated assault (Class A1 misdemeanor),no_greater_punishment_law,No other law punishes it more,required,
+nc_assault_a1,Aggravated assault (Class A1 misdemeanor),serious_injury,Serious injury,one route needed,Serious injury
+nc_assault_a1,Aggravated assault (Class A1 misdemeanor),deadly_weapon,Use of a deadly weapon,one route needed,Deadly weapon
+nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_female_by_adult_male,"Female victim, male offender at least 18",one route needed,"Female victim, male offender 18 or older"
+nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_pregnant,The victim is pregnant,one route needed,Pregnant victim
+nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_child_under_12,The victim is a child under 12,one route needed,Child under 12
+nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_gov_employee,The victim is a government officer or employee on duty,one route needed,Government officer or employee on duty
+nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_school_worker,The victim is a school employee or volunteer on duty,one route needed,School employee or volunteer
+nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_transit_operator,The victim is a public transit operator on duty,one route needed,Public transit operator
+nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_company_campus_police,The victim is a company or campus police officer on duty,one route needed,Company or campus police officer
+nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_tnc_driver,The victim is a rideshare driver working,one route needed,Rideshare driver
+nc_habitual_misd_assault,Habitual misdemeanor assault,current_habitual_assault_offense,A current qualifying assault offense,required,
+nc_habitual_misd_assault,Habitual misdemeanor assault,prior_assault_convictions,"Two earlier assault convictions, the earlier within 15 years",required,
+nc_assault_pointing,Assault by pointing a gun,pointing_gun,Pointing a gun or pistol at another person,required,
 nc_assault_ew_si,Assault on an emergency worker with a deadly weapon inflicting serious injury,assault_on_person,An assault on another person,required,
 nc_assault_ew_si,Assault on an emergency worker with a deadly weapon inflicting serious injury,deadly_weapon,Use of a deadly weapon,required,
 nc_assault_ew_si,Assault on an emergency worker with a deadly weapon inflicting serious injury,serious_injury,Serious injury,required,
@@ -92,14 +91,76 @@ nc_assault_ew_ik,Assault on an emergency worker with a deadly weapon with intent
 nc_assault_ew_ik,Assault on an emergency worker with a deadly weapon with intent to kill,deadly_weapon,Use of a deadly weapon,required,
 nc_assault_ew_ik,Assault on an emergency worker with a deadly weapon with intent to kill,intent_to_kill,Intent to kill,required,
 nc_assault_ew_ik,Assault on an emergency worker with a deadly weapon with intent to kill,victim_emergency_worker,The victim is an emergency worker,required,
+nc_assault_class1,Aggravated assault on a sports official or utility worker (Class 1 misdemeanor),assault_on_person,An assault on another person,required,
+nc_assault_class1,Aggravated assault on a sports official or utility worker (Class 1 misdemeanor),no_greater_punishment_law,No other law punishes it more,required,
+nc_assault_class1,Aggravated assault on a sports official or utility worker (Class 1 misdemeanor),victim_sports_official,The victim is a sports official on duty,one route needed,Sports official (assault and battery)
+nc_assault_class1,Aggravated assault on a sports official or utility worker (Class 1 misdemeanor),battery_touching,Actually touching or striking the victim,one route needed,Sports official (assault and battery)
+nc_assault_class1,Aggravated assault on a sports official or utility worker (Class 1 misdemeanor),victim_utility_worker,The victim is a utility or communications worker on duty,one route needed,Utility or communications worker
+nc_assault_deadly_weapon_gov,"Assault with a deadly weapon on a government officer or employee, company or campus police officer",assault_on_person,An assault on another person,required,
+nc_assault_deadly_weapon_gov,"Assault with a deadly weapon on a government officer or employee, company or campus police officer",deadly_weapon,Use of a deadly weapon,required,
+nc_assault_deadly_weapon_gov,"Assault with a deadly weapon on a government officer or employee, company or campus police officer",no_greater_punishment_law,No other law punishes it more,required,
+nc_assault_deadly_weapon_gov,"Assault with a deadly weapon on a government officer or employee, company or campus police officer",knew_victim_role,Knew the victim's role,required,
+nc_assault_deadly_weapon_gov,"Assault with a deadly weapon on a government officer or employee, company or campus police officer",victim_gov_employee,The victim is a government officer or employee on duty,one route needed,Officer or employee of the State or a local government
+nc_assault_deadly_weapon_gov,"Assault with a deadly weapon on a government officer or employee, company or campus police officer",victim_company_campus_police,The victim is a company or campus police officer on duty,one route needed,Company or campus police officer
+nc_assault_firearm_officer,"Assault with a firearm on an officer, National Guard member or detention employee",assault_on_person,An assault on another person,required,
+nc_assault_firearm_officer,"Assault with a firearm on an officer, National Guard member or detention employee",assault_with_firearm,An assault with a firearm,required,
+nc_assault_firearm_officer,"Assault with a firearm on an officer, National Guard member or detention employee",knew_victim_role,Knew the victim's role,required,
+nc_assault_firearm_officer,"Assault with a firearm on an officer, National Guard member or detention employee",victim_leo_probation_parole,"The victim is a law enforcement, probation or parole officer on duty",one route needed,"Law enforcement, probation or parole officer"
+nc_assault_firearm_officer,"Assault with a firearm on an officer, National Guard member or detention employee",victim_national_guard,The victim is a National Guard member on duty,one route needed,National Guard member
+nc_assault_firearm_officer,"Assault with a firearm on an officer, National Guard member or detention employee",victim_detention_employee,The victim is a detention facility employee on duty,one route needed,Detention facility employee
+nc_assault_health_worker,"Assault or affray causing physical injury to a health care worker, firefighter or hospital worker",assault_or_affray_physical_injury,An assault or affray causing physical injury,required,
+nc_assault_health_worker,"Assault or affray causing physical injury to a health care worker, firefighter or hospital worker",victim_health_fire_worker,"The victim is a health care worker, firefighter or hospital worker on duty",required,
+nc_assault_health_worker,"Assault or affray causing physical injury to a health care worker, firefighter or hospital worker",knew_victim_role,Knew the victim's role,required,
+nc_assault_health_worker_sbi,"Assault on a health care worker, firefighter or hospital worker causing serious bodily injury or with a non-firearm deadly weapon",assault_or_affray_physical_injury,An assault or affray causing physical injury,required,
+nc_assault_health_worker_sbi,"Assault on a health care worker, firefighter or hospital worker causing serious bodily injury or with a non-firearm deadly weapon",victim_health_fire_worker,"The victim is a health care worker, firefighter or hospital worker on duty",required,
+nc_assault_health_worker_sbi,"Assault on a health care worker, firefighter or hospital worker causing serious bodily injury or with a non-firearm deadly weapon",no_greater_punishment_law,No other law punishes it more,required,
+nc_assault_health_worker_sbi,"Assault on a health care worker, firefighter or hospital worker causing serious bodily injury or with a non-firearm deadly weapon",knew_victim_role,Knew the victim's role,required,
+nc_assault_health_worker_sbi,"Assault on a health care worker, firefighter or hospital worker causing serious bodily injury or with a non-firearm deadly weapon",serious_bodily_injury,Serious bodily injury,one route needed,Serious bodily injury
+nc_assault_health_worker_sbi,"Assault on a health care worker, firefighter or hospital worker causing serious bodily injury or with a non-firearm deadly weapon",deadly_weapon_not_firearm,A deadly weapon other than a firearm,one route needed,Deadly weapon other than a firearm
+nc_assault_health_worker_firearm,"Assault on a health care worker, firefighter or hospital worker using a firearm",assault_or_affray_physical_injury,An assault or affray causing physical injury,required,
+nc_assault_health_worker_firearm,"Assault on a health care worker, firefighter or hospital worker using a firearm",victim_health_fire_worker,"The victim is a health care worker, firefighter or hospital worker on duty",required,
+nc_assault_health_worker_firearm,"Assault on a health care worker, firefighter or hospital worker using a firearm",uses_firearm,Uses a firearm,required,
+nc_assault_health_worker_firearm,"Assault on a health care worker, firefighter or hospital worker using a firearm",no_greater_punishment_law,No other law punishes it more,required,
+nc_assault_health_worker_firearm,"Assault on a health care worker, firefighter or hospital worker using a firearm",knew_victim_role,Knew the victim's role,required,
+nc_assault_officer_sbi,"Assault inflicting serious bodily injury on an officer, National Guard member or detention employee",assault_on_person,An assault on another person,required,
+nc_assault_officer_sbi,"Assault inflicting serious bodily injury on an officer, National Guard member or detention employee",serious_bodily_injury,Serious bodily injury,required,
+nc_assault_officer_sbi,"Assault inflicting serious bodily injury on an officer, National Guard member or detention employee",no_greater_punishment_law,No other law punishes it more,required,
+nc_assault_officer_sbi,"Assault inflicting serious bodily injury on an officer, National Guard member or detention employee",knew_victim_role,Knew the victim's role,required,
+nc_assault_officer_sbi,"Assault inflicting serious bodily injury on an officer, National Guard member or detention employee",victim_leo_probation_parole,"The victim is a law enforcement, probation or parole officer on duty",one route needed,"Law enforcement, probation or parole officer"
+nc_assault_officer_sbi,"Assault inflicting serious bodily injury on an officer, National Guard member or detention employee",victim_national_guard,The victim is a National Guard member on duty,one route needed,National Guard member
+nc_assault_officer_sbi,"Assault inflicting serious bodily injury on an officer, National Guard member or detention employee",victim_detention_employee,The victim is a detention facility employee on duty,one route needed,Detention facility employee
+nc_assault_officer_injury,"Assault inflicting physical injury on an officer, National Guard member or detention employee",assault_on_person,An assault on another person,required,
+nc_assault_officer_injury,"Assault inflicting physical injury on an officer, National Guard member or detention employee",physical_injury_minor,"Physical injury, including cuts, scrapes and bruises",required,
+nc_assault_officer_injury,"Assault inflicting physical injury on an officer, National Guard member or detention employee",no_greater_punishment_law,No other law punishes it more,required,
+nc_assault_officer_injury,"Assault inflicting physical injury on an officer, National Guard member or detention employee",knew_victim_role,Knew the victim's role,required,
+nc_assault_officer_injury,"Assault inflicting physical injury on an officer, National Guard member or detention employee",victim_leo_probation_parole,"The victim is a law enforcement, probation or parole officer on duty",one route needed,"Law enforcement, probation or parole officer"
+nc_assault_officer_injury,"Assault inflicting physical injury on an officer, National Guard member or detention employee",victim_national_guard,The victim is a National Guard member on duty,one route needed,National Guard member
+nc_assault_officer_injury,"Assault inflicting physical injury on an officer, National Guard member or detention employee",victim_detention_employee,The victim is a detention facility employee on duty,one route needed,Detention facility employee
+nc_laser_worker,Pointing a laser at an officer or other listed worker on duty,laser_pointed_emitting,Intentionally pointing a laser device that is emitting a beam,required,
+nc_laser_worker,Pointing a laser at an officer or other listed worker on duty,laser_target_protected_worker,At a law enforcement officer or other listed worker on duty,required,
+nc_misd_dv,Misdemeanor crime of domestic violence,force_or_weapon_threat,"Uses or attempts physical force, or threatens use of a deadly weapon",required,
+nc_misd_dv,Misdemeanor crime of domestic violence,dv_spouse_parent_guardian,"A current or former spouse, parent or guardian of the victim",one route needed,"Spouse, parent or guardian (current or former)"
+nc_misd_dv,Misdemeanor crime of domestic violence,dv_child_in_common,Shares a child in common with the victim,one route needed,Shares a child with the victim
+nc_misd_dv,Misdemeanor crime of domestic violence,dv_cohabitating,"Lives or has lived with the victim as a spouse, parent or guardian",one route needed,"Lives or lived with the victim as a spouse, parent or guardian"
+nc_misd_dv,Misdemeanor crime of domestic violence,dv_similarly_situated,"Similarly situated to a spouse, parent or guardian",one route needed,"Similarly situated to a spouse, parent or guardian"
+nc_misd_dv,Misdemeanor crime of domestic violence,dv_dating_relationship,A current or recent former dating relationship,one route needed,Current or recent former dating relationship
+nc_habitual_dv,Habitual domestic violence,current_dv_offense,"A current offense under G.S. 14-32.5, or an assault on a related person",required,
+nc_habitual_dv,Habitual domestic violence,prior_dv_convictions,"Two earlier qualifying convictions, the earlier within 15 years",required,
+nc_assault_dom_minor,Assault in the presence of a minor against a person with a personal relationship,assault_on_person,An assault on another person,required,
+nc_assault_dom_minor,Assault in the presence of a minor against a person with a personal relationship,personal_relationship_victim,A personal relationship with the victim,required,
+nc_assault_dom_minor,Assault in the presence of a minor against a person with a personal relationship,in_presence_of_minor,In the presence of a minor,required,
+nc_assault_dom_minor,Assault in the presence of a minor against a person with a personal relationship,serious_injury,Serious injury,one route needed,Serious injury
+nc_assault_dom_minor,Assault in the presence of a minor against a person with a personal relationship,deadly_weapon,Use of a deadly weapon,one route needed,Deadly weapon
 nc_assault_disabled_agg,Aggravated assault on an individual with a disability,assault_on_person,An assault on another person,required,
 nc_assault_disabled_agg,Aggravated assault on an individual with a disability,victim_disabled_individual,The victim is an individual with a disability,required,
 nc_assault_disabled_agg,Aggravated assault on an individual with a disability,no_greater_punishment_law,No other law punishes it more,required,
+nc_assault_disabled_agg,Aggravated assault on an individual with a disability,knew_victim_disabled,Knew of the disability,required,
 nc_assault_disabled_agg,Aggravated assault on an individual with a disability,deadly_weapon_or_likely_serious_force,"A deadly weapon, or other force likely to inflict serious injury",one route needed,Deadly weapon or force likely to inflict serious injury
 nc_assault_disabled_agg,Aggravated assault on an individual with a disability,serious_injury_or_damage,Serious injury or serious damage,one route needed,Serious injury or serious damage
 nc_assault_disabled_agg,Aggravated assault on an individual with a disability,intent_to_kill,Intent to kill,one route needed,Intent to kill
 nc_assault_disabled_simple,Simple assault or battery on an individual with a disability,assault_on_person,An assault on another person,required,
 nc_assault_disabled_simple,Simple assault or battery on an individual with a disability,victim_disabled_individual,The victim is an individual with a disability,required,
+nc_assault_disabled_simple,Simple assault or battery on an individual with a disability,knew_victim_disabled,Knew of the disability,required,
 nc_patient_abuse_death_intent,Patient abuse causing death by intentional conduct,victim_patient_or_resident,The victim is a patient or resident of a care facility,required,
 nc_patient_abuse_death_intent,Patient abuse causing death by intentional conduct,patient_abuse_injury_or_death,Physical abuse that results in death or bodily injury,required,
 nc_patient_abuse_death_intent,Patient abuse causing death by intentional conduct,intentional_conduct_causes_death,Intentional conduct proximately causes death,required,
@@ -141,105 +202,59 @@ nc_elder_neglect,Domestic neglect of a disabled or elder adult causing injury,ac
 nc_elder_neglect,Domestic neglect of a disabled or elder adult causing injury,adult_suffers_injury,The adult suffers mental or physical injury,required,
 nc_elder_neglect,Domestic neglect of a disabled or elder adult causing injury,fails_medical_hygienic_care,Fails to provide medical or hygienic care,one route needed,Fails to provide medical or hygienic care
 nc_elder_neglect,Domestic neglect of a disabled or elder adult causing injury,confines_unsafe,Confines or restrains in an unsafe place or condition,one route needed,Confines or restrains in an unsafe way
-nc_assault_sbi,Assault inflicting serious bodily injury,assault_on_person,An assault on another person,required,
-nc_assault_sbi,Assault inflicting serious bodily injury,serious_bodily_injury,Serious bodily injury,required,
-nc_assault_sbi,Assault inflicting serious bodily injury,no_greater_punishment_law,No other law punishes it more,required,
-nc_assault_strang,Assault inflicting physical injury by strangulation,assault_on_person,An assault on another person,required,
-nc_assault_strang,Assault inflicting physical injury by strangulation,strangulation_injury,Physical injury by strangulation,required,
-nc_assault_strang,Assault inflicting physical injury by strangulation,no_greater_punishment_law,No other law punishes it more,required,
-nc_misd_dv,Misdemeanor crime of domestic violence,force_or_weapon_threat,"Uses or attempts physical force, or threatens use of a deadly weapon",required,
-nc_misd_dv,Misdemeanor crime of domestic violence,dv_spouse_parent_guardian,"A current or former spouse, parent or guardian of the victim",one route needed,"Spouse, parent or guardian (current or former)"
-nc_misd_dv,Misdemeanor crime of domestic violence,dv_child_in_common,Shares a child in common with the victim,one route needed,Shares a child with the victim
-nc_misd_dv,Misdemeanor crime of domestic violence,dv_cohabitating,"Lives or has lived with the victim as a spouse, parent or guardian",one route needed,"Lives or lived with the victim as a spouse, parent or guardian"
-nc_misd_dv,Misdemeanor crime of domestic violence,dv_similarly_situated,"Similarly situated to a spouse, parent or guardian",one route needed,"Similarly situated to a spouse, parent or guardian"
-nc_misd_dv,Misdemeanor crime of domestic violence,dv_dating_relationship,A current or recent former dating relationship,one route needed,Current or recent former dating relationship
-nc_habitual_dv,Habitual domestic violence,current_dv_offense,"A current offense under G.S. 14-32.5, or an assault on a related person",required,
-nc_habitual_dv,Habitual domestic violence,prior_dv_convictions,"Two earlier qualifying convictions, the earlier within 15 years",required,
-nc_assault_simple,Simple assault,assault_on_person,An assault on another person,required,
-nc_assault_class1,Aggravated assault on a sports official or utility worker (Class 1 misdemeanor),assault_on_person,An assault on another person,required,
-nc_assault_class1,Aggravated assault on a sports official or utility worker (Class 1 misdemeanor),no_greater_punishment_law,No other law punishes it more,required,
-nc_assault_class1,Aggravated assault on a sports official or utility worker (Class 1 misdemeanor),victim_sports_official,The victim is a sports official on duty,one route needed,Sports official (assault and battery)
-nc_assault_class1,Aggravated assault on a sports official or utility worker (Class 1 misdemeanor),battery_touching,Actually touching or striking the victim,one route needed,Sports official (assault and battery)
-nc_assault_class1,Aggravated assault on a sports official or utility worker (Class 1 misdemeanor),victim_utility_worker,The victim is a utility or communications worker on duty,one route needed,Utility or communications worker
-nc_assault_a1,Aggravated assault (Class A1 misdemeanor),assault_on_person,An assault on another person,required,
-nc_assault_a1,Aggravated assault (Class A1 misdemeanor),no_greater_punishment_law,No other law punishes it more,required,
-nc_assault_a1,Aggravated assault (Class A1 misdemeanor),serious_injury,Serious injury,one route needed,Serious injury
-nc_assault_a1,Aggravated assault (Class A1 misdemeanor),deadly_weapon,Use of a deadly weapon,one route needed,Deadly weapon
-nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_female_by_adult_male,"Female victim, male offender at least 18",one route needed,"Female victim, male offender 18 or older"
-nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_pregnant,The victim is pregnant,one route needed,Pregnant victim
-nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_child_under_12,The victim is a child under 12,one route needed,Child under 12
-nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_gov_employee,The victim is a government officer or employee on duty,one route needed,Government officer or employee on duty
-nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_school_worker,The victim is a school employee or volunteer on duty,one route needed,School employee or volunteer
-nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_transit_operator,The victim is a public transit operator on duty,one route needed,Public transit operator
-nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_company_campus_police,The victim is a company or campus police officer on duty,one route needed,Company or campus police officer
-nc_assault_a1,Aggravated assault (Class A1 misdemeanor),victim_tnc_driver,The victim is a rideshare driver working,one route needed,Rideshare driver
-nc_assault_dom_minor,Assault in the presence of a minor against a person with a personal relationship,assault_on_person,An assault on another person,required,
-nc_assault_dom_minor,Assault in the presence of a minor against a person with a personal relationship,personal_relationship_victim,A personal relationship with the victim,required,
-nc_assault_dom_minor,Assault in the presence of a minor against a person with a personal relationship,in_presence_of_minor,In the presence of a minor,required,
-nc_assault_dom_minor,Assault in the presence of a minor against a person with a personal relationship,serious_injury,Serious injury,one route needed,Serious injury
-nc_assault_dom_minor,Assault in the presence of a minor against a person with a personal relationship,deadly_weapon,Use of a deadly weapon,one route needed,Deadly weapon
-nc_habitual_misd_assault,Habitual misdemeanor assault,current_habitual_assault_offense,A current qualifying assault offense,required,
-nc_habitual_misd_assault,Habitual misdemeanor assault,prior_assault_convictions,"Two earlier assault convictions, the earlier within 15 years",required,
-nc_assault_pointing,Assault by pointing a gun,pointing_gun,Pointing a gun or pistol at another person,required,
 nc_shoot_occupied_property,Discharging a weapon into occupied property,discharge_weapon_600fps,Willfully or wantonly discharging a firearm or barreled weapon,required,
 nc_shoot_occupied_property,Discharging a weapon into occupied property,into_occupied_property,Into occupied property,required,
+nc_shoot_occupied_property,Discharging a weapon into occupied property,knew_property_occupied,Knew the property was occupied,required,
 nc_shoot_occupied_dwelling,Discharging a weapon into an occupied dwelling or moving vehicle,discharge_weapon_600fps,Willfully or wantonly discharging a firearm or barreled weapon,required,
 nc_shoot_occupied_dwelling,Discharging a weapon into an occupied dwelling or moving vehicle,into_occupied_dwelling_or_moving_vehicle,Into an occupied dwelling or an occupied vehicle in operation,required,
+nc_shoot_occupied_dwelling,Discharging a weapon into an occupied dwelling or moving vehicle,knew_property_occupied,Knew the property was occupied,required,
 nc_shoot_sbi,Discharging a weapon into occupied property causing serious bodily injury,discharge_weapon_600fps,Willfully or wantonly discharging a firearm or barreled weapon,required,
 nc_shoot_sbi,Discharging a weapon into occupied property causing serious bodily injury,serious_bodily_injury,Serious bodily injury,required,
+nc_shoot_sbi,Discharging a weapon into occupied property causing serious bodily injury,knew_property_occupied,Knew the property was occupied,required,
 nc_shoot_sbi,Discharging a weapon into occupied property causing serious bodily injury,into_occupied_property,Into occupied property,one route needed,Into occupied property
 nc_shoot_sbi,Discharging a weapon into occupied property causing serious bodily injury,into_occupied_dwelling_or_moving_vehicle,Into an occupied dwelling or an occupied vehicle in operation,one route needed,Into an occupied dwelling or moving vehicle
 nc_shoot_emergency_vehicle,Discharging a weapon at or into an unoccupied emergency vehicle,discharge_weapon_600fps,Willfully or wantonly discharging a firearm or barreled weapon,required,
 nc_shoot_emergency_vehicle,Discharging a weapon at or into an unoccupied emergency vehicle,at_unoccupied_emergency_vehicle,At or into an unoccupied emergency vehicle,required,
 nc_shoot_emergency_vehicle,Discharging a weapon at or into an unoccupied emergency vehicle,no_greater_punishment_law,No other law punishes it more,required,
-nc_assault_deadly_weapon_gov,"Assault with a deadly weapon on a government officer or employee, company or campus police officer",assault_on_person,An assault on another person,required,
-nc_assault_deadly_weapon_gov,"Assault with a deadly weapon on a government officer or employee, company or campus police officer",deadly_weapon,Use of a deadly weapon,required,
-nc_assault_deadly_weapon_gov,"Assault with a deadly weapon on a government officer or employee, company or campus police officer",no_greater_punishment_law,No other law punishes it more,required,
-nc_assault_deadly_weapon_gov,"Assault with a deadly weapon on a government officer or employee, company or campus police officer",victim_gov_employee,The victim is a government officer or employee on duty,one route needed,Officer or employee of the State or a local government
-nc_assault_deadly_weapon_gov,"Assault with a deadly weapon on a government officer or employee, company or campus police officer",victim_company_campus_police,The victim is a company or campus police officer on duty,one route needed,Company or campus police officer
-nc_teflon_bullets,Teflon-coated bullets,teflon_bullet_handling,"Importing, making, possessing, selling or otherwise handling a teflon-coated bullet",required,
-nc_food_tampering_injury,"Adulterating or misbranding food, drugs or cosmetics with intent to cause serious injury or death",adulterates_food_drug_cosmetic,"Adulterating or misbranding, or selling adulterated or misbranded, food, drugs or cosmetics",required,
-nc_food_tampering_injury,"Adulterating or misbranding food, drugs or cosmetics with intent to cause serious injury or death",intent_serious_injury_or_death,Intent to cause serious injury or death,required,
-nc_food_tampering_extort,Threatening product tampering to obtain something of value,communicates_adulteration_for_gain,"Telling another that they have done, or will do, the adulteration",required,
-nc_food_tampering_extort,Threatening product tampering to obtain something of value,intent_wrongfully_obtain_value,"Intent to wrongfully obtain something of value, or an acquittance, advantage or immunity",required,
-nc_assault_firearm_officer,"Assault with a firearm on an officer, National Guard member or detention employee",assault_on_person,An assault on another person,required,
-nc_assault_firearm_officer,"Assault with a firearm on an officer, National Guard member or detention employee",assault_with_firearm,An assault with a firearm,required,
-nc_assault_firearm_officer,"Assault with a firearm on an officer, National Guard member or detention employee",victim_leo_probation_parole,"The victim is a law enforcement, probation or parole officer on duty",one route needed,"Law enforcement, probation or parole officer"
-nc_assault_firearm_officer,"Assault with a firearm on an officer, National Guard member or detention employee",victim_national_guard,The victim is a National Guard member on duty,one route needed,National Guard member
-nc_assault_firearm_officer,"Assault with a firearm on an officer, National Guard member or detention employee",victim_detention_employee,The victim is a detention facility employee on duty,one route needed,Detention facility employee
-nc_assault_health_worker,"Assault or affray causing physical injury to a health care worker, firefighter or hospital worker",assault_or_affray_physical_injury,An assault or affray causing physical injury,required,
-nc_assault_health_worker,"Assault or affray causing physical injury to a health care worker, firefighter or hospital worker",victim_health_fire_worker,"The victim is a health care worker, firefighter or hospital worker on duty",required,
-nc_assault_health_worker_sbi,"Assault on a health care worker, firefighter or hospital worker causing serious bodily injury or with a non-firearm deadly weapon",assault_or_affray_physical_injury,An assault or affray causing physical injury,required,
-nc_assault_health_worker_sbi,"Assault on a health care worker, firefighter or hospital worker causing serious bodily injury or with a non-firearm deadly weapon",victim_health_fire_worker,"The victim is a health care worker, firefighter or hospital worker on duty",required,
-nc_assault_health_worker_sbi,"Assault on a health care worker, firefighter or hospital worker causing serious bodily injury or with a non-firearm deadly weapon",no_greater_punishment_law,No other law punishes it more,required,
-nc_assault_health_worker_sbi,"Assault on a health care worker, firefighter or hospital worker causing serious bodily injury or with a non-firearm deadly weapon",serious_bodily_injury,Serious bodily injury,one route needed,Serious bodily injury
-nc_assault_health_worker_sbi,"Assault on a health care worker, firefighter or hospital worker causing serious bodily injury or with a non-firearm deadly weapon",deadly_weapon_not_firearm,A deadly weapon other than a firearm,one route needed,Deadly weapon other than a firearm
-nc_assault_health_worker_firearm,"Assault on a health care worker, firefighter or hospital worker using a firearm",assault_or_affray_physical_injury,An assault or affray causing physical injury,required,
-nc_assault_health_worker_firearm,"Assault on a health care worker, firefighter or hospital worker using a firearm",victim_health_fire_worker,"The victim is a health care worker, firefighter or hospital worker on duty",required,
-nc_assault_health_worker_firearm,"Assault on a health care worker, firefighter or hospital worker using a firearm",uses_firearm,Uses a firearm,required,
-nc_assault_health_worker_firearm,"Assault on a health care worker, firefighter or hospital worker using a firearm",no_greater_punishment_law,No other law punishes it more,required,
-nc_assault_officer_sbi,"Assault inflicting serious bodily injury on an officer, National Guard member or detention employee",assault_on_person,An assault on another person,required,
-nc_assault_officer_sbi,"Assault inflicting serious bodily injury on an officer, National Guard member or detention employee",serious_bodily_injury,Serious bodily injury,required,
-nc_assault_officer_sbi,"Assault inflicting serious bodily injury on an officer, National Guard member or detention employee",no_greater_punishment_law,No other law punishes it more,required,
-nc_assault_officer_sbi,"Assault inflicting serious bodily injury on an officer, National Guard member or detention employee",victim_leo_probation_parole,"The victim is a law enforcement, probation or parole officer on duty",one route needed,"Law enforcement, probation or parole officer"
-nc_assault_officer_sbi,"Assault inflicting serious bodily injury on an officer, National Guard member or detention employee",victim_national_guard,The victim is a National Guard member on duty,one route needed,National Guard member
-nc_assault_officer_sbi,"Assault inflicting serious bodily injury on an officer, National Guard member or detention employee",victim_detention_employee,The victim is a detention facility employee on duty,one route needed,Detention facility employee
-nc_assault_officer_injury,"Assault inflicting physical injury on an officer, National Guard member or detention employee",assault_on_person,An assault on another person,required,
-nc_assault_officer_injury,"Assault inflicting physical injury on an officer, National Guard member or detention employee",physical_injury_minor,"Physical injury, including cuts, scrapes and bruises",required,
-nc_assault_officer_injury,"Assault inflicting physical injury on an officer, National Guard member or detention employee",no_greater_punishment_law,No other law punishes it more,required,
-nc_assault_officer_injury,"Assault inflicting physical injury on an officer, National Guard member or detention employee",victim_leo_probation_parole,"The victim is a law enforcement, probation or parole officer on duty",one route needed,"Law enforcement, probation or parole officer"
-nc_assault_officer_injury,"Assault inflicting physical injury on an officer, National Guard member or detention employee",victim_national_guard,The victim is a National Guard member on duty,one route needed,National Guard member
-nc_assault_officer_injury,"Assault inflicting physical injury on an officer, National Guard member or detention employee",victim_detention_employee,The victim is a detention facility employee on duty,one route needed,Detention facility employee
-nc_laser_worker,Pointing a laser at an officer or other listed worker on duty,laser_pointed_emitting,Intentionally pointing a laser device that is emitting a beam,required,
-nc_laser_worker,Pointing a laser at an officer or other listed worker on duty,laser_target_protected_worker,At a law enforcement officer or other listed worker on duty,required,
-nc_laser_face,Pointing a laser at a person's head or face,laser_pointed_emitting,Intentionally pointing a laser device that is emitting a beam,required,
-nc_laser_face,Pointing a laser at a person's head or face,laser_target_head_or_face,At the head or face of another person,required,
-nc_laser_animal,"Pointing a laser at a law enforcement or search and rescue animal, causing harm",laser_pointed_emitting,Intentionally pointing a laser device that is emitting a beam,required,
-nc_laser_animal,"Pointing a laser at a law enforcement or search and rescue animal, causing harm",laser_target_working_animal,At a law enforcement or search and rescue animal on duty,required,
-nc_laser_animal,"Pointing a laser at a law enforcement or search and rescue animal, causing harm",animal_harmed,The animal is caused 'harm',required,
 nc_gang_enclosure_discharge,Discharging a firearm from within an enclosure as part of criminal gang activity,discharge_from_enclosure_toward_outsiders,Discharging from inside an enclosure toward people outside it,required,
 nc_gang_enclosure_discharge,Discharging a firearm from within an enclosure as part of criminal gang activity,criminal_gang_activity,As part of criminal gang activity,required,
 nc_gang_enclosure_discharge,Discharging a firearm from within an enclosure as part of criminal gang activity,no_greater_punishment_law,No other law punishes it more,required,
 nc_enclosure_fear_discharge,Discharging a firearm within an occupied enclosure to incite fear,discharge_in_occupied_enclosure,Discharging a firearm inside an occupied enclosure,required,
 nc_enclosure_fear_discharge,Discharging a firearm within an occupied enclosure to incite fear,intent_to_incite_fear,Intent to incite fear in another,required,
 nc_enclosure_fear_discharge,Discharging a firearm within an occupied enclosure to incite fear,no_greater_punishment_law,No other law punishes it more,required,
+nc_malicious_castration,Malicious castration,castration_or_genital_injury,"Castration, or cutting off, maiming or disfiguring the private parts",required,
+nc_malicious_castration,Malicious castration,malice_aforethought_maiming,Malice aforethought,required,
+nc_malicious_castration,Malicious castration,intent_murder_maim_disable_impotent,"Intent to murder, maim, disfigure, disable or render impotent",required,
+nc_malicious_castration,Malicious castration,permanent_injury,The injury is permanent,required,
+nc_fgm_mutilation,Female genital mutilation of a child,fgm_procedure,"Circumcising, excising or infibulating the genitals of a child",required,
+nc_fgm_mutilation,Female genital mutilation of a child,victim_child_under_18,The victim is a child under 18,required,
+nc_fgm_consent,Consenting to or permitting female genital mutilation of a child,parent_or_caregiver_of_child,"A parent, or a person who provides care to or supervises the child",required,
+nc_fgm_consent,Consenting to or permitting female genital mutilation of a child,victim_child_under_18,The victim is a child under 18,required,
+nc_fgm_consent,Consenting to or permitting female genital mutilation of a child,consents_or_permits_fgm,Consenting to or permitting the procedure,required,
+nc_fgm_removal,Removing a child from the State for female genital mutilation,parent_or_caregiver_of_child,"A parent, or a person who provides care to or supervises the child",required,
+nc_fgm_removal,Removing a child from the State for female genital mutilation,victim_child_under_18,The victim is a child under 18,required,
+nc_fgm_removal,Removing a child from the State for female genital mutilation,removes_child_for_fgm,Removing the child from the State for the procedure,required,
+nc_maiming_no_malice,Maiming without malice aforethought,on_purpose_without_malice,On purpose and unlawfully (malice not required),required,
+nc_maiming_no_malice,Maiming without malice aforethought,intent_kill_maim_disable_impotent,"Intent to kill, maim, disfigure, disable or render impotent",required,
+nc_maiming_no_malice,Maiming without malice aforethought,permanent_injury,The injury is permanent,required,
+nc_maiming_no_malice,Maiming without malice aforethought,cut_nose_lip_ear,"Cutting the nose, or cutting or biting off the nose, a lip or an ear",one route needed,"Cutting the nose, lip or ear"
+nc_maiming_no_malice,Maiming without malice aforethought,disable_limb_or_member,Disabling a limb or member,one route needed,Disabling a limb or member
+nc_maiming_no_malice,Maiming without malice aforethought,castration_or_genital_injury,"Castration, or cutting off, maiming or disfiguring the private parts",one route needed,Castration or injury to the private parts
+nc_malicious_maiming,Malicious maiming,tongue_or_eye_injury,"Cutting out or disabling the tongue, or putting out an eye",required,
+nc_malicious_maiming,Malicious maiming,malice_aforethought_maiming,Malice aforethought,required,
+nc_malicious_maiming,Malicious maiming,intent_murder_maim_disfigure,"Intent to murder, maim or disfigure",required,
+nc_malicious_maiming,Malicious maiming,permanent_injury,The injury is permanent,required,
+nc_acid_throwing,Malicious throwing of corrosive acid or alkali,acid_thrown_on_person,Throwing corrosive acid or alkali on a person,required,
+nc_acid_throwing,Malicious throwing of corrosive acid or alkali,malice_aforethought_maiming,Malice aforethought,required,
+nc_acid_throwing,Malicious throwing of corrosive acid or alkali,intent_murder_maim_disfigure,"Intent to murder, maim or disfigure",required,
+nc_acid_throwing,Malicious throwing of corrosive acid or alkali,serious_injury,Serious injury,required,
+nc_teflon_bullets,Teflon-coated bullets,teflon_bullet_handling,"Importing, making, possessing, selling or otherwise handling a teflon-coated bullet",required,
+nc_food_tampering_injury,"Adulterating or misbranding food, drugs or cosmetics with intent to cause serious injury or death",adulterates_food_drug_cosmetic,"Adulterating or misbranding, or selling adulterated or misbranded, food, drugs or cosmetics",required,
+nc_food_tampering_injury,"Adulterating or misbranding food, drugs or cosmetics with intent to cause serious injury or death",intent_serious_injury_or_death,Intent to cause serious injury or death,required,
+nc_food_tampering_extort,Threatening product tampering to obtain something of value,communicates_adulteration_for_gain,"Telling another that they have done, or will do, the adulteration",required,
+nc_food_tampering_extort,Threatening product tampering to obtain something of value,intent_wrongfully_obtain_value,"Intent to wrongfully obtain something of value, or an acquittance, advantage or immunity",required,
+nc_laser_face,Pointing a laser at a person's head or face,laser_pointed_emitting,Intentionally pointing a laser device that is emitting a beam,required,
+nc_laser_face,Pointing a laser at a person's head or face,laser_target_head_or_face,At the head or face of another person,required,
+nc_laser_animal,"Pointing a laser at a law enforcement or search and rescue animal, causing harm",laser_pointed_emitting,Intentionally pointing a laser device that is emitting a beam,required,
+nc_laser_animal,"Pointing a laser at a law enforcement or search and rescue animal, causing harm",laser_target_working_animal,At a law enforcement or search and rescue animal on duty,required,
+nc_laser_animal,"Pointing a laser at a law enforcement or search and rescue animal, causing harm",animal_harmed,The animal is caused 'harm',required,
