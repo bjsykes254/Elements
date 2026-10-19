@@ -6,7 +6,7 @@
     "jurisdiction": "NC",
     "jurisdiction_name": "North Carolina",
     "scope": "homicide; burglary and breaking or entering; larceny; assault (prototype)",
-    "statute_text_checked_on": "2026-10-17 (G.S. 14-17, 14-18, 14-23.2, 14-32, 14-32.4, 14-33, 14-34, 14-28 to 14-34.10 (Article 8 other than those listed), 14-51, 14-52, 14-54, 14-72; 50B-1(b) read for reference)",
+    "statute_text_checked_on": "2026-10-17 (G.S. 14-17, 14-18, 14-23.2, 14-28 to 14-34.10 except 14-33.1, 14-51, 14-52, 14-54, 14-72; 50B-1(b) read for reference)",
     "schema_changes": [
       "0.2: felony_class replaced by class + grade (felony or misdemeanor), because property offenses include misdemeanors",
       "0.2: flows now carry a name and are selectable; the page no longer assumes one flow",
@@ -1198,6 +1198,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-17(a)",
+          "heading": "Murder in the first and second degree defined; punishment",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-17.html",
           "last_session_law_seen": "2023-123, s. 2(a)",
           "text_captured_on": "2026-10-17",
@@ -1281,6 +1282,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-17(b)",
+          "heading": "Murder in the first and second degree defined; punishment",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-17.html",
           "last_session_law_seen": "2023-123, s. 2(a)",
           "text_captured_on": "2026-10-17",
@@ -1338,6 +1340,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-18 (punishment only)",
+          "heading": "Punishment for manslaughter",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-18.html",
           "last_session_law_seen": "1997-443, s. 19.25(q)",
           "text_captured_on": "2026-10-17",
@@ -1420,6 +1423,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-18 (punishment only)",
+          "heading": "Punishment for manslaughter",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-18.html",
           "last_session_law_seen": "1997-443, s. 19.25(q)",
           "text_captured_on": "2026-10-17",
@@ -1484,6 +1488,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-51(a)",
+          "heading": "First and second degree burglary",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-51.html",
           "last_session_law_seen": "2025-71, s. 10(a)",
           "text_captured_on": "2026-10-17",
@@ -1492,6 +1497,7 @@
         },
         {
           "cite": "G.S. 14-52",
+          "heading": "Punishment for burglary",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-52.html",
           "last_session_law_seen": "2025-71, s. 10(b)",
           "text_captured_on": "2026-10-17",
@@ -1549,6 +1555,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-51(b)",
+          "heading": "First and second degree burglary",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-51.html",
           "last_session_law_seen": "2025-71, s. 10(a)",
           "text_captured_on": "2026-10-17",
@@ -1557,6 +1564,7 @@
         },
         {
           "cite": "G.S. 14-52",
+          "heading": "Punishment for burglary",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-52.html",
           "last_session_law_seen": "2025-71, s. 10(b)",
           "text_captured_on": "2026-10-17",
@@ -1612,6 +1620,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-54(a), (a1)",
+          "heading": "Breaking or entering buildings generally",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-54.html",
           "last_session_law_seen": "2025-71, ss. 4(a), 10(d)",
           "text_captured_on": "2026-10-17",
@@ -1686,6 +1695,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-54(b)",
+          "heading": "Breaking or entering buildings generally",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-54.html",
           "last_session_law_seen": "2025-71, ss. 4(a), 10(d)",
           "text_captured_on": "2026-10-17",
@@ -1741,6 +1751,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-72(a), (b)",
+          "heading": "Larceny of property; receiving stolen goods or possessing stolen goods",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-72.html",
           "last_session_law_seen": "2025-71, s. 9(a)",
           "text_captured_on": "2026-10-17",
@@ -1821,6 +1832,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-72(a)",
+          "heading": "Larceny of property; receiving stolen goods or possessing stolen goods",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-72.html",
           "last_session_law_seen": "2025-71, s. 9(a)",
           "text_captured_on": "2026-10-17",
@@ -1876,6 +1888,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-28",
+          "heading": "Malicious castration",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-28.html",
           "last_session_law_seen": "1994, Ex. Sess., c. 24, s. 14(c)",
           "text_captured_on": "2026-10-17",
@@ -1920,6 +1933,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-28.1(b)",
+          "heading": "Female genital mutilation of a child",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-28.1.html",
           "last_session_law_seen": "2019-183, s. 1",
           "text_captured_on": "2026-10-17",
@@ -1964,6 +1978,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-28.1(c)",
+          "heading": "Female genital mutilation of a child",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-28.1.html",
           "last_session_law_seen": "2019-183, s. 1",
           "text_captured_on": "2026-10-17",
@@ -2007,6 +2022,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-28.1(d)",
+          "heading": "Female genital mutilation of a child",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-28.1.html",
           "last_session_law_seen": "2019-183, s. 1",
           "text_captured_on": "2026-10-17",
@@ -2050,6 +2066,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-29",
+          "heading": "Castration or other maiming without malice aforethought",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-29.html",
           "last_session_law_seen": "1994, Ex. Sess., c. 24, s. 14(c)",
           "text_captured_on": "2026-10-17",
@@ -2111,6 +2128,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-30",
+          "heading": "Malicious maiming",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-30.html",
           "last_session_law_seen": "1994, Ex. Sess., c. 24, s. 14(c)",
           "text_captured_on": "2026-10-17",
@@ -2155,6 +2173,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-30.1",
+          "heading": "Malicious throwing of corrosive acid or alkali",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-30.1.html",
           "last_session_law_seen": "1994, Ex. Sess., c. 24, s. 14(c)",
           "text_captured_on": "2026-10-17",
@@ -2201,6 +2220,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-31",
+          "heading": "Maliciously assaulting in a secret manner",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-31.html",
           "last_session_law_seen": "1994, Ex. Sess., c. 24, s. 14(c)",
           "text_captured_on": "2026-10-17",
@@ -2249,6 +2269,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32(a)",
+          "heading": "Felonious assault with deadly weapon with intent to kill or inflicting serious injury; punishments",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.html",
           "last_session_law_seen": "2023-76, s. 7",
           "source_file": "sources/NC/GS_14-32.txt",
@@ -2301,6 +2322,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32(b)",
+          "heading": "Felonious assault with deadly weapon with intent to kill or inflicting serious injury; punishments",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.html",
           "last_session_law_seen": "2023-76, s. 7",
           "source_file": "sources/NC/GS_14-32.txt",
@@ -2355,6 +2377,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32(c)",
+          "heading": "Felonious assault with deadly weapon with intent to kill or inflicting serious injury; punishments",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.html",
           "last_session_law_seen": "2023-76, s. 7",
           "source_file": "sources/NC/GS_14-32.txt",
@@ -2398,6 +2421,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32(d)",
+          "heading": "Felonious assault with deadly weapon with intent to kill or inflicting serious injury; punishments",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.html",
           "last_session_law_seen": "2023-76, s. 7",
           "source_file": "sources/NC/GS_14-32.txt",
@@ -2452,6 +2476,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32(e)",
+          "heading": "Felonious assault with deadly weapon with intent to kill or inflicting serious injury; punishments",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.html",
           "last_session_law_seen": "2023-76, s. 7",
           "source_file": "sources/NC/GS_14-32.txt",
@@ -2507,6 +2532,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32.1(e)",
+          "heading": "Assaults on individuals with a disability; punishments",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.1.html",
           "last_session_law_seen": "2018-47, s. 4(m)",
           "text_captured_on": "2026-10-17",
@@ -2570,6 +2596,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32.1(f)",
+          "heading": "Assaults on individuals with a disability; punishments",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.1.html",
           "last_session_law_seen": "2018-47, s. 4(m)",
           "text_captured_on": "2026-10-17",
@@ -2613,6 +2640,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32.2(b)(1)",
+          "heading": "Patient abuse and neglect; punishments; definitions",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.2.html",
           "last_session_law_seen": "2019-76, s. 12(a)",
           "text_captured_on": "2026-10-17",
@@ -2660,6 +2688,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32.2(b)(2)",
+          "heading": "Patient abuse and neglect; punishments; definitions",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.2.html",
           "last_session_law_seen": "2019-76, s. 12(a)",
           "text_captured_on": "2026-10-17",
@@ -2705,6 +2734,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32.2(b)(3)",
+          "heading": "Patient abuse and neglect; punishments; definitions",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.2.html",
           "last_session_law_seen": "2019-76, s. 12(a)",
           "text_captured_on": "2026-10-17",
@@ -2752,6 +2782,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32.2(b)(4)",
+          "heading": "Patient abuse and neglect; punishments; definitions",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.2.html",
           "last_session_law_seen": "2019-76, s. 12(a)",
           "text_captured_on": "2026-10-17",
@@ -2799,6 +2830,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32.3(a)",
+          "heading": "Domestic abuse, neglect, and exploitation of disabled or elder adults",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.3.html",
           "last_session_law_seen": "2005-272, s. 1",
           "text_captured_on": "2026-10-17",
@@ -2862,6 +2894,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32.3(a)",
+          "heading": "Domestic abuse, neglect, and exploitation of disabled or elder adults",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.3.html",
           "last_session_law_seen": "2005-272, s. 1",
           "text_captured_on": "2026-10-17",
@@ -2925,6 +2958,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32.3(b)",
+          "heading": "Domestic abuse, neglect, and exploitation of disabled or elder adults",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.3.html",
           "last_session_law_seen": "2005-272, s. 1",
           "text_captured_on": "2026-10-17",
@@ -2982,6 +3016,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32.3(b)",
+          "heading": "Domestic abuse, neglect, and exploitation of disabled or elder adults",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.3.html",
           "last_session_law_seen": "2005-272, s. 1",
           "text_captured_on": "2026-10-17",
@@ -3039,6 +3074,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32.4(a)",
+          "heading": "Assault inflicting serious bodily injury; strangulation; penalties",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.4.html",
           "last_session_law_seen": "2004-186, s. 9.1",
           "source_file": "sources/NC/GS_14-32.4.txt",
@@ -3091,6 +3127,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32.4(b)",
+          "heading": "Assault inflicting serious bodily injury; strangulation; penalties",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.4.html",
           "last_session_law_seen": "2004-186, s. 9.1",
           "source_file": "sources/NC/GS_14-32.4.txt",
@@ -3141,6 +3178,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32.5",
+          "heading": "Misdemeanor crime of domestic violence",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.5.html",
           "last_session_law_seen": "2023-14, s. 8.3(a)",
           "text_captured_on": "2026-10-17",
@@ -3217,6 +3255,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-32.6",
+          "heading": "Habitual domestic violence",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-32.6.html",
           "last_session_law_seen": "2025-70, s. 18(a)",
           "text_captured_on": "2026-10-17",
@@ -3261,6 +3300,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-33(a)",
+          "heading": "Misdemeanor assaults, batteries, and affrays, simple and aggravated; punishments",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
           "last_session_law_seen": "2025-71, s. 1(a)",
           "source_file": "sources/NC/GS_14-33.txt",
@@ -3321,6 +3361,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-33(b)",
+          "heading": "Misdemeanor assaults, batteries, and affrays, simple and aggravated; punishments",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
           "last_session_law_seen": "2025-71, s. 1(a)",
           "source_file": "sources/NC/GS_14-33.txt",
@@ -3388,6 +3429,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-33(c)",
+          "heading": "Misdemeanor assaults, batteries, and affrays, simple and aggravated; punishments",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
           "last_session_law_seen": "2025-71, s. 1(a)",
           "source_file": "sources/NC/GS_14-33.txt",
@@ -3519,6 +3561,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-33(d)",
+          "heading": "Misdemeanor assaults, batteries, and affrays, simple and aggravated; punishments",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.html",
           "last_session_law_seen": "2025-71, s. 1(a)",
           "source_file": "sources/NC/GS_14-33.txt",
@@ -3585,6 +3628,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-33.2",
+          "heading": "Habitual misdemeanor assault",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-33.2.html",
           "last_session_law_seen": "2025-70, s. 17(b)",
           "text_captured_on": "2026-10-17",
@@ -3629,6 +3673,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34",
+          "heading": "Assaulting by pointing gun",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.html",
           "last_session_law_seen": "1995, c. 507, s. 19.5(d)",
           "source_file": "sources/NC/GS_14-34.txt",
@@ -3680,6 +3725,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.1(a)",
+          "heading": "Discharging certain barreled weapons or a firearm into occupied property",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.1.html",
           "last_session_law_seen": "2005-461, s. 1",
           "text_captured_on": "2026-10-17",
@@ -3726,6 +3772,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.1(b)",
+          "heading": "Discharging certain barreled weapons or a firearm into occupied property",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.1.html",
           "last_session_law_seen": "2005-461, s. 1",
           "text_captured_on": "2026-10-17",
@@ -3771,6 +3818,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.1(c)",
+          "heading": "Discharging certain barreled weapons or a firearm into occupied property",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.1.html",
           "last_session_law_seen": "2005-461, s. 1",
           "text_captured_on": "2026-10-17",
@@ -3826,6 +3874,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.1A",
+          "heading": "Discharging certain barreled weapons or a firearm at or into certain unoccupied emergency vehicles",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.1A.html",
           "last_session_law_seen": "2023-76, s. 2",
           "text_captured_on": "2026-10-17",
@@ -3870,6 +3919,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.2",
+          "heading": "Assault with a firearm or other deadly weapon upon governmental officers or employees, company police officers, or campus police officers",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.2.html",
           "last_session_law_seen": "2023-76, s. 4",
           "text_captured_on": "2026-10-17",
@@ -3926,6 +3976,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.3",
+          "heading": "Manufacture, sale, purchase, or possession of teflon-coated types of bullets prohibited",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.3.html",
           "last_session_law_seen": "2011-183, s. 8",
           "text_captured_on": "2026-10-17",
@@ -3968,6 +4019,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.4(a)",
+          "heading": "Adulterated or misbranded food, drugs, or cosmetics; intent to cause serious injury or death; intent to extort",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.4.html",
           "last_session_law_seen": "1987, c. 313",
           "text_captured_on": "2026-10-17",
@@ -4009,6 +4061,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.4(b)",
+          "heading": "Adulterated or misbranded food, drugs, or cosmetics; intent to cause serious injury or death; intent to extort",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.4.html",
           "last_session_law_seen": "1987, c. 313",
           "text_captured_on": "2026-10-17",
@@ -4050,6 +4103,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.5",
+          "heading": "Assault with a firearm on a law enforcement, probation, or parole officer, or on a member of the North Carolina National Guard, or on a person employed at a State or local detention facility",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.5.html",
           "last_session_law_seen": "2023-76, s. 5",
           "text_captured_on": "2026-10-17",
@@ -4111,6 +4165,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.6(a)",
+          "heading": "Assault or affray on a firefighter, an emergency medical technician, medical responder, and medical practice and hospital personnel",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.6.html",
           "last_session_law_seen": "2023-129, s. 8.2(a)",
           "text_captured_on": "2026-10-17",
@@ -4157,6 +4212,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.6(b)",
+          "heading": "Assault or affray on a firefighter, an emergency medical technician, medical responder, and medical practice and hospital personnel",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.6.html",
           "last_session_law_seen": "2023-129, s. 8.2(a)",
           "text_captured_on": "2026-10-17",
@@ -4213,6 +4269,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.6(c)",
+          "heading": "Assault or affray on a firefighter, an emergency medical technician, medical responder, and medical practice and hospital personnel",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.6.html",
           "last_session_law_seen": "2023-129, s. 8.2(a)",
           "text_captured_on": "2026-10-17",
@@ -4255,6 +4312,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.7(a)",
+          "heading": "Certain assaults on a law enforcement, probation, or parole officer, or on a member of the North Carolina National Guard, or on a person employed at a State or local detention facility; penalty",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.7.html",
           "last_session_law_seen": "2023-76, s. 6",
           "text_captured_on": "2026-10-17",
@@ -4263,6 +4321,7 @@
         },
         {
           "cite": "G.S. 14-34.7(a1)",
+          "heading": "Certain assaults on a law enforcement, probation, or parole officer, or on a member of the North Carolina National Guard, or on a person employed at a State or local detention facility; penalty",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.7.html",
           "last_session_law_seen": "2023-76, s. 6",
           "text_captured_on": "2026-10-17",
@@ -4271,6 +4330,7 @@
         },
         {
           "cite": "G.S. 14-34.7(b)",
+          "heading": "Certain assaults on a law enforcement, probation, or parole officer, or on a member of the North Carolina National Guard, or on a person employed at a State or local detention facility; penalty",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.7.html",
           "last_session_law_seen": "2023-76, s. 6",
           "text_captured_on": "2026-10-17",
@@ -4333,6 +4393,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.7(c)",
+          "heading": "Certain assaults on a law enforcement, probation, or parole officer, or on a member of the North Carolina National Guard, or on a person employed at a State or local detention facility; penalty",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.7.html",
           "last_session_law_seen": "2023-76, s. 6",
           "text_captured_on": "2026-10-17",
@@ -4395,6 +4456,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.8(b)(1)",
+          "heading": "Criminal use of laser device",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.8.html",
           "last_session_law_seen": "2023-76, s. 3",
           "text_captured_on": "2026-10-17",
@@ -4438,6 +4500,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.8(b)(2)",
+          "heading": "Criminal use of laser device",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.8.html",
           "last_session_law_seen": "2023-76, s. 3",
           "text_captured_on": "2026-10-17",
@@ -4481,6 +4544,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.8(b)(3)",
+          "heading": "Criminal use of laser device",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.8.html",
           "last_session_law_seen": "2023-76, s. 3",
           "text_captured_on": "2026-10-17",
@@ -4524,6 +4588,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.9",
+          "heading": "Discharging a firearm from within an enclosure",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.9.html",
           "last_session_law_seen": "2017-194, s. 6",
           "text_captured_on": "2026-10-17",
@@ -4566,6 +4631,7 @@
       "statutes": [
         {
           "cite": "G.S. 14-34.10",
+          "heading": "Discharge firearm within enclosure to incite fear",
           "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_14/GS_14-34.10.html",
           "last_session_law_seen": "2013-144, s. 1",
           "text_captured_on": "2026-10-17",

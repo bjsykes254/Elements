@@ -87,6 +87,18 @@ main.wide{max-width:780px}
 .fc small{font-size:12px;color:var(--mut);flex:none}
 .fc:disabled{cursor:default;color:var(--mut)}
 .fc:disabled:hover{background:var(--card)}
+.fb{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:8px 0 4px}
+.fbub{flex:0 0 calc(33.333% - 7px);max-width:132px;aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px 10px;margin:0;font-size:12px;line-height:1.3;cursor:pointer;border:1.5px solid;user-select:none;animation:grow .35s ease-out both,bob2 3.6s ease-in-out infinite}
+.fbub:hover{filter:brightness(.97)}
+.fbub:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.fbub .bl{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;font-weight:500}
+.fbub .bh{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:11px;margin-top:2px}
+.fbub small{font-size:11px;opacity:.85;margin-top:3px}
+.fbub:disabled{cursor:default;opacity:.55;animation:grow .35s ease-out both}
+.fbub.pop{transform:scale(1.35)!important;opacity:0!important;transition:transform .25s ease-out,opacity .25s ease-out;animation:none}
+.fbub.out{opacity:0!important;transition:opacity .25s ease-out;animation:none}
+@keyframes grow{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes bob2{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 .rr{display:block;width:100%;text-align:left;padding:10px 12px;margin:0 0 8px;border-radius:10px;border:.5px solid var(--line);background:transparent}
 .rr .rn{display:block;font-size:14px;font-weight:500}
 .rr small{display:block;font-size:12px;color:var(--mut);margin-top:2px}
@@ -94,7 +106,7 @@ main.wide{max-width:780px}
 .cmpwith select{font:inherit;font-size:13px;padding:7px 8px;border-radius:8px;border:.5px solid var(--line);background:var(--bg);color:var(--fg);width:100%}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes drop{0%{transform:translateY(-320px);opacity:0}12%{opacity:1}68%{transform:translateY(0)}84%{transform:translateY(-9px)}100%{transform:translateY(0)}}
-@media (prefers-reduced-motion:reduce){.bb,.pb,.fin{animation:none}}
+@media (prefers-reduced-motion:reduce){.bb,.pb,.fin,.fbub{animation:none}}
 </style>
 </head>
 <body>
@@ -480,17 +492,26 @@ syncSelects();
 if(cmpMode)renderCmp();
 }
 
-var cats={},findCat=null,findOff=null,findQ='',elText={};
+var cats={},findCat=null,findSec=null,findOff=null,findQ='',elText={};
 var findOut=document.getElementById('findOut'),crumbs=document.getElementById('crumbs'),searchEl=document.getElementById('search');
 var STOP={the:1,an:1,of:1,to:1,in:1,for:1,and:1,or:1,is:1,what:1,whats:1,crime:1,crimes:1,offense:1,offenses:1,about:1,with:1,on:1,at:1};
 
 function initFind(){
 cats={};(D.categories||[]).forEach(function(c){cats[c.id]=c;});
-elText={};findCat=null;findOff=null;findQ='';searchEl.value='';
+elText={};findCat=null;findSec=null;findOff=null;findQ='';searchEl.value='';
 }
 function inCat(o,id){var c=o.category,n=0;while(c&&n++<10){if(c===id)return true;c=cats[c]?cats[c].parent:null;}return false;}
 function childCats(id){return (D.categories||[]).filter(function(c){return (c.parent||null)===id;});}
 function catCount(id){return D.offenses.filter(function(o){return inCat(o,id);}).length;}
+var GROUP_AT=12;
+function secKey(o){var m=/(\d+[A-Z]?-\d[\d.]*[A-Z]?)/.exec(((o.statutes||[])[0]||{}).cite||'');return m?m[1]:'';}
+function catOffs(id){return D.offenses.filter(function(o){return o.category===id;});}
+function secGroups(id){
+var order=[],by={};
+catOffs(id).forEach(function(o){var k=secKey(o);if(!by[k]){by[k]={key:k,heading:((o.statutes||[])[0]||{}).heading||'',offs:[]};order.push(k);}by[k].offs.push(o);});
+return order.map(function(k){return by[k];});
+}
+function grouped(id){return !!id&&catOffs(id).length>GROUP_AT;}
 function trunc(s,n){return s.length>n?s.slice(0,n-1).replace(/\s+\S*$/,'')+'…':s;}
 
 function offElementText(o){
@@ -533,10 +554,15 @@ function clearSearch(){findQ='';searchEl.value='';}
 function trail(){
 var chain=[],c=findCat,n=0;
 while(c&&cats[c]&&n++<10){chain.unshift(c);c=cats[c].parent;}
-crumb('All crimes',function(){findCat=null;findOff=null;clearSearch();renderFind();});
-chain.forEach(function(id){sep();crumb(cats[id].name,function(){findCat=id;findOff=null;clearSearch();renderFind();});});
+crumb('All crimes',function(){findCat=null;findSec=null;findOff=null;clearSearch();renderFind();});
+chain.forEach(function(id){sep();crumb(cats[id].name,function(){findCat=id;findSec=null;findOff=null;clearSearch();renderFind();});});
+if(findSec&&findCat){sep();crumb('G.S. '+findSec,function(){findOff=null;clearSearch();renderFind();});}
 }
-function openOffense(id){findOff=id;findCat=offs[id].category;renderFind();crumbs.scrollIntoView({block:'start'});}
+function openOffense(id){
+var o=offs[id];findOff=id;findCat=o.category;findSec=null;
+if(grouped(findCat)){var g=secGroups(findCat).filter(function(x){return x.key===secKey(o);})[0];if(g&&g.offs.length>1)findSec=g.key;}
+renderFind();crumbs.scrollIntoView({block:'start'});
+}
 
 function offRow(o){
 var b=make('button','rr');b.type='button';
@@ -547,23 +573,49 @@ b.addEventListener('click',function(){openOffense(o.id);});
 return b;
 }
 
+function popThen(b,fn){
+if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){fn();return;}
+var all=findOut.querySelectorAll('.fbub');
+for(var k=0;k<all.length;k++){all[k].classList.add(all[k]===b?'pop':'out');}
+setTimeout(fn,260);
+}
+function fbub(wrap,n,label,heading,sub,tip,fn,disabled){
+var c=COL[n%2];
+var b=make('button','fbub');b.type='button';
+b.style.background=c.bg;b.style.borderColor=c.bd;b.style.color=c.tx;
+b.style.animationDelay=Math.min(n*0.03,0.8)+'s,'+((n%7)*0.5)+'s';
+b.appendChild(make('span','bl',label));
+if(heading)b.appendChild(make('span','bh',heading));
+if(sub)b.appendChild(make('small',null,sub));
+b.title=tip||label;
+b.setAttribute('aria-label',(tip||label)+(sub?', '+sub:''));
+if(disabled)b.disabled=true;else b.addEventListener('click',function(){popThen(b,fn);});
+wrap.appendChild(b);
+}
+
 function renderBrowse(){
 trail();
 var cur=findCat?cats[findCat]:null;
-findOut.appendChild(make('div','fh',cur?cur.name:'Browse by category'));
-var kids=childCats(findCat);
-kids.forEach(function(c){
-var n=catCount(c.id),planned=(c.status==='planned'&&n===0);
-var b=make('button','fc');b.type='button';
-b.appendChild(make('span',null,c.name));
-b.appendChild(make('small',null,planned?'Coming soon':n+(n===1?' offense':' offenses')));
-if(planned)b.disabled=true;
-b.addEventListener('click',function(){findCat=c.id;renderFind();});
-findOut.appendChild(b);
+findOut.appendChild(make('div','fh',findSec&&cur?cur.name+' · G.S. '+findSec:(cur?cur.name:'Pop a bubble to look inside')));
+var wrap=make('div','fb'),n=0,any=false;
+function offB(o){fbub(wrap,n++,trunc(o.name,84),'',classText(o),o.name,function(){openOffense(o.id);});any=true;}
+if(findSec){
+var g=secGroups(findCat).filter(function(x){return x.key===findSec;})[0];
+if(g&&g.heading)findOut.appendChild(make('p','note',g.heading+'.'));
+if(g)g.offs.forEach(offB);
+}else{
+childCats(findCat).forEach(function(c){
+var cnt=catCount(c.id),planned=(c.status==='planned'&&cnt===0);
+fbub(wrap,n++,c.name,'',planned?'Coming soon':cnt+(cnt===1?' offense':' offenses'),c.name,function(){findCat=c.id;findSec=null;renderFind();},planned);any=true;
 });
-var mine=D.offenses.filter(function(o){return o.category===findCat;});
-mine.forEach(function(o){findOut.appendChild(offRow(o));});
-if(!kids.length&&!mine.length)findOut.appendChild(make('p','note','Nothing here yet.'));
+if(findCat&&grouped(findCat)){
+secGroups(findCat).forEach(function(g){
+if(g.offs.length===1){offB(g.offs[0]);return;}
+fbub(wrap,n++,'G.S. '+g.key,trunc(g.heading,56),g.offs.length+' offenses','G.S. '+g.key+(g.heading?' · '+g.heading:''),function(){findSec=g.key;renderFind();});any=true;
+});
+}else{catOffs(findCat).forEach(offB);}
+}
+if(any)findOut.appendChild(wrap);else findOut.appendChild(make('p','note','Nothing here yet.'));
 }
 
 function renderResults(q){

@@ -84,6 +84,8 @@ def validate(d, base="."):
                     snap = path.read_text(encoding="utf-8")
                     if hashlib.sha256(norm(snap).encode("utf-8")).hexdigest() != s.get("text_sha256"):
                         P("saved text does not match text_sha256", oid, sf)
+                    if s.get("heading") and s["heading"] not in norm(snap):
+                        P("statute heading not found in saved text", oid, s.get("cite"))
                     sl = s.get("last_session_law_seen")
                     if not sl:
                         P("saved text without last_session_law_seen", oid, s.get("cite"))

@@ -81,6 +81,12 @@ Limits to remember:
 - None of the new offenses are in the Build bubble flow. Find and Compare reach them.
 - The Assaults list in Find has 52 rows. If that is too long, the honest next layer is the individual section (for example 'G.S. 14-34.1, discharging into occupied property'), not a grouping invented by the tool.
 
+## Find as nested bubbles (Oct 18)
+- Find no longer lists offenses as rows. You pop a bubble to see the bubbles inside it: subchapter, then article, then (for families with more than 12 offenses) statute section, then offense. A section with one offense shows that offense directly. Search still returns a plain list.
+- Each statutes[] entry has a `heading` (the statute section's own title, copied from ncleg.gov). The validator checks that the heading appears in the saved text. Section bubbles use it.
+- The grouping threshold is `GROUP_AT` in index.html (12). Assaults now shows 27 bubbles at its top level. If that is still too many, the next honest layer would have to be one the tool invents (by victim or by weapon), which would need to be labeled as a navigation aid.
+- Larceny findings from the Article 16 page, for later: G.S. 14-72.11 (larceny from a merchant), 14-72.12 (gift cards), 14-71 and 14-71.1 (receiving and possessing stolen goods), 14-72.2 (unauthorized use of a conveyance) and 14-78 (marked effective December 1, 2026) exist and aren't modeled.
+
 ## Built
 - Data file (schema 0.6): 62 offenses in 4 families (homicide 4, burglary and breaking or entering 4, larceny 2, assaults 52, which is all of Article 8), plus elements, bubble flows, compare presets, and search aliases. Every record has a `jurisdiction` field.
 - Three modes: Build an offense (bubble game), Compare (2 offenses, 3 on wide screens), Find (category drill-down, search, plain-language offense pages).

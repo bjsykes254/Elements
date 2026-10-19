@@ -60,6 +60,10 @@ class ValidatorTests(unittest.TestCase):
         op["result"] = "nope"
         self.assertTrue(any("not an offense" in p for p in self.problems()))
 
+    def test_catches_wrong_heading(self):
+        self.d["offenses"][0]["statutes"][0]["heading"] = "Something the statute does not say"
+        self.assertTrue(any("heading not found" in p for p in self.problems()))
+
     def test_bad_status(self):
         self.d["offenses"][0]["review"]["status"] = "done"
         self.assertTrue(any("bad review status" in p for p in self.problems()))
