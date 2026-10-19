@@ -689,7 +689,7 @@ r.onload=function(){try{begin(JSON.parse(r.result));}catch(err){fail('That file 
 r.readAsText(f);
 });
 
-fetch(DATA_URL).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(begin).catch(function(){fail('Couldn\'t load the data file.');});
+fetch(DATA_URL,{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(begin).catch(function(){fail('Couldn\'t load the data file.');});
 })();
 </script>
 </body>
